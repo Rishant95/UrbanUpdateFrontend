@@ -1,0 +1,27 @@
+.sac-summit-container {
+  width: 100%;
+  overflow-x: hidden; /* Hide the scrollbar */
+  position: relative;
+}
+
+.sac-summit-scroller {
+  display: flex;
+  flex-direction: row;
+  gap: 15px; /* Adds space between the images */
+  overflow-x: hidden; /* Hide scrollbar */
+  scroll-behavior: smooth; /* Smooth scrolling effect */
+  white-space: nowrap; /* Prevent the content from wrapping */
+}
+
+.sac-summit-image {
+  width: 500px; /* Adjust the width of the images as needed */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
+  border-radius: 10px; /* Optional: adds rounded corners */
+  transition: transform 0.3s; /* Optional: smooth hover effect */
+}
+
+.sac-summit-image:hover {
+  border-radius: 10px; /* Optional: adds rounded corners */
+  transform: scale(1.05); /* Zoom effect on hover */
+}

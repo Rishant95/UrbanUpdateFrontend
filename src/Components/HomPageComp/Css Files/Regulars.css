@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+.Featured-Heading {
+  padding-left: 10%;
+  padding-right: 10%;
+  color: #ec2121;
+  margin-top: 60px;
+}
+
+.Styled-hr {
+  border: 0;
+  height: 2px;
+  background: #ccc;
+}
+
+.Regulars-Container {
+  display: flex;
+  gap: 1%;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+.Regulars-Items {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.Regulars-image {
+  width: 40px;
+  height: auto;
+}
+.Regulars-Text {
+  color: black;
+  font-family: "Oswald", sans-serif;
+}

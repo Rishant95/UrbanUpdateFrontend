@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&=swap");
+
+.detail-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.detail-title {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.detail-date {
+  font-size: 0.9em;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.detail-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.detail-description {
+  margin-bottom: 30px;
+  font-family: "PT Serif", sans-serif;
+}
+
+.comment-section {
+  margin-bottom: 30px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.comment-section h2 {
+  margin-bottom: 10px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.comment-section textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.comment-section button {
+  padding: 10px 55px;
+  background-color: #d1242a;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease; /* Smooth transition for the transform */
+}
+
+.comment-section button:hover {
+  transform: scale(1.05); /* Grow the button slightly on hover */
+  color: white;
+  background-color: black;
+}
+.related-articles ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.related-articles h2 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.related-articles li {
+  margin: 5px 0;
+  padding: 10px 0; /* Add some padding for better spacing */
+  border-bottom: 1px solid #ccc; /* Add bottom border */
+  transition: transform 0.2s ease; /* Smooth transition for the transform */
+}
+
+.related-articles li:hover {
+  transform: scale(1.02); /* Grow the list item slightly on hover */
+}
+
+.related-articles a {
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: black;
+}
+.related-articles hr {
+  border-width: 2px;
+}
+
+.related-articles a:hover {
+  text-decoration: underline;
+}
+
+/* Optional: Remove the border for the last item */
+.related-articles li:last-child {
+  border-bottom: none;
+}

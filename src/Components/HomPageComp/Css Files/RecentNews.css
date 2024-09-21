@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+
+.Recent-news-heading {
+  margin-left: 10%;
+  color: #ec2121;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+}
+
+.Recent-news-row {
+  display: flex;
+  padding-left: 10%;
+  padding-right: 10%;
+
+  margin-top: -15px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of items */
+}
+
+.Recent-news-item {
+  padding: 0 20px;
+  position: relative;
+  flex: 0 0 auto; /* Prevent items from shrinking */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.with-divider::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%; /* Start the divider slightly below the top */
+  bottom: 15%;
+  width: 1px;
+  background-color: #ec2121;
+}
+
+.Recent-news-Text {
+  font-family: "Oswald", sans-serif;
+  color: #ec2121;
+  font-size: 12px;
+  text-decoration: none; /* Ensure no underline */
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
+}
+
+.Recent-news-Text:hover {
+  color: black; /* Change color on hover */
+  transform: scale(1.05); /* Slightly grow the text on hover */
+}
+
+.styled-hr {
+  display: block; /* Ensure it behaves as a block-level element */
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  margin-top: -1%;
+  border: none; /* Remove default border */
+  height: 2px; /* Set height of the line */
+  background-color: #ec2121; /* Line color */
+}

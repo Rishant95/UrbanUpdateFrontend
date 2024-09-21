@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+.BookReview-Heading {
+  padding-left: 10%;
+  padding-right: 10%;
+  color: #ec2121;
+  margin-top: 60px;
+}
+
+.Styled-hr {
+  border: 0;
+  height: 2px;
+  background: #ccc;
+}
+
+.BookReview-Container {
+  display: flex;
+  gap: 1%;
+  cursor: pointer;
+}
+
+.BookReview-item {
+  position: relative;
+  width: 50%; /* Take up half of the container */
+}
+
+.BookReview-image {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+.BookReview-image-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.BookReview-text-overlay {
+  width: 100%; /* Span the entire width of the container */
+  color: black; /* Text color to contrast with the image */
+  box-sizing: border-box;
+  text-align: left; /* Align text to the left */
+}
+
+.BookReview-additional-content {
+  width: 50%; /* Take up the other half of the container */
+  box-sizing: border-box;
+}
+.BookReview-text {
+  margin-top: -10px;
+  font-family: "Oswald", sans-serif;
+  font-size: 35px;
+  font-weight: 300;
+  width: 70%;
+}
+.BookReview-date {
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  margin-top: -5px;
+}

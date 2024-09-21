@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
+#Signup-Title {
+  font-family: "Merriweather", sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.create-account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.create-account-form {
+  display: flex;
+  gap: 40px; /* Space between the left and right columns */
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 10px;
+  width: 250px; /* Adjust width as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.create-account-button,
+.google-signin-button {
+  width: 300px;
+  padding: 15px;
+  margin-top: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px; /* Cylindrical shape */
+}
+
+.create-account-button {
+  background-color: #d1242a;
+  color: white;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.create-account-button:hover {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+.continue-container {
+  display: flex;
+  width: 20%;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+.continue-container hr {
+  border-width: 1px;
+}
+.continue-container h5 {
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.google-signin-button {
+  margin-top: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white; /* White background */
+  color: black; /* Black text */
+  border: 2px solid black; /* Black border */
+  border-radius: 30px; /* Cylindrical shape */
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.google-signin-button:hover {
+  background-color: black; /* Black background on hover */
+  color: white; /* White text on hover */
+}
+
+.google-logo {
+  font-size: 1.2rem; /* Adjust size of Google icon */
+  color: black; /* Google icon color same as button text */
+}
+.facebook-signin-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white; /* White background */
+  color: black; /* Black text */
+  border: 2px solid black; /* Black border */
+  border-radius: 30px; /* Cylindrical shape */
+  padding: 10px 65px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.facebook-signin-button:hover {
+  background-color: black; /* Black background on hover */
+  color: white; /* White text on hover */
+}
+
+.facebook-logo {
+  font-size: 1.2rem; /* Adjust size of Facebook icon */
+  color: black; /* Facebook icon color same as button text */
+}

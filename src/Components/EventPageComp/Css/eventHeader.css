@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+
+.Event-Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Event-Header-Menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+
+.header-logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  width: 40px;
+  height: auto;
+  margin-left: 10px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+}
+
+.urban-Text,
+.update-Text {
+  font-family: "Oswald", sans-serif;
+  font-size: 35px;
+  color: #ec2121;
+  margin: 0;
+}
+
+.update-Text {
+  font-weight: 400;
+}
+.icon {
+  font-size: 20px;
+}
+.subscribe-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 120px; /* Adjust width as needed */
+  height: 45px; /* Adjust height as needed */
+  background-color: black;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  color: white;
+  font-size: 1rem; /* Adjust font size */
+  cursor: pointer;
+  position: relative; /* For pseudo-elements */
+  overflow: hidden;
+}
+.signin-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 120px; /* Adjust width as needed */
+  height: 45px; /* Adjust height as needed */
+  background-color: #ec2121;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  color: white;
+  font-size: 1rem; /* Adjust font size */
+  cursor: pointer;
+  position: relative; /* For pseudo-elements */
+  overflow: hidden;
+}
+.header-buttons {
+  padding: 10px;
+  margin-left: 20px;
+  display: flex;
+  gap: 10px;
+}
+.subscribe-button h5 {
+  color: white;
+  font-family: "AbeeZee", sans-serif;
+}
+.notification-icon {
+  color: white;
+}
+#Event-Title {
+  font-size: 56px;
+  color: #d90000;
+  margin-top: 1%;
+  font-family: "Oswald", sans-serif;
+}
+.tabs-row {
+  display: flex;
+  margin-top: -25px;
+  justify-content: space-around; /* Distributes space evenly between tabs */
+  align-items: center; /* Centers tabs vertically */
+  padding: 10px; /* Space around the row */
+  gap: 50px;
+  /* Background color of the row */
+}
+
+.tab-link {
+  color: black; /* Text color */
+  text-decoration: none; /* Remove underline */
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-size: 24px; /* Font size */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.tab-link:hover {
+  background-color: #555; /* Change background color on hover */
+  border-radius: 5px; /* Rounded corners on hover */
+}
+hr {
+  border: 0; /* Remove default border */
+  border-top: 5px solid black; /* Adjust thickness and color */
+  margin: 20px 0; /* Space above and below the line */
+  width: 100%; /* Full width of the container */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-logo {
+    width: 60px;
+  }
+
+  .urban-Text,
+  .update-Text {
+    font-size: 30px;
+  }
+
+  #Event-Title {
+    font-size: 40px;
+  }
+}

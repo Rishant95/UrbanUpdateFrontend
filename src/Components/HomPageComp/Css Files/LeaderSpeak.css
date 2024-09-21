@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+
+.LeaderSpeak-Heading {
+  padding-left: 10%;
+  padding-right: 10%;
+
+  font-family: "PT Serif";
+  color: #ec2121;
+  margin-top: 60px;
+}
+
+.Styled-hr {
+  border: 0;
+  height: 2px;
+  background: #ccc;
+}
+
+/* Container and Layout */
+.LeaderSpeak-Container {
+  display: flex;
+  gap: 80px;
+}
+
+.LeaderSpeak-item {
+  width: 30%;
+  margin-right: 2%;
+}
+
+.LeaderSpeak-image-container {
+  position: relative;
+}
+
+.LeaderSpeak-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.LeaderSpeak-text-overlay {
+  color: black;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.LeaderSpeak-additional-content {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: -5%;
+}
+
+/* Styling for individual items */
+.additional-item-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* Stack date and title vertically */
+  align-items: flex-start; /* Align items to the start */
+}
+
+/* Date and Title Styling */
+.leaderSpeak-date {
+  font-family: "Merriweather Sans";
+  font-weight: 400;
+  font-size: 15px;
+  color: black;
+  margin-bottom: 5px; /* Space between date and title */
+}
+
+.Side-leaderSpeak-title {
+  color: black;
+  font-size: 30px;
+  font-family: "Merriweather", sans-serif;
+  margin: 0; /* Remove any default margins */
+}
+
+/* Border for separation */
+.item-border {
+  border-bottom: 2px dotted #ccc;
+  margin-top: 10px;
+  width: 100%;
+}

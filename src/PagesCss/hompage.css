@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
+.cover-story-wrapper {
+  display: grid;
+  grid-template-columns: 55% 25%;
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 100px;
+}
+
+.slide-container {
+  position: relative;
+  height: 600px;
+}
+.slider-card-image {
+  position: relative; /* Needed for the pseudo-element */
+  object-fit: cover;
+  transition: transform 0.3s ease; /* Smooth transition for scale */
+}
+
+.slider-card-image:hover {
+  transform: scale(1.05); /* Grow the image slightly on hover */
+}
+
+/* Darkening effect */
+.slider-card-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  opacity: 0; /* Start as invisible */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.slider-card-image:hover::before {
+  opacity: 1; /* Show dark overlay on hover */
+}
+
+.title-overlay {
+  position: absolute;
+  font-family: "Merriweather";
+  width: 100%;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255);
+  padding: 10px 20px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.title-overlay h2 {
+  margin: 0;
+  color: black;
+  font-size: 35px;
+}
+.magazine-image {
+  position: relative; /* Needed for the pseudo-element */
+  margin-top: -6%;
+  width: 130%;
+  height: 103%;
+  object-fit: cover;
+  margin-left: -100px;
+  transition: transform 0.3s ease; /* Smooth transition for scale */
+}
+
+.magazine-image:hover {
+  transform: scale(1.05); /* Grow the image slightly on hover */
+}
+
+/* Darkening effect */
+.magazine-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  opacity: 0; /* Start as invisible */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.magazine-image:hover::before {
+  opacity: 1; /* Show dark overlay on hover */
+}
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Stack items vertically */
+  }
+
+  .slider-container {
+    width: 100%;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+}

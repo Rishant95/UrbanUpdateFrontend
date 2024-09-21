@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+
+.book-reviews-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 5%;
+  max-width: 100%;
+  margin: auto;
+}
+
+/* First review layout */
+.first-review {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 20px; /* Add padding below the content for better spacing */
+}
+
+.first-review-date {
+  margin-bottom: -1%;
+  font-style: normal;
+}
+
+.first-review-content {
+  flex: 1;
+  padding: 5%;
+  width: 90%;
+  background-color: black;
+  justify-content: start;
+}
+
+.first-review-content h2 {
+  font-size: 34px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.first-review-content p {
+  font-size: 14px;
+  color: white;
+  font-family: "ABeeZee", sans-serif;
+  font-style: italic;
+}
+
+.first-review-image img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.first-review-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 120px; /* Adjust width as needed */
+  height: 45px; /* Adjust height as needed */
+  background-color: white;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  color: white;
+  font-size: 20px; /* Adjust font size */
+  cursor: pointer;
+  position: relative; /* For pseudo-elements */
+  overflow: hidden;
+  font-family: "Oswald", sans-serif;
+  margin-top: 40px;
+  font-weight: 500;
+}
+
+.first-review-icon {
+  color: black;
+}
+
+/* Other reviews layout */
+.other-reviews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Gap between items */
+  justify-content: center; /* Center items */
+  align-items: stretch; /* Ensure items align properly */
+}
+
+.other-review-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  flex: 1 1 calc(25% - 20px); /* Adjust based on the number of items per row and the gap */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+  position: relative; /* Required for absolute positioning of border */
+}
+
+.other-review-item:not(:last-child) {
+  border-right: 2px solid #ccc; /* Vertical border */
+}
+
+.other-review-image {
+  width: 100%;
+  height: auto;
+}
+
+.other-review-title {
+  margin-top: 10px;
+}
+
+.other-review-title h3 {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  text-align: start;
+  margin-top: -10px;
+}
+.other-review-date {
+  font-family: "PT Serif", serif;
+}

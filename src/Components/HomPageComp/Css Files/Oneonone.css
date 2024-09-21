@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+
+.OneonOne-Heading {
+  padding-left: 10%;
+  padding-right: 10%;
+  color: #ec2121;
+  margin-top: 60px;
+  font-family: "PT Serif";
+}
+.Styled-hr {
+  border-width: 5px;
+  background: linear-gradient(to right, red 10%, black 10%);
+}
+
+.OneonOne-description {
+  margin-top: -10px;
+  font-family: "Merriweather Sans";
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.first-title {
+  font-size: 30px;
+  margin-top: -10px;
+  font-weight: 700;
+  font-family: "Merriweather";
+}
+
+.OneonOne-Container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.OneonOne-item {
+  position: relative;
+  width: 100%;
+  padding-bottom: 20px; /* Add some space at the bottom */
+  border-bottom: 1px solid #ccc; /* Light gray line after each item */
+  margin-bottom: 20px; /* Add some space after the border */
+}
+
+.OneonOne-image-container {
+  position: relative;
+  width: 50%;
+}
+
+.OneonOne-image {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+}
+
+.OneonOne-additional-content {
+  width: 50%;
+  color: black;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.OneonOne-story {
+  padding-bottom: 20px; /* Add some space at the bottom */
+  border-bottom: 1px solid #ccc; /* Light gray line after each story */
+  margin-bottom: 20px; /* Add some space after the border */
+}
+.OneonOne-story {
+  padding-bottom: 20px; /* Add some space at the bottom */
+  border-bottom: 1px solid #ccc; /* Light gray line after each story */
+  margin-bottom: 20px; /* Add some space after the border */
+}
+.OneonOne-story:last-child {
+  border-bottom: none;
+}
+
+.OneonOne-story-title {
+  color: black;
+  margin-top: -5px;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "Merriweather";
+}
+
+.OneonOne-story-text {
+  color: black;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.OneonOne-date {
+  font-family: "Merriweather Sans";
+  font-weight: 400;
+  margin-top: -5px;
+  font-size: 15px;
+  color: black;
+}

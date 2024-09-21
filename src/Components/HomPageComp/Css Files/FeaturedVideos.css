@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+.Featured-Heading {
+  padding-left: 10%;
+  padding-right: 10%;
+  color: #ec2121;
+  margin-top: 60px;
+}
+
+.Styled-hr {
+  border: 0;
+  height: 2px;
+  background: #ccc;
+}
+
+.Featured-Container {
+  display: flex;
+  gap: 1%;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.Featured-item {
+  position: relative;
+  justify-content: space-evenly;
+  width: 50%; /* Take up half of the container */
+}
+
+.Featured-image {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+}
+.Featured-image-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Featured-text-overlay {
+  width: 100%; /* Span the entire width of the container */
+  color: black; /* Text color to contrast with the image */
+  box-sizing: border-box;
+  text-align: left; /* Align text to the left */
+}
+
+.Featured-additional-content {
+  width: 50%; /* Take up the other half of the container */
+  box-sizing: border-box;
+}
+.Featured-text {
+  margin-top: -10px;
+  font-family: "Oswald", sans-serif;
+  font-size: 35px;
+  font-weight: 300;
+  width: 70%;
+}
+.Featured-date {
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  margin-top: -5px;
+}

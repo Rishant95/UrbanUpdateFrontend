@@ -1,0 +1,69 @@
+/* UpcomingEvents.css */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+.edialogues-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px;
+}
+.edialogues-left {
+  padding-left: 5%;
+  width: 50%;
+}
+.edialogues-left div {
+  border-bottom: 3px dotted #ccc; /* Adds a dotted border at the bottom */
+  padding-bottom: 15px; /* Adds padding to the bottom */
+  margin-bottom: 15px; /* Adds spacing between items */
+}
+
+.event-dialogue-item {
+  margin: 0;
+}
+
+.event-dialogue-item-para {
+  margin: 0;
+  padding-top: 5px;
+}
+
+.edialogues-right img {
+  max-width: 100%;
+  height: auto;
+}
+
+.event-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.event-dialogue-item {
+  font-family: "Oswald", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.event-dialogue-item-para {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.dotted-separator {
+  border-bottom: 2px dotted #ccc;
+  margin: 20px 0;
+}
+.edialogues-right {
+  flex: 0.5; /* Adjust this to control the image size */
+}
+
+.event-dialogue-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optional: add some styling to the image */
+}

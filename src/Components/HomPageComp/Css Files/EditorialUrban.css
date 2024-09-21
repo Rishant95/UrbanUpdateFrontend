@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+
+.Editorial-Heading {
+  padding-left: 10%;
+  padding-right: 10%;
+  color: #ec2121;
+  font-family: "PT Serif";
+  margin-top: 60px;
+}
+
+.Styled-hr {
+  border: 0;
+  height: 2px;
+  background: #ccc;
+}
+
+.Editorial-Container {
+  display: flex;
+}
+
+.Editorial-item {
+  position: relative;
+
+  width: 50%; /* Take up half of the container */
+}
+.Urban-title-left {
+  font-size: 40px;
+  color: black;
+  font-weight: 700;
+  font-family: "Merriweather";
+}
+.Urban-text-left {
+  font-size: 18px;
+  font-weight: 300;
+  font-family: "Merriweather Sans";
+}
+.Editorial-image-container {
+  display: flex;
+  gap: 20px;
+  position: relative; /* Set relative positioning for the container */
+}
+
+.Editorial-image {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+
+.Editorial-text-overlay {
+  position: absolute; /* Position text absolutely within the container */
+  bottom: 15px; /* Move the text overlay up by setting bottom to a higher value */
+  left: 0;
+  width: 100%; /* Span the entire width of the container */
+  color: white; /* Text color to contrast with the image */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent background for better readability */
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left; /* Align text to the left */
+}
+
+.Urban-content {
+  width: 50%; /* Take up the other half of the container */
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+
+.Urban {
+  display: flex;
+  align-items: flex-start; /* Align items at the start of the container */
+  margin-bottom: 20px; /* Space between articles */
+}
+
+.Urban-Image {
+  margin-right: 20px; /* Space between image and text */
+}
+
+.Urban-Image-Img {
+  width: 300px; /* Adjust size as needed */
+  height: auto;
+  object-fit: cover;
+}
+
+.Urban-Content {
+  flex: 1; /* Take the remaining space */
+}
+
+.Urban-title {
+  color: black;
+  font-size: 40px;
+  font-family: "Merriweather";
+  margin-top: -1px;
+  font-weight: 600;
+}
+.Urban-text-left {
+  color: black;
+  font-family: "Oswald", sans-serif;
+}
+
+.Urban-text {
+  color: black;
+  font-family: "Oswald", sans-serif;
+}
+
+.Urban-date {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  margin-top: -10px;
+  padding-right: 10px; /* Add a bit of space between date and title */
+  text-align: left;
+}
+.Editorial-date {
+  font-size: 14px;
+  color: white;
+  margin: 0;
+
+  padding-right: 10px; /* Add a bit of space between date and title */
+  text-align: left;
+}

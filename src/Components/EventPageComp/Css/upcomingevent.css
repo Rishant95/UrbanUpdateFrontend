@@ -1,0 +1,56 @@
+/* src/components/UpcomingEvents.css */
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.upcoming-events-heading {
+  font-family: "Oswald", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: #d90000;
+}
+
+.upcoming-events-container {
+  display: flex;
+  padding: 20px 5%;
+  gap: 20px; /* Space between large and small images */
+}
+
+.big-image {
+  flex: 1;
+}
+
+.big-image img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.small-images {
+  flex: 1;
+  display: flex;
+
+  flex-direction: column;
+  gap: 10px; /* Space between small images */
+}
+
+.small-image {
+  flex: 1;
+}
+
+.small-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.More-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.More-Container a {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+}

@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=AbeeZee&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+
+/* Main header padding */
+.main-header {
+  padding-left: 10%;
+  margin-right: 10%;
+}
+
+/* Flexbox for header icons */
+.header-icon-row-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center vertically */
+  margin-left: 5%;
+}
+
+/* Header icon row */
+.header-icon-row {
+  display: flex;
+  justify-content: start; /* Align icons to the start */
+  gap: 20px; /* Space between items */
+  margin-top: 10px;
+}
+
+/* Social media row */
+.social-media-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: -10%;
+}
+
+/* Row item flex display */
+.row-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Text style for items */
+.item-text {
+  font-size: 15px;
+  font-family: "AbeeZee", sans-serif;
+  font-weight: 400;
+}
+
+/* Icon size */
+.icon {
+  font-size: 20px;
+}
+
+/* Subscribe button style */
+.subscribe-header-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 120px;
+  height: 45px;
+  background-color: black;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sign-in button style */
+.signin-header-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 120px;
+  height: 45px;
+  background-color: #ec2121;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container for header buttons */
+.header-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+/* Subscribe button text */
+.subscribe-button h5 {
+  color: white;
+  font-family: "AbeeZee", sans-serif;
+}
+
+/* Notification icon */
+.notification-icon {
+  color: white;
+}
+
+/* Container for title and image */
+.title-image-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Title container flex */
+.title-container {
+  display: flex;
+}
+
+/* Logo style */
+.title-logo {
+  width: 110%; /* Original width retained */
+}
+
+/* Urban text styling */
+.urban-Text {
+  font-family: "Oswald", sans-serif;
+  font-size: 70px;
+  color: #ec2121;
+}
+
+/* Update text styling */
+.update-Text {
+  font-family: "Oswald", sans-serif;
+  font-size: 70px;
+  font-weight: 400;
+  color: #ec2121;
+}
+
+/* Image container settings */
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+
+/* Image style */
+.image-container .image {
+  display: block;
+  width: 900px; /* Original width retained */
+  height: 100px; /* Original height retained */
+  object-fit: cover;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Dark overlay for images */
+.image-container .dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Text overlay settings */
+.image-container .text-overlay {
+  font-family: "Oswald", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -50%); /* Retained from original */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+  font-size: 1.2rem;
+  width: 80%;
+  z-index: 2;
+}
+
+/* Tabs row settings */
+.tabs-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  margin-top: -15px;
+}
+
+/* Tab link style */
+.tab-link {
+  color: black;
+  text-decoration: none;
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for tabs */
+.tab-link:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+/* Horizontal line styling */
+hr {
+  border: 0;
+  border-top: 5px solid black;
+  margin: 20px 0;
+  width: 100%;
+}
