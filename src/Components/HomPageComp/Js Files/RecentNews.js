@@ -4,9 +4,7 @@ import "../Css Files/RecentNews.css";
 import useFetch from "../../../Hooks/useFetch";
 
 export default function RecentNews() {
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/recent-news"
-  );
+  const { loading, error, data } = useFetch("Recent News");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -34,7 +32,7 @@ export default function RecentNews() {
             }`}
           >
             <div className="Recent-news-Text">
-              <h2>{recentNews.attributes.Title}</h2>
+              <h2>{recentNews.Title}</h2>
             </div>
           </Link>
         ))}

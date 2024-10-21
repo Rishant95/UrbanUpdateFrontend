@@ -39,7 +39,7 @@ export default function DetailPage() {
     return <p>No data available</p>;
   }
 
-  const { Title, Description, createdAt, ImageUrl } = data.data.attributes;
+  const { Title, Description, createdAt, ImageUrl } = data.data;
 
   return (
     <div>
@@ -76,7 +76,7 @@ export default function DetailPage() {
             {relatedArticles.map((article) => (
               <li key={article.id}>
                 <Link to={`../detail/${collection}/${article.id}`}>
-                  {article.attributes.Title}
+                  {article.Title}
                 </Link>
               </li>
             ))}

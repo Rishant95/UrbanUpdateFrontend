@@ -40,7 +40,7 @@
 
 .City-text-overlay {
   position: absolute; /* Position text absolutely within the container */
-  bottom: 11%; /* Move the text overlay up by setting bottom to a higher value */
+  bottom: 3%; /* Move the text overlay up by setting bottom to a higher value */
   left: 0;
   width: 100%; /* Span the entire width of the container */
   color: white; /* Text color to contrast with the image */

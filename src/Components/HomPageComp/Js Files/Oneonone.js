@@ -10,9 +10,7 @@ export default function Oneonone() {
     return text;
   };
 
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/oneonones"
-  );
+  const { loading, error, data } = useFetch("OneOnOne");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -28,10 +26,22 @@ export default function Oneonone() {
 
   const oneon = data.data[0]; // Access the first item in the array
 
-  // Extract description paragraphs for the first item
-  const description = oneon.attributes.Description.map((desc, index) => (
-    <p key={index}>{desc.children[0].text}</p>
-  ));
+  // Check if the description exists and handle accordingly
+  const description = oneon.Description
+    ? oneon.Description.map((desc) =>
+        desc.children && desc.children[0] ? desc.children[0].text : ""
+      ).join(" ") // Join the description paragraphs into a single string
+    : "";
+
+  // Handle Image URL (adjust based on your API response structure)
+  const API_BASE_URL = "http://93.127.185.210:1337"; // Adjust if necessary
+  const imageUrl = oneon.ThumbailUrl
+    ? `${API_BASE_URL}${oneon.ThumbailUrl}`
+    : oneon.Image?.[0]?.formats?.large?.url
+    ? `${API_BASE_URL}${oneon.Image[0].formats.large.url}`
+    : oneon.Image?.[0]?.url
+    ? `${API_BASE_URL}${oneon.Image[0].url}`
+    : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image URL
 
   return (
     <div className="OneonOne-Heading">
@@ -41,16 +51,12 @@ export default function Oneonone() {
       <div className="OneonOne-Container">
         {/* Image and description for the first item */}
         <div className="OneonOne-image-container">
-          {oneon.attributes.ImageUrl && (
-            <img
-              src={oneon.attributes.ImageUrl}
-              alt={oneon.attributes.Title}
-              className="OneonOne-image"
-            />
+          {imageUrl && (
+            <img src={imageUrl} alt={oneon.Title} className="OneonOne-image" />
           )}
         </div>
-        {/* Description for the first item */}
 
+        {/* Description for the first item */}
         <div className="OneonOne-additional-content">
           <div className="OneonOne-item">
             <Link
@@ -58,10 +64,9 @@ export default function Oneonone() {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div className="OneonOne-text">
-                <h2 className="first-title">{oneon.attributes.Title}</h2>
+                <h2 className="first-title">{oneon.Title}</h2>
                 <h5 className="OneonOne-description">
-                  {" "}
-                  {truncateText(description, 200)}{" "}
+                  {truncateText(description, 200)}
                 </h5>
               </div>
             </Link>
@@ -76,17 +81,12 @@ export default function Oneonone() {
             >
               <div className="OneonOne-story">
                 <p className="OneonOne-date">
-                  {new Date(oneonone.attributes.updatedAt).toLocaleDateString(
-                    "en-US",
-                    {
-                      month: "long", // Full month name
-                      year: "numeric", // Year
-                    }
-                  )}
+                  {new Date(oneonone.updatedAt).toLocaleDateString("en-US", {
+                    month: "long", // Full month name
+                    year: "numeric", // Year
+                  })}
                 </p>
-                <h2 className="OneonOne-story-title">
-                  {oneonone.attributes.Title}
-                </h2>
+                <h2 className="OneonOne-story-title">{oneonone.Title}</h2>
               </div>
             </Link>
           ))}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 import Siteheader from "../Components/siteheader";
 import Slider from "react-slick";
 import useFetch from "../Hooks/useFetch";
@@ -14,13 +14,12 @@ import Oneonone from "../Components/HomPageComp/Js Files/Oneonone";
 import CityAndArticles from "../Components/HomPageComp/Js Files/CityAndArticles";
 import EditorialUrban from "../Components/HomPageComp/Js Files/EditorialUrban";
 import BookReview from "../Components/HomPageComp/Js Files/BookReview";
-import FeaturedVideos from "../Components/HomPageComp/Js Files/FeaturedVideos";
 import Regulars from "../Components/HomPageComp/Js Files/Regulars";
 
+const API_BASE_URL = "http://93.127.185.210:1337"; // Replace with your actual API base URL
+
 export default function Homepage() {
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/cover-stories"
-  );
+  const { loading, error, data } = useFetch("ThumbnailSlider");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -49,34 +48,42 @@ export default function Homepage() {
     <div>
       <Siteheader />
       <div className="cover-story-wrapper">
-        {/* Slider taking 75% of the width */}
         <div className="slider-container">
           <Slider {...settings}>
-            {data.data.map((coverStory) => (
-              <div key={coverStory.id} className="slide-container">
-                {/* Wrap the slide content with Link for navigation */}
-                <Link
-                  to={`/detail/cover-stories/${coverStory.id}`} // URL to navigate to
-                  className="slide-link"
-                >
-                  {/* Title overlay on top of the image */}
-                  <div className="title-overlay">
-                    <h2>{coverStory.attributes.Title}</h2>
-                  </div>
+            {data.data.map((article) => {
+              const imageUrl = article.ThumbailUrl
+                ? `${API_BASE_URL}${article.ThumbailUrl}`
+                : article.Image?.[0]?.formats?.large?.url
+                ? `${API_BASE_URL}${article.Image[0].formats.large.url}`
+                : article.Image?.[0]?.url
+                ? `${API_BASE_URL}${article.Image[0].url}`
+                : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image if none exists
 
-                  {/* Image inside the slider */}
-                  <img
-                    className="slider-card-image"
-                    src={coverStory.attributes.imageUrl}
-                    alt={coverStory.attributes.Title}
-                  />
-                </Link>
-              </div>
-            ))}
+              // Log the image URL for debugging
+
+              return (
+                <div key={article.id} className="slide-container">
+                  <Link
+                    to={`/detail/news-articles/${article.id}`}
+                    className="slide-link"
+                  >
+                    <div className="title-overlay">
+                      <h2>{article.Title}</h2>
+                    </div>
+
+                    {/* Image inside the slider */}
+                    <img
+                      className="slider-card-image"
+                      src={imageUrl}
+                      alt={article.Title}
+                    />
+                  </Link>
+                </div>
+              );
+            })}
           </Slider>
         </div>
 
-        {/* Image container taking 25% of the width */}
         <div className="image-container">
           <img
             className="magazine-image"
@@ -85,16 +92,27 @@ export default function Homepage() {
           />
         </div>
       </div>
-      <RecentNews />
-      <CoverStory />
-      <LeaderSpeak />
-      <VelocityPage />
-      <Oneonone />
-      <CityAndArticles />
-      <EditorialUrban />
-      <BookReview />
+      {
+        <>
+          <RecentNews />
+          <CoverStory />
+          <LeaderSpeak />
+          <VelocityPage />
+          <Oneonone />
+          <CityAndArticles />
+          <EditorialUrban />
+          <BookReview />
+          <Regulars />
+        </>
+
+        /*
+     
+   
+    
+    
       <FeaturedVideos />
-      <Regulars />
+      */
+      }
     </div>
   );
 }

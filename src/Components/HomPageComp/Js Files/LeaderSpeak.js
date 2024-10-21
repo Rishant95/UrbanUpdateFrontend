@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import "../Css Files/LeaderSpeak.css";
-import useFetch from "../../../Hooks/useFetch";
+import useFetch from "../../../Hooks/useFetch"; // Assuming you have a custom hook for fetching data
 
 export default function LeaderSpeak() {
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/leaderspeaks"
-  );
+  const { loading, error, data } = useFetch("LeaderSpeak");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -20,9 +18,38 @@ export default function LeaderSpeak() {
   }
 
   const coverStory = data.data[0];
-  const description = coverStory.attributes.Description.map((desc, index) => (
-    <p key={index}>{desc.children[0].text}</p>
-  ));
+
+  // API base URL
+  const API_BASE_URL = "http://93.127.185.210:1337";
+
+  // Handle image URL similar to the CoverStory component
+  const imageUrl = coverStory.ThumbailUrl
+    ? `${API_BASE_URL}${coverStory.ThumbailUrl}`
+    : coverStory.Image?.[0]?.formats?.large?.url
+    ? `${API_BASE_URL}${coverStory.Image[0].formats.large.url}`
+    : coverStory.Image?.[0]?.url
+    ? `${API_BASE_URL}${coverStory.Image[0].url}`
+    : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image URL
+
+  // Function to truncate text
+  const truncateText = (text, limit) => {
+    if (text && text.length > limit) {
+      return text.substring(0, limit) + "..."; // Add ellipsis if truncated
+    }
+    return text || ""; // Return empty string if text is null or undefined
+  };
+
+  // Ensure `Content` exists and is an array before calling `.map()`
+  const description = coverStory.Content ? (
+    coverStory.Content.slice(0, 1).map((paragraph, index) => {
+      const paragraphText =
+        paragraph.children?.[0]?.text || "No description available";
+      const truncatedText = truncateText(paragraphText, 200); // Truncate to 500 characters
+      return <p key={index}>{truncatedText}</p>;
+    })
+  ) : (
+    <p>No description available</p>
+  );
 
   return (
     <div className="LeaderSpeak-Heading">
@@ -32,22 +59,22 @@ export default function LeaderSpeak() {
       <div className="LeaderSpeak-Container">
         <div className="LeaderSpeak-item">
           <Link
-            to={`/detail/leaderspeaks/${coverStory.id}`}
+            to={`/detail/news-articles/${coverStory.id}`}
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <div
               className="LeaderSpeak-image-container"
               style={{ cursor: "pointer" }}
             >
-              {coverStory.attributes.ImageUrl && (
+              {imageUrl && (
                 <img
-                  src={coverStory.attributes.ImageUrl}
-                  alt={coverStory.attributes.Title}
+                  src={imageUrl}
+                  alt={coverStory.Title}
                   className="LeaderSpeak-image"
                 />
               )}
               <div className="LeaderSpeak-text-overlay">
-                <h2>{coverStory.attributes.Title}</h2>
+                <h2>{coverStory.Title}</h2>
                 {description}
               </div>
             </div>
@@ -61,28 +88,14 @@ export default function LeaderSpeak() {
               to={`/detail/leaderspeaks/${story.id}`}
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              <div
-                className="additional-item-container"
-                style={{
-                  display: "flex",
-                  flexDirection: "column", // Stack items vertically
-                  justifyContent: "flex-start", // Align items to the start of the container
-                  padding: "10px",
-                  cursor: "pointer",
-                }}
-              >
+              <div className="additional-item-container">
                 <p className="leaderSpeak-date">
-                  {new Date(story.attributes.updatedAt).toLocaleDateString(
-                    "en-US",
-                    {
-                      month: "long",
-                      year: "numeric",
-                    }
-                  )}
+                  {new Date(story.updatedAt).toLocaleDateString("en-US", {
+                    month: "long",
+                    year: "numeric",
+                  })}
                 </p>
-                <h2 className="Side-leaderSpeak-title">
-                  {story.attributes.Title}
-                </h2>
+                <h2 className="Side-leaderSpeak-title">{story.Title}</h2>
                 <div className="item-border"></div>
               </div>
             </Link>

@@ -3,9 +3,7 @@ import "../Css Files/EditorialUrban.css";
 import useFetch from "../../../Hooks/useFetch";
 
 function EditorialUrban() {
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/editorials"
-  );
+  const { loading, error, data } = useFetch("Editorial");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -21,6 +19,14 @@ function EditorialUrban() {
 
   const Editorial = data.data[0]; // Access the first item in the array
 
+  // Handle image URL
+  const API_BASE_URL = "http://93.127.185.210:1337";
+  const editorialImageUrl = Editorial?.Image?.[0]?.formats?.large?.url
+    ? `${API_BASE_URL}${Editorial.Image[0].formats.large.url}`
+    : Editorial?.Image?.[0]?.url
+    ? `${API_BASE_URL}${Editorial.Image[0].url}`
+    : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image
+
   return (
     <div className="Editorial-Heading">
       <div className="Editorial-Container">
@@ -28,34 +34,37 @@ function EditorialUrban() {
           <h1>Editorials</h1>
           <hr className="Styled-hr" />
           <div className="Editorial-image-container">
-            {Editorial.attributes.ImageUrl && (
+            {editorialImageUrl && (
               <img
-                src={Editorial.attributes.ImageUrl}
-                alt={Editorial.attributes.Title}
+                src={editorialImageUrl}
+                alt={Editorial?.attributes?.Title || "Editorial Image"}
                 className="Editorial-image"
               />
             )}
             <div className="Editorial-overlay">
               <p className="Editorial-date">
-                {new Date(Editorial.attributes.updatedAt).toLocaleDateString(
-                  "en-US",
-                  {
-                    month: "long",
-                    year: "numeric",
-                  }
-                )}
+                {new Date(Editorial?.updatedAt).toLocaleDateString("en-US", {
+                  month: "long",
+                  year: "numeric",
+                })}
               </p>
-              <h2 className="Urban-title-left">{Editorial.attributes.Title}</h2>
-              {Editorial.attributes.Description.map((desc, index) => (
-                <p className="Urban-text-left" key={index}>
-                  {desc.children[0].text}
+              <h2 className="Urban-title-left">
+                {Editorial?.Title || "Untitled Editorial"}
+              </h2>
+              {/* Render description excluding the first one */}
+              {Editorial?.Content?.[0] && (
+                <p className="Urban-text-left">
+                  {truncateText(
+                    Editorial.Content[0].children[0].text || "",
+                    200
+                  )}
                 </p>
-              ))}
+              )}
             </div>
           </div>
-          {Editorial.attributes.Description.map((desc, index) => (
+          {Editorial?.Content?.slice(1).map((desc, index) => (
             <p className="Urban-text-left" key={index}>
-              {desc.children[0].text}
+              {truncateText(desc.children[0].text || "", 200)}
             </p>
           ))}
         </div>
@@ -68,6 +77,12 @@ function EditorialUrban() {
     </div>
   );
 }
+const truncateText = (text, limit) => {
+  if (text.length > limit) {
+    return text.substring(0, limit) + "..."; // Add ellipsis if truncated
+  }
+  return text;
+};
 
 function Urban() {
   // Helper function to truncate text
@@ -78,9 +93,7 @@ function Urban() {
     return text;
   };
 
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/articles"
-  );
+  const { loading, error, data } = useFetch("Urban Agenda");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -105,19 +118,18 @@ function Urban() {
           <div className="Article">
             <div className="Urban-Content">
               <p className="Urban-date">
-                {new Date(article.attributes.updatedAt).toLocaleDateString(
-                  "en-US",
-                  {
-                    month: "long", // Full month name
-                    year: "numeric", // Year
-                  }
-                )}
+                {new Date(article?.updatedAt).toLocaleDateString("en-US", {
+                  month: "long", // Full month name
+                  year: "numeric", // Year
+                })}
               </p>
-              <h2 className="Urban-title">{article.attributes.Title}</h2>
+              <h2 className="Urban-title">
+                {article?.Title || "Untitled Article"}
+              </h2>
               {/* Conditionally render description */}
-              {article.attributes.Description.map((desc, index) => (
+              {article?.Content?.slice(0, 1).map((desc, index) => (
                 <p className="Urban-text" key={index}>
-                  {truncateText(desc.children[0].text, 200)}{" "}
+                  {truncateText(desc?.children?.[0]?.text || "", 200)}{" "}
                 </p>
               ))}
             </div>
