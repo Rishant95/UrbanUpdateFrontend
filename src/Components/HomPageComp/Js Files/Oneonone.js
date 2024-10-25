@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "../Css Files/Oneonone.css";
-import useFetch from "../../../Hooks/useFetch";
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 
 export default function Oneonone() {
   const truncateText = (text, limit) => {
@@ -34,14 +34,8 @@ export default function Oneonone() {
     : "";
 
   // Handle Image URL (adjust based on your API response structure)
-  const API_BASE_URL = "http://93.127.185.210:1337"; // Adjust if necessary
-  const imageUrl = oneon.ThumbailUrl
-    ? `${API_BASE_URL}${oneon.ThumbailUrl}`
-    : oneon.Image?.[0]?.formats?.large?.url
-    ? `${API_BASE_URL}${oneon.Image[0].formats.large.url}`
-    : oneon.Image?.[0]?.url
-    ? `${API_BASE_URL}${oneon.Image[0].url}`
-    : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image URL
+
+  const imageUrl = getImageUrl(oneon);
 
   return (
     <div className="OneonOne-Heading">

@@ -1,7 +1,7 @@
 import "../Css/upcomingevent.css";
 
 import React from "react";
-import useFetch from "../../../Hooks/useFetch"; // Adjust path as needed
+import { useFetch } from "../../../Hooks/useFetch"; // Adjust path as needed
 import { FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
 
 export default function UpcomingEvents() {

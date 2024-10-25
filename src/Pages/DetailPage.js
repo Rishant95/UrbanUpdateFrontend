@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import useFetch from "../Hooks/useFetch";
+import { useFetch } from "../Hooks/useFetch";
 import "../PagesCss/DetailPage.css";
 import MinimizedHeader from "../Components/EventPageComp/Js/minimizedHeader";
 

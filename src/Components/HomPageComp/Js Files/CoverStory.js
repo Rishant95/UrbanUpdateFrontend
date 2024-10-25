@@ -1,5 +1,5 @@
 import "../Css Files/CoverStory.css";
-import useFetch from "../../../Hooks/useFetch"; // Assuming you have a custom hook for fetching data
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch"; // Assuming you have a custom hook for fetching data
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 export default function CoverStory() {
@@ -20,9 +20,6 @@ export default function CoverStory() {
   // Fetching the first cover story only
   const coverStory = data.data[0];
 
-  // API base URL
-  const API_BASE_URL = "http://93.127.185.210:1337";
-
   // Extract description paragraphs safely
   const description =
     coverStory.Description?.map((desc, index) => (
@@ -30,13 +27,7 @@ export default function CoverStory() {
     )) || [];
 
   // Image URL logic
-  const imageUrl = coverStory.ThumbailUrl
-    ? `${API_BASE_URL}${coverStory.ThumbailUrl}`
-    : coverStory.Image?.[0]?.formats?.large?.url
-    ? `${API_BASE_URL}${coverStory.Image[0].formats.large.url}`
-    : coverStory.Image?.[0]?.url
-    ? `${API_BASE_URL}${coverStory.Image[0].url}`
-    : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image URL
+  const imageUrl = getImageUrl(coverStory);
 
   return (
     <div className="Cover-Story-Heading">

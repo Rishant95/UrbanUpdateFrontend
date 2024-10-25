@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Siteheader from "../Components/siteheader";
 import Slider from "react-slick";
-import useFetch from "../Hooks/useFetch";
+import { useFetch } from "../Hooks/useFetch";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../PagesCss/hompage.css";
@@ -16,7 +16,7 @@ import EditorialUrban from "../Components/HomPageComp/Js Files/EditorialUrban";
 import BookReview from "../Components/HomPageComp/Js Files/BookReview";
 import Regulars from "../Components/HomPageComp/Js Files/Regulars";
 
-const API_BASE_URL = "http://93.127.185.210:1337"; // Replace with your actual API base URL
+const API_BASE_URL = "https://admin.manofox.online"; // Replace with your actual API base URL
 
 export default function Homepage() {
   const { loading, error, data } = useFetch("ThumbnailSlider");

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../Css Files/LeaderSpeak.css";
-import useFetch from "../../../Hooks/useFetch"; // Assuming you have a custom hook for fetching data
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch"; // Assuming you have a custom hook for fetching data
 
 export default function LeaderSpeak() {
   const { loading, error, data } = useFetch("LeaderSpeak");
@@ -17,19 +17,12 @@ export default function LeaderSpeak() {
     return <p>No data available</p>;
   }
 
-  const coverStory = data.data[0];
+  const leaderSpeakData = data.data[0];
 
   // API base URL
-  const API_BASE_URL = "http://93.127.185.210:1337";
 
   // Handle image URL similar to the CoverStory component
-  const imageUrl = coverStory.ThumbailUrl
-    ? `${API_BASE_URL}${coverStory.ThumbailUrl}`
-    : coverStory.Image?.[0]?.formats?.large?.url
-    ? `${API_BASE_URL}${coverStory.Image[0].formats.large.url}`
-    : coverStory.Image?.[0]?.url
-    ? `${API_BASE_URL}${coverStory.Image[0].url}`
-    : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image URL
+  const imageUrl = getImageUrl(leaderSpeakData);
 
   // Function to truncate text
   const truncateText = (text, limit) => {
@@ -40,8 +33,8 @@ export default function LeaderSpeak() {
   };
 
   // Ensure `Content` exists and is an array before calling `.map()`
-  const description = coverStory.Content ? (
-    coverStory.Content.slice(0, 1).map((paragraph, index) => {
+  const description = leaderSpeakData.Content ? (
+    leaderSpeakData.Content.slice(0, 1).map((paragraph, index) => {
       const paragraphText =
         paragraph.children?.[0]?.text || "No description available";
       const truncatedText = truncateText(paragraphText, 200); // Truncate to 500 characters
@@ -59,7 +52,7 @@ export default function LeaderSpeak() {
       <div className="LeaderSpeak-Container">
         <div className="LeaderSpeak-item">
           <Link
-            to={`/detail/news-articles/${coverStory.id}`}
+            to={`/detail/news-articles/${leaderSpeakData.id}`}
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <div
@@ -69,12 +62,12 @@ export default function LeaderSpeak() {
               {imageUrl && (
                 <img
                   src={imageUrl}
-                  alt={coverStory.Title}
+                  alt={leaderSpeakData.Title}
                   className="LeaderSpeak-image"
                 />
               )}
               <div className="LeaderSpeak-text-overlay">
-                <h2>{coverStory.Title}</h2>
+                <h2>{leaderSpeakData.Title}</h2>
                 {description}
               </div>
             </div>

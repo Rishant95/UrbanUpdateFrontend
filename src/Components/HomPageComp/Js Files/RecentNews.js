@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Css Files/RecentNews.css";
-import useFetch from "../../../Hooks/useFetch";
+import { useFetch } from "../../../Hooks/useFetch";
 
 export default function RecentNews() {
   const { loading, error, data } = useFetch("Recent News");

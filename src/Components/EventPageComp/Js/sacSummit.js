@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import useFetch from "../../../Hooks/useFetch";
+import { useFetch } from "../../../Hooks/useFetch";
 import { FaArrowRight } from "react-icons/fa";
 import "../Css/sacSummit.css"; // Make sure your CSS is defined
 

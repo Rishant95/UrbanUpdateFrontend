@@ -1,5 +1,5 @@
 import "../Css Files/BookReview.css";
-import useFetch from "../../../Hooks/useFetch";
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 
 export default function BookReview() {
   const { loading, error, data } = useFetch("Book Review");
@@ -15,10 +15,6 @@ export default function BookReview() {
   if (!data || !data.data || data.data.length === 0) {
     return <p>No data available</p>;
   }
-
-  // Assuming we want to display the first editorial for the image
-  const API_BASE_URL = "http://93.127.185.210:1337";
-
   return (
     <div>
       <div className="BookReview-Heading">
@@ -28,11 +24,7 @@ export default function BookReview() {
         <div className="BookReview-Container">
           {/* Display both articles using the same image for the first index */}
           {data.data.map((book) => {
-            const editorialImageUrl = book?.Image?.[0]?.formats?.large?.url
-              ? `${API_BASE_URL}${book.Image[0].formats.large.url}`
-              : book?.Image?.[0]?.url
-              ? `${API_BASE_URL}${book.Image[0].url}`
-              : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image
+            const editorialImageUrl = getImageUrl(book);
 
             return (
               <div

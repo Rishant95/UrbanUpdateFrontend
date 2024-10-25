@@ -2,7 +2,7 @@ import "../Css/eventHeadlines.css";
 
 import React from "react";
 
-import useFetch from "../../../Hooks/useFetch"; // Assuming you have a custom useFetch hook
+import { useFetch } from "../../../Hooks/useFetch"; // Assuming you have a custom useFetch hook
 import { FaArrowRight } from "react-icons/fa";
 
 export default function BookReview() {

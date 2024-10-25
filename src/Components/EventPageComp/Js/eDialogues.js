@@ -1,4 +1,4 @@
-import useFetch from "../../../Hooks/useFetch";
+import { useFetch } from "../../../Hooks/useFetch";
 import "../Css/eDialogues.css";
 
 import React from "react";

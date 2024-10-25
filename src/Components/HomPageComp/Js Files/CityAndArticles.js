@@ -1,5 +1,5 @@
 import "../Css Files/CityAndArticles.css";
-import useFetch from "../../../Hooks/useFetch";
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 
 function CityAndArticles() {
   const { loading, error, data } = useFetch("CityImages");
@@ -19,17 +19,10 @@ function CityAndArticles() {
     return <p>No data available</p>;
   }
 
-  const API_BASE_URL = "http://93.127.185.210:1337";
   const city = data.data[0]; // Access the first item in the array
 
   // Check if city.attributes exists to avoid accessing undefined properties
-  const imageUrl = city?.ThumbnailUrl
-    ? `${API_BASE_URL}${city.ThumbnailUrl}`
-    : city?.Image?.[0]?.formats?.large?.url
-    ? `${API_BASE_URL}${city.Image[0].formats.large.url}`
-    : city?.Image?.[0]?.url
-    ? `${API_BASE_URL}${city.Image[0].url}`
-    : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image URL
+  const imageUrl = getImageUrl(city);
 
   return (
     <div className="City-Heading">
@@ -83,18 +76,11 @@ function Articles() {
     return <p>No articles available</p>;
   }
 
-  const API_BASE_URL = "http://93.127.185.210:1337";
-
   return (
     <div className="Articles-Additional-Articles">
       {data.data.slice(0, 2).map((article, index) => {
         // Handling different potential image URLs for the article
-        const articleImageUrl = article?.Image?.[0]?.formats?.large?.url
-          ? `${API_BASE_URL}${article.Image[0].formats.large.url}` // Check large format
-          : article?.Image?.[0]?.url
-          ? `${API_BASE_URL}${article.Image[0].url}` // Fallback to general image URL
-          : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image
-
+        const articleImageUrl = getImageUrl(article);
         return (
           <div key={article.id} className="Article">
             {/* Render image for the first article */}

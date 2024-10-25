@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "../Css Files/EditorialUrban.css";
-import useFetch from "../../../Hooks/useFetch";
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 
 function EditorialUrban() {
   const { loading, error, data } = useFetch("Editorial");
@@ -20,12 +20,8 @@ function EditorialUrban() {
   const Editorial = data.data[0]; // Access the first item in the array
 
   // Handle image URL
-  const API_BASE_URL = "http://93.127.185.210:1337";
-  const editorialImageUrl = Editorial?.Image?.[0]?.formats?.large?.url
-    ? `${API_BASE_URL}${Editorial.Image[0].formats.large.url}`
-    : Editorial?.Image?.[0]?.url
-    ? `${API_BASE_URL}${Editorial.Image[0].url}`
-    : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image
+
+  const editorialImageUrl = getImageUrl(Editorial);
 
   return (
     <div className="Editorial-Heading">

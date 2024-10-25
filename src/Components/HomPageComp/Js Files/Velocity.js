@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../Css Files/Velocity.css";
-import useFetch from "../../../Hooks/useFetch";
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 
 export default function VelocityPage() {
   const { loading, error, data } = useFetch("Velocity");
@@ -17,9 +17,6 @@ export default function VelocityPage() {
     return <p>No data available</p>;
   }
 
-  // Base URL for images
-  const API_BASE_URL = "http://93.127.185.210:1337";
-
   return (
     <div>
       <div className="Velocity-Heading">
@@ -29,13 +26,7 @@ export default function VelocityPage() {
         <div className="Velocity-Container">
           {data.data.slice(0, 4).map((velocity) => {
             // Handle the image URL
-            const imageUrl = velocity?.ImageUrl
-              ? `${API_BASE_URL}${velocity.ImageUrl}`
-              : velocity.Image?.[0]?.formats?.large?.url
-              ? `${API_BASE_URL}${velocity.Image[0].formats.large.url}`
-              : velocity.Image?.[0]?.url
-              ? `${API_BASE_URL}${velocity.Image[0].url}`
-              : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image URL
+            const imageUrl = getImageUrl(velocity);
 
             // Log the image URL for debugging
             console.log("Image URL:", imageUrl); // Check if the URL is valid
