@@ -12,11 +12,11 @@ const useFetch = (categoryName) => {
       try {
         // Construct the API URL based on the category name
         const categoryFilter = categoryName
-          ? `?filters[categories][CategoryName][$eq]=${categoryName}&populate[0]=categories&populate[1]=Image`
+          ? `?filters[categories][CategoryName][$eq]=${categoryName}&populate[0]=categories&populate[1]=Media`
           : "?populate[0]=categories&populate[1]=Image"; // Default if no category is provided
 
         const res = await fetch(
-          `http://93.127.185.210:1337/api/news-articles${categoryFilter}`
+          `https://manofox.online/api/news-articles${categoryFilter}`
         );
         const json = await res.json();
         console.log(json);
