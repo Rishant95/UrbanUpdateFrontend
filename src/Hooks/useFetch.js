@@ -16,7 +16,7 @@ const useFetch = (categoryName) => {
           : "?populate[0]=categories&populate[1]=Image"; // Default if no category is provided
 
         const res = await fetch(
-          `https://manofox.online/api/news-articles${categoryFilter}`
+          `https://admin.manofox.online/api/news-articles${categoryFilter}`
         );
         const json = await res.json();
         console.log(json);
