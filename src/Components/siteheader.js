@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaSun,
   FaClock,
@@ -9,103 +9,117 @@ import {
   FaSign,
   FaHome,
   FaSearch,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "./siteheader.css";
-import { FaX } from "react-icons/fa6";
 
 export default function Siteheader() {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <div className="main-header">
-      <div className="header-icon-row-main">
-        <div className="header-icon-row">
-          <div className="row-item">
-            <FaSun className="icon"></FaSun>
-            <h5 className="item-text">15 New York</h5>
-          </div>
-          <div className="row-item">
-            <FaClock className="icon"></FaClock>
-            <h5 className="item-text">Wednesday,10 Janruary 2021 </h5>
-          </div>
+    <header className="main-header">
+      <div className="header-top">
+        {/* Header Info Row */}
+        <div className="header-info">
+          <FaSun className="icon" />
+          <span>15° New York</span>
+          <FaClock className="icon" />
+          <span>Wednesday, 10 January 2021</span>
         </div>
-        <div className="social-media-row">
-          <FaFacebook className="icon"></FaFacebook>
-          <FaX className="icon"></FaX>
-          <FaInstagram className="icon"></FaInstagram>
-          <FaYoutube className="icon"></FaYoutube>
-          <div className="header-buttons">
-            <button className="subscribe-header-button">
-              <h5>Subscribe</h5>
-              <FaBell className="notification-icon" />
-            </button>
-            <button
-              className="signin-header-button"
-              onClick={() => navigate("/signin")}
-            >
-              <h5>Sign in</h5>
-              <FaSign className="notification-icon" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="title-image-container">
-        <div className="title-container">
-          <img
-            className="title-logo"
-            src="http://localhost:1337/uploads/Urban_Update_logo_2d6e938ca6.jpg"
-            alt="Logo"
-          />
-        </div>
-        <div className="image-container">
-          <a
-            href="https://example.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://ibc.manofox.com/wp-content/uploads/2024/08/37919faf1ac5c065af92c04f5b305bdc.jpg"
-              alt="Example"
-              className="image"
-            />
-            <div className="dark-overlay"></div>
-            <div className="text-overlay">
-              They're Back! Kennedy Darling <br /> Name To Return To{" "}
-            </div>
-          </a>
+        {/* Social Media and Auth Buttons */}
+        <div className="header-social">
+          <FaFacebook className="icon" />
+          <FaInstagram className="icon" />
+          <FaYoutube className="icon" />
+          <button className="subscribe-btn">
+            Subscribe <FaBell />
+          </button>
+          <button className="signin-btn" onClick={() => navigate("/signin")}>
+            Sign in <FaSign />
+          </button>
         </div>
       </div>
 
-      <hr style={{ color: "black" }}></hr>
-      <div className="tabs-row">
-        <FaHome style={{ fontSize: "20px" }}></FaHome>
-        <a href="#tab1" className="tab-link">
-          Home
-        </a>
-        <a href="#tab2" className="tab-link">
-          News
-        </a>
-        <a href="#tab3" className="tab-link">
-          Local Government
-        </a>
-        <a href="#tab4" className="tab-link">
-          Environment
-        </a>
-        <a href="#tab5" className="tab-link">
-          Columns
-        </a>
-        <a href="/events" className="tab-link">
-          Events
-        </a>
-        <a href="#tab5" className="tab-link">
-          Publication
-        </a>
-        <a href="#tab5" className="tab-link">
-          More
-        </a>
-        <FaSearch style={{ fontSize: "20px" }}></FaSearch>
+      {/* Logo and Navigation Container */}
+      <div className="header-main">
+        {/* Logo on Left */}
+        <div className="logo-container">
+          <img
+            className="logo"
+            src="https://admin.manofox.online/uploads/thumbnail_Urban_Update_logo_da45c6e125.jpg"
+            alt="Logo"
+          />
+        </div>
+
+        {/* Navigation on Right */}
+        <nav className="nav-right">
+          <div className="desktop-nav">
+            <a href="#home" className="nav-link">
+              <FaHome /> Home
+            </a>
+            <a href="#news" className="nav-link">
+              News
+            </a>
+            <a href="#local-gov" className="nav-link">
+              Local Government
+            </a>
+            <a href="#environment" className="nav-link">
+              Environment
+            </a>
+            <a href="#columns" className="nav-link">
+              Columns
+            </a>
+            <a href="#events" className="nav-link">
+              Events
+            </a>
+            <a href="#publication" className="nav-link">
+              Publication
+            </a>
+            <a href="#more" className="nav-link">
+              More
+            </a>
+            <FaSearch className="search-icon" />
+          </div>
+
+          {/* Mobile Hamburger Icon */}
+          <div className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
+
+          {/* Mobile Dropdown Menu */}
+          {isMenuOpen && (
+            <div className="mobile-nav">
+              <a href="#home" className="nav-link">
+                Home
+              </a>
+              <a href="#news" className="nav-link">
+                News
+              </a>
+              <a href="#local-gov" className="nav-link">
+                Local Government
+              </a>
+              <a href="#environment" className="nav-link">
+                Environment
+              </a>
+              <a href="#columns" className="nav-link">
+                Columns
+              </a>
+              <a href="#events" className="nav-link">
+                Events
+              </a>
+              <a href="#publication" className="nav-link">
+                Publication
+              </a>
+              <a href="#more" className="nav-link">
+                More
+              </a>
+            </div>
+          )}
+        </nav>
       </div>
-      <hr style={{ marginTop: "10px" }}></hr>
-    </div>
+    </header>
   );
 }

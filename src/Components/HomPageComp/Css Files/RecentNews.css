@@ -2,6 +2,7 @@
 
 .Recent-news-heading {
   margin-left: 10%;
+  margin-top: 2%;
   color: #ec2121;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
@@ -11,10 +12,15 @@
   display: flex;
   padding-left: 10%;
   padding-right: 10%;
-
-  margin-top: -15px;
+  margin-top: -10px;
   overflow-x: auto; /* Enable horizontal scrolling */
   white-space: nowrap; /* Prevent wrapping of items */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.Recent-news-row::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
 }
 
 .Recent-news-item {
@@ -54,7 +60,7 @@
   margin-left: 10%;
   margin-right: 10%;
   width: 80%;
-  margin-top: -1%;
+  margin-top: -0.01%;
   border: none; /* Remove default border */
   height: 2px; /* Set height of the line */
   background-color: #ec2121; /* Line color */

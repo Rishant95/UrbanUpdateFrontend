@@ -21,6 +21,7 @@
   display: flex;
   justify-content: space-between; /* Space between image/text and additional content */
   padding: 20px;
+  flex-wrap: wrap; /* Allow wrapping of content */
 }
 
 .City-item {
@@ -104,10 +105,72 @@
   padding-right: 10px; /* Add a bit of space between date and title */
   text-align: left;
 }
+
 .City-date {
   font-size: 14px;
   color: white;
   margin: 0;
   padding-right: 10px; /* Add a bit of space between date and title */
   text-align: left;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .City-Container {
+    flex-direction: column; /* Stack content vertically */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .City-item,
+  .Articles-content {
+    width: 100%; /* Full width for mobile */
+  }
+
+  .City-image {
+    height: 400px; /* Reduce image height for smaller screens */
+  }
+
+  .Article-Image-Img {
+    width: 100%; /* Make article images responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .Article-title {
+    font-size: 25px; /* Decrease font size for title */
+  }
+
+  .Article-date {
+    font-size: 15px; /* Decrease font size for date */
+  }
+
+  .City-text-overlay {
+    padding: 10px; /* Reduce padding for overlay */
+  }
+
+  .City-date {
+    font-size: 15px; /* Decrease font size for city date */
+  }
+}
+
+@media (max-width: 480px) {
+  .City-Heading {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .Article-title {
+    font-size: 22px; /* Further decrease font size for title */
+  }
+
+  .Article-date {
+    font-size: 15px; /* Further decrease font size for date */
+  }
+
+  .City-date {
+    font-size: 10px; /* Further decrease font size for city date */
+  }
+
+  .City-image {
+    height: 300px; /* Further reduce image height for mobile */
+  }
 }

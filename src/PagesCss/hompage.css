@@ -10,16 +10,18 @@
 
 .slide-container {
   position: relative;
-  height: 600px;
+  height: 700px;
 }
+
 .slider-card-image {
-  position: relative; /* Needed for the pseudo-element */
+  width: 100%;
+  height: 700px;
   object-fit: cover;
-  transition: transform 0.3s ease; /* Smooth transition for scale */
+  transition: transform 0.3s ease;
 }
 
 .slider-card-image:hover {
-  transform: scale(1.05); /* Grow the image slightly on hover */
+  transform: scale(1.05);
 }
 
 /* Darkening effect */
@@ -30,23 +32,23 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-  opacity: 0; /* Start as invisible */
-  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .slider-card-image:hover::before {
-  opacity: 1; /* Show dark overlay on hover */
+  opacity: 1;
 }
 
 .title-overlay {
   position: absolute;
   font-family: "Merriweather";
   width: 100%;
-  bottom: 0%;
+  bottom: 1%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255);
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 10px 20px;
   font-size: 30px;
   font-weight: 700;
@@ -60,21 +62,20 @@
   color: black;
   font-size: 35px;
 }
+
 .magazine-image {
-  position: relative; /* Needed for the pseudo-element */
-  margin-top: -6%;
   width: 130%;
-  height: 103%;
+  height: 700px;
+  padding-right: 35%;
   object-fit: cover;
-  margin-left: -100px;
-  transition: transform 0.3s ease; /* Smooth transition for scale */
+  margin-left: 4%;
+  transition: transform 0.3s ease;
 }
 
 .magazine-image:hover {
-  transform: scale(1.05); /* Grow the image slightly on hover */
+  transform: scale(1.05);
 }
 
-/* Darkening effect */
 .magazine-image::before {
   content: "";
   position: absolute;
@@ -82,24 +83,67 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-  opacity: 0; /* Start as invisible */
-  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .magazine-image:hover::before {
-  opacity: 1; /* Show dark overlay on hover */
+  opacity: 1;
 }
+
+/* Responsive Styling */
 @media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr; /* Stack items vertically */
+  .cover-story-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
   }
 
-  .slider-container {
-    width: 100%;
-  }
-
+  .slider-container,
   .image-container {
     width: 100%;
+    margin: 0;
+  }
+
+  .slide-container {
+    height: auto;
+    min-height: 400px;
+  }
+
+  .slider-card-image {
+    height: auto;
+    max-height: 400px;
+  }
+
+  .title-overlay {
+    padding: 10px;
+    font-size: 24px;
+    width: 100%;
+    top: 50%;
+  }
+
+  .title-overlay h2 {
+    font-size: 24px;
+  }
+
+  .magazine-image {
+    width: 100%; /* Change width to 100% for mobile */
+    height: auto; /* Allow height to adjust automatically */
+    margin: 0 auto; /* Center horizontally */
+    display: block; /* Ensure it behaves like a block element */
+    margin-top: -10%; /* Adjust margin as needed */
+  }
+}
+
+@media (max-width: 480px) {
+  .title-overlay {
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .title-overlay h2 {
+    font-size: 20px;
   }
 }

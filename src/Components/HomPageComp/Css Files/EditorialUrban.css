@@ -8,6 +8,7 @@
   padding-right: 10%;
   color: #ec2121;
   font-family: "PT Serif";
+
   margin-top: 60px;
 }
 
@@ -19,28 +20,32 @@
 
 .Editorial-Container {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .Editorial-item {
   position: relative;
-
   width: 50%; /* Take up half of the container */
 }
+
 .Urban-title-left {
   font-size: 40px;
   color: black;
   font-weight: 700;
-  margin-top: -5%;
+
   font-family: "Merriweather";
 }
+
 .Urban-text-left {
   font-size: 18px;
   font-weight: 300;
   font-family: "Merriweather Sans";
 }
+
 .Editorial-image-container {
   display: flex;
   gap: 20px;
+
   position: relative; /* Set relative positioning for the container */
 }
 
@@ -100,6 +105,7 @@
   margin-top: -1px;
   font-weight: 600;
 }
+
 .Urban-text-left {
   color: black;
   font-family: "Oswald", sans-serif;
@@ -118,11 +124,80 @@
   padding-right: 10px; /* Add a bit of space between date and title */
   text-align: left;
 }
+
 .Editorial-date {
   font-size: 14px;
   color: white;
   margin: 0;
-
   padding-right: 10px; /* Add a bit of space between date and title */
   text-align: left;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .Editorial-Container {
+    flex-direction: column; /* Stack content vertically */
+    padding: 10px; /* Adjust padding */
+  }
+  .Editorial-image-container {
+    flex-wrap: wrap;
+  }
+
+  .Editorial-item,
+  .Urban-content {
+    width: 100%; /* Full width for mobile */
+  }
+
+  .Editorial-image {
+    width: 100%; /* Make editorial images responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .Urban-title-left,
+  .Urban-title {
+    font-size: 30px; /* Decrease font size for title */
+  }
+
+  .Urban-text-left,
+  .Urban-text {
+    font-size: 16px; /* Decrease font size for text */
+  }
+
+  .Urban-date,
+  .Editorial-date {
+    font-size: 12px; /* Decrease font size for dates */
+  }
+
+  .Editorial-text-overlay {
+    padding: 10px; /* Reduce padding for overlay */
+  }
+}
+
+@media (max-width: 480px) {
+  .Editorial-Heading {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .Urban-title-left,
+  .Urban-title {
+    font-size: 24px; /* Further decrease font size for title */
+  }
+
+  .Urban-text-left,
+  .Urban-text {
+    font-size: 14px; /* Further decrease font size for text */
+  }
+  .Editorial-image-container {
+    flex-wrap: wrap;
+  }
+
+  .Urban-date,
+  .Editorial-date {
+    font-size: 10px; /* Further decrease font size for dates */
+  }
+
+  .Editorial-image {
+    height: 200px; /* Further reduce image height for mobile */
+  }
 }

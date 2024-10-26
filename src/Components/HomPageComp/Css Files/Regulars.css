@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+
 .Featured-Heading {
   padding-left: 10%;
   padding-right: 10%;
@@ -14,20 +15,57 @@
 
 .Regulars-Container {
   display: flex;
-  gap: 1%;
+  gap: 10px; /* Reduced gap for a more compact look */
   justify-content: space-evenly;
+
   cursor: pointer;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
+
 .Regulars-Items {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px; /* Reduced gap between image and text */
+  flex: 1 1 150px; /* Allow items to grow and shrink, with a minimum width */
 }
+
 .Regulars-image {
-  width: 40px;
-  height: auto;
+  width: 40px; /* Default size */
+  height: auto; /* Maintain aspect ratio */
 }
+
 .Regulars-Text {
   color: black;
   font-family: "Oswald", sans-serif;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .Regulars-image {
+    width: 30px; /* Smaller size for medium screens */
+  }
+
+  .Regulars-Text {
+    font-size: 16px; /* Adjust font size for readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .Regulars-image {
+    width: 50px; /* Even smaller size for mobile screens */
+  }
+
+  .Regulars-Text {
+    font-size: 14px; /* Further decrease font size */
+  }
+
+  .Regulars-Container {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center align items */
+    gap: 5px; /* Additional gap reduction for vertical layout */
+    margin-top: 15%;
+  }
+  .Regulars-Items {
+    margin-top: -25%;
+  }
 }

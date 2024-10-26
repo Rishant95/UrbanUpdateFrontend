@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+
 .Cover-Story-Heading {
   padding-left: 10%;
   padding-right: 10%;
   color: #ec2121;
   font-family: "PT Serif";
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .Styled-hr {
@@ -18,17 +18,19 @@
 
 .Cover-Story-Container {
   display: flex;
-  justify-content: space-between; /* Space between image/text and additional content */
+  justify-content: space-between;
   padding: 20px;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .Cover-Story-item {
   position: relative;
   width: 50%; /* Take up half of the container */
+  min-width: 300px; /* Minimum width for smaller screens */
 }
 
 .Cover-Story-image-container {
-  position: relative; /* Set relative positioning for the container */
+  position: relative;
 }
 
 .Cover-Story-image {
@@ -38,55 +40,77 @@
 }
 
 .Cover-Story-text-overlay {
-  position: absolute; /* Position text absolutely within the container */
-  bottom: 0; /* Align at the bottom */
+  position: absolute;
+  bottom: 0;
   left: 0;
-  width: 100%; /* Span the entire width of the container */
-  color: white; /* Text color to contrast with the image */
-  background: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Semi-transparent background for better readability */
+  width: 100%;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
   padding: 20px;
   box-sizing: border-box;
-  text-align: left; /* Align text to the left */
+  text-align: left;
 }
+
 .Cover-Story-date {
-  font-family: "Merriweather sans";
+  font-family: "Merriweather Sans";
   font-weight: 400;
   font-size: 15px;
   color: black;
-  margin-bottom: -15px;
 }
 
 .Cover-Story-additional-content {
-  width: 50%; /* Take up the other half of the container */
+  width: 50%;
   padding: 20px;
   justify-content: space-evenly;
   gap: 20px;
   box-sizing: border-box;
-}
-.Cover-Story-additional-items {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column; /* Stack items vertically */
+}
 
+.Cover-Story-additional-items {
   border-bottom: 2px dotted black;
+  padding-bottom: 10px; /* Add some padding for clarity */
 }
-.Cover-Story-additional-items > div:last-child {
-  border-bottom: none;
-}
+
 .Side-cover-story-title {
   color: black;
   font-family: "Merriweather";
   font-weight: 700;
   font-size: 30px;
 }
+
 .Side-cover-story-text {
   color: black;
-  font-family: "Merriweather sans";
+  font-family: "Merriweather Sans";
   font-size: 18px;
   font-weight: 200;
-  margin-top: -10px;
+  margin-top: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .Cover-Story-Heading {
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 15px;
+  }
+
+  .Cover-Story-item,
+  .Cover-Story-additional-content {
+    width: 100%; /* Full width on mobile */
+    padding: 0; /* Remove padding for mobile */
+  }
+
+  .Cover-Story-image {
+    height: 300px; /* Adjust height for mobile */
+  }
+
+  .Styled-hr {
+    margin: 20px 0; /* Add margin for better spacing */
+  }
+
+  .Side-cover-story-title {
+    font-size: 24px; /* Reduce font size for mobile */
+  }
 }

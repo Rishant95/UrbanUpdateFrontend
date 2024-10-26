@@ -1,9 +1,59 @@
 import "../Css Files/CoverStory.css";
-import { getImageUrl, useFetch } from "../../../Hooks/useFetch"; // Assuming you have a custom hook for fetching data
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function CoverStory() {
   const { loading, error, data } = useFetch("Cover Story");
+  const [truncatedMainDescription, setTruncatedMainDescription] = useState("");
+  const [truncatedAdditionalStories, setTruncatedAdditionalStories] = useState(
+    []
+  );
+
+  useEffect(() => {
+    if (data && data.data) {
+      // Fetching the first cover story only
+      const coverStory = data.data[0];
+
+      // Function to truncate text based on screen size
+      const truncateDescription = (description, maxWords) => {
+        const words = description.split(" ");
+        return words.length > maxWords
+          ? words.slice(0, maxWords).join(" ") + "..."
+          : description;
+      };
+
+      // Extract main cover story description paragraphs safely
+      const mainDescription =
+        coverStory.Description?.map(
+          (desc) => desc.children[0]?.text || ""
+        ).join(" ") || "";
+
+      // Determine truncation based on screen size for main cover story
+      const maxWordsMain = window.innerWidth < 768 ? 50 : 30; // 50 words for mobile, 30 for desktop
+      const truncatedMain = truncateDescription(mainDescription, maxWordsMain);
+      setTruncatedMainDescription(truncatedMain);
+
+      // Truncate additional stories descriptions
+      const additionalTruncated = data.data.slice(1, 3).map((story) => {
+        const additionalDescription =
+          story.Description?.map((desc) => desc.children[0]?.text || "").join(
+            " "
+          ) || "";
+
+        const maxWordsAdditional = window.innerWidth < 768 ? 5 : 50; // 30 words for mobile, 20 for desktop
+        return {
+          ...story,
+          truncatedDescription: truncateDescription(
+            additionalDescription,
+            maxWordsAdditional
+          ),
+        };
+      });
+
+      setTruncatedAdditionalStories(additionalTruncated);
+    }
+  }, [data]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -17,16 +67,8 @@ export default function CoverStory() {
     return <p>No data available</p>;
   }
 
-  // Fetching the first cover story only
-  const coverStory = data.data[0];
-
-  // Extract description paragraphs safely
-  const description =
-    coverStory.Description?.map((desc, index) => (
-      <p key={index}>{desc.children[0]?.text || ""}</p>
-    )) || [];
-
   // Image URL logic
+  const coverStory = data.data[0];
   const imageUrl = getImageUrl(coverStory);
 
   return (
@@ -47,24 +89,26 @@ export default function CoverStory() {
             )}
             <div className="Cover-Story-text-overlay">
               <Link
-                to={`/detail/cover-news/${coverStory.id}`} // Link to the cover story detail page
+                to={`/detail/cover-news/${coverStory.id}`}
                 className="Cover-Story-link"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <h2>{coverStory.Title}</h2>
               </Link>
-              {description}
+              <p>{truncatedMainDescription}</p>
+              {/* Display truncated main description */}
             </div>
           </div>
         </div>
 
         {/* Additional Cover Stories */}
         <div className="Cover-Story-additional-content">
-          {data.data.slice(1, 3).map((story) => (
+          {truncatedAdditionalStories.map((story) => (
             <div key={story.id} className="Cover-Story-additional-items">
               <Link
-                to={`/detail/cover-news/${story.id}`} // Link to the additional story detail page
+                to={`/detail/cover-news/${story.id}`}
                 className="Cover-Story-link"
+                style={{ textDecoration: "none", color: "inherit" }}
               >
                 <p className="Cover-Story-date">
                   {new Date(story.updatedAt).toLocaleDateString("en-US", {
@@ -73,11 +117,10 @@ export default function CoverStory() {
                   })}
                 </p>
                 <h2 className="Side-cover-story-title">{story.Title}</h2>
-                {story.Description?.map((desc, index) => (
-                  <p className="Side-cover-story-text" key={index}>
-                    {desc.children[0]?.text || ""}
-                  </p>
-                ))}
+                <p className="Side-cover-story-text">
+                  {story.truncatedDescription}
+                </p>{" "}
+                {/* Display truncated description for additional stories */}
               </Link>
             </div>
           ))}

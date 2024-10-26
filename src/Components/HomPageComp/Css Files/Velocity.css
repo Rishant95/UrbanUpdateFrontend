@@ -71,3 +71,42 @@
   font-weight: 300;
   margin-top: -5px;
 }
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .Velocity-Container {
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Reduce gap for mobile */
+  }
+
+  .Velocity-item {
+    width: 100%; /* Full width for mobile */
+  }
+
+  .Velocity-text {
+    font-size: 28px; /* Decrease font size for title */
+  }
+
+  .Velocity-date {
+    font-size: 14px; /* Decrease font size for date */
+  }
+}
+
+@media (max-width: 480px) {
+  .Velocity-Heading {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .Velocity-text {
+    font-size: 24px; /* Further decrease font size for title */
+  }
+
+  .Velocity-date {
+    font-size: 12px; /* Further decrease font size for date */
+  }
+
+  .Velocity-image {
+    height: 200px; /* Adjust height for mobile */
+  }
+}

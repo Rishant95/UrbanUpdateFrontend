@@ -22,7 +22,6 @@ export default function BookReview() {
         <hr className="Styled-hr" />
 
         <div className="BookReview-Container">
-          {/* Display both articles using the same image for the first index */}
           {data.data.map((book) => {
             const editorialImageUrl = getImageUrl(book);
 
@@ -34,20 +33,18 @@ export default function BookReview() {
                 <div>
                   <div className="BookReview-image-container">
                     <img
-                      src={editorialImageUrl} // Use the image URL defined above
+                      src={editorialImageUrl}
                       alt={book.Title}
                       className="BookReview-image"
                     />
                     <div className="BookReview-text-overlay">
                       <p className="BookReview-date">
                         {new Date(book.updatedAt).toLocaleDateString("en-US", {
-                          month: "long", // Full month name
-                          year: "numeric", // Year
+                          month: "long",
+                          year: "numeric",
                         })}
                       </p>
                       <h2 className="BookReview-text">{book.Title}</h2>
-
-                      {/* Render limited description */}
                       {book?.Content?.length > 0 && (
                         <p className="BookReview-description">
                           {truncateText(
@@ -71,7 +68,7 @@ export default function BookReview() {
 // Helper function to truncate text
 const truncateText = (text, limit) => {
   if (text && text.length > limit) {
-    return text.substring(0, limit) + "..."; // Add ellipsis if truncated
+    return text.substring(0, limit) + "...";
   }
-  return text || ""; // Return empty string if text is null or undefined
+  return text || "";
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Siteheader from "../Components/siteheader";
 import Slider from "react-slick";
-import { useFetch } from "../Hooks/useFetch";
+import { getImageUrl, useFetch } from "../Hooks/useFetch";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../PagesCss/hompage.css";
@@ -15,8 +15,6 @@ import CityAndArticles from "../Components/HomPageComp/Js Files/CityAndArticles"
 import EditorialUrban from "../Components/HomPageComp/Js Files/EditorialUrban";
 import BookReview from "../Components/HomPageComp/Js Files/BookReview";
 import Regulars from "../Components/HomPageComp/Js Files/Regulars";
-
-const API_BASE_URL = "https://admin.manofox.online"; // Replace with your actual API base URL
 
 export default function Homepage() {
   const { loading, error, data } = useFetch("ThumbnailSlider");
@@ -51,13 +49,7 @@ export default function Homepage() {
         <div className="slider-container">
           <Slider {...settings}>
             {data.data.map((article) => {
-              const imageUrl = article.ThumbailUrl
-                ? `${API_BASE_URL}${article.ThumbailUrl}`
-                : article.Image?.[0]?.formats?.large?.url
-                ? `${API_BASE_URL}${article.Image[0].formats.large.url}`
-                : article.Image?.[0]?.url
-                ? `${API_BASE_URL}${article.Image[0].url}`
-                : "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image if none exists
+              const imageUrl = getImageUrl(article);
 
               // Log the image URL for debugging
 

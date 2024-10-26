@@ -10,13 +10,13 @@
   margin-top: 60px;
   font-family: "PT Serif";
 }
+
 .Styled-hr {
   border-width: 5px;
   background: linear-gradient(to right, red 10%, black 10%);
 }
 
 .OneonOne-description {
-  margin-top: -10px;
   font-family: "Merriweather Sans";
   font-size: 18px;
   font-weight: 300;
@@ -33,6 +33,7 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 20px;
+  flex-wrap: wrap; /* Allow items to wrap */
 }
 
 .OneonOne-item {
@@ -66,28 +67,17 @@
   border-bottom: 1px solid #ccc; /* Light gray line after each story */
   margin-bottom: 20px; /* Add some space after the border */
 }
-.OneonOne-story {
-  padding-bottom: 20px; /* Add some space at the bottom */
-  border-bottom: 1px solid #ccc; /* Light gray line after each story */
-  margin-bottom: 20px; /* Add some space after the border */
-}
+
 .OneonOne-story:last-child {
   border-bottom: none;
 }
 
 .OneonOne-story-title {
   color: black;
-  margin-top: -5px;
+
   font-size: 30px;
   font-weight: 700;
   font-family: "Merriweather";
-}
-
-.OneonOne-story-text {
-  color: black;
-  font-size: 30px;
-  font-weight: 700;
-  font-family: "Merriweather Sans", sans-serif;
 }
 
 .OneonOne-date {
@@ -96,4 +86,56 @@
   margin-top: -5px;
   font-size: 15px;
   color: black;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .OneonOne-Container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+  }
+
+  .OneonOne-image-container,
+  .OneonOne-additional-content {
+    width: 100%; /* Full width for mobile */
+  }
+
+  .OneonOne-image {
+    height: 300px; /* Adjust height for mobile */
+  }
+
+  .first-title {
+    font-size: 24px; /* Decrease font size for title */
+  }
+
+  .OneonOne-description {
+    font-size: 16px; /* Decrease font size for description */
+  }
+
+  .OneonOne-story-title {
+    font-size: 24px; /* Decrease font size for story title */
+  }
+
+  .OneonOne-date {
+    font-size: 14px; /* Decrease font size for date */
+  }
+}
+
+@media (max-width: 480px) {
+  .OneonOne-Heading {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .first-title {
+    font-size: 20px; /* Further decrease font size for title */
+  }
+
+  .OneonOne-description {
+    font-size: 14px; /* Further decrease font size for description */
+  }
+
+  .OneonOne-image {
+    height: 200px; /* Adjust height for mobile */
+  }
 }
