@@ -72,7 +72,7 @@ export default function Siteheader() {
             <a href="#columns" className="nav-link">
               Columns
             </a>
-            <a href="#events" className="nav-link">
+            <a href="/events" className="nav-link">
               Events
             </a>
             <a href="#publication" className="nav-link">
@@ -107,7 +107,7 @@ export default function Siteheader() {
               <a href="#columns" className="nav-link">
                 Columns
               </a>
-              <a href="#events" className="nav-link">
+              <a href="/events" className="nav-link">
                 Events
               </a>
               <a href="#publication" className="nav-link">

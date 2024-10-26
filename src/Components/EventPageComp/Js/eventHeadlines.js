@@ -2,14 +2,12 @@ import "../Css/eventHeadlines.css";
 
 import React from "react";
 
-import { useFetch } from "../../../Hooks/useFetch"; // Assuming you have a custom useFetch hook
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch"; // Assuming you have a custom useFetch hook
 import { FaArrowRight } from "react-icons/fa";
 
 export default function BookReview() {
   // Fetch data using the useFetch hook
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/event-headlines"
-  );
+  const { loading, error, data } = useFetch("Event Headlines");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -23,9 +21,9 @@ export default function BookReview() {
     return <p>No data available</p>;
   }
 
-  const bookReviews = data.data;
-  const firstReview = bookReviews[0];
-  const otherReviews = bookReviews.slice(1);
+  const eventData = data.data;
+  const latestEvents = eventData[0];
+  const otherReviews = eventData.slice(1);
 
   return (
     <div className="book-reviews-container">
@@ -33,16 +31,13 @@ export default function BookReview() {
       <div className="first-review">
         <div className="first-review-content">
           <p className="first-review-date">
-            {new Date(firstReview.attributes.updatedAt).toLocaleDateString(
-              "en-US",
-              {
-                month: "long", // Full month name
-                year: "numeric", // Year
-              }
-            )}
+            {new Date(latestEvents.updatedAt).toLocaleDateString("en-US", {
+              month: "long", // Full month name
+              year: "numeric", // Year
+            })}
           </p>
-          <h2>{firstReview.attributes.Title}</h2>
-          <p>{firstReview.attributes.Description[0].children[0].text}</p>
+          <h2>{latestEvents.Title}</h2>
+          <p>{latestEvents.Description[0].children[0].text}</p>
           <button className="first-review-button">
             <h5 style={{ color: "black" }}>Read Now</h5>
             <FaArrowRight className="first-review-icon"></FaArrowRight>
@@ -50,33 +45,27 @@ export default function BookReview() {
         </div>
 
         <div className="first-review-image">
-          <img
-            src={firstReview.attributes.thumbnailUrl}
-            alt={firstReview.attributes.Title}
-          />
+          <img src={getImageUrl(latestEvents)} alt={latestEvents.Title} />
         </div>
       </div>
 
       {/* Other reviews layout */}
       <div className="other-reviews">
-        {otherReviews.map((review) => (
-          <div key={review.id} className="other-review-item">
+        {otherReviews.map((events) => (
+          <div key={events.id} className="other-review-item">
             <img
-              src={review.attributes.thumbnailUrl}
-              alt={review.attributes.Title}
+              src={getImageUrl(events)}
+              alt={events.Title}
               className="other-review-image"
             />
             <div className="other-review-title">
               <p className="other-review-date">
-                {new Date(review.attributes.updatedAt).toLocaleDateString(
-                  "en-US",
-                  {
-                    month: "long", // Full month name
-                    year: "numeric", // Year
-                  }
-                )}
+                {new Date(events.updatedAt).toLocaleDateString("en-US", {
+                  month: "long", // Full month name
+                  year: "numeric", // Year
+                })}
               </p>
-              <h3>{review.attributes.Title}</h3>
+              <h3>{events.Title}</h3>
             </div>
           </div>
         ))}

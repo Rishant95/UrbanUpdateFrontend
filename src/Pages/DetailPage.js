@@ -1,24 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useFetch } from "../Hooks/useFetch";
+import { getImageUrl, getMoreDetail } from "../Hooks/useFetch";
 import "../PagesCss/DetailPage.css";
 import MinimizedHeader from "../Components/EventPageComp/Js/minimizedHeader";
 
 export default function DetailPage() {
   const { collection, id } = useParams();
-  const { loading, error, data } = useFetch(
-    `http://localhost:1337/api/${collection}/${id}`
-  );
-
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
-  const sampleImage = "https://via.placeholder.com/800"; // Sample image URL
+  const sampleImage = "https://via.placeholder.com/800";
 
+  // Fetch main article details
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getMoreDetail(id);
+        if (result.error) {
+          setError(result.error);
+        } else {
+          setData(result.data[0]);
+        }
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+  // Fetch related articles
   useEffect(() => {
     const fetchRelatedArticles = async () => {
       try {
-        const response = await fetch(`http://localhost:1337/api/${collection}`);
+        const response = await fetch(`Recent News`);
         const result = await response.json();
-        setRelatedArticles(result.data);
+        setRelatedArticles(Array.isArray(result.data) ? result.data : []);
       } catch (error) {
         console.error("Error fetching related articles:", error);
       }
@@ -35,11 +55,11 @@ export default function DetailPage() {
     return <p>Error: {error.message}</p>;
   }
 
-  if (!data || !data.data) {
+  if (!data) {
     return <p>No data available</p>;
   }
 
-  const { Title, Description, createdAt, ImageUrl } = data.data;
+  const { Title, Description, createdAt, Image } = data;
 
   return (
     <div>
@@ -50,15 +70,19 @@ export default function DetailPage() {
           {new Date(createdAt).toLocaleDateString()}
         </p>
         <img
-          src={ImageUrl || sampleImage}
+          src={getImageUrl(data) || sampleImage}
           alt={Title}
           className="detail-image"
         />
 
         <div className="detail-description">
-          {Description.map((para, index) => (
-            <p key={index}>{para.children[0].text}</p>
-          ))}
+          {Array.isArray(Description) ? (
+            Description.map((para, index) => (
+              <p key={index}>{para.children[0].text}</p>
+            ))
+          ) : (
+            <p>{Description}</p>
+          )}
         </div>
 
         <div className="comment-section">
@@ -71,7 +95,7 @@ export default function DetailPage() {
 
         <div className="related-articles">
           <h2>Related Articles</h2>
-          <hr></hr>
+          <hr />
           <ul>
             {relatedArticles.map((article) => (
               <li key={article.id}>
@@ -81,7 +105,7 @@ export default function DetailPage() {
               </li>
             ))}
           </ul>
-          <hr></hr>
+          <hr />
         </div>
       </div>
     </div>

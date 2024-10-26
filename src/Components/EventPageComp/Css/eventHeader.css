@@ -4,106 +4,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f8f8f8; /* Light background color */
+  padding: 0% 5%;
+  border-radius: 10px; /* Rounded corners for the header */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
 }
 
-.Event-Header-Menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px;
-}
-
-.header-logo-title {
-  display: flex;
-  align-items: center;
-}
-
-.header-logo {
-  width: 40px;
-  height: auto;
-  margin-left: 10px;
-}
-
-.title-container {
-  display: flex;
-  flex-direction: row;
-  margin-left: 10px;
-}
-
-.urban-Text,
-.update-Text {
-  font-family: "Oswald", sans-serif;
-  font-size: 35px;
-  color: #ec2121;
-  margin: 0;
-}
-
-.update-Text {
-  font-weight: 400;
-}
-.icon {
-  font-size: 20px;
-}
-.subscribe-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 120px; /* Adjust width as needed */
-  height: 45px; /* Adjust height as needed */
-  background-color: black;
-  border: none;
-  border-radius: 20px; /* Rounded corners */
-  color: white;
-  font-size: 1rem; /* Adjust font size */
-  cursor: pointer;
-  position: relative; /* For pseudo-elements */
-  overflow: hidden;
-}
-.signin-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 120px; /* Adjust width as needed */
-  height: 45px; /* Adjust height as needed */
-  background-color: #ec2121;
-  border: none;
-  border-radius: 20px; /* Rounded corners */
-  color: white;
-  font-size: 1rem; /* Adjust font size */
-  cursor: pointer;
-  position: relative; /* For pseudo-elements */
-  overflow: hidden;
-}
-.header-buttons {
-  padding: 10px;
-  margin-left: 20px;
-  display: flex;
-  gap: 10px;
-}
-.subscribe-button h5 {
-  color: white;
-  font-family: "AbeeZee", sans-serif;
-}
-.notification-icon {
-  color: white;
-}
 #Event-Title {
   font-size: 56px;
   color: #d90000;
-  margin-top: 1%;
+  margin: 10px 0; /* Adjust margins */
   font-family: "Oswald", sans-serif;
+  text-align: center; /* Centered title */
 }
+
+.header-content {
+  display: flex;
+  justify-content: space-between; /* Distributes space evenly */
+  width: 100%; /* Full width of the container */
+  align-items: center; /* Center vertically */
+}
+
 .tabs-row {
   display: flex;
-  margin-top: -25px;
-  justify-content: space-around; /* Distributes space evenly between tabs */
+  margin-top: -15px; /* Adjusted margin */
+  justify-content: space-between; /* Distributes space evenly between tabs */
   align-items: center; /* Centers tabs vertically */
-  padding: 10px; /* Space around the row */
-  gap: 50px;
-  /* Background color of the row */
+  padding: 10px 0; /* Space around the row */
+  width: 100%; /* Full width of the container */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .tab-link {
@@ -112,32 +41,95 @@
   font-family: "PT Serif", serif;
   font-weight: 700;
   font-size: 24px; /* Font size */
-  transition: background-color 0.3s; /* Smooth background color transition */
+  padding: 10px 15px; /* Padding around links */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth background color transition */
 }
 
 .tab-link:hover {
-  background-color: #555; /* Change background color on hover */
-  border-radius: 5px; /* Rounded corners on hover */
+  background-color: #d90000; /* Change background color on hover */
+  color: white; /* Change text color on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
+
+.hamburger {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  cursor: pointer; /* Cursor changes to pointer */
+  gap: 5px; /* Space between lines */
+}
+
+.line {
+  width: 25px; /* Line width */
+  height: 3px; /* Line height */
+  background-color: black; /* Line color */
+  transition: 0.3s; /* Transition for smooth effect */
+}
+
+/* Active lines for animation */
+.line.active {
+  background-color: #d90000; /* Change color for active state */
+}
+
 hr {
   border: 0; /* Remove default border */
-  border-top: 5px solid black; /* Adjust thickness and color */
+  border-top: 5px solid #d90000; /* Adjust thickness and color */
   margin: 20px 0; /* Space above and below the line */
-  width: 100%; /* Full width of the container */
+  width: 90%; /* Full width of the container */
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items */
+  background-color: #f8f8f8; /* Same background as header */
+  width: 100%; /* Full width */
+  padding: 10px 0; /* Padding around menu */
+  position: absolute; /* Positioned relative to the header */
+  top: 80px; /* Adjust as needed based on header height */
+  left: 0; /* Align to the left */
+  border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  z-index: 1; /* Ensure it overlays other content */
+}
+
+.mobile-tab-link {
+  color: black; /* Text color */
+  text-decoration: none; /* Remove underline */
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-size: 20px; /* Font size for mobile */
+  padding: 10px 15px; /* Padding around links */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.mobile-tab-link:hover {
+  background-color: #d90000; /* Change background color on hover */
+  color: white; /* Change text color on hover */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .header-logo {
-    width: 60px;
+  .tabs-row {
+    display: none; /* Hide tabs on mobile */
   }
 
-  .urban-Text,
-  .update-Text {
-    font-size: 30px;
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
   }
 
   #Event-Title {
-    font-size: 40px;
+    font-size: 40px; /* Adjust title size for smaller screens */
+  }
+}
+
+@media (max-width: 500px) {
+  #Event-Title {
+    font-size: 32px; /* Further reduce title size on mobile */
+  }
+
+  .mobile-tab-link {
+    font-size: 18px; /* Smaller font size for mobile tabs */
   }
 }

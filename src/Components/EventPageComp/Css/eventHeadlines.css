@@ -16,6 +16,14 @@
   justify-content: space-between;
   margin-bottom: 40px;
   padding-bottom: 20px; /* Add padding below the content for better spacing */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.first-review:hover {
+  transform: scale(
+    1.02
+  ); /* Slightly enlarge the entire first review on hover */
 }
 
 .first-review-date {
@@ -46,8 +54,13 @@
 
 .first-review-image img {
   max-width: 100%;
-  height: 100%;
+  height: auto; /* Adjust height to maintain aspect ratio */
   object-fit: cover;
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+}
+
+.first-review-image:hover img {
+  transform: scale(1.05); /* Zoom effect on image hover */
 }
 
 .first-review-button {
@@ -60,7 +73,7 @@
   background-color: white;
   border: none;
   border-radius: 20px; /* Rounded corners */
-  color: white;
+  color: black; /* Change text color to black for contrast */
   font-size: 20px; /* Adjust font size */
   cursor: pointer;
   position: relative; /* For pseudo-elements */
@@ -68,6 +81,12 @@
   font-family: "Oswald", sans-serif;
   margin-top: 40px;
   font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background and scaling */
+}
+
+.first-review-button:hover {
+  background-color: #e0e0e0; /* Change background on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
 }
 
 .first-review-icon {
@@ -91,6 +110,11 @@
   flex: 1 1 calc(25% - 20px); /* Adjust based on the number of items per row and the gap */
   box-sizing: border-box; /* Include padding and border in the width calculation */
   position: relative; /* Required for absolute positioning of border */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.other-review-item:hover {
+  transform: scale(1.02); /* Slightly enlarge the entire review item on hover */
 }
 
 .other-review-item:not(:last-child) {
@@ -99,7 +123,12 @@
 
 .other-review-image {
   width: 100%;
-  height: auto;
+  height: 300px;
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+}
+
+.other-review-image:hover {
+  transform: scale(1.05); /* Zoom effect on image hover */
 }
 
 .other-review-title {
@@ -111,9 +140,78 @@
   font-weight: 600;
   text-align: center;
   font-family: "Oswald", sans-serif;
-  text-align: start;
-  margin-top: -10px;
+  margin-top: 0px;
 }
+
 .other-review-date {
   font-family: "PT Serif", serif;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .first-review {
+    flex-direction: column; /* Stack vertically on medium screens */
+  }
+
+  .first-review-content {
+    width: 100%; /* Full width for smaller screens */
+  }
+
+  .first-review-button {
+    width: auto; /* Allow button to adjust width */
+  }
+
+  .other-review-item {
+    flex: 1 1 calc(33% - 20px); /* Three items per row on medium screens */
+  }
+
+  .other-review-image {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 800px) {
+  .first-review h2 {
+    font-size: 28px; /* Smaller title on small screens */
+  }
+
+  .first-review-content p {
+    font-size: 12px; /* Smaller paragraph text */
+  }
+
+  .first-review-button {
+    width: auto; /* Adjust button width for smaller screens */
+    height: 40px; /* Adjust button height */
+  }
+
+  .other-review-item {
+    flex: 1 1 calc(50% - 20px); /* Two items per row on small screens */
+  }
+
+  .other-review-title h3 {
+    font-size: 20px; /* Smaller title for reviews */
+  }
+}
+
+@media (max-width: 500px) {
+  .first-review h2 {
+    font-size: 24px; /* Further reduce title size */
+  }
+
+  .first-review-content p {
+    font-size: 10px; /* Further reduce paragraph text */
+  }
+
+  .other-review-item {
+    flex: 1 1 100%; /* One item per row on extra small screens */
+  }
+
+  .other-review-title h3 {
+    font-size: 18px; /* Smaller title for mobile */
+  }
+
+  .first-review-button {
+    width: 100%; /* Full-width button on mobile */
+  }
 }

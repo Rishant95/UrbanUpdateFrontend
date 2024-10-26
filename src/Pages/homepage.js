@@ -19,18 +19,28 @@ import Regulars from "../Components/HomPageComp/Js Files/Regulars";
 export default function Homepage() {
   const { loading, error, data } = useFetch("ThumbnailSlider");
 
+  // Debugging logs
+  console.log("Loading:", loading);
+  console.log("Error:", error);
+  console.log("Fetched data:", data);
+  console.log("Data structure:", data?.data);
+
+  // Loading state
   if (loading) {
     return <p>Loading...</p>;
   }
 
+  // Error handling
   if (error) {
     return <p>Error: {error.message}</p>;
   }
 
-  if (!data || !data.data) {
+  // Check if the data is available
+  if (!data || !data.data || data.data.length === 0) {
     return <p>No data available</p>;
   }
 
+  // Slider settings
   const settings = {
     dots: true,
     infinite: true,
@@ -50,8 +60,6 @@ export default function Homepage() {
           <Slider {...settings}>
             {data.data.map((article) => {
               const imageUrl = getImageUrl(article);
-
-              // Log the image URL for debugging
 
               return (
                 <div key={article.id} className="slide-container">
@@ -80,31 +88,23 @@ export default function Homepage() {
           <img
             className="magazine-image"
             src="https://ibc.manofox.com/wp-content/uploads/2024/08/71f33b4d90acecdf5dad2bbdac7d609d-731x1024.jpg"
-            alt=""
+            alt="Magazine Cover"
           />
         </div>
       </div>
-      {
-        <>
-          <RecentNews />
-          <CoverStory />
-          <LeaderSpeak />
-          <VelocityPage />
-          <Oneonone />
-          <CityAndArticles />
-          <EditorialUrban />
-          <BookReview />
-          <Regulars />
-        </>
 
-        /*
-     
-   
-    
-    
-      <FeaturedVideos />
-      */
-      }
+      {/* Render other components below the slider */}
+      <>
+        <RecentNews />
+        <CoverStory />
+        <LeaderSpeak />
+        <VelocityPage />
+        <Oneonone />
+        <CityAndArticles />
+        <EditorialUrban />
+        <BookReview />
+        <Regulars />
+      </>
     </div>
   );
 }

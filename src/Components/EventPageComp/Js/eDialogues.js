@@ -5,9 +5,7 @@ import React from "react";
 
 export default function Edialogues() {
   // Fetch data from the new endpoint
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/e-dialogues"
-  );
+  const { loading, error, data } = useFetch("E Dialogues");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -39,8 +37,8 @@ export default function Edialogues() {
         <div className="edialogues-left">
           {data.data.map((item) => (
             <div key={item.id}>
-              <h3 className="event-dialogue-item">{item.attributes.Title}</h3>
-              {item.attributes.Description.map((desc, index) => (
+              <h3 className="event-dialogue-item">{item.Title}</h3>
+              {item.Description.map((desc, index) => (
                 <p key={index} className="event-dialogue-item-para">
                   {truncateText(desc.children[0].text, 100)}{" "}
                   {/* Limit to 100 characters */}
@@ -53,7 +51,7 @@ export default function Edialogues() {
         {/* Right side: Image */}
         <div className="edialogues-right">
           <img
-            src="http://localhost:1337/uploads/Image_1bbc0ce759.png"
+            src="https://admin.manofox.online/uploads/thumbnail_cb21d5acbe6826763ab6b97a09f17102_31b0e55257.jpeg"
             alt="Right side illustration"
             className="event-dialogue-image"
           />

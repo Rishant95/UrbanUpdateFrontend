@@ -4,32 +4,21 @@
 
 .edialogues-container {
   display: flex;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
   justify-content: space-between;
   align-items: flex-start;
   margin: 20px;
 }
+
 .edialogues-left {
   padding-left: 5%;
-  width: 50%;
+  width: 50%; /* Default width for larger screens */
 }
+
 .edialogues-left div {
   border-bottom: 3px dotted #ccc; /* Adds a dotted border at the bottom */
   padding-bottom: 15px; /* Adds padding to the bottom */
   margin-bottom: 15px; /* Adds spacing between items */
-}
-
-.event-dialogue-item {
-  margin: 0;
-}
-
-.event-dialogue-item-para {
-  margin: 0;
-  padding-top: 5px;
-}
-
-.edialogues-right img {
-  max-width: 100%;
-  height: auto;
 }
 
 .event-item {
@@ -44,6 +33,11 @@
   font-weight: 700;
   margin-bottom: 10px;
   color: #333;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.event-dialogue-item:hover {
+  color: #d90000;
 }
 
 .event-dialogue-item-para {
@@ -52,18 +46,57 @@
   font-weight: 300;
   color: #666;
   margin-bottom: 10px;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.event-dialogue-item-para:hover {
+  color: #333; /* Change paragraph color on hover */
 }
 
 .dotted-separator {
   border-bottom: 2px dotted #ccc;
   margin: 20px 0;
 }
+
 .edialogues-right {
-  flex: 0.5; /* Adjust this to control the image size */
+  flex: 0.5; /* Default size for larger screens */
+}
+
+.edialogues-right img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+}
+
+.edialogues-right img:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
 }
 
 .event-dialogue-image {
   max-width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   border-radius: 8px; /* Optional: add some styling to the image */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .edialogues-left {
+    width: 100%; /* Full width on medium screens */
+    padding-left: 0; /* Remove left padding */
+  }
+
+  .edialogues-right {
+    width: 100%; /* Full width on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .event-dialogue-item {
+    font-size: 20px; /* Smaller font for mobile */
+  }
+
+  .event-dialogue-item-para {
+    font-size: 18px; /* Smaller font for mobile */
+  }
 }

@@ -1,13 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { useFetch } from "../../../Hooks/useFetch";
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 import { FaArrowRight } from "react-icons/fa";
 import "../Css/sacSummit.css"; // Make sure your CSS is defined
 
 export default function SacSummit() {
   // Fetch data from the provided endpoint
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/sac-summits"
-  );
+  const { loading, error, data } = useFetch("Sac Summit");
   const scrollerRef = useRef(null); // Ref to the scroller div
 
   // Auto-scroll and infinite loop logic
@@ -54,7 +52,7 @@ export default function SacSummit() {
           {data.data.map((item) => (
             <img
               key={item.id}
-              src={item.attributes.ThumbnailUrl}
+              src={getImageUrl(item)}
               alt={`Sac Summit ${item.id}`}
               className="sac-summit-image"
             />

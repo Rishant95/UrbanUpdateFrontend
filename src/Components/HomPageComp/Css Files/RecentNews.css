@@ -10,8 +10,8 @@
 
 .Recent-news-row {
   display: flex;
-  padding-left: 10%;
-  padding-right: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: -10px;
   overflow-x: auto; /* Enable horizontal scrolling */
   white-space: nowrap; /* Prevent wrapping of items */

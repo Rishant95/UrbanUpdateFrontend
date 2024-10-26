@@ -1,14 +1,11 @@
-import "../Css/upcomingevent.css";
-
 import React from "react";
-import { useFetch } from "../../../Hooks/useFetch"; // Adjust path as needed
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch"; // Adjust path as needed
 import { FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
+import "../Css/upcomingevent.css"; // Ensure this path is correct
 
 export default function UpcomingEvents() {
   // Fetch data using the useFetch hook
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/upcoming-events"
-  );
+  const { loading, error, data } = useFetch("Upcoming Events");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -18,12 +15,13 @@ export default function UpcomingEvents() {
     return <p>Error: {error.message}</p>;
   }
 
-  if (!data || !data.data || data.data.length < 3) {
-    return <p>Insufficient data available</p>;
+  if (!data || !data.data || data.data.length < 1) {
+    return <p>Insufficient data available</p>; // Check if there's at least one event
   }
 
-  // Extract data
-  const [bigImage, smallImage1, smallImage2] = data.data;
+  // Extracting data from the response
+  const event = data.data.slice(1); // Get the first event
+  const bigImage = getImageUrl(data.data[0]); // Get the first image for the big display
 
   return (
     <div>
@@ -36,37 +34,31 @@ export default function UpcomingEvents() {
         }}
       >
         <h1 className="upcoming-events-heading">UPCOMING EVENTS</h1>
-        <FaArrowAltCircleRight
-          style={{ fontSize: "30px", color: "#d90000" }}
-        ></FaArrowAltCircleRight>
+        <FaArrowAltCircleRight style={{ fontSize: "30px", color: "#d90000" }} />
       </div>
+
       <div className="upcoming-events-container">
         {/* Large image on the left */}
         <div className="big-image">
-          <img
-            src={bigImage.attributes.thumbnailUrl}
-            alt={bigImage.attributes.Title}
-          />
+          {bigImage && <img src={bigImage} alt={event.Title} />}
         </div>
 
         {/* Small images on the right */}
         <div className="small-images">
-          <div className="small-image">
-            <img
-              src={smallImage1.attributes.thumbnailUrl}
-              alt={smallImage1.attributes.Title}
-            />
-          </div>
-          <div className="small-image">
-            <img
-              src={smallImage2.attributes.thumbnailUrl}
-              alt={smallImage2.attributes.Title}
-            />
-          </div>
+          {event.length > 0 ? (
+            event.map((image, index) => (
+              <div className="small-image" key={index}>
+                <img src={getImageUrl(image)} alt={event.Title} />
+              </div>
+            ))
+          ) : (
+            <p>No additional images available.</p>
+          )}
         </div>
       </div>
+
       <div className="More-Container">
-        <a href="/">More From Upcoming events</a>
+        <a href="/">More From Upcoming Events</a>
         <FaArrowRight />
       </div>
       <hr style={{ marginLeft: "5%", width: "90%" }} />
