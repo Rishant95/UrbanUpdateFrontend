@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../Css Files/CityAndArticles.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 
@@ -20,8 +21,6 @@ function CityAndArticles() {
   }
 
   const city = data.data[0]; // Access the first item in the array
-
-  // Check if city.attributes exists to avoid accessing undefined properties
   const imageUrl = getImageUrl(city);
 
   return (
@@ -31,13 +30,18 @@ function CityAndArticles() {
           <div className="Cityimage-container">
             <h1>City Images</h1>
             <hr className="Styled-hr" />
-            {imageUrl && ( // Check if imageUrl is valid
-              <img
-                src={imageUrl} // Ensure proper URL construction
-                alt={city?.Title || "City Image"} // Provide a fallback alt text
-                className="Cover-Story-image"
-              />
-            )}
+            <Link
+              to={`/detail/CityImages/${city.id}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              {imageUrl && (
+                <img
+                  src={imageUrl}
+                  alt={city?.Title || "City Image"}
+                  className="Cover-Story-image"
+                />
+              )}
+            </Link>
             <div className="City-text-overlay">
               <p className="City-date">
                 {new Date(city.updatedAt).toLocaleDateString("en-US", {
@@ -45,7 +49,7 @@ function CityAndArticles() {
                   year: "numeric",
                 })}
               </p>
-              <h2>{city?.Title || "Untitled"}</h2> {/* Fallback title */}
+              <h2>{city?.Title || "Untitled"}</h2>
             </div>
           </div>
         </div>
@@ -58,67 +62,81 @@ function CityAndArticles() {
     </div>
   );
 }
-function Articles() {
-  const { loading, error, data } = useFetch("Articles"); // Use correct endpoint for articles
 
-  // Loading state
+function Articles() {
+  const { loading, error, data } = useFetch("Articles");
+
   if (loading) {
     return <p>Loading...</p>;
   }
 
-  // Error handling
   if (error) {
     return <p>Error: {error.message}</p>;
   }
 
-  // Check if data is available
   if (!data || !data.data || data.data.length === 0) {
     return <p>No articles available</p>;
   }
 
+  // Function to truncate the text to 50 words
+  const truncateText = (text, wordCount) => {
+    const words = text.split(" ");
+    return words.length > wordCount
+      ? words.slice(0, wordCount).join(" ") + "..."
+      : text;
+  };
+
   return (
     <div className="Articles-Additional-Articles">
-      {data.data.slice(0, 2).map((article, index) => {
-        // Handling different potential image URLs for the article
+      {data.data.map((article, index) => {
         const articleImageUrl = getImageUrl(article);
         return (
-          <div key={article.id} className="Article">
-            {/* Render image for the first article */}
-            {index === 0 && articleImageUrl && (
-              <div className="Article-Image">
-                <img
-                  src={articleImageUrl} // Ensure proper URL construction
-                  alt={article.Title || "Article Image"} // Fallback for alt text
-                  className="Article-Image-Img"
-                />
-              </div>
-            )}
-            <div className="Article-Content">
-              <p className="Article-date">
-                {new Date(article.updatedAt).toLocaleDateString("en-US", {
-                  month: "long",
-                  year: "numeric",
-                })}
-              </p>
-              <h2 className="Article-title">
-                {article.Title || "Untitled Article"}
-              </h2>
-              {/* Only render article content for non-first articles */}
-              {index !== 0 && article.Content && (
-                <div className="Article-text">
-                  {article.Content.map((contentBlock, contentIndex) => (
-                    <p key={contentIndex}>
-                      {/* Map through children and render text */}
-                      {contentBlock.children &&
-                        contentBlock.children.map((child, childIndex) => (
-                          <span key={childIndex}>{child.text}</span>
-                        ))}
-                    </p>
-                  ))}
+          <Link
+            key={article.id}
+            to={`/detail/Articles/${article.id}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="Article">
+              {index === 0 && articleImageUrl && (
+                <div className="Article-Image">
+                  <img
+                    src={articleImageUrl}
+                    alt={article.Title || "Article Image"}
+                    className="Article-Image-Img"
+                  />
                 </div>
               )}
+              <div className="Article-Content">
+                <p className="Article-date">
+                  {new Date(article.updatedAt).toLocaleDateString("en-US", {
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </p>
+                <h2 className="Article-title">
+                  {article.Title || "Untitled Article"}
+                </h2>
+
+                {/* Display truncated description only for the last article */}
+                {index === data.data.length - 1 && article.Description && (
+                  <div className="Article-text">
+                    {article.Description.map((contentBlock, contentIndex) => (
+                      <p key={contentIndex}>
+                        {contentBlock.children &&
+                          contentBlock.children.map((child, childIndex) => {
+                            const fullText = child.text; // Get full text
+                            const truncatedText = truncateText(fullText, 50); // Truncate to 50 words
+                            return (
+                              <span key={childIndex}>{truncatedText}</span>
+                            );
+                          })}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

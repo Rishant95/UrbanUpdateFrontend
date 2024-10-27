@@ -1,6 +1,7 @@
 import React from "react";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch"; // Adjust path as needed
 import { FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Import Link for navigation
 import "../Css/upcomingevent.css"; // Ensure this path is correct
 
 export default function UpcomingEvents() {
@@ -20,8 +21,9 @@ export default function UpcomingEvents() {
   }
 
   // Extracting data from the response
-  const event = data.data.slice(1); // Get the first event
-  const bigImage = getImageUrl(data.data[0]); // Get the first image for the big display
+  const events = data.data; // Get all events
+  const bigEvent = events[0]; // Get the first event for the big display
+  const bigImage = getImageUrl(bigEvent); // Get the first image for the big display
 
   return (
     <div>
@@ -39,20 +41,28 @@ export default function UpcomingEvents() {
 
       <div className="upcoming-events-container">
         {/* Large image on the left */}
-        <div className="big-image">
-          {bigImage && <img src={bigImage} alt={event.Title} />}
-        </div>
+        <Link
+          to={`/detail/Upcoming Events/${bigEvent.id}`}
+          className="big-image"
+        >
+          {bigImage && <img src={bigImage} alt={bigEvent.Title} />}
+        </Link>
 
         {/* Small images on the right */}
         <div className="small-images">
-          {event.length > 0 ? (
-            event.map((image, index) => (
-              <div className="small-image" key={index}>
-                <img src={getImageUrl(image)} alt={event.Title} />
-              </div>
-            ))
-          ) : (
-            <p>No additional images available.</p>
+          {events.slice(1).map(
+            (
+              event,
+              index // Skip the first event for small images
+            ) => (
+              <Link
+                key={event.id}
+                to={`/detail/Upcoming Events/${event.id}`}
+                className="small-image"
+              >
+                <img src={getImageUrl(event)} alt={event.Title} />
+              </Link>
+            )
           )}
         </div>
       </div>

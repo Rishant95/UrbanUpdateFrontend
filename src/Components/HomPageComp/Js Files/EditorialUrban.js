@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 import "../Css Files/EditorialUrban.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 
@@ -17,11 +17,8 @@ function EditorialUrban() {
     return <p>No data available</p>;
   }
 
-  const Editorial = data.data[0]; // Access the first item in the array
-
-  // Handle image URL
-
-  const editorialImageUrl = getImageUrl(Editorial);
+  const editorial = data.data[0]; // Access the first item in the array
+  const editorialImageUrl = getImageUrl(editorial);
 
   return (
     <div className="Editorial-Heading">
@@ -29,36 +26,42 @@ function EditorialUrban() {
         <div className="Editorial-item">
           <h1>Editorials</h1>
           <hr className="Styled-hr" />
-          <div className="Editorial-image-container">
-            {editorialImageUrl && (
-              <img
-                src={editorialImageUrl}
-                alt={Editorial?.attributes?.Title || "Editorial Image"}
-                className="Editorial-image"
-              />
-            )}
-            <div className="Editorial-overlay">
-              <p className="Editorial-date">
-                {new Date(Editorial?.updatedAt).toLocaleDateString("en-US", {
-                  month: "long",
-                  year: "numeric",
-                })}
-              </p>
-              <h2 className="Urban-title-left">
-                {Editorial?.Title || "Untitled Editorial"}
-              </h2>
-              {/* Render description excluding the first one */}
-              {Editorial?.Content?.[0] && (
-                <p className="Urban-text-left">
-                  {truncateText(
-                    Editorial.Content[0].children[0].text || "",
-                    200
-                  )}
-                </p>
+          <Link
+            to={`/detail/Editorial/${editorial.id}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="Editorial-image-container">
+              {editorialImageUrl && (
+                <img
+                  src={editorialImageUrl}
+                  alt={editorial?.Title || "Editorial Image"}
+                  className="Editorial-image"
+                />
               )}
+              <div className="Editorial-overlay">
+                <p className="Editorial-date">
+                  {new Date(editorial?.updatedAt).toLocaleDateString("en-US", {
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </p>
+                <h2 className="Urban-title-left">
+                  {editorial?.Title || "Untitled Editorial"}
+                </h2>
+                {/* Show description for the editorial */}
+                {editorial?.Description?.[0]?.children?.[0]?.text && (
+                  <p className="Urban-text-left">
+                    {truncateText(
+                      editorial.Description[0].children[0].text,
+                      200
+                    )}
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
-          {Editorial?.Content?.slice(1).map((desc, index) => (
+          </Link>
+          {/* Display additional content */}
+          {editorial?.Content?.slice(1).map((desc, index) => (
             <p className="Urban-text-left" key={index}>
               {truncateText(desc.children[0].text || "", 200)}
             </p>
@@ -73,22 +76,15 @@ function EditorialUrban() {
     </div>
   );
 }
+
 const truncateText = (text, limit) => {
   if (text.length > limit) {
-    return text.substring(0, limit) + "..."; // Add ellipsis if truncated
+    return text.substring(0, limit) + "...";
   }
   return text;
 };
 
 function Urban() {
-  // Helper function to truncate text
-  const truncateText = (text, limit) => {
-    if (text.length > limit) {
-      return text.substring(0, limit) + "...";
-    }
-    return text;
-  };
-
   const { loading, error, data } = useFetch("Urban Agenda");
 
   if (loading) {
@@ -108,26 +104,26 @@ function Urban() {
       {data.data.slice(0, 2).map((article) => (
         <Link
           key={article.id}
-          to={`/detail/articles/${article.id}`} // Link to the article detail page
-          style={{ textDecoration: "none", color: "inherit" }} // Remove underline and maintain text color
+          to={`/detail/Urban Agenda/${article.id}`}
+          style={{ textDecoration: "none", color: "inherit" }}
         >
           <div className="Article">
             <div className="Urban-Content">
               <p className="Urban-date">
                 {new Date(article?.updatedAt).toLocaleDateString("en-US", {
-                  month: "long", // Full month name
-                  year: "numeric", // Year
+                  month: "long",
+                  year: "numeric",
                 })}
               </p>
               <h2 className="Urban-title">
                 {article?.Title || "Untitled Article"}
               </h2>
-              {/* Conditionally render description */}
-              {article?.Content?.slice(0, 1).map((desc, index) => (
-                <p className="Urban-text" key={index}>
-                  {truncateText(desc?.children?.[0]?.text || "", 200)}{" "}
+              {article?.Description?.[0]?.children?.[0]?.text && (
+                <p className="Urban-text">
+                  {truncateText(article.Description[0].children[0].text, 200)}{" "}
+                  {/* Show description for each article */}
                 </p>
-              ))}
+              )}
             </div>
           </div>
         </Link>

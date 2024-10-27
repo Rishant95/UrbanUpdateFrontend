@@ -47,12 +47,23 @@
 .OneonOne-image-container {
   position: relative;
   width: 50%;
+  overflow: hidden; /* Prevent image overflow on hover */
+  transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.OneonOne-image-container:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .OneonOne-image {
   width: 100%;
   height: 550px;
   object-fit: cover;
+  transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
+
+.OneonOne-image-container:hover .OneonOne-image {
+  opacity: 0.9; /* Slightly fade image on hover */
 }
 
 .OneonOne-additional-content {
@@ -60,6 +71,12 @@
   color: black;
   padding: 20px;
   box-sizing: border-box;
+  transition: transform 0.3s ease; /* Add a transition for text */
+}
+
+.OneonOne-additional-content:hover {
+  transform: translateY(-5px); /* Lift text slightly on hover */
+  color: #ec2121;
 }
 
 .OneonOne-story {
@@ -74,10 +91,10 @@
 
 .OneonOne-story-title {
   color: black;
-
   font-size: 30px;
   font-weight: 700;
   font-family: "Merriweather";
+  transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .OneonOne-date {
@@ -86,6 +103,16 @@
   margin-top: -5px;
   font-size: 15px;
   color: black;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover Effects for Text */
+.OneonOne-story-title:hover {
+  color: #ec2121; /* Change story title color on hover */
+}
+
+.OneonOne-date:hover {
+  color: #ec2121; /* Change date color on hover */
 }
 
 /* Responsive Styling */

@@ -9,6 +9,14 @@
   align-items: flex-start;
   margin: 20px;
 }
+.event-dialogue-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+}
+
+.event-dialogue-link:hover {
+  color: #d90000; /* Change color on hover, adjust as necessary */
+}
 
 .edialogues-left {
   padding-left: 5%;

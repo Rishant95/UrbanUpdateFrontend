@@ -54,7 +54,7 @@ export default function RecentNews() {
         {newsItems.map((recentNews, index) => (
           <Link
             key={recentNews.id}
-            to={`/detail/recent-news/${recentNews.id}`} // Use collection and id in URL
+            to={`/detail/Recent News/${recentNews.id}`} // Use collection and id in URL
             className={`Recent-news-item ${
               index !== newsItems.length - 1 ? "with-divider" : ""
             }`}

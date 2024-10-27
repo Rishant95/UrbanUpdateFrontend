@@ -46,7 +46,7 @@ const getImageUrl = (data) => {
 const getMoreDetail = async (id) => {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/api/news-articles?filters[id][$eq]=${id}`
+      `${API_BASE_URL}/api/news-articles?filters[id][$eq]=${id}&populate[1]=Image`
     );
     console.log(response);
 

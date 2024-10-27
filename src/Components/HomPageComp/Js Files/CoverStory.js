@@ -89,7 +89,7 @@ export default function CoverStory() {
             )}
             <div className="Cover-Story-text-overlay">
               <Link
-                to={`/detail/cover-news/${coverStory.id}`}
+                to={`/detail/Cover Story/${coverStory.id}`}
                 className="Cover-Story-link"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
@@ -106,7 +106,7 @@ export default function CoverStory() {
           {truncatedAdditionalStories.map((story) => (
             <div key={story.id} className="Cover-Story-additional-items">
               <Link
-                to={`/detail/cover-news/${story.id}`}
+                to={`/detail/Cover Story/${story.id}`}
                 className="Cover-Story-link"
                 style={{ textDecoration: "none", color: "inherit" }}
               >

@@ -54,7 +54,7 @@ export default function Oneonone() {
         <div className="OneonOne-additional-content">
           <div className="OneonOne-item">
             <Link
-              to={`/detail/oneonones/${oneon.id}`} // Link to detail page
+              to={`/detail/OneOnOne/${oneon.id}`} // Link to detail page
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div className="OneonOne-text">
@@ -70,7 +70,7 @@ export default function Oneonone() {
           {data.data.slice(1, 3).map((oneonone) => (
             <Link
               key={oneonone.id}
-              to={`/detail/oneonones/${oneonone.id}`} // Link to detail page
+              to={`/detail/OneOnOne/${oneonone.id}`} // Link to detail page
               style={{ textDecoration: "none", color: "inherit" }} // Remove underline and maintain text color
             >
               <div className="OneonOne-story">

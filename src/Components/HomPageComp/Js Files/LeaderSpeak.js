@@ -1,9 +1,60 @@
 import { Link } from "react-router-dom";
 import "../Css Files/LeaderSpeak.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch"; // Assuming you have a custom hook for fetching data
+import { useEffect, useState } from "react";
 
 export default function LeaderSpeak() {
   const { loading, error, data } = useFetch("LeaderSpeak");
+  const [truncatedMainDescription, setTruncatedMainDescription] = useState("");
+  const [truncatedAdditionalStories, setTruncatedAdditionalStories] = useState(
+    []
+  );
+
+  useEffect(() => {
+    if (data && data.data) {
+      // Fetching the first LeaderSpeak data
+      const leaderSpeak = data.data[0];
+
+      // Function to truncate text based on screen size
+      const truncateDescription = (description, maxWords) => {
+        const words = description.split(" ");
+        return words.length > maxWords
+          ? words.slice(0, maxWords).join(" ") + "..."
+          : description;
+      };
+
+      // Extract main leader speak description safely
+      const mainDescription =
+        leaderSpeak.Description?.map(
+          (desc) => desc.children[0]?.text || ""
+        ).join(" ") || "";
+      console.log("Main description is: ", mainDescription);
+
+      // Determine truncation based on screen size for main leader speak description
+      const maxWordsMain = window.innerWidth < 768 ? 50 : 30; // 50 words for mobile, 30 for desktop
+      const truncatedMain = truncateDescription(mainDescription, maxWordsMain);
+      setTruncatedMainDescription(truncatedMain);
+
+      // Truncate additional stories descriptions
+      const additionalTruncated = data.data.slice(1, 4).map((story) => {
+        const additionalDescription =
+          story.Description?.map((desc) => desc.children[0]?.text || "").join(
+            " "
+          ) || "";
+
+        const maxWordsAdditional = window.innerWidth < 768 ? 100 : 300; // Adjust as needed for mobile/desktop
+        return {
+          ...story,
+          truncatedDescription: truncateDescription(
+            additionalDescription,
+            maxWordsAdditional
+          ),
+        };
+      });
+
+      setTruncatedAdditionalStories(additionalTruncated);
+    }
+  }, [data]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -17,32 +68,9 @@ export default function LeaderSpeak() {
     return <p>No data available</p>;
   }
 
-  const leaderSpeakData = data.data[0];
-
-  // API base URL
-
-  // Handle image URL similar to the CoverStory component
-  const imageUrl = getImageUrl(leaderSpeakData);
-
-  // Function to truncate text
-  const truncateText = (text, limit) => {
-    if (text && text.length > limit) {
-      return text.substring(0, limit) + "..."; // Add ellipsis if truncated
-    }
-    return text || ""; // Return empty string if text is null or undefined
-  };
-
-  // Ensure `Content` exists and is an array before calling `.map()`
-  const description = leaderSpeakData.Content ? (
-    leaderSpeakData.Content.slice(0, 1).map((paragraph, index) => {
-      const paragraphText =
-        paragraph.children?.[0]?.text || "No description available";
-      const truncatedText = truncateText(paragraphText, 200); // Truncate to 500 characters
-      return <p key={index}>{truncatedText}</p>;
-    })
-  ) : (
-    <p>No description available</p>
-  );
+  // Image URL logic
+  const leaderSpeak = data.data[0];
+  const imageUrl = getImageUrl(leaderSpeak);
 
   return (
     <div className="LeaderSpeak-Heading">
@@ -52,7 +80,7 @@ export default function LeaderSpeak() {
       <div className="LeaderSpeak-Container">
         <div className="LeaderSpeak-item">
           <Link
-            to={`/detail/news-articles/${leaderSpeakData.id}`}
+            to={`/detail/LeaderSpeak/${leaderSpeak.id}`}
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <div
@@ -62,23 +90,23 @@ export default function LeaderSpeak() {
               {imageUrl && (
                 <img
                   src={imageUrl}
-                  alt={leaderSpeakData.Title}
+                  alt={leaderSpeak.Title}
                   className="LeaderSpeak-image"
                 />
               )}
               <div className="LeaderSpeak-text-overlay">
-                <h2>{leaderSpeakData.Title}</h2>
-                {description}
+                <h2>{leaderSpeak.Title}</h2>
+                <p>{truncatedMainDescription}</p>
               </div>
             </div>
           </Link>
         </div>
 
         <div className="LeaderSpeak-additional-content">
-          {data.data.slice(1, 4).map((story) => (
+          {truncatedAdditionalStories.map((story) => (
             <Link
               key={story.id}
-              to={`/detail/leaderspeaks/${story.id}`}
+              to={`/detail/LeaderSpeak/${story.id}`}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div className="additional-item-container">
@@ -89,6 +117,7 @@ export default function LeaderSpeak() {
                   })}
                 </p>
                 <h2 className="Side-leaderSpeak-title">{story.Title}</h2>
+
                 <div className="item-border"></div>
               </div>
             </Link>

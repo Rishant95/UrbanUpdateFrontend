@@ -34,7 +34,7 @@ export default function VelocityPage() {
             return (
               <Link
                 key={velocity.id}
-                to={`/detail/velocities/${velocity.id}`}
+                to={`/detail/Velocity/${velocity.id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <div className="Velocity-item">

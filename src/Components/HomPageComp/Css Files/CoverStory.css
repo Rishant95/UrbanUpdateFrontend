@@ -27,16 +27,23 @@
   position: relative;
   width: 50%; /* Take up half of the container */
   min-width: 300px; /* Minimum width for smaller screens */
+  overflow: hidden; /* Prevent overflow for zoom effects */
 }
 
 .Cover-Story-image-container {
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.Cover-Story-image-container:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
 }
 
 .Cover-Story-image {
   width: 100%;
   height: 550px;
   object-fit: cover;
+  transition: opacity 0.3s ease;
 }
 
 .Cover-Story-text-overlay {
@@ -49,6 +56,11 @@
   padding: 20px;
   box-sizing: border-box;
   text-align: left;
+  transition: background 0.3s ease;
+}
+
+.Cover-Story-image-container:hover .Cover-Story-text-overlay {
+  background: rgba(0, 0, 0, 0.7); /* Darker overlay on hover */
 }
 
 .Cover-Story-date {
@@ -71,6 +83,11 @@
 .Cover-Story-additional-items {
   border-bottom: 2px dotted black;
   padding-bottom: 10px; /* Add some padding for clarity */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.Cover-Story-additional-items:hover {
+  transform: translateX(10px); /* Slide effect on hover */
 }
 
 .Side-cover-story-title {
@@ -78,6 +95,7 @@
   font-family: "Merriweather";
   font-weight: 700;
   font-size: 30px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .Side-cover-story-text {
@@ -86,6 +104,17 @@
   font-size: 18px;
   font-weight: 200;
   margin-top: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.Cover-Story-additional-items:hover .Side-cover-story-title {
+  color: #ec2121; /* Change text color on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.Cover-Story-additional-items:hover .Side-cover-story-text {
+  color: #444444; /* Darken text color on hover */
+  transform: scale(1.02); /* Slight zoom effect */
 }
 
 /* Responsive Styles */

@@ -1,11 +1,10 @@
 import "../Css/eventHeadlines.css";
-
 import React from "react";
-
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch"; // Assuming you have a custom useFetch hook
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Import Link for navigation
 
-export default function BookReview() {
+export default function EventsHeadline() {
   // Fetch data using the useFetch hook
   const { loading, error, data } = useFetch("Event Headlines");
 
@@ -38,21 +37,31 @@ export default function BookReview() {
           </p>
           <h2>{latestEvents.Title}</h2>
           <p>{latestEvents.Description[0].children[0].text}</p>
-          <button className="first-review-button">
+          <Link
+            to={`/detail/Event Headlines/${latestEvents.id}`}
+            className="first-review-button"
+          >
             <h5 style={{ color: "black" }}>Read Now</h5>
-            <FaArrowRight className="first-review-icon"></FaArrowRight>
-          </button>
+            <FaArrowRight className="first-review-icon" />
+          </Link>
         </div>
 
         <div className="first-review-image">
-          <img src={getImageUrl(latestEvents)} alt={latestEvents.Title} />
+          <Link to={`/detail/Event Headlines/${latestEvents.id}`}>
+            <img src={getImageUrl(latestEvents)} alt={latestEvents.Title} />
+          </Link>
         </div>
       </div>
 
       {/* Other reviews layout */}
       <div className="other-reviews">
         {otherReviews.map((events) => (
-          <div key={events.id} className="other-review-item">
+          <Link
+            key={events.id}
+            to={`/detail/Event Headlines/${events.id}`}
+            className="other-review-item"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             <img
               src={getImageUrl(events)}
               alt={events.Title}
@@ -67,7 +76,7 @@ export default function BookReview() {
               </p>
               <h3>{events.Title}</h3>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

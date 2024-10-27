@@ -1,7 +1,7 @@
 import { useFetch } from "../../../Hooks/useFetch";
 import "../Css/eDialogues.css";
-
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link for navigation
 
 export default function Edialogues() {
   // Fetch data from the new endpoint
@@ -36,15 +36,21 @@ export default function Edialogues() {
         {/* Left side: Text content */}
         <div className="edialogues-left">
           {data.data.map((item) => (
-            <div key={item.id}>
-              <h3 className="event-dialogue-item">{item.Title}</h3>
-              {item.Description.map((desc, index) => (
-                <p key={index} className="event-dialogue-item-para">
-                  {truncateText(desc.children[0].text, 100)}{" "}
-                  {/* Limit to 100 characters */}
-                </p>
-              ))}
-            </div>
+            <Link
+              to={`/detail/E Dialogues/${item.id}`}
+              key={item.id}
+              className="event-dialogue-link"
+            >
+              <div>
+                <h3 className="event-dialogue-item">{item.Title}</h3>
+                {item.Description.map((desc, index) => (
+                  <p key={index} className="event-dialogue-item-para">
+                    {truncateText(desc.children[0].text, 100)}{" "}
+                    {/* Limit to 100 characters */}
+                  </p>
+                ))}
+              </div>
+            </Link>
           ))}
         </div>
 

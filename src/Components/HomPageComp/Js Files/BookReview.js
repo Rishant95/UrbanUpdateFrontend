@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "../Css Files/BookReview.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 
@@ -15,6 +16,7 @@ export default function BookReview() {
   if (!data || !data.data || data.data.length === 0) {
     return <p>No data available</p>;
   }
+
   return (
     <div>
       <div className="BookReview-Heading">
@@ -26,37 +28,49 @@ export default function BookReview() {
             const editorialImageUrl = getImageUrl(book);
 
             return (
-              <div
+              <Link
                 key={book.id}
-                style={{ display: "flex", justifyContent: "space-evenly" }}
+                to={`/detail/Book Review/${book.id}`} // Link to book detail page
+                style={{ textDecoration: "none", color: "inherit" }} // Remove underline and maintain text color
               >
-                <div>
-                  <div className="BookReview-image-container">
-                    <img
-                      src={editorialImageUrl}
-                      alt={book.Title}
-                      className="BookReview-image"
-                    />
-                    <div className="BookReview-text-overlay">
-                      <p className="BookReview-date">
-                        {new Date(book.updatedAt).toLocaleDateString("en-US", {
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </p>
-                      <h2 className="BookReview-text">{book.Title}</h2>
-                      {book?.Content?.length > 0 && (
-                        <p className="BookReview-description">
-                          {truncateText(
-                            book.Content[0]?.children[0]?.text,
-                            150
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div>
+                    <div className="BookReview-image-container">
+                      <img
+                        src={editorialImageUrl}
+                        alt={book.Title}
+                        className="BookReview-image"
+                      />
+                      <div className="BookReview-text-overlay">
+                        <p className="BookReview-date">
+                          {new Date(book.updatedAt).toLocaleDateString(
+                            "en-US",
+                            {
+                              month: "long",
+                              year: "numeric",
+                            }
                           )}
                         </p>
-                      )}
+                        <h2 className="BookReview-text">{book.Title}</h2>
+                        {book?.Content?.length > 0 && (
+                          <p className="BookReview-description">
+                            {truncateText(
+                              book.Content[0]?.children[0]?.text,
+                              150
+                            )}
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

@@ -26,10 +26,16 @@
 .LeaderSpeak-item {
   width: 30%;
   margin-right: 2%;
+  overflow: hidden; /* Prevent image overflow on hover */
 }
 
 .LeaderSpeak-image-container {
   position: relative;
+  transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.LeaderSpeak-image-container:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .LeaderSpeak-image {
@@ -44,6 +50,7 @@
   text-align: left;
 }
 
+/* Text Overlay and Hover */
 .LeaderSpeak-additional-content {
   width: 20%;
   display: flex;
@@ -52,12 +59,16 @@
   margin-left: -5%;
 }
 
-/* Styling for individual items */
 .additional-item-container {
   padding: 10px;
   display: flex;
-  flex-direction: column; /* Stack date and title vertically */
-  align-items: flex-start; /* Align items to the start */
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.additional-item-container:hover {
+  transform: translateX(10px); /* Shift right on hover */
 }
 
 /* Date and Title Styling */
@@ -66,14 +77,26 @@
   font-weight: 400;
   font-size: 15px;
   color: black;
-  margin-bottom: 5px; /* Space between date and title */
+  margin-bottom: 5px;
+  transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .Side-leaderSpeak-title {
   color: black;
   font-size: 30px;
   font-family: "Merriweather", sans-serif;
-  margin: 0; /* Remove any default margins */
+  margin: 0;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scale transition */
+}
+
+/* Hover Effects */
+.additional-item-container:hover .leaderSpeak-date {
+  color: #ec2121; /* Change date color on hover */
+}
+
+.additional-item-container:hover .Side-leaderSpeak-title {
+  color: #ec2121; /* Change title color on hover */
+  transform: scale(1.05); /* Slight zoom effect on title */
 }
 
 /* Border for separation */
@@ -86,26 +109,26 @@
 /* Responsive Styling */
 @media (max-width: 768px) {
   .LeaderSpeak-Container {
-    flex-direction: column; /* Stack items vertically */
-    gap: 40px; /* Reduce gap for mobile */
+    flex-direction: column;
+    gap: 40px;
   }
 
   .LeaderSpeak-item {
-    width: 100%; /* Full width for mobile */
-    margin-right: 0; /* Remove margin */
+    width: 100%;
+    margin-right: 0;
   }
 
   .LeaderSpeak-additional-content {
-    width: 100%; /* Full width for mobile */
-    margin-left: 0; /* Remove left margin */
+    width: 100%;
+    margin-left: 0;
   }
 
   .leaderSpeak-date {
-    font-size: 13px; /* Decrease font size for date */
+    font-size: 13px;
   }
 
   .Side-leaderSpeak-title {
-    font-size: 24px; /* Decrease font size for title */
+    font-size: 24px;
   }
 }
 
@@ -116,14 +139,14 @@
   }
 
   .leaderSpeak-date {
-    font-size: 12px; /* Further decrease font size for date */
+    font-size: 12px;
   }
 
   .Side-leaderSpeak-title {
-    font-size: 20px; /* Further decrease font size for title */
+    font-size: 20px;
   }
 
   .LeaderSpeak-image {
-    height: 150px; /* Adjust height for mobile */
+    height: 150px;
   }
 }
