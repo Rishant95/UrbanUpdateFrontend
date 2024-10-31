@@ -30,7 +30,7 @@ export default function CoverStory() {
         ).join(" ") || "";
 
       // Determine truncation based on screen size for main cover story
-      const maxWordsMain = window.innerWidth < 768 ? 50 : 30; // 50 words for mobile, 30 for desktop
+      const maxWordsMain = window.innerWidth < 768 ? 50 : 100; // 50 words for mobile, 30 for desktop
       const truncatedMain = truncateDescription(mainDescription, maxWordsMain);
       setTruncatedMainDescription(truncatedMain);
 
@@ -41,7 +41,7 @@ export default function CoverStory() {
             " "
           ) || "";
 
-        const maxWordsAdditional = window.innerWidth < 768 ? 5 : 50; // 30 words for mobile, 20 for desktop
+        const maxWordsAdditional = window.innerWidth < 768 ? 5 : 100; // 30 words for mobile, 20 for desktop
         return {
           ...story,
           truncatedDescription: truncateDescription(

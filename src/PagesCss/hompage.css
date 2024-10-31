@@ -2,9 +2,9 @@
 
 .cover-story-wrapper {
   display: grid;
-  grid-template-columns: 55% 25%;
+  grid-template-columns: 55% 35%;
   width: 100%;
-  margin-left: 10%;
+  margin-left: 5%;
   margin-right: 100px;
 }
 

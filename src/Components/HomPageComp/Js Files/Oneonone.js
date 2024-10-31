@@ -58,6 +58,12 @@ export default function Oneonone() {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div className="OneonOne-text">
+                <p className="OneonOne-date">
+                  {new Date(oneon.updatedAt).toLocaleDateString("en-US", {
+                    month: "long", // Full month name
+                    year: "numeric", // Year
+                  })}
+                </p>
                 <h2 className="first-title">{oneon.Title}</h2>
                 <h5 className="OneonOne-description">
                   {truncateText(description, 200)}

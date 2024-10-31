@@ -1,11 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
-
 .City-Heading {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
   color: #ec2121;
   margin-top: 60px;
   font-family: "PT Serif";
@@ -14,25 +9,28 @@
 .Styled-hr {
   border: 0;
   height: 2px;
+  width: 100%;
   background: #ccc;
 }
 
 .City-Container {
   display: flex;
-  justify-content: space-between; /* Space between image/text and additional content */
-  padding: 20px;
-  flex-wrap: wrap; /* Allow wrapping of content */
+
+  padding: 0px;
 }
 
 .City-item {
-  position: relative;
-  width: 50%; /* Take up half of the container */
+  max-height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .City-image-container {
-  position: relative; /* Set relative positioning for the container */
-  overflow: hidden; /* Prevent image overflow on hover */
-  transition: transform 0.3s ease; /* Smooth zoom effect */
+  position: relative;
+  flex: 0 auto;
+  transition: transform 0.3s ease;
+  height: 400px; /* Set fixed height for the container */
 }
 
 .City-image-container:hover {
@@ -41,9 +39,9 @@
 
 .City-image {
   width: 100%;
-  height: 700px;
-  object-fit: cover;
-  transition: opacity 0.3s ease; /* Smooth opacity transition */
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio without distortion */
+  transition: opacity 0.3s ease;
 }
 
 .City-image-container:hover .City-image {
@@ -51,21 +49,22 @@
 }
 
 .City-text-overlay {
-  position: absolute; /* Position text absolutely within the container */
-  bottom: 3%; /* Move the text overlay up by setting bottom to a higher value */
+  position: absolute;
+  bottom: 0;
   left: 0;
-  width: 100%; /* Span the entire width of the container */
-  color: white; /* Text color to contrast with the image */
-  background: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Semi-transparent background for better readability */
+  width: 100%;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
   padding: 20px;
   box-sizing: border-box;
-  text-align: left; /* Align text to the left */
-  transition: transform 0.3s ease; /* Smooth movement on hover */
+  text-align: left;
+  transition: background 0.3s ease;
+  max-height: 150px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }
 
 .City-image-container:hover .City-text-overlay {
@@ -82,6 +81,7 @@
   display: flex;
   align-items: flex-start; /* Align items at the start of the container */
   margin-bottom: 20px; /* Space between articles */
+  flex-wrap: wrap;
 }
 
 .Article-Image {
@@ -111,12 +111,22 @@
   margin-top: 0px;
   font-weight: 700;
   transition: color 0.3s ease; /* Smooth color transition */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Article-text {
   color: black;
   font-weight: 300;
   font-family: "Merriweather Sans";
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Article-date {
@@ -158,7 +168,7 @@
   }
 
   .City-image {
-    height: 400px; /* Reduce image height for smaller screens */
+    height: 300px; /* Reduce image height for smaller screens */
   }
 
   .Article-Image-Img {
@@ -202,6 +212,6 @@
   }
 
   .City-image {
-    height: 300px; /* Further reduce image height for mobile */
+    height: 250px; /* Further reduce image height for mobile */
   }
 }

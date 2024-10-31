@@ -4,11 +4,16 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 .OneonOne-Heading {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
   color: #ec2121;
   margin-top: 60px;
   font-family: "PT Serif";
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Styled-hr {
@@ -20,15 +25,21 @@
   font-family: "Merriweather Sans";
   font-size: 18px;
   font-weight: 300;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .first-title {
   font-size: 30px;
-  margin-top: -10px;
+  margin-bottom: 10px;
   font-weight: 700;
   font-family: "Merriweather";
 }
 
+/* Main Container */
 .OneonOne-Container {
   display: flex;
   justify-content: space-evenly;
@@ -44,11 +55,14 @@
   margin-bottom: 20px; /* Add some space after the border */
 }
 
+/* Image Container */
 .OneonOne-image-container {
+  margin-top: 10px;
   position: relative;
   width: 50%;
   overflow: hidden; /* Prevent image overflow on hover */
   transition: transform 0.3s ease; /* Smooth zoom effect */
+  height: 460px; /* Fixed height for consistency */
 }
 
 .OneonOne-image-container:hover {
@@ -57,7 +71,7 @@
 
 .OneonOne-image {
   width: 100%;
-  height: 550px;
+  height: 100%; /* Fill the container */
   object-fit: cover;
   transition: opacity 0.3s ease; /* Smooth opacity transition */
 }
@@ -66,12 +80,16 @@
   opacity: 0.9; /* Slightly fade image on hover */
 }
 
+/* Additional Content */
 .OneonOne-additional-content {
   width: 50%;
   color: black;
   padding: 20px;
   box-sizing: border-box;
   transition: transform 0.3s ease; /* Add a transition for text */
+  height: 300px; /* Fixed height for consistency */
+  flex-direction: column; /* Column layout */
+  justify-content: space-between; /* Space items */
 }
 
 .OneonOne-additional-content:hover {
@@ -79,6 +97,7 @@
   color: #ec2121;
 }
 
+/* Story Sections */
 .OneonOne-story {
   padding-bottom: 20px; /* Add some space at the bottom */
   border-bottom: 1px solid #ccc; /* Light gray line after each story */
@@ -95,6 +114,11 @@
   font-weight: 700;
   font-family: "Merriweather";
   transition: color 0.3s ease; /* Smooth color transition */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .OneonOne-date {
@@ -164,5 +188,16 @@
 
   .OneonOne-image {
     height: 200px; /* Adjust height for mobile */
+  }
+
+  .OneonOne-story-title {
+    font-size: 20px; /* Decrease font size for story title on mobile */
+    white-space: nowrap; /* Prevent wrapping on mobile */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis */
+  }
+
+  .OneonOne-date {
+    font-size: 12px; /* Decrease font size for date */
   }
 }

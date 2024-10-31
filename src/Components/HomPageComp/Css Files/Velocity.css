@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 .Velocity-Heading {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
   color: #ec2121;
   font-family: "PT Serif";
   margin-top: 60px;
@@ -13,6 +13,7 @@
   border: 0;
   height: 2px;
   background: #ccc;
+  width: 100%;
 }
 
 .Velocity-Container {
@@ -50,6 +51,9 @@
   width: 100%; /* Span the entire width of the container */
   color: black; /* Text color to contrast with the image */
   box-sizing: border-box;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
   text-align: left; /* Align text to the left */
 }
 
@@ -63,7 +67,8 @@
   font-family: "Oswald", sans-serif;
   font-size: 35px;
   font-weight: 300;
-  width: 70%;
+
+  width: 100%;
 }
 
 .Velocity-date {

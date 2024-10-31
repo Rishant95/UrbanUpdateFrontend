@@ -3,8 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
 
 .Cover-Story-Heading {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
   color: #ec2121;
   font-family: "PT Serif";
   margin-top: 30px;
@@ -19,29 +19,33 @@
 .Cover-Story-Container {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  padding: 0px;
+  flex-wrap: wrap;
 }
 
 .Cover-Story-item {
   position: relative;
-  width: 50%; /* Take up half of the container */
-  min-width: 300px; /* Minimum width for smaller screens */
-  overflow: hidden; /* Prevent overflow for zoom effects */
+  width: 50%;
+  min-width: 300px;
+  max-height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .Cover-Story-image-container {
   position: relative;
+  flex: 1 0 auto;
   transition: transform 0.3s ease;
 }
 
 .Cover-Story-image-container:hover {
-  transform: scale(1.05); /* Zoom effect on hover */
+  transform: scale(1.05);
 }
 
 .Cover-Story-image {
   width: 100%;
-  height: 550px;
+  height: 100%;
   object-fit: cover;
   transition: opacity 0.3s ease;
 }
@@ -57,10 +61,16 @@
   box-sizing: border-box;
   text-align: left;
   transition: background 0.3s ease;
+  max-height: 150px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }
 
 .Cover-Story-image-container:hover .Cover-Story-text-overlay {
-  background: rgba(0, 0, 0, 0.7); /* Darker overlay on hover */
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .Cover-Story-date {
@@ -68,26 +78,40 @@
   font-weight: 400;
   font-size: 15px;
   color: black;
+  margin-top: -10px;
 }
 
 .Cover-Story-additional-content {
   width: 50%;
-  padding: 20px;
-  justify-content: space-evenly;
-  gap: 20px;
+  padding: 0px 20px;
+  max-height: 600px;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column; /* Stack items vertically */
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 20px;
+  overflow: hidden;
 }
 
 .Cover-Story-additional-items {
-  border-bottom: 2px dotted black;
-  padding-bottom: 10px; /* Add some padding for clarity */
+  position: relative;
+  padding: 10px 0; /* Spacing within each item */
   transition: transform 0.3s ease, color 0.3s ease;
+  max-height: 250px;
+  overflow: hidden;
+}
+
+/* Add a dotted line only after the first additional item */
+.Cover-Story-additional-items:first-child::after {
+  content: "";
+  display: block;
+  margin-top: 30px; /* Space above the line */
+  border-top: 2px dotted #ccc; /* Dotted line style */
+  width: 100%;
 }
 
 .Cover-Story-additional-items:hover {
-  transform: translateX(10px); /* Slide effect on hover */
+  transform: translateX(10px);
 }
 
 .Side-cover-story-title {
@@ -96,6 +120,11 @@
   font-weight: 700;
   font-size: 30px;
   transition: color 0.3s ease, transform 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Side-cover-story-text {
@@ -105,16 +134,21 @@
   font-weight: 200;
   margin-top: 10px;
   transition: color 0.3s ease, transform 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Cover-Story-additional-items:hover .Side-cover-story-title {
-  color: #ec2121; /* Change text color on hover */
-  transform: scale(1.05); /* Slight zoom effect */
+  color: #ec2121;
+  transform: scale(0.95);
 }
 
 .Cover-Story-additional-items:hover .Side-cover-story-text {
-  color: #444444; /* Darken text color on hover */
-  transform: scale(1.02); /* Slight zoom effect */
+  color: #444444;
+  transform: scale(0.98);
 }
 
 /* Responsive Styles */
@@ -127,19 +161,20 @@
 
   .Cover-Story-item,
   .Cover-Story-additional-content {
-    width: 100%; /* Full width on mobile */
-    padding: 0; /* Remove padding for mobile */
+    width: 100%;
+    padding: 0;
+    max-height: 400px;
   }
 
   .Cover-Story-image {
-    height: 300px; /* Adjust height for mobile */
+    height: 100%;
   }
 
   .Styled-hr {
-    margin: 20px 0; /* Add margin for better spacing */
+    margin: 20px 0;
   }
 
   .Side-cover-story-title {
-    font-size: 24px; /* Reduce font size for mobile */
+    font-size: 24px;
   }
 }

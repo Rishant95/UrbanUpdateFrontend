@@ -29,27 +29,24 @@ function CityAndArticles() {
         <div className="City-item">
           <div className="Cityimage-container">
             <h1>City Images</h1>
-            <hr className="Styled-hr" />
-            <Link
-              to={`/detail/CityImages/${city.id}`}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              {imageUrl && (
-                <img
-                  src={imageUrl}
-                  alt={city?.Title || "City Image"}
-                  className="Cover-Story-image"
-                />
-              )}
-            </Link>
-            <div className="City-text-overlay">
-              <p className="City-date">
-                {new Date(city.updatedAt).toLocaleDateString("en-US", {
-                  month: "long",
-                  year: "numeric",
-                })}
-              </p>
-              <h2>{city?.Title || "Untitled"}</h2>
+            <hr></hr>
+            <div className="City-item">
+              <div className="City-image-container">
+                {imageUrl && (
+                  <img src={imageUrl} alt={city.Title} className="City-image" />
+                )}
+                <div className="Cover-Story-text-overlay">
+                  <Link
+                    to={`/detail/Cover Story/${city.id}`}
+                    className="Cover-Story-link"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <h2>{city.Title}</h2>
+                  </Link>
+
+                  {/* Display truncated main description */}
+                </div>
+              </div>
             </div>
           </div>
         </div>

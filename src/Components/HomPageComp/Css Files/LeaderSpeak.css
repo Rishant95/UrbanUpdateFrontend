@@ -4,8 +4,8 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 .LeaderSpeak-Heading {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
   font-family: "PT Serif";
   color: #ec2121;
   margin-top: 60px;
@@ -39,15 +39,21 @@
 }
 
 .LeaderSpeak-image {
-  height: 200px;
   width: 100%;
+  height: 250px; /* Set default height */
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .LeaderSpeak-text-overlay {
   color: black;
   box-sizing: border-box;
   text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Text Overlay and Hover */
@@ -60,7 +66,7 @@
 }
 
 .additional-item-container {
-  padding: 10px;
+  padding: 0px 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -85,6 +91,11 @@
   color: black;
   font-size: 30px;
   font-family: "Merriweather", sans-serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin: 0;
   transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scale transition */
 }
@@ -101,7 +112,6 @@
 
 /* Border for separation */
 .item-border {
-  border-bottom: 2px dotted #ccc;
   margin-top: 10px;
   width: 100%;
 }
@@ -123,6 +133,10 @@
     margin-left: 0;
   }
 
+  .LeaderSpeak-image {
+    height: 200px; /* Adjusted height for tablets */
+  }
+
   .leaderSpeak-date {
     font-size: 13px;
   }
@@ -138,15 +152,15 @@
     padding-right: 5%;
   }
 
+  .LeaderSpeak-image {
+    height: 150px; /* Adjusted height for mobile */
+  }
+
   .leaderSpeak-date {
     font-size: 12px;
   }
 
   .Side-leaderSpeak-title {
     font-size: 20px;
-  }
-
-  .LeaderSpeak-image {
-    height: 150px;
   }
 }

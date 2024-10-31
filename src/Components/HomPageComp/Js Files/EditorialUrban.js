@@ -53,7 +53,7 @@ function EditorialUrban() {
                   <p className="Urban-text-left">
                     {truncateText(
                       editorial.Description[0].children[0].text,
-                      200
+                      400
                     )}
                   </p>
                 )}
@@ -61,11 +61,11 @@ function EditorialUrban() {
             </div>
           </Link>
           {/* Display additional content */}
-          {editorial?.Content?.slice(1).map((desc, index) => (
-            <p className="Urban-text-left" key={index}>
-              {truncateText(desc.children[0].text || "", 200)}
+          {editorial?.Description?.[0]?.children?.[0]?.text && (
+            <p className="Urban-text-left">
+              {truncateText(editorial.Description[0].children[0].text, 400)}
             </p>
-          ))}
+          )}
         </div>
         <div className="Urban-content">
           <h1>Urban Agenda</h1>
@@ -120,7 +120,7 @@ function Urban() {
               </h2>
               {article?.Description?.[0]?.children?.[0]?.text && (
                 <p className="Urban-text">
-                  {truncateText(article.Description[0].children[0].text, 200)}{" "}
+                  {truncateText(article.Description[0].children[0].text, 400)}{" "}
                   {/* Show description for each article */}
                 </p>
               )}
