@@ -3,12 +3,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
 .LeaderSpeak-Heading {
   padding-left: 5%;
   padding-right: 5%;
   font-family: "PT Serif";
   color: #ec2121;
   margin-top: 60px;
+  width: 50%;
 }
 
 .Styled-hr {
@@ -19,13 +24,20 @@
 
 /* Container and Layout */
 .LeaderSpeak-Container {
+  display: flex; /* Use flexbox for horizontal layout */
+  width: 100%; /* Make the container full width */
+}
+
+.LeaderSpeak-content {
+  flex: 1; /* Allow this section to grow */
+  flex-direction: row;
+  flex-wrap: nowrap;
   display: flex;
-  gap: 80px;
+  gap: 20px;
 }
 
 .LeaderSpeak-item {
-  width: 30%;
-  margin-right: 2%;
+  width: 100%; /* Use full width of the parent container */
   overflow: hidden; /* Prevent image overflow on hover */
 }
 
@@ -50,33 +62,69 @@
   box-sizing: border-box;
   text-align: left;
   display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Additional content styling */
+.LeaderSpeak-additional-content {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-self: space-between;
+  display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Text Overlay and Hover */
-.LeaderSpeak-additional-content {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-left: -5%;
+.Tab-titles {
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+  font-family: "Oswald", sans-serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scale transition */
 }
 
-.additional-item-container {
-  padding: 0px 10px;
+.li-item {
+  border-bottom: 3px dotted #ccc;
+  padding: 10px 0px;
+}
+
+.li-item:last-child {
+  border-bottom: 0px dotted #ccc;
+}
+
+/* This targets the border that might be part of your item itself */
+.additional-item-container:hover {
+  transform: translateX(10px); /* Shift right on hover */
+}
+.LeaderSpeak-additional-content .additional-item-container {
+  padding: 10px 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   transition: transform 0.3s ease, color 0.3s ease;
+  border-bottom: 2px solid #ccc; /* Line between items */
+}
+/* Remove border from only the last item */
+.LeaderSpeak-additional-content .additional-item-container:not(:last-of-type) {
+  border-bottom: 2px solid #ccc;
 }
 
-.additional-item-container:hover {
-  transform: translateX(10px); /* Shift right on hover */
+.LeaderSpeak-additional-content .additional-item-container:last-of-type {
+  border-bottom: none;
 }
-
 /* Date and Title Styling */
 .leaderSpeak-date {
   font-family: "Merriweather Sans";
@@ -89,7 +137,7 @@
 
 .Side-leaderSpeak-title {
   color: black;
-  font-size: 30px;
+  font-size: 27px;
   font-family: "Merriweather", sans-serif;
   display: -webkit-box;
   -webkit-line-clamp: 5;
@@ -110,21 +158,96 @@
   transform: scale(1.05); /* Slight zoom effect on title */
 }
 
-/* Border for separation */
-.item-border {
-  margin-top: 10px;
-  width: 100%;
+/* Tab Section */
+.Tab-Section {
+  width: 40%; /* Ensure the tab section takes 40% of the container */
+  padding-left: 20px; /* Optional padding for the tab section */
+}
+
+.Tab-Container {
+  display: flex; /* Flexbox for horizontal alignment */
+  gap: 10px; /* Space between tabs */
+  margin-bottom: 15px; /* Space below the tab container */
+  position: relative; /* Needed for absolute positioning of the underline */
+}
+
+.Tab {
+  font-family: "Oswald"; /* Tab font style */
+  font-weight: 500;
+  font-size: 30px; /* Tab font size */
+  padding: 10px 15px; /* Padding for better touch area */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  background-color: white;
+  margin-top: 60px;
+  position: relative; /* Needed for absolute positioning of the underline */
+}
+
+.Tab.active {
+  color: #ec2121; /* Active tab text color */
+}
+
+.Tab-Content {
+  padding: 0px 10px; /* Padding for tab content area */
+  border-radius: 4px; /* Slightly rounded corners */
+  border-left: 1px solid #ccc; /* Optional: border to separate from content */
+}
+
+.Tab-Content ul {
+  list-style: none; /* Remove bullets from unordered list */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+/* Underline Styles */
+.Tab-Underline {
+  position: absolute;
+  bottom: 0; /* Position it at the bottom of the Tab-Container */
+  height: 4px; /* Height of the underline */
+  background-color: #ec2121; /* Active color */
+  transition: left 0.3s ease, width 0.3s ease; /* Smooth transition */
+}
+
+/* Non-active state */
+.Tab-Container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px; /* Height of the line */
+  background-color: black; /* Default color */
+  width: 100%; /* Take full width of the container */
 }
 
 /* Responsive Styling */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .LeaderSpeak-Container {
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Space between stacked items */
+  }
+
+  .Tab-Section {
+    width: 100%; /* Full width on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    display: flex;
     flex-direction: column;
-    gap: 40px;
+  }
+  .LeaderSpeak-Container {
+    flex-direction: column; /* Stack items vertically */
+    gap: 40px; /* Space between stacked items */
+  }
+
+  .LeaderSpeak-content,
+  .Tab-Section {
+    width: 100%; /* Full width on small screens */
   }
 
   .LeaderSpeak-item {
-    width: 100%;
+    width: 100%; /* Full width on small screens */
     margin-right: 0;
   }
 
@@ -138,29 +261,47 @@
   }
 
   .leaderSpeak-date {
-    font-size: 13px;
+    font-size: 14px; /* Adjusted font size */
   }
 
   .Side-leaderSpeak-title {
-    font-size: 24px;
+    font-size: 24px; /* Adjusted font size */
   }
-}
-
-@media (max-width: 480px) {
   .LeaderSpeak-Heading {
     padding-left: 5%;
     padding-right: 5%;
+    font-size: 24px; /* Smaller heading size */
+    margin-top: 30px; /* Reduced margin */
+    width: 100%; /* Full width on mobile */
+  }
+
+  .Tab {
+    font-size: 24px; /* Smaller font size for tabs on mobile */
+    padding: 8px 10px; /* Adjusted padding for mobile */
+  }
+
+  .Tab-Underline {
+    bottom: 0;
+    height: 2px; /* Smaller underline on mobile */
+  }
+}
+
+@media (max-width: 425px) {
+  .LeaderSpeak-item {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .LeaderSpeak-additional-content {
+    width: 100%;
+    margin-left: 0;
   }
 
   .LeaderSpeak-image {
-    height: 150px; /* Adjusted height for mobile */
-  }
-
-  .leaderSpeak-date {
-    font-size: 12px;
+    height: 200px; /* Adjusted height for mobile */
   }
 
   .Side-leaderSpeak-title {
-    font-size: 20px;
+    font-size: 20px; /* Adjusted font size for mobile */
   }
 }

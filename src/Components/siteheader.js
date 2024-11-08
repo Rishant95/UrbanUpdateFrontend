@@ -44,21 +44,35 @@ export default function Siteheader() {
       </div>
 
       {/* Logo and Navigation Container */}
-      <div className="header-main">
-        {/* Logo on Left */}
-        <div className="logo-container">
-          <img
-            className="logo"
-            src="https://admin.manofox.online/uploads/thumbnail_Urban_Update_logo_da45c6e125.jpg"
-            alt="Logo"
-          />
-        </div>
 
+      <div className="nav-container">
+        <div className="header-main">
+          {/* Logo on Left */}
+          <div className="logo-container">
+            <img
+              className="logo"
+              src="https://admin.manofox.online/uploads/thumbnail_Urban_Update_logo_da45c6e125.jpg"
+              alt="Logo"
+            />
+          </div>
+          <div className="Banner-Container">
+            <img
+              className="banner"
+              src="https://admin.manofox.online/uploads/thumbnail_37919faf1ac5c065af92c04f5b305bdc_a564ba121f.jpg?updatedAt=2024-11-01T13%3A22%3A24.484Z"
+              alt="banner"
+            />
+            <p className="Moto-Overlay">
+              They’re back! Kennedy Darling named to return to
+            </p>
+          </div>
+        </div>
+        <hr className="Style-hr" style={{ marginBottom: "5px" }}></hr>
         {/* Navigation on Right */}
         <nav className="nav-right">
           <div className="desktop-nav">
+            <FaHome className="search-icon" />
             <a href="#home" className="nav-link">
-              <FaHome /> Home
+              Home
             </a>
             <a href="#news" className="nav-link">
               News
@@ -81,7 +95,7 @@ export default function Siteheader() {
             <a href="#more" className="nav-link">
               More
             </a>
-            <FaSearch className="search-icon" />
+            <FaSearch className="search-icon" style={{ marginLeft: "20px" }} />
           </div>
 
           {/* Mobile Hamburger Icon */}
@@ -119,6 +133,7 @@ export default function Siteheader() {
             </div>
           )}
         </nav>
+        <hr className="Style-hr" style={{ marginTop: "5px" }}></hr>
       </div>
     </header>
   );

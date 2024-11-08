@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
 /* General Reset */
 * {
   margin: 0;
@@ -8,6 +9,7 @@
 .main-header {
   font-family: "PT Serif", serif;
   width: 100%;
+  align-items: center;
 }
 
 /* Header Top: Weather and Social Icons */
@@ -63,8 +65,8 @@
 .header-main {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 5%;
+  gap: 10%;
+  padding: 15px 10%;
 }
 
 .logo-container {
@@ -73,25 +75,85 @@
 }
 
 .logo {
-  width: 160px;
+  width: 120%;
+  height: 100px;
 }
 
-/* Right-aligned Navigation */
+.Banner-Container {
+  width: 100%;
+  height: 100px;
+  position: relative;
+
+  overflow: hidden;
+}
+.Moto-Overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  font-family: "Oswald", sans-serif;
+  color: white;
+  padding: 20px 30%;
+  font-size: 20px;
+  box-sizing: border-box;
+  text-align: left;
+
+  /* Text display in exactly 2 lines with ellipsis if overflow */
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Limits to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 100px;
+
+  /* Background overlay for readability */
+  background: rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease;
+}
+
+.banner {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  position: relative; /* Needed for the ::before overlay to position correctly */
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the opacity to control darkness */
+  pointer-events: none; /* Allows clicks to pass through the overlay */
+  z-index: 3; /* Ensures the overlay sits on top of the image */
+}
+
+/* Right-aligned Full-width Navigation */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between; /* Space items evenly */
+  width: 100%; /* Full-width */
 }
 
+/* Adjust desktop navigation to space items evenly */
 .desktop-nav {
   display: flex;
-  gap: 15px;
+  padding: 0% 5%;
+  gap: 5%;
+  flex-grow: 1; /* Allow desktop-nav to take available space */
+  justify-content: space-between; /* Spread nav items across full width */
+  align-items: center;
 }
 
 .nav-link {
   text-decoration: none;
   color: #333;
-  font-size: 1.1rem; /* Default font size */
+  font-size: 24px; /* Default font size */
   font-weight: 600;
   transition: color 0.3s;
 }
@@ -101,9 +163,15 @@
 }
 
 .search-icon {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   cursor: pointer;
   color: #333;
+}
+.Style-hr {
+  margin-left: 5%;
+  margin-right: 5%;
+
+  border: grey 2px solid;
 }
 
 .hamburger {
@@ -120,6 +188,7 @@
   align-items: start;
   background-color: #f4f4f4;
   padding: 10px;
+  width: 100%; /* Full-width for mobile nav */
 }
 
 .mobile-nav .nav-link {
@@ -135,6 +204,21 @@
 .mobile-nav .nav-link:hover {
   color: #ec2121;
 }
+@media (max-width: 1024px) {
+  .header-main {
+    flex-direction: row;
+    padding: 10px 5%;
+  }
+
+  .Banner-Container {
+    height: auto;
+  }
+
+  /* Reduce Font Sizes */
+  .nav-link {
+    font-size: 1.2rem;
+  }
+}
 
 /* Media Queries */
 @media (max-width: 768px) {
@@ -142,6 +226,10 @@
   .header-top {
     flex-direction: column;
     padding: 10px;
+  }
+  .nav-righ {
+    justify-content: center;
+    align-content: center;
   }
 
   .header-info span,
@@ -166,8 +254,11 @@
 
   .hamburger {
     display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the hamburger icon */
+    z-index: 10;
   }
-
   /* Show mobile nav dropdown when active */
   .mobile-nav {
     display: flex;

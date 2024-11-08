@@ -52,7 +52,7 @@
 
 .Cover-Story-text-overlay {
   position: absolute;
-  bottom: 0;
+  bottom: 0%;
   left: 0;
   width: 100%;
   color: white;
@@ -61,10 +61,10 @@
   box-sizing: border-box;
   text-align: left;
   transition: background 0.3s ease;
-  max-height: 150px;
+  max-height: 350px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
@@ -100,12 +100,11 @@
   max-height: 250px;
   overflow: hidden;
 }
-
 /* Add a dotted line only after the first additional item */
-.Cover-Story-additional-items:first-child::after {
+.Cover-Story-additional-items:not(:last-child)::after {
   content: "";
   display: block;
-  margin-top: 30px; /* Space above the line */
+  margin-top: 20px; /* Space above the dotted line */
   border-top: 2px dotted #ccc; /* Dotted line style */
   width: 100%;
 }

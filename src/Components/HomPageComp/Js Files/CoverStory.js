@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function CoverStory() {
   const { loading, error, data } = useFetch("Cover Story");
+  const [mainDescription, setmainDescription] = useState("");
   const [truncatedMainDescription, setTruncatedMainDescription] = useState("");
   const [truncatedAdditionalStories, setTruncatedAdditionalStories] = useState(
     []
@@ -18,6 +19,7 @@ export default function CoverStory() {
       // Function to truncate text based on screen size
       const truncateDescription = (description, maxWords) => {
         const words = description.split(" ");
+        setmainDescription(description);
         return words.length > maxWords
           ? words.slice(0, maxWords).join(" ") + "..."
           : description;
@@ -93,9 +95,15 @@ export default function CoverStory() {
                 className="Cover-Story-link"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
+                {" "}
+                {new Date(coverStory.updatedAt).toLocaleDateString("en-US", {
+                  month: "long",
+                  year: "numeric",
+                })}
                 <h2>{coverStory.Title}</h2>
+                <hr style={{ width: "30%", border: "1px solid red" }}></hr>
               </Link>
-              <p>{truncatedMainDescription}</p>
+              <p>{mainDescription}</p>
               {/* Display truncated main description */}
             </div>
           </div>

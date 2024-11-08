@@ -36,13 +36,13 @@
   top: 15%; /* Start the divider slightly below the top */
   bottom: 15%;
   width: 1px;
-  background-color: #ec2121;
+  background-color: black;
 }
 
 .Recent-news-Text {
   font-family: "Oswald", sans-serif;
   color: #ec2121;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none; /* Ensure no underline */
   font-weight: 400;
   cursor: pointer;
@@ -62,5 +62,5 @@
   margin-top: -0.01%;
   border: none; /* Remove default border */
   height: 2px; /* Set height of the line */
-  background-color: #ec2121; /* Line color */
+  background-color: black; /* Line color */
 }

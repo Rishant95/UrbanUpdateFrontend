@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 
 export default function LeaderSpeak() {
   const { loading, error, data } = useFetch("LeaderSpeak");
+  const { data: recentNewsData } = useFetch("Recent News"); // Fetch recent news data
   const [truncatedMainDescription, setTruncatedMainDescription] = useState("");
   const [truncatedAdditionalStories, setTruncatedAdditionalStories] = useState(
     []
   );
+  const [activeTab, setActiveTab] = useState("recent"); // State to manage active tab
 
   useEffect(() => {
     if (data && data.data) {
@@ -28,10 +30,9 @@ export default function LeaderSpeak() {
         leaderSpeak.Description?.map(
           (desc) => desc.children[0]?.text || ""
         ).join(" ") || "";
-      console.log("Main description is: ", mainDescription);
 
       // Determine truncation based on screen size for main leader speak description
-      const maxWordsMain = window.innerWidth < 768 ? 50 : 30; // 50 words for mobile, 30 for desktop
+      const maxWordsMain = window.innerWidth < 768 ? 50 : 1000; // 50 words for mobile, 1000 for desktop
       const truncatedMain = truncateDescription(mainDescription, maxWordsMain);
       setTruncatedMainDescription(truncatedMain);
 
@@ -42,7 +43,7 @@ export default function LeaderSpeak() {
             " "
           ) || "";
 
-        const maxWordsAdditional = window.innerWidth < 768 ? 100 : 300; // Adjust as needed for mobile/desktop
+        const maxWordsAdditional = window.innerWidth < 768 ? 100 : 1000; // Adjust as needed for mobile/desktop
         return {
           ...story,
           truncatedDescription: truncateDescription(
@@ -73,55 +74,120 @@ export default function LeaderSpeak() {
   const imageUrl = getImageUrl(leaderSpeak);
 
   return (
-    <div className="LeaderSpeak-Heading">
-      <h1>LeaderSpeak</h1>
-      <hr className="Styled-hr" />
+    <div className="main-container">
+      <div className="LeaderSpeak-Heading">
+        <h1>LeaderSpeak</h1>
+        <hr className="Styled-hr" />
 
-      <div className="LeaderSpeak-Container">
-        <div className="LeaderSpeak-item">
-          <Link
-            to={`/detail/LeaderSpeak/${leaderSpeak.id}`}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <div
-              className="LeaderSpeak-image-container"
-              style={{ cursor: "pointer" }}
-            >
-              {imageUrl && (
-                <img
-                  src={imageUrl}
-                  alt={leaderSpeak.Title}
-                  className="LeaderSpeak-image"
-                />
-              )}
-              <div className="LeaderSpeak-text-overlay">
-                <h2>{leaderSpeak.Title}</h2>
-                <p>{truncatedMainDescription}</p>
-              </div>
+        <div className="LeaderSpeak-Container">
+          <div className="LeaderSpeak-content">
+            <div className="LeaderSpeak-item">
+              <Link
+                to={`/detail/LeaderSpeak/${leaderSpeak.id}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div
+                  className="LeaderSpeak-image-container"
+                  style={{ cursor: "pointer" }}
+                >
+                  {imageUrl && (
+                    <img
+                      src={imageUrl}
+                      alt={leaderSpeak.Title}
+                      className="LeaderSpeak-image"
+                    />
+                  )}
+                  <div className="LeaderSpeak-text-overlay">
+                    <h2>{leaderSpeak.Title}</h2>
+                    <p>{truncatedMainDescription}</p>
+                  </div>
+                </div>
+              </Link>
             </div>
-          </Link>
+
+            <div className="LeaderSpeak-additional-content">
+              {truncatedAdditionalStories.slice(0, 3).map((story) => (
+                <Link
+                  key={story.id}
+                  to={`/detail/LeaderSpeak/${story.id}`}
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
+                >
+                  <div className="additional-item-container">
+                    <p className="leaderSpeak-date">
+                      {new Date(story.updatedAt).toLocaleDateString("en-US", {
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </p>
+                    <h2 className="Side-leaderSpeak-title">{story.Title}</h2>
+
+                    <div className="item-border"></div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Tab System */}
+      <div className="Tab-Section">
+        <div className="Tab-Container">
+          <button
+            className={`Tab ${activeTab === "recent" ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab("recent");
+            }}
+          >
+            Recent News
+          </button>
+          <button
+            className={`Tab ${activeTab === "trending" ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab("trending");
+            }}
+          >
+            Trending
+          </button>
+          {/* Underline that will move under active tab */}
+          <div
+            className="Tab-Underline"
+            style={{
+              left: activeTab === "recent" ? "0" : "100%",
+              width: "50%",
+              backgroundColor: activeTab === "recent" ? "#ec2121" : "black",
+            }}
+          ></div>
         </div>
 
-        <div className="LeaderSpeak-additional-content">
-          {truncatedAdditionalStories.map((story) => (
-            <Link
-              key={story.id}
-              to={`/detail/LeaderSpeak/${story.id}`}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <div className="additional-item-container">
-                <p className="leaderSpeak-date">
-                  {new Date(story.updatedAt).toLocaleDateString("en-US", {
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-                <h2 className="Side-leaderSpeak-title">{story.Title}</h2>
-
-                <div className="item-border"></div>
-              </div>
-            </Link>
-          ))}
+        {/* Tab Content */}
+        <div className="Tab-Content">
+          {activeTab === "recent" ? (
+            recentNewsData && recentNewsData.data ? (
+              <ul>
+                {recentNewsData.data.map((news) => (
+                  <li key={news.id} className="li-item">
+                    <Link
+                      to={`/detail/RecentNews/${news.id}`}
+                      className="Tab-titles"
+                    >
+                      {news.Title}
+                    </Link>
+                    {new Date(news.updatedAt).toLocaleDateString("en-US", {
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No recent news available</p>
+            )
+          ) : (
+            <p>Trending content goes here...</p>
+          )}
         </div>
       </div>
     </div>

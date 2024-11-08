@@ -51,7 +51,7 @@
   position: relative;
   width: 100%;
   padding-bottom: 20px; /* Add some space at the bottom */
-  border-bottom: 1px solid #ccc; /* Light gray line after each item */
+  border-bottom: 2px dotted #ccc; /* Light gray line after each item */
   margin-bottom: 20px; /* Add some space after the border */
 }
 
@@ -100,12 +100,9 @@
 /* Story Sections */
 .OneonOne-story {
   padding-bottom: 20px; /* Add some space at the bottom */
-  border-bottom: 1px solid #ccc; /* Light gray line after each story */
-  margin-bottom: 20px; /* Add some space after the border */
-}
 
-.OneonOne-story:last-child {
-  border-bottom: none;
+  margin-bottom: 20px; /* Add some space after the border */
+  border-bottom: dotted 2px #ccc;
 }
 
 .OneonOne-story-title {
