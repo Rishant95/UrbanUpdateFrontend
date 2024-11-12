@@ -6,6 +6,7 @@
   width: 100%;
   margin-left: 5%;
   margin-right: 100px;
+  align-items: center;
 }
 
 .slide-container {
@@ -41,20 +42,27 @@
   opacity: 1;
 }
 
+/* Ensures overlay remains at the bottom of the image */
 .title-overlay {
   position: absolute;
   font-family: "Merriweather";
   width: 100%;
-  bottom: 1%;
+  bottom: 5%; /* Fixes overlay to bottom of the image */
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Slightly darker for readability */
+  padding: 15px 20px;
   font-size: 30px;
   font-weight: 700;
   text-align: center;
+
   box-sizing: border-box;
-  z-index: 1;
+  z-index: 2; /* Ensures text overlay is above image effects */
 }
 
 .title-overlay h2 {
@@ -121,7 +129,7 @@
     padding: 10px;
     font-size: 24px;
     width: 100%;
-    top: 50%;
+    bottom: 0; /* Keeps overlay at the bottom */
   }
 
   .title-overlay h2 {
@@ -129,11 +137,11 @@
   }
 
   .magazine-image {
-    width: 100%; /* Full width for mobile */
-    height: auto; /* Adjust height automatically */
-    margin: 0 auto; /* Center horizontally */
-    display: block; /* Ensure it's centered */
-    padding-right: 0; /* Remove extra padding */
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    padding-right: 0;
   }
 }
 
@@ -147,7 +155,6 @@
     font-size: 20px;
   }
 
-  /* Center magazine image on very small screens */
   .magazine-image {
     margin-left: auto;
     margin-right: auto;

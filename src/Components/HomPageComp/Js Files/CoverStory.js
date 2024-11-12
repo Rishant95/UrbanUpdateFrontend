@@ -32,7 +32,7 @@ export default function CoverStory() {
         ).join(" ") || "";
 
       // Determine truncation based on screen size for main cover story
-      const maxWordsMain = window.innerWidth < 768 ? 50 : 100; // 50 words for mobile, 30 for desktop
+      const maxWordsMain = window.innerWidth < 768 ? 50 : 50; // 50 words for mobile, 30 for desktop
       const truncatedMain = truncateDescription(mainDescription, maxWordsMain);
       setTruncatedMainDescription(truncatedMain);
 

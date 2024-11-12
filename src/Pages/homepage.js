@@ -15,6 +15,7 @@ import CityAndArticles from "../Components/HomPageComp/Js Files/CityAndArticles"
 import EditorialUrban from "../Components/HomPageComp/Js Files/EditorialUrban";
 import BookReview from "../Components/HomPageComp/Js Files/BookReview";
 import Regulars from "../Components/HomPageComp/Js Files/Regulars";
+import FeaturedVideos from "../Components/HomPageComp/Js Files/FeaturedVideos";
 
 export default function Homepage() {
   const { loading, error, data } = useFetch("ThumbnailSlider");
@@ -57,7 +58,7 @@ export default function Homepage() {
       <Siteheader />
       <div className="cover-story-wrapper">
         <div className="slider-container">
-          <Slider {...settings}>
+          <Slider {...settings} className="slider">
             {data.data.map((article) => {
               const imageUrl = getImageUrl(article);
 
@@ -103,6 +104,7 @@ export default function Homepage() {
         <CityAndArticles />
         <EditorialUrban />
         <BookReview />
+        <FeaturedVideos />
         <Regulars />
       </>
     </div>
