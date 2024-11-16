@@ -20,12 +20,6 @@
   transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
 
-.first-review:hover {
-  transform: scale(
-    1.02
-  ); /* Slightly enlarge the entire first review on hover */
-}
-
 .first-review-date {
   margin-bottom: -1%;
   font-style: normal;
@@ -59,10 +53,6 @@
   transition: transform 0.3s ease; /* Smooth scaling effect */
 }
 
-.first-review-image:hover img {
-  transform: scale(1.05); /* Zoom effect on image hover */
-}
-
 .first-review-button {
   display: flex;
   align-items: center;
@@ -82,11 +72,6 @@
   margin-top: 40px;
   font-weight: 500;
   transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background and scaling */
-}
-
-.first-review-button:hover {
-  background-color: #e0e0e0; /* Change background on hover */
-  transform: scale(1.05); /* Slightly enlarge button on hover */
 }
 
 .first-review-icon {
@@ -113,10 +98,6 @@
   transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
 
-.other-review-item:hover {
-  transform: scale(1.02); /* Slightly enlarge the entire review item on hover */
-}
-
 .other-review-item:not(:last-child) {
   border-right: 2px solid #ccc; /* Vertical border */
 }
@@ -125,10 +106,6 @@
   width: 100%;
   height: 300px;
   transition: transform 0.3s ease; /* Smooth scaling effect */
-}
-
-.other-review-image:hover {
-  transform: scale(1.05); /* Zoom effect on image hover */
 }
 
 .other-review-title {

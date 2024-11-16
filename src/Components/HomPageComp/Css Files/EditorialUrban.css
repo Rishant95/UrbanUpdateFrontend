@@ -8,6 +8,7 @@
   padding-right: 5%;
   color: #ec2121;
   font-family: "PT Serif";
+  font-size: 20px;
   margin-top: 60px;
 }
 
@@ -28,22 +29,23 @@
 }
 
 .Urban-title-left {
-  font-size: 40px;
+  font-size: 30px;
   color: black;
   font-weight: 700;
   font-family: "Merriweather";
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
 
 .Urban-text-left {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 300;
   font-family: "Merriweather Sans";
   overflow: hidden;
+  color: black;
   display: -webkit-box;
   -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
@@ -53,24 +55,15 @@
 .Editorial-image-container {
   display: flex;
   gap: 20px;
-
   overflow: hidden; /* Prevent overflow on hover */
   transition: transform 0.3s ease; /* Smooth zoom effect */
 }
 
-.Editorial-image-container:hover {
-  transform: scale(1.05); /* Zoom in on hover */
-}
-
 .Editorial-image {
   width: 100%; /* Responsive width */
-  height: 300px; /* Maintain aspect ratio */
+  height: 200px; /* Maintain aspect ratio */
   object-fit: cover;
   transition: opacity 0.3s ease; /* Smooth opacity transition */
-}
-
-.Editorial-image-container:hover .Editorial-image {
-  opacity: 0.8; /* Slightly fade image on hover */
 }
 
 .Editorial-text-overlay {
@@ -100,6 +93,9 @@
   padding-left: 30px;
   box-sizing: border-box;
 }
+.Urban-Additional-Articles {
+  padding: 0px 10px;
+}
 
 .Urban {
   display: flex;
@@ -118,40 +114,34 @@
   transition: transform 0.3s ease; /* Smooth zoom effect on hover */
 }
 
-.Urban-Image-Img:hover {
-  transform: scale(1.05); /* Zoom in on hover */
-}
-
 .Urban-Content {
   flex: 1; /* Take the remaining space */
   overflow: hidden;
-  overflow: hidden;
+  font-size: 15px;
+  font-weight: 300;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .Urban-title {
   color: black;
-  font-size: 40px;
-  font-family: "Merriweather";
-
-  font-weight: 600;
-  transition: color 0.3s ease; /* Smooth color transition */
-}
-
-.Urban-text-left {
+  font-size: 30px;
+  font-family: "Merriweather", sans-serif;
   color: black;
-  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+
+  transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .Urban-text {
   color: black;
-  font-family: "Oswald", sans-serif;
+  font-family: "Merriweather", sans-serif;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  font-weight: 300;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
@@ -171,15 +161,6 @@
   margin: 0;
   padding-right: 10px; /* Add a bit of space between date and title */
   text-align: left;
-}
-
-/* Hover Effects for Titles and Dates */
-.Urban-title:hover {
-  color: #ec2121; /* Change title color on hover */
-}
-
-.Urban-date:hover {
-  color: #ec2121; /* Change date color on hover */
 }
 
 /* Responsive Styles */

@@ -32,7 +32,7 @@ export default function LeaderSpeak() {
         ).join(" ") || "";
 
       // Determine truncation based on screen size for main leader speak description
-      const maxWordsMain = window.innerWidth < 768 ? 50 : 1000; // 50 words for mobile, 1000 for desktop
+      const maxWordsMain = window.innerWidth < 768 ? 50 : 200; // 50 words for mobile, 1000 for desktop
       const truncatedMain = truncateDescription(mainDescription, maxWordsMain);
       setTruncatedMainDescription(truncatedMain);
 
@@ -43,7 +43,7 @@ export default function LeaderSpeak() {
             " "
           ) || "";
 
-        const maxWordsAdditional = window.innerWidth < 768 ? 100 : 1000; // Adjust as needed for mobile/desktop
+        const maxWordsAdditional = window.innerWidth < 768 ? 10 : 100; // Adjust as needed for mobile/desktop
         return {
           ...story,
           truncatedDescription: truncateDescription(
@@ -98,7 +98,7 @@ export default function LeaderSpeak() {
                     />
                   )}
                   <div className="LeaderSpeak-text-overlay">
-                    <h2>{leaderSpeak.Title}</h2>
+                    <h2 style={{ fontSize: "30px" }}>{leaderSpeak.Title}</h2>
                     <p>{truncatedMainDescription}</p>
                   </div>
                 </div>
@@ -155,8 +155,6 @@ export default function LeaderSpeak() {
           <div
             className="Tab-Underline"
             style={{
-              left: activeTab === "recent" ? "0" : "100%",
-              width: "50%",
               backgroundColor: activeTab === "recent" ? "#ec2121" : "black",
             }}
           ></div>
@@ -173,7 +171,7 @@ export default function LeaderSpeak() {
                       to={`/detail/RecentNews/${news.id}`}
                       className="Tab-titles"
                     >
-                      {news.Title}
+                      <h2 className="tab-content-title">{news.Title}</h2>
                     </Link>
                     {new Date(news.updatedAt).toLocaleDateString("en-US", {
                       month: "long",

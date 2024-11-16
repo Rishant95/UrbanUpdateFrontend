@@ -100,10 +100,12 @@ export default function CoverStory() {
                   month: "long",
                   year: "numeric",
                 })}
-                <h2>{coverStory.Title}</h2>
+                <h2 style={{ fontSize: "30px" }}>{coverStory.Title}</h2>
                 <hr style={{ width: "30%", border: "1px solid red" }}></hr>
               </Link>
-              <p>{mainDescription}</p>
+              <p style={{ fontWeight: "300", fontSize: "15px" }}>
+                {mainDescription}
+              </p>
               {/* Display truncated main description */}
             </div>
           </div>

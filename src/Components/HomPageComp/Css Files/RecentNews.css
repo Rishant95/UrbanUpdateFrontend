@@ -5,6 +5,7 @@
   margin-top: 2%;
   color: #ec2121;
   font-family: "PT Serif";
+  font-size: 40px;
 }
 
 .Recent-news-row {
@@ -41,7 +42,7 @@
 
 .Recent-news-Text {
   font-family: "Oswald", sans-serif;
-  color: #ec2121;
+  color: black;
   font-size: 14px;
   text-decoration: none; /* Ensure no underline */
   font-weight: 400;
@@ -50,7 +51,7 @@
 }
 
 .Recent-news-Text:hover {
-  color: black; /* Change color on hover */
+  color: #ec2121;
   transform: scale(1.05); /* Slightly grow the text on hover */
 }
 

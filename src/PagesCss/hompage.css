@@ -21,10 +21,6 @@
   transition: transform 0.3s ease;
 }
 
-.slider-card-image:hover {
-  transform: scale(1.05);
-}
-
 /* Darkening effect */
 .slider-card-image::before {
   content: "";
@@ -38,16 +34,12 @@
   transition: opacity 0.3s ease;
 }
 
-.slider-card-image:hover::before {
-  opacity: 1;
-}
-
 /* Ensures overlay remains at the bottom of the image */
 .title-overlay {
   position: absolute;
   font-family: "Merriweather";
   width: 100%;
-  bottom: 5%; /* Fixes overlay to bottom of the image */
+  bottom: 1%; /* Fixes overlay to bottom of the image */
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(
@@ -80,10 +72,6 @@
   transition: transform 0.3s ease;
 }
 
-.magazine-image:hover {
-  transform: scale(1.05);
-}
-
 .magazine-image::before {
   content: "";
   position: absolute;
@@ -94,10 +82,6 @@
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity 0.3s ease;
-}
-
-.magazine-image:hover::before {
-  opacity: 1;
 }
 
 /* Responsive Styling */

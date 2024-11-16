@@ -29,13 +29,13 @@ function CityAndArticles() {
         <div className="City-item">
           <div className="Cityimage-container">
             <h1>City Images</h1>
-            <hr></hr>
+            <hr style={{ border: "solid 1px grey" }}></hr>
             <div className="City-item">
               <div className="City-image-container">
                 {imageUrl && (
                   <img src={imageUrl} alt={city.Title} className="City-image" />
                 )}
-                <div className="Cover-Story-text-overlay">
+                <div className="City-text-overlay">
                   <Link
                     to={`/detail/Cover Story/${city.id}`}
                     className="Cover-Story-link"
@@ -110,7 +110,7 @@ function Articles() {
                     year: "numeric",
                   })}
                 </p>
-                <h2 className="Article-title">
+                <h2 className="Article-title" style={{ fontSize: "30px" }}>
                   {article.Title || "Untitled Article"}
                 </h2>
 
@@ -124,7 +124,14 @@ function Articles() {
                             const fullText = child.text; // Get full text
                             const truncatedText = truncateText(fullText, 50); // Truncate to 50 words
                             return (
-                              <span key={childIndex}>{truncatedText}</span>
+                              <span
+                                key={childIndex}
+                                style={{
+                                  fontWeight: "300",
+                                }}
+                              >
+                                {truncatedText}
+                              </span>
                             );
                           })}
                       </p>

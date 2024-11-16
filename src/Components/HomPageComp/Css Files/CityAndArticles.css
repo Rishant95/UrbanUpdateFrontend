@@ -3,6 +3,7 @@
   padding-right: 5%;
   color: #ec2121;
   margin-top: 60px;
+  font-size: 20px;
   font-family: "PT Serif";
 }
 
@@ -15,7 +16,6 @@
 
 .City-Container {
   display: flex;
-
   padding: 0px;
 }
 
@@ -33,19 +33,11 @@
   height: 400px; /* Set fixed height for the container */
 }
 
-.City-image-container:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-}
-
 .City-image {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Maintain aspect ratio without distortion */
   transition: opacity 0.3s ease;
-}
-
-.City-image-container:hover .City-image {
-  opacity: 0.9; /* Slightly fade image on hover */
 }
 
 .City-text-overlay {
@@ -67,12 +59,8 @@
   text-overflow: ellipsis;
 }
 
-.City-image-container:hover .City-text-overlay {
-  transform: translateY(-5px); /* Lift text overlay slightly on hover */
-}
-
 .Articles-content {
-  width: 50%; /* Take up the other half of the container */
+  width: 55%; /* Take up the other half of the container */
   padding-left: 30px;
   box-sizing: border-box;
 }
@@ -95,10 +83,6 @@
   transition: transform 0.3s ease; /* Smooth zoom effect on hover */
 }
 
-.Article-Image-Img:hover {
-  transform: scale(1.05); /* Zoom in on hover */
-}
-
 .Article-Content {
   flex: 1; /* Take the remaining space */
   margin-top: -50px;
@@ -107,7 +91,7 @@
 
 .Article-title {
   color: black;
-  font-size: 40px;
+  font-size: 30px;
   font-family: "Merriweather";
   margin-top: 0px;
   font-weight: 700;
@@ -127,6 +111,8 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  padding-top: 10px;
+  font-size: 15px;
   text-overflow: ellipsis;
 }
 
@@ -145,15 +131,6 @@
   margin: 0;
   padding-right: 10px; /* Add a bit of space between date and title */
   text-align: left;
-}
-
-/* Hover Effects for Titles and Dates */
-.Article-title:hover {
-  color: #ec2121; /* Change title color on hover */
-}
-
-.Article-date:hover {
-  color: #ec2121; /* Change date color on hover */
 }
 
 /* Responsive Styles */

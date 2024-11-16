@@ -5,6 +5,7 @@
 .Cover-Story-Heading {
   padding-left: 5%;
   padding-right: 5%;
+  font-size: 20px;
   color: #ec2121;
   font-family: "PT Serif";
   margin-top: 30px;
@@ -39,10 +40,6 @@
   transition: transform 0.3s ease;
 }
 
-.Cover-Story-image-container:hover {
-  transform: scale(1.05);
-}
-
 .Cover-Story-image {
   width: 100%;
   height: 100%;
@@ -64,13 +61,9 @@
   max-height: 350px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-}
-
-.Cover-Story-image-container:hover .Cover-Story-text-overlay {
-  background: rgba(0, 0, 0, 0.7);
 }
 
 .Cover-Story-date {
@@ -109,10 +102,6 @@
   width: 100%;
 }
 
-.Cover-Story-additional-items:hover {
-  transform: translateX(10px);
-}
-
 .Side-cover-story-title {
   color: black;
   font-family: "Merriweather";
@@ -129,25 +118,15 @@
 .Side-cover-story-text {
   color: black;
   font-family: "Merriweather Sans";
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 200;
   margin-top: 10px;
   transition: color 0.3s ease, transform 0.3s ease;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.Cover-Story-additional-items:hover .Side-cover-story-title {
-  color: #ec2121;
-  transform: scale(0.95);
-}
-
-.Cover-Story-additional-items:hover .Side-cover-story-text {
-  color: #444444;
-  transform: scale(0.98);
 }
 
 /* Responsive Styles */

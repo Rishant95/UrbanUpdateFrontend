@@ -51,11 +51,6 @@
   transition: scale 0.3s ease;
 }
 
-.BookReview-image-container:hover .BookReview-image {
-  opacity: 0.9; /* Slightly fade the image on hover */
-  transform: scale(1.02); /* Slightly enlarge the item */
-}
-
 .BookReview-text-overlay {
   width: 100%; /* Span the entire width of the container */
   color: var(--text-color); /* Text color to contrast with the image */
@@ -69,11 +64,12 @@
 }
 
 .BookReview-text {
-  margin-top: -10px;
+  margin-top: 10px;
   font-family: "Oswald", sans-serif;
   font-size: 35px;
   font-weight: 300;
   width: 70%;
+  line-height: 40px;
   transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for text color and shadow */
 }
 
@@ -86,20 +82,11 @@
   transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition for description */
 }
 
-.BookReview-item:hover .BookReview-description {
-  color: var(--primary-color); /* Change description color on hover */
-  text-decoration: underline; /* Underline the description on hover */
-}
-
 .BookReview-date {
   font-family: "Oswald", sans-serif;
   font-weight: 300;
   margin-top: -5px;
   transition: color 0.3s ease; /* Smooth transition for date color */
-}
-
-.BookReview-item:hover .BookReview-date {
-  color: var(--primary-color); /* Change date color on hover */
 }
 
 /* Responsive Styles */
