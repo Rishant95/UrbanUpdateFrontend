@@ -65,6 +65,9 @@ export default function Oneonone() {
                   })}
                 </p>
                 <h2 className="first-title">{oneon.Title}</h2>
+                <h3 className="OneonOne-story-interviewee">
+                  Interviewed by {oneon.Author}
+                </h3>
                 <h5 className="OneonOne-description">
                   {truncateText(description, 200)}
                 </h5>
@@ -86,7 +89,11 @@ export default function Oneonone() {
                     year: "numeric", // Year
                   })}
                 </p>
+
                 <h2 className="OneonOne-story-title">{oneonone.Title}</h2>
+                <h3 className="OneonOne-story-interviewee">
+                  Interviewed by {oneonone.Author}
+                </h3>
               </div>
             </Link>
           ))}

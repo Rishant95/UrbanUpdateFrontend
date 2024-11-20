@@ -6,6 +6,7 @@
   color: #ec2121;
   font-family: "PT Serif";
   font-size: 40px;
+  margin-bottom: 20px;
 }
 
 .Recent-news-row {
@@ -52,7 +53,6 @@
 
 .Recent-news-Text:hover {
   color: #ec2121;
-  transform: scale(1.05); /* Slightly grow the text on hover */
 }
 
 .styled-hr {

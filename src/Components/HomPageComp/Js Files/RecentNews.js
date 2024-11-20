@@ -53,7 +53,7 @@ export default function RecentNews() {
       <div className="Recent-news-row" ref={scrollRef}>
         {newsItems.map((recentNews, index) => (
           <Link
-            key={recentNews.id}
+            key={index}
             to={`/detail/Recent News/${recentNews.id}`} // Use collection and id in URL
             className={`Recent-news-item ${
               index !== newsItems.length - 1 ? "with-divider" : ""

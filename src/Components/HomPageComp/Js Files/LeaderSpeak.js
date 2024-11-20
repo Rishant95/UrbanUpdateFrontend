@@ -57,6 +57,33 @@ export default function LeaderSpeak() {
     }
   }, [data]);
 
+  // Function to sort articles by views in descending order
+  const sortByViews = (articles) => {
+    return articles.sort((a, b) => b.Views - a.Views);
+  };
+
+  // Function to sort articles by date (latest first)
+  const sortByDate = (articles) => {
+    return articles.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+  };
+
+  const [trendingNews, setTrendingNews] = useState([]);
+  const [recentNews, setRecentNews] = useState([]);
+
+  useEffect(() => {
+    if (recentNewsData && recentNewsData.data) {
+      // Sort the news by views (highest to lowest) for Trending tab
+      const sortedNewsByViews = sortByViews(recentNewsData.data);
+      setTrendingNews(sortedNewsByViews.slice(0, 4)); // Set the top 4 most viewed news articles
+
+      // Sort the news by date for Recent tab
+      const sortedNewsByDate = sortByDate(recentNewsData.data);
+      setRecentNews(sortedNewsByDate); // Set the recent news sorted by date
+    }
+  }, [recentNewsData]);
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -132,6 +159,7 @@ export default function LeaderSpeak() {
           </div>
         </div>
       </div>
+
       {/* Tab System */}
       <div className="Tab-Section">
         <div className="Tab-Container">
@@ -163,7 +191,7 @@ export default function LeaderSpeak() {
         {/* Tab Content */}
         <div className="Tab-Content">
           {activeTab === "recent" ? (
-            recentNewsData && recentNewsData.data ? (
+            recentNews && recentNews.length > 0 ? (
               <ul>
                 {recentNewsData.data.map((news) => (
                   <li key={news.id} className="li-item">
@@ -183,8 +211,27 @@ export default function LeaderSpeak() {
             ) : (
               <p>No recent news available</p>
             )
+          ) : trendingNews.length > 0 ? (
+            <ul>
+              {/* Show the top 4 most viewed articles in trending tab */}
+              {trendingNews.map((news) => (
+                <li key={news.id} className="li-item">
+                  <Link
+                    to={`/detail/RecentNews/${news.id}`}
+                    className="Tab-titles"
+                  >
+                    <h2 className="tab-content-title">{news.Title}</h2>
+                  </Link>
+                  <p>Views: {news.Views}</p>
+                  {new Date(news.updatedAt).toLocaleDateString("en-US", {
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </li>
+              ))}
+            </ul>
           ) : (
-            <p>Trending content goes here...</p>
+            <p>No trending news available</p>
           )}
         </div>
       </div>

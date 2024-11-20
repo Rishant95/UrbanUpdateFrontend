@@ -100,7 +100,12 @@ export default function CoverStory() {
                   month: "long",
                   year: "numeric",
                 })}
-                <h2 style={{ fontSize: "30px" }}>{coverStory.Title}</h2>
+                <h2
+                  style={{ fontSize: "30px" }}
+                  className="Cover-Story-Title-Overlay"
+                >
+                  {coverStory.Title}
+                </h2>
                 <hr style={{ width: "30%", border: "1px solid red" }}></hr>
               </Link>
               <p style={{ fontWeight: "300", fontSize: "15px" }}>
@@ -127,6 +132,7 @@ export default function CoverStory() {
                   })}
                 </p>
                 <h2 className="Side-cover-story-title">{story.Title}</h2>
+                <h3 className="Side-cover-story-author"> By {story.Author}</h3>
                 <p className="Side-cover-story-text">
                   {story.truncatedDescription}
                 </p>{" "}

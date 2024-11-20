@@ -15,7 +15,7 @@
 .Featured-Container {
   display: flex;
   gap: 1%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   cursor: pointer;
 }
 

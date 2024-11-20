@@ -52,15 +52,7 @@ export default function VelocityPage() {
                       />
                     )}
                     <div className="Velocity-text-overlay">
-                      <p className="Velocity-date">
-                        {new Date(velocity.updatedAt).toLocaleDateString(
-                          "en-US",
-                          {
-                            month: "long", // Full month name
-                            year: "numeric", // Year
-                          }
-                        )}
-                      </p>
+                      <p className="Velocity-date">{velocity.CityName}</p>
                       <h2 className="Velocity-text">{velocity.Title}</h2>
                     </div>
                   </div>

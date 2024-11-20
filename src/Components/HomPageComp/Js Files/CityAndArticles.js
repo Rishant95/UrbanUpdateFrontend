@@ -29,7 +29,7 @@ function CityAndArticles() {
         <div className="City-item">
           <div className="Cityimage-container">
             <h1>City Images</h1>
-            <hr style={{ border: "solid 1px grey" }}></hr>
+            <hr className="Styled-hr" />
             <div className="City-item">
               <div className="City-image-container">
                 {imageUrl && (

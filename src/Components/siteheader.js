@@ -49,11 +49,7 @@ export default function Siteheader() {
         <div className="header-main">
           {/* Logo on Left */}
           <div className="logo-container">
-            <img
-              className="logo"
-              src="https://admin.manofox.online/uploads/thumbnail_Urban_Update_logo_da45c6e125.jpg"
-              alt="Logo"
-            />
+            <img className="logo" src="UrbanUpdatelogo.jpg" alt="Logo" />
           </div>
           <div className="Banner-Container">
             <img

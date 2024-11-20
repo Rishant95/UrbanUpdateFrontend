@@ -5,7 +5,7 @@ export default function Regulars() {
   return (
     <div>
       <div className="Featured-Heading">
-        <h1>Regulars Videos</h1>
+        <h1>Regulars</h1>
         <hr className="Styled-hr" />
 
         <div className="Regulars-Container">

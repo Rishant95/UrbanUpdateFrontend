@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getImageUrl, getMoreDetail, useFetch } from "../Hooks/useFetch";
 import "../PagesCss/DetailPage.css";
@@ -11,6 +11,33 @@ export default function DetailPage() {
   const [error, setError] = useState(null);
   const sampleImage = "https://via.placeholder.com/800";
 
+  // useRef to track if incrementViews has been called already
+  const incrementedRef = useRef(false);
+
+  const incrementViews = async (articleId) => {
+    try {
+      const response = await fetch(
+        `https://admin.manofox.online/api/news-articles/${articleId}/increment-view`,
+        {
+          method: "POST", // or PUT if your API requires it
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to update views");
+      }
+
+      const result = await response.json();
+      return result.data.Views; // Return the updated view count from the server
+    } catch (error) {
+      console.error("Error incrementing views:", error);
+      return null;
+    }
+  };
+
   // Fetch main article details
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +48,11 @@ export default function DetailPage() {
           setError(result.error);
         } else {
           setData(result);
+
+          // Increment views only once, based on the ref flag
+          if (!incrementedRef.current) {
+            incrementedRef.current = true; // Mark as incremented
+          }
         }
       } catch (err) {
         setError(err);
@@ -30,7 +62,7 @@ export default function DetailPage() {
     };
 
     fetchData();
-  }, [id]);
+  }, [id]); // The effect depends on 'id'
 
   // Fetch related articles using useFetch hook
   const {
@@ -39,7 +71,6 @@ export default function DetailPage() {
     data: relatedData,
   } = useFetch(collection);
 
-  // Check if the data for related articles is available
   const relatedArticles = relatedData?.data || [];
 
   if (loading || relatedLoading) {
@@ -64,13 +95,13 @@ export default function DetailPage() {
         <p className="detail-date">
           {new Date(createdAt).toLocaleDateString()}
         </p>
-
         <img
           src={getImageUrl(data.data[0]) || sampleImage}
           alt={Title}
           className="detail-image"
         />
 
+        {/* Display updated view count */}
         <div className="detail-description">
           {Array.isArray(Description) ? (
             Description.map((para, index) => (
@@ -80,7 +111,6 @@ export default function DetailPage() {
             <p>{Description}</p>
           )}
         </div>
-
         <div className="comment-section">
           <h2>Leave a Reply</h2>
           <form>
@@ -88,7 +118,6 @@ export default function DetailPage() {
             <button type="submit">Post Comment</button>
           </form>
         </div>
-
         <div className="related-articles">
           <h2>Related Articles</h2>
           <hr />

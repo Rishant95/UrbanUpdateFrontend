@@ -29,6 +29,7 @@
 .footer-item-links-container {
   display: flex;
   flex-direction: column;
+  font-weight: 300;
   gap: 8px; /* Reduced gap between links */
 }
 
