@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+
+/* Base Styles */
 .City-Heading {
   padding-left: 5%;
   padding-right: 5%;
@@ -54,6 +57,14 @@
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+}
+
+.City-date {
+  font-size: 14px;
+  color: white;
+  margin: 0;
+  padding-right: 10px; /* Add a bit of space between date and title */
+  text-align: left;
 }
 
 .Articles-content {
@@ -122,14 +133,6 @@
   text-align: left;
 }
 
-.City-date {
-  font-size: 14px;
-  color: white;
-  margin: 0;
-  padding-right: 10px; /* Add a bit of space between date and title */
-  text-align: left;
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
   .City-Container {
@@ -165,6 +168,12 @@
 
   .City-date {
     font-size: 15px; /* Decrease font size for city date */
+  }
+}
+
+@media (max-width: 1280px) {
+  .Article-Image {
+    display: none; /* Hide the article image */
   }
 }
 

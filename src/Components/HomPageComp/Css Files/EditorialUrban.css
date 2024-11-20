@@ -35,7 +35,7 @@
   font-family: "Merriweather";
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
@@ -47,7 +47,7 @@
   overflow: hidden;
   color: black;
   display: -webkit-box;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
@@ -61,8 +61,9 @@
 
 .Editorial-image {
   width: 100%; /* Responsive width */
-  height: 200px; /* Maintain aspect ratio */
+  height: 250px; /* Maintain aspect ratio */
   object-fit: cover;
+  align-content: center;
   transition: opacity 0.3s ease; /* Smooth opacity transition */
 }
 
@@ -171,6 +172,24 @@
     flex-wrap: wrap;
     overflow: hidden; /* Prevent overflow on hover */
     transition: transform 0.3s ease; /* Smooth zoom effect */
+  }
+  .Urban-text-left {
+    font-size: 15px;
+    font-weight: 300;
+    font-family: "Merriweather Sans";
+    overflow: hidden;
+    color: black;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+  .Editorial-image {
+    width: 100%; /* Responsive width */
+    height: 150px; /* Maintain aspect ratio */
+    object-fit: cover;
+    align-content: center;
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
   }
 }
 @media (max-width: 768px) {

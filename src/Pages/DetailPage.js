@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { getImageUrl, getMoreDetail, useFetch } from "../Hooks/useFetch";
 import "../PagesCss/DetailPage.css";
 import MinimizedHeader from "../Components/EventPageComp/Js/minimizedHeader";
+import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from "react-icons/fa"; // Import react-icons
 
 export default function DetailPage() {
   const { collection, id } = useParams();
@@ -10,6 +11,7 @@ export default function DetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const sampleImage = "https://via.placeholder.com/800";
+  const authorPlaceholder = "https://via.placeholder.com/150";
 
   // useRef to track if incrementViews has been called already
   const incrementedRef = useRef(false);
@@ -43,7 +45,7 @@ export default function DetailPage() {
     const fetchData = async () => {
       try {
         const result = await getMoreDetail(id);
-
+        incrementViews(id);
         if (result.error) {
           setError(result.error);
         } else {
@@ -92,6 +94,52 @@ export default function DetailPage() {
       <MinimizedHeader />
       <div className="detail-page">
         <h1 className="detail-title">{Title}</h1>
+
+        {/* Author and Share Section */}
+        <div className="author-share-container">
+          <div className="author-info">
+            <img
+              src={authorPlaceholder}
+              alt="Author"
+              className="author-avatar"
+            />
+            <p className="author-name">Rishant</p>
+          </div>
+          <div className="share-section">
+            <span className="share-text">Share on:</span>
+            <div className="social-icons">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="https://whatsapp.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaWhatsapp />
+              </a>
+            </div>
+          </div>
+        </div>
+
         <p className="detail-date">
           {new Date(createdAt).toLocaleDateString()}
         </p>
@@ -101,7 +149,6 @@ export default function DetailPage() {
           className="detail-image"
         />
 
-        {/* Display updated view count */}
         <div className="detail-description">
           {Array.isArray(Description) ? (
             Description.map((para, index) => (

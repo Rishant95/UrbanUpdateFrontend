@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+
+/* Base Styles */
 .Featured-Heading {
   padding-left: 5%;
   padding-right: 5%;
@@ -17,12 +19,14 @@
   gap: 1%;
   justify-content: space-around;
   cursor: pointer;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .Featured-item {
   position: relative;
   justify-content: space-evenly;
-  width: 50%; /* Take up half of the container */
+  width: 48%; /* Adjust to fit better on small screens */
+  margin-bottom: 20px; /* Add spacing between items */
 }
 
 .Featured-image {
@@ -30,6 +34,7 @@
   height: auto;
   object-fit: cover;
 }
+
 .Featured-image-container {
   display: flex;
   gap: 10px;
@@ -38,25 +43,79 @@
 }
 
 .Featured-text-overlay {
-  width: 100%; /* Span the entire width of the container */
-  color: black; /* Text color to contrast with the image */
+  width: 100%;
+  color: black;
   box-sizing: border-box;
-  text-align: left; /* Align text to the left */
+  text-align: left;
 }
 
 .Featured-additional-content {
-  width: 50%; /* Take up the other half of the container */
+  width: 48%; /* Adjust to fit better on small screens */
   box-sizing: border-box;
 }
+
 .Featured-text {
   margin-top: -10px;
   font-family: "Oswald", sans-serif;
   font-size: 35px;
   font-weight: 300;
-  width: 70%;
+  width: 100%; /* Make text span container width */
 }
+
 .Featured-date {
   font-family: "Oswald", sans-serif;
   font-weight: 300;
   margin-top: -5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .Featured-Container {
+    gap: 2%;
+  }
+
+  .Featured-item {
+    width: 100%; /* Make items stack vertically */
+  }
+
+  .Featured-additional-content {
+    width: 100%; /* Full width for smaller screens */
+  }
+
+  .Featured-text {
+    font-size: 30px; /* Adjust font size for readability */
+  }
+}
+
+@media (max-width: 768px) {
+  .Featured-Heading {
+    margin-top: 40px;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .Featured-text {
+    font-size: 28px; /* Further reduce font size */
+  }
+
+  .Featured-image {
+    width: 100%; /* Ensure images scale properly */
+  }
+}
+
+@media (max-width: 480px) {
+  .Featured-Heading {
+    margin-top: 30px;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 20px;
+  }
+
+  .Featured-text {
+    font-size: 24px;
+  }
+
+  .Featured-date {
+    font-size: 18px;
+  }
 }

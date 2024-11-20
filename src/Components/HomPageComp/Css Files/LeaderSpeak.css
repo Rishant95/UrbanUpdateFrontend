@@ -86,7 +86,7 @@
   font-size: 30px;
   font-family: "Oswald", sans-serif;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -99,7 +99,7 @@
 }
 .li-item {
   border-bottom: 3px dotted #ccc;
-  padding: 20px 0px;
+  padding: 25px 0px;
 }
 
 .li-item:last-child {

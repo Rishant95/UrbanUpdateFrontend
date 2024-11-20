@@ -28,11 +28,6 @@
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.min-hamburger-icon:hover {
-  transform: scale(1.1);
-  color: #ec2121; /* Highlight color */
-}
-
 /* Logo and title container styling */
 .min-logo-title {
   display: flex;
@@ -45,11 +40,6 @@
   height: auto;
   margin-right: 10px;
   transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.min-logo-image:hover {
-  transform: rotate(10deg) scale(1.05); /* Logo tilts slightly on hover */
-  opacity: 0.9;
 }
 
 .min-title {
@@ -90,14 +80,6 @@
   cursor: pointer;
   font-family: "Roboto", sans-serif;
   transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Hover effect for buttons */
-.min-subscribe-btn:hover,
-.min-signin-btn:hover {
-  background-color: #ec2121;
-  transform: translateY(-2px); /* Slight lift on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
 }
 
 .min-icon-bell,

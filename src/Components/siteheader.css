@@ -172,8 +172,7 @@
 .Style-hr {
   margin-left: 5%;
   margin-right: 5%;
-
-  border: grey 2px solid;
+  border: grey 1px solid;
 }
 
 .hamburger {

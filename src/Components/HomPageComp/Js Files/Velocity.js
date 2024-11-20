@@ -1,9 +1,33 @@
 import { Link } from "react-router-dom";
 import "../Css Files/Velocity.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
+import { useEffect, useRef } from "react";
 
 export default function VelocityPage() {
   const { loading, error, data } = useFetch("Velocity");
+  const sliderRef = useRef(null);
+
+  // Automatic scrolling logic with seamless looping
+  const autoScroll = () => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = slider;
+    const maxScrollLeft = scrollWidth - clientWidth;
+
+    // Scroll to the right
+    slider.scrollBy({ left: 1, behavior: "smooth" });
+
+    // If at the end, reset to the start
+    if (scrollLeft >= maxScrollLeft) {
+      slider.scrollLeft = 0;
+    }
+  };
+
+  useEffect(() => {
+    const scrollInterval = setInterval(autoScroll, 1); // Adjust speed here
+    return () => clearInterval(scrollInterval); // Cleanup on unmount
+  }, []);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -17,23 +41,20 @@ export default function VelocityPage() {
     return <p>No data available</p>;
   }
 
+  // Duplicate the data for seamless looping
+  const velocityItems = [...data.data, ...data.data];
+
   return (
     <div>
       <div className="Velocity-Heading">
         <h1>Velocity</h1>
         <hr className="Styled-hr" />
-
-        <div className="Velocity-Container">
-          {data.data.slice(0, 4).map((velocity) => {
-            // Handle the image URL
+        <div className="Velocity-Container" ref={sliderRef}>
+          {velocityItems.map((velocity, index) => {
             const imageUrl = getImageUrl(velocity);
-
-            // Log the image URL for debugging
-            console.log("Image URL:", imageUrl); // Check if the URL is valid
-
             return (
               <Link
-                key={velocity.id}
+                key={`${velocity.id}-${index}`}
                 to={`/detail/Velocity/${velocity.id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
@@ -45,7 +66,6 @@ export default function VelocityPage() {
                         alt={velocity.Title}
                         className="Velocity-image"
                         onError={(e) => {
-                          // Fallback for broken images
                           e.target.src =
                             "https://yourapi.com/path-to-placeholder-image.jpg";
                         }}

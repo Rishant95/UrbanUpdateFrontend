@@ -24,10 +24,6 @@
   transition: transform 0.3s; /* Optional: smooth hover effect */
 }
 
-.sac-summit-image:hover {
-  transform: scale(1.05); /* Zoom effect on hover */
-}
-
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
   .sac-summit-image {

@@ -53,19 +53,13 @@ function EditorialUrban() {
                   <p className="Urban-text-left">
                     {truncateText(
                       editorial.Description[0].children[0].text,
-                      400
+                      800
                     )}
                   </p>
                 )}
               </div>
             </div>
           </Link>
-          {/* Display additional content */}
-          {editorial?.Description?.[0]?.children?.[0]?.text && (
-            <p className="Urban-text-left">
-              {truncateText(editorial.Description[0].children[0].text, 400)}
-            </p>
-          )}
         </div>
         <div className="Urban-content">
           <h1>Urban Agenda</h1>
@@ -120,7 +114,7 @@ function Urban() {
               </h2>
               {article?.Description?.[0]?.children?.[0]?.text && (
                 <p className="Urban-text">
-                  {truncateText(article.Description[0].children[0].text, 400)}{" "}
+                  {truncateText(article.Description[0].children[0].text, 800)}{" "}
                   {/* Show description for each article */}
                 </p>
               )}
