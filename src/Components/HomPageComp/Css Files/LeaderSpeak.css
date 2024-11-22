@@ -17,12 +17,6 @@
   width: 50%;
 }
 
-.Styled-hr {
-  border: 0;
-  height: 2px;
-  background: #ccc;
-}
-
 /* Container and Layout */
 .LeaderSpeak-Container {
   display: flex; /* Use flexbox for horizontal layout */
@@ -98,12 +92,12 @@
   font-size: 30px;
 }
 .li-item {
-  border-bottom: 3px dotted #ccc;
+  border-bottom: 2px solid black;
   padding: 25px 0px;
 }
 
 .li-item:last-child {
-  border-bottom: 0px dotted #ccc;
+  border-bottom: 0px solid #ccc;
 }
 
 .LeaderSpeak-additional-content .additional-item-container {
@@ -177,7 +171,7 @@
 .Tab-Content {
   padding: 0px 10px; /* Padding for tab content area */
   border-radius: 4px; /* Slightly rounded corners */
-  border-left: 1px solid #ccc; /* Optional: border to separate from content */
+  border-left: 2px solid black; /* Optional: border to separate from content */
 }
 
 .Tab-Content ul {
@@ -190,7 +184,6 @@
 .Tab-Underline {
   position: absolute;
   bottom: 0; /* Position it at the bottom of the Tab-Container */
-  height: 4px; /* Height of the underline */
   background-color: #ec2121; /* Active color */
   transition: left 0.3s ease, width 0.3s ease; /* Smooth transition */
 }
@@ -201,7 +194,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 4px; /* Height of the line */
+  height: 2px; /* Height of the line */
   background-color: black; /* Default color */
   width: 100%; /* Take full width of the container */
 }

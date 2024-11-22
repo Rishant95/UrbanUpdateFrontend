@@ -14,7 +14,7 @@
 .Styled-hr {
   border: 0;
   height: 2px;
-  background: #ccc;
+  background: black;
 }
 
 .Cover-Story-Container {
@@ -104,7 +104,7 @@
   content: "";
   display: block;
   margin-top: 20px; /* Space above the dotted line */
-  border-top: 2px dotted #ccc; /* Dotted line style */
+  border-top: 2px solid black; /* Dotted line style */
   width: 100%;
 }
 

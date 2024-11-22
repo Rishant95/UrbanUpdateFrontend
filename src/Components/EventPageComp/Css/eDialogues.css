@@ -20,7 +20,7 @@
 }
 
 .edialogues-left div {
-  border-bottom: 3px dotted #ccc; /* Adds a dotted border at the bottom */
+  border-bottom: 2px solid black; /* Adds a dotted border at the bottom */
   padding-bottom: 15px; /* Adds padding to the bottom */
   margin-bottom: 15px; /* Adds spacing between items */
 }
@@ -50,7 +50,7 @@
 }
 
 .dotted-separator {
-  border-bottom: 2px dotted #ccc;
+  border-bottom: 2px solid black;
   margin: 20px 0;
 }
 
