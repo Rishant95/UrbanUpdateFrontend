@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   FaSun,
   FaClock,
@@ -18,6 +19,58 @@ import "./siteheader.css";
 export default function Siteheader() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [location, setLocation] = useState("Fetching...");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+
+  // Fetch location, date, and time
+  useEffect(() => {
+    // Fetch location
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        try {
+          const response = await axios.get(
+            `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=YOUR_API_KEY`
+          );
+          const city =
+            response.data.results[0]?.components?.city ||
+            response.data.results[0]?.components?.town ||
+            response.data.results[0]?.components?.village ||
+            "Unknown";
+          setLocation(city);
+        } catch (error) {
+          console.error("Error fetching location:", error);
+          setLocation("Location unavailable");
+        }
+      },
+      (error) => {
+        console.error("Geolocation error:", error);
+        setLocation("Location unavailable");
+      }
+    );
+
+    // Fetch date and time
+    const interval = setInterval(() => {
+      const now = new Date();
+      setDate(
+        now.toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      );
+      setTime(
+        now.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    }, 1000);
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, []);
 
   return (
     <header className="main-header">
@@ -25,10 +78,11 @@ export default function Siteheader() {
         {/* Header Info Row */}
         <div className="header-info">
           <FaSun className="icon" />
-          <span>15° New York</span>
+          <span>India</span>
           <FaClock className="icon" />
-          <span>Wednesday, 10 January 2021</span>
+          <span>{date}</span>
         </div>
+
         {/* Social Media and Auth Buttons */}
         <div className="header-social">
           <FaFacebook className="icon" />
@@ -44,7 +98,6 @@ export default function Siteheader() {
       </div>
 
       {/* Logo and Navigation Container */}
-
       <div className="nav-container">
         <div className="header-main">
           {/* Logo on Left */}
@@ -62,8 +115,10 @@ export default function Siteheader() {
             </p>
           </div>
         </div>
-        <hr className="Style-hr" style={{ marginBottom: "5px" }}></hr>
-        {/* Navigation on Right */}
+
+        <div className="Style-hr" style={{ marginBottom: "5px" }}></div>
+
+        {/* Navigation */}
         <nav className="nav-right">
           <div className="desktop-nav">
             <FaHome className="search-icon" />

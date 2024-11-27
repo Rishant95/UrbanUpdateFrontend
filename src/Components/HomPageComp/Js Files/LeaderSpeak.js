@@ -125,7 +125,7 @@ export default function LeaderSpeak() {
                     />
                   )}
                   <div className="LeaderSpeak-text-overlay">
-                    <h2 style={{ fontSize: "30px" }}>{leaderSpeak.Title}</h2>
+                    <h2 style={{ fontSize: "25px" }}>{leaderSpeak.Title}</h2>
                     <p>{truncatedMainDescription}</p>
                   </div>
                 </div>

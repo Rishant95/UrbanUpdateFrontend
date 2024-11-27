@@ -8,12 +8,12 @@
   flex-direction: row;
 }
 .LeaderSpeak-Heading {
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
   font-family: "PT Serif";
   color: #ec2121;
   margin-top: 60px;
-  font-size: 20px;
+  font-size: 15px;
   width: 50%;
 }
 
@@ -89,7 +89,7 @@
 }
 .tab-content-title {
   font-family: "Merriweather", sans-serif;
-  font-size: 30px;
+  font-size: 25px;
 }
 .li-item {
   border-bottom: 2px solid black;
@@ -128,13 +128,12 @@
 
 .Side-leaderSpeak-title {
   color: black;
-  font-size: 27px;
+  font-size: 25px;
   font-family: "Merriweather", sans-serif;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 30px;
   text-overflow: ellipsis;
   margin: 0;
 }

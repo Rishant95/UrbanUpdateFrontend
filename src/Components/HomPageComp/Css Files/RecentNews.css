@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
 
 .Recent-news-heading {
-  margin-left: 5%;
+  margin-left: 10%;
   margin-top: 2%;
   color: #ec2121;
   font-family: "PT Serif";
@@ -11,8 +11,8 @@
 
 .Recent-news-row {
   display: flex;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: -10px;
   overflow-x: auto; /* Enable horizontal scrolling */
   white-space: nowrap; /* Prevent wrapping of items */
@@ -57,9 +57,9 @@
 
 .styled-hr {
   display: block; /* Ensure it behaves as a block-level element */
-  margin-left: 5%;
+  margin-left: 10%;
   margin-right: 5%;
-  width: 90%;
+  width: 80%;
   margin-top: -0.01%;
   border: none; /* Remove default border */
   height: 2px; /* Set height of the line */

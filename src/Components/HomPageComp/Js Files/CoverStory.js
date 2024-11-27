@@ -101,14 +101,14 @@ export default function CoverStory() {
                   year: "numeric",
                 })}
                 <h2
-                  style={{ fontSize: "30px" }}
+                  style={{ fontSize: "25px" }}
                   className="Cover-Story-Title-Overlay"
                 >
                   {coverStory.Title}
                 </h2>
                 <hr style={{ width: "30%", border: "1px solid red" }}></hr>
               </Link>
-              <p style={{ fontWeight: "300", fontSize: "15px" }}>
+              <p style={{ fontWeight: "300", fontSize: "14px" }}>
                 {mainDescription}
               </p>
               {/* Display truncated main description */}
