@@ -2,16 +2,16 @@
 
 .cover-story-wrapper {
   display: grid;
-  grid-template-columns: 70% 35%;
+  grid-template-columns: 75% 30%;
   width: 100%;
-  padding-left: 10%;
-  padding-right: 15%;
+  padding-left: 17%;
+  padding-right: 20%;
   align-items: center;
 }
 
 .slide-container {
   position: relative;
-  height: 700px;
+  height: 600px;
 }
 
 .slider-card-image {
@@ -65,7 +65,7 @@
 
 .magazine-image {
   width: 130%;
-  height: 700px;
+  height: 600px;
   padding-right: 35%;
   object-fit: cover;
   margin-left: 4%;

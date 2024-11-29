@@ -110,7 +110,7 @@ function Articles() {
                     year: "numeric",
                   })}
                 </p>
-                <h2 className="Article-title" style={{ fontSize: "30px" }}>
+                <h2 className="Article-title" style={{ fontSize: "25px" }}>
                   {article.Title || "Untitled Article"}
                 </h2>
 

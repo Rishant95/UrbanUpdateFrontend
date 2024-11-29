@@ -8,8 +8,8 @@
   flex-direction: row;
 }
 .LeaderSpeak-Heading {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 16%;
+
   font-family: "PT Serif";
   color: #ec2121;
   margin-top: 60px;
@@ -65,6 +65,7 @@
   width: 100%;
   display: flex;
   height: 100%;
+  padding-right: 5%;
   flex-direction: column;
   justify-self: space-between;
   display: -webkit-box;
@@ -140,7 +141,7 @@
 
 /* Tab Section */
 .Tab-Section {
-  width: 40%; /* Ensure the tab section takes 40% of the container */
+  width: 31%; /* Ensure the tab section takes 40% of the container */
   padding-left: 20px; /* Optional padding for the tab section */
 }
 
@@ -152,8 +153,11 @@
 }
 
 .Tab {
-  font-family: "Oswald"; /* Tab font style */
-  font-weight: 500;
+  font-family: "PT Serif";
+  color: black;
+  margin-top: 60px;
+  font-size: 15px;
+  font-weight: 800;
   font-size: 30px; /* Tab font size */
   padding: 15px 15px; /* Padding for better touch area */
   border: none; /* No border */

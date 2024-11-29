@@ -4,11 +4,11 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 .OneonOne-Heading {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 16%;
+  padding-right: 16%;
   color: #ec2121;
   margin-top: 60px;
-  font-size: 20px;
+  font-size: 17px;
   font-family: "PT Serif";
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -17,7 +17,9 @@
   text-overflow: ellipsis;
 }
 .OneonOne-story-interviewee {
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 10px;
 }
 .Styled-hr {
   border-width: 5px;
@@ -26,7 +28,7 @@
 
 .OneonOne-description {
   font-family: "Merriweather Sans";
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 200;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -36,8 +38,7 @@
 }
 
 .first-title {
-  font-size: 30px;
-  margin-bottom: 10px;
+  font-size: 25px;
   font-weight: 700;
   font-family: "Merriweather";
 }
@@ -100,7 +101,7 @@
 
 .OneonOne-story-title {
   color: black;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   font-family: "Merriweather";
   transition: color 0.3s ease; /* Smooth color transition */
@@ -115,7 +116,7 @@
   font-family: "Merriweather Sans";
   font-weight: 400;
   margin-top: -5px;
-  font-size: 15px;
+  font-size: 12px;
   color: black;
   transition: color 0.3s ease; /* Smooth color transition */
 }

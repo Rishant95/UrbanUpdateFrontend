@@ -8,11 +8,12 @@
 }
 
 .BookReview-Heading {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 16%;
+  padding-right: 16%;
   color: var(--primary-color);
   font-family: "PT Serif";
   margin-top: 60px;
+  font-size: 17px;
 }
 
 .Styled-hr {
@@ -68,7 +69,7 @@
 .BookReview-text {
   margin-top: 10px;
   font-family: "Oswald", sans-serif;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 300;
   width: 70%;
   line-height: 35px;

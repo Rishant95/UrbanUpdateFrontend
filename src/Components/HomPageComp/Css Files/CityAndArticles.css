@@ -2,11 +2,11 @@
 
 /* Base Styles */
 .City-Heading {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 16%;
+  padding-right: 16%;
   color: #ec2121;
   margin-top: 60px;
-  font-size: 20px;
+  font-size: 17px;
   font-family: "PT Serif";
 }
 
@@ -99,7 +99,7 @@
 
 .Article-title {
   color: black;
-  font-size: 30px;
+  font-size: 25px;
   font-family: "Merriweather";
   margin-top: 0px;
   font-weight: 700;
@@ -120,7 +120,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   padding-top: 10px;
-  font-size: 15px;
+  font-size: 12px;
   text-overflow: ellipsis;
 }
 

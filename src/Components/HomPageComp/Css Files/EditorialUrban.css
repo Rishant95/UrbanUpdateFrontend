@@ -4,11 +4,11 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 .Editorial-Heading {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 16%;
+  padding-right: 16%;
   color: #ec2121;
   font-family: "PT Serif";
-  font-size: 20px;
+  font-size: 17px;
   margin-top: 60px;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .Urban-title-left {
-  font-size: 30px;
+  font-size: 25px;
   color: black;
   font-weight: 700;
   font-family: "Merriweather";
@@ -41,13 +41,13 @@
 }
 
 .Urban-text-left {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 300;
   font-family: "Merriweather Sans";
   overflow: hidden;
   color: black;
   display: -webkit-box;
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
@@ -118,7 +118,7 @@
 .Urban-Content {
   flex: 1; /* Take the remaining space */
   overflow: hidden;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 300;
   display: -webkit-box;
   -webkit-line-clamp: 5;
@@ -129,7 +129,7 @@
 
 .Urban-title {
   color: black;
-  font-size: 30px;
+  font-size: 25px;
   font-family: "Merriweather", sans-serif;
   color: black;
   font-weight: 600;
@@ -141,7 +141,7 @@
   color: black;
   font-family: "Merriweather", sans-serif;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   font-weight: 300;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
