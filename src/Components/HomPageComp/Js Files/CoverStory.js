@@ -101,7 +101,7 @@ export default function CoverStory() {
                   year: "numeric",
                 })}
                 <h2
-                  style={{ fontSize: "25px" }}
+                  style={{ fontSize: "22px" }}
                   className="Cover-Story-Title-Overlay"
                 >
                   {coverStory.Title}

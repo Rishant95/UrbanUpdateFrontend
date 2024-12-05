@@ -4,10 +4,10 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 .OneonOne-Heading {
-  padding-left: 16%;
+  padding-left: 17%;
   padding-right: 16%;
   color: #ec2121;
-  margin-top: 60px;
+  margin-top: 20px;
   font-size: 17px;
   font-family: "PT Serif";
   display: -webkit-box;
@@ -38,7 +38,8 @@
 }
 
 .first-title {
-  font-size: 25px;
+  font-size: 22px;
+  padding: 5px 0px;
   font-weight: 700;
   font-family: "Merriweather";
 }
@@ -71,8 +72,9 @@
 .OneonOne-image {
   width: 100%;
   object-fit: cover;
+  border-radius: 15px; /* Adjust the value as needed */
   transition: opacity 0.3s ease; /* Smooth opacity transition */
-  height: 450px;
+  height: 400px;
 }
 
 .OneonOne-image-container:hover .OneonOne-image {
@@ -86,7 +88,6 @@
   padding: 20px;
   box-sizing: border-box;
   transition: transform 0.3s ease; /* Add a transition for text */
-
   flex-direction: column; /* Column layout */
   justify-content: space-between; /* Space items */
 }
@@ -94,15 +95,15 @@
 /* Story Sections */
 .OneonOne-story {
   padding-bottom: 20px; /* Add some space at the bottom */
-
   margin-bottom: 20px; /* Add some space after the border */
   border-bottom: solid 2px black;
 }
 
 .OneonOne-story-title {
   color: black;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 700;
+  padding: 5px 0px;
   font-family: "Merriweather";
   transition: color 0.3s ease; /* Smooth color transition */
   display: -webkit-box;

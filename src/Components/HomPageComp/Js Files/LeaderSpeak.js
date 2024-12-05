@@ -104,7 +104,7 @@ export default function LeaderSpeak() {
     <div className="main-container">
       <div className="LeaderSpeak-Heading">
         <h1>LeaderSpeak</h1>
-        <hr style={{ border: "solid 1px black" }} />
+        <hr style={{ border: "solid 1px black", marginTop: "10px" }} />
 
         <div className="LeaderSpeak-Container">
           <div className="LeaderSpeak-content">
@@ -125,7 +125,9 @@ export default function LeaderSpeak() {
                     />
                   )}
                   <div className="LeaderSpeak-text-overlay">
-                    <h2 style={{ fontSize: "25px" }}>{leaderSpeak.Title}</h2>
+                    <h2 style={{ fontSize: "22px" }} className="image-title">
+                      {leaderSpeak.Title}
+                    </h2>
                     <p>{truncatedMainDescription}</p>
                   </div>
                 </div>
@@ -184,6 +186,7 @@ export default function LeaderSpeak() {
             className="Tab-Underline"
             style={{
               backgroundColor: activeTab === "recent" ? "#ec2121" : "black",
+              marginTop: "5px",
             }}
           ></div>
         </div>

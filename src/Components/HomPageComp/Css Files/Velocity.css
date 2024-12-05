@@ -3,12 +3,12 @@
 
 /* Base Styles */
 .Velocity-Heading {
-  padding-left: 16%;
+  padding-left: 17%;
   padding-right: 16%;
   font-size: 17px;
   color: #ec2121;
   font-family: "PT Serif";
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .Styled-hr {
@@ -62,7 +62,7 @@
 .Velocity-text {
   margin-top: 10px;
   font-family: "Merriweather", sans-serif;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: bold;
   width: 100%;
   color: black;

@@ -3,7 +3,7 @@
 
 /* Base Styles */
 .Featured-Heading {
-  padding-left: 16%;
+  padding-left: 17%;
   padding-right: 16%;
   color: #ec2121;
   font-family: "PT Serif";
@@ -32,8 +32,9 @@
 }
 
 .Featured-image {
-  width: 400px;
+  width: 350px;
   height: auto;
+  border-radius: 15px; /* Adjust the value as needed */
   object-fit: cover;
 }
 

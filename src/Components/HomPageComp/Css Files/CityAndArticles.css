@@ -2,10 +2,10 @@
 
 /* Base Styles */
 .City-Heading {
-  padding-left: 16%;
+  padding-left: 17%;
   padding-right: 16%;
   color: #ec2121;
-  margin-top: 60px;
+  margin-top: 20px;
   font-size: 17px;
   font-family: "PT Serif";
 }
@@ -20,7 +20,7 @@
 }
 
 .City-item {
-  max-height: 600px;
+  max-height: 500px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -30,12 +30,13 @@
   position: relative;
   flex: 0 auto;
   transition: transform 0.3s ease;
-  height: 400px; /* Set fixed height for the container */
+  height: 350px; /* Set fixed height for the container */
 }
 
 .City-image {
   width: 100%;
   height: 100%;
+  border-radius: 15px; /* Adjust the value as needed */
   object-fit: cover; /* Maintain aspect ratio without distortion */
   transition: opacity 0.3s ease;
 }
@@ -48,6 +49,7 @@
   color: white;
   background: rgba(0, 0, 0, 0.5);
   padding: 20px;
+  font-size: 15px;
   box-sizing: border-box;
   text-align: left;
   transition: background 0.3s ease;
@@ -89,6 +91,7 @@
   height: auto;
   object-fit: cover;
   transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+  border-radius: 15px; /* Adjust the value as needed */
 }
 
 .Article-Content {
@@ -99,7 +102,7 @@
 
 .Article-title {
   color: black;
-  font-size: 25px;
+  font-size: 22px;
   font-family: "Merriweather";
   margin-top: 0px;
   font-weight: 700;

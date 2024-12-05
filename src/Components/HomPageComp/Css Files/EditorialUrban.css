@@ -4,12 +4,12 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 .Editorial-Heading {
-  padding-left: 16%;
+  padding-left: 17%;
   padding-right: 16%;
   color: #ec2121;
   font-family: "PT Serif";
   font-size: 17px;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .Styled-hr {
@@ -29,7 +29,7 @@
 }
 
 .Urban-title-left {
-  font-size: 25px;
+  font-size: 22px;
   color: black;
   font-weight: 700;
   font-family: "Merriweather";
@@ -64,6 +64,7 @@
   height: 250px; /* Maintain aspect ratio */
   object-fit: cover;
   align-content: center;
+  border-radius: 15px; /* Adjust the value as needed */
   transition: opacity 0.3s ease; /* Smooth opacity transition */
 }
 
@@ -129,7 +130,7 @@
 
 .Urban-title {
   color: black;
-  font-size: 25px;
+  font-size: 22px;
   font-family: "Merriweather", sans-serif;
   color: black;
   font-weight: 600;
