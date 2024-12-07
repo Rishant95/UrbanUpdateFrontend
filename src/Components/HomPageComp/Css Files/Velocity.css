@@ -5,16 +5,14 @@
 .Velocity-Heading {
   padding-left: 17%;
   padding-right: 16%;
-  font-size: 17px;
+  font-size: 13px;
   color: #ec2121;
   font-family: "PT Serif";
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .Styled-hr {
-  border: 0;
-  height: 2px;
-  background: #ccc;
+  border: rgba(0, 0, 0, 0.2) 0.01px solid;
   width: 100%;
 }
 
@@ -23,7 +21,7 @@
   gap: 20px; /* Space between items */
   overflow-x: hidden; /* Hide scrollbar */
   scroll-behavior: smooth; /* Smooth scrolling */
-  padding: 20px;
+  padding: 0px 20px;
   position: relative;
 }
 

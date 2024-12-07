@@ -5,17 +5,15 @@
 .Cover-Story-Heading {
   padding-left: 17%;
   padding-right: 17%;
-  font-size: 17px;
+  font-size: 13px;
   color: #ec2121;
   font-family: "PT Serif";
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
-.Styled-hr {
-  border: 0;
+.Styled-hr-coverstory {
+  border: rgba(0, 0, 0, 0.2) 0.01px solid; /* Semi-transparent thin line */
   margin-top: 5px;
-  height: 2px;
-  background: black;
 }
 
 .Cover-Story-Container {
@@ -55,6 +53,14 @@
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
+.Cover-Story-para-overlay {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  margin-top: 0;
+  text-overflow: ellipsis;
+}
 .Cover-Story-text-overlay {
   position: absolute;
   bottom: 0%;
@@ -63,7 +69,7 @@
   width: 100%;
   color: white;
   background: rgba(0, 0, 0, 0.5);
-  padding: 40px 40px;
+  padding: 10px 40px;
   box-sizing: border-box;
   text-align: left;
   transition: background 0.3s ease;
@@ -107,7 +113,7 @@
   content: "";
   display: block;
   margin-top: 20px; /* Space above the dotted line */
-  border-top: 2px solid black; /* Dotted line style */
+  border-top: rgba(0, 0, 0, 0.5) 0.01px solid; /* Dotted line style */
   width: 100%;
 }
 

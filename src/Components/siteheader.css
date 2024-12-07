@@ -168,7 +168,7 @@
   color: #333;
 }
 .Style-hr {
-  border: black 0.01px solid;
+  border: rgba(0, 0, 0, 0.2) 0.01px solid; /* Semi-transparent thin line */
   margin-left: 17%;
   width: 65%;
 }

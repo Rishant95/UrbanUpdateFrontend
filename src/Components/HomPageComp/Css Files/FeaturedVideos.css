@@ -7,13 +7,12 @@
   padding-right: 16%;
   color: #ec2121;
   font-family: "PT Serif";
-  margin-top: 60px;
+  margin-top: 10px;
+  font-size: 13px;
 }
 
 .Styled-hr {
-  border: 0;
-  height: 2px;
-  background: black;
+  border: rgba(0, 0, 0, 0.2) 0.01px solid;
 }
 
 .Featured-Container {

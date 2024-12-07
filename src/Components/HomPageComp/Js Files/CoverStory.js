@@ -76,7 +76,7 @@ export default function CoverStory() {
   return (
     <div className="Cover-Story-Heading">
       <h1>Cover Story</h1>
-      <hr className="Styled-hr" />
+      <hr className="Styled-hr-coverstory" />
 
       <div className="Cover-Story-Container">
         {/* Main Cover Story */}
@@ -108,7 +108,10 @@ export default function CoverStory() {
                 </h2>
                 <hr style={{ width: "30%", border: "1px solid red" }}></hr>
               </Link>
-              <p style={{ fontWeight: "300", fontSize: "14px" }}>
+              <p
+                style={{ fontWeight: "300", fontSize: "14px" }}
+                className="Cover-Story-para-overlay"
+              >
                 {mainDescription}
               </p>
               {/* Display truncated main description */}

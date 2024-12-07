@@ -104,7 +104,12 @@ export default function LeaderSpeak() {
     <div className="main-container">
       <div className="LeaderSpeak-Heading">
         <h1>LeaderSpeak</h1>
-        <hr style={{ border: "solid 1px black", marginTop: "10px" }} />
+        <hr
+          style={{
+            border: "rgba(0, 0, 0, 0.2) 0.01px solid",
+            marginTop: "10px",
+          }}
+        />
 
         <div className="LeaderSpeak-Container">
           <div className="LeaderSpeak-content">
