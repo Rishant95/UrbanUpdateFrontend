@@ -35,8 +35,12 @@ export default function UpcomingEvents() {
           gap: "10px",
         }}
       >
-        <h1 className="upcoming-events-heading">UPCOMING EVENTS</h1>
-        <FaArrowAltCircleRight style={{ fontSize: "30px", color: "#d90000" }} />
+        <span className="upcoming-events-heading-container">
+          <h1 className="upcoming-events-heading">UPCOMING EVENTS </h1>
+          <FaArrowAltCircleRight
+            style={{ fontSize: "30px", color: "#d90000" }}
+          />
+        </span>
       </div>
 
       <div className="upcoming-events-container">
@@ -71,7 +75,7 @@ export default function UpcomingEvents() {
         <a href="/">More From Upcoming Events</a>
         <FaArrowRight />
       </div>
-      <hr style={{ marginLeft: "5%", width: "90%" }} />
+      <hr style={{ marginLeft: "17%", width: "65%" }} />
     </div>
   );
 }

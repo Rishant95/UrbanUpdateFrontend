@@ -68,7 +68,7 @@ export default function EventsHeadline() {
               className="other-review-image"
             />
             <div className="other-review-title">
-              <p className="other-review-date">
+              <p className="Cover-Story-date" style={{ margin: "0px" }}>
                 {new Date(events.updatedAt).toLocaleDateString("en-US", {
                   month: "long", // Full month name
                   year: "numeric", // Year

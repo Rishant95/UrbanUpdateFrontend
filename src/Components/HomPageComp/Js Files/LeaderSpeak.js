@@ -203,16 +203,18 @@ export default function LeaderSpeak() {
               <ul>
                 {recentNewsData.data.map((news) => (
                   <li key={news.id} className="li-item">
+                    <span className="leaderSpeak-date">
+                      {new Date(news.updatedAt).toLocaleDateString("en-US", {
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </span>
                     <Link
                       to={`/detail/RecentNews/${news.id}`}
                       className="Tab-titles"
                     >
                       <h2 className="tab-content-title">{news.Title}</h2>
                     </Link>
-                    {new Date(news.updatedAt).toLocaleDateString("en-US", {
-                      month: "long",
-                      year: "numeric",
-                    })}
                   </li>
                 ))}
               </ul>
@@ -224,17 +226,20 @@ export default function LeaderSpeak() {
               {/* Show the top 4 most viewed articles in trending tab */}
               {trendingNews.map((news) => (
                 <li key={news.id} className="li-item">
+                  <span className="leaderSpeak-date">
+                    {new Date(news.updatedAt).toLocaleDateString("en-US", {
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </span>
+
                   <Link
                     to={`/detail/RecentNews/${news.id}`}
                     className="Tab-titles"
                   >
                     <h2 className="tab-content-title">{news.Title}</h2>
                   </Link>
-                  <p>Views: {news.Views}</p>
-                  {new Date(news.updatedAt).toLocaleDateString("en-US", {
-                    month: "long",
-                    year: "numeric",
-                  })}
+                  <p className="leaderSpeak-date">Views: {news.Views}</p>
                 </li>
               ))}
             </ul>

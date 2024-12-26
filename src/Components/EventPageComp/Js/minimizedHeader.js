@@ -23,16 +23,11 @@ export default function MinimizedHeader() {
         </div>
 
         <div className="min-header-buttons">
-          <button className="min-subscribe-btn">
-            <h5>Subscribe</h5>
-            <FaBell className="min-icon-bell" />
+          <button className="subscribe-btn">
+            Subscribe <FaBell />
           </button>
-          <button
-            className="min-signin-btn"
-            onClick={() => navigate("/signin")}
-          >
-            <h5>Sign in</h5>
-            <FaSign className="min-icon-signin" />
+          <button className="signin-btn" onClick={() => navigate("/signin")}>
+            Sign in <FaSign />
           </button>
         </div>
       </div>

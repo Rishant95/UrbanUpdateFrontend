@@ -29,7 +29,7 @@ export default function Edialogues() {
 
   return (
     <div>
-      <h1 className="upcoming-events-heading" style={{ paddingLeft: "5%" }}>
+      <h1 className="upcoming-events-heading" style={{ padding: "0% 17%" }}>
         E-DIALOGUES
       </h1>
       <div className="edialogues-container">

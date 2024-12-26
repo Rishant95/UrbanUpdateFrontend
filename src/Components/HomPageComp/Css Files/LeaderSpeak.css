@@ -84,13 +84,14 @@
 .Tab-titles {
   text-decoration: none;
   color: black;
+  margin: 5px 0px;
   font-family: "Oswald", sans-serif;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 0;
+
   transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scale transition */
 }
 .tab-content-title {
@@ -99,7 +100,7 @@
 }
 .li-item {
   border-bottom: rgba(0, 0, 0, 0.5) 0.01px solid;
-  padding: 25px 0px;
+  padding: 10px 0px;
 }
 
 .li-item:last-child {

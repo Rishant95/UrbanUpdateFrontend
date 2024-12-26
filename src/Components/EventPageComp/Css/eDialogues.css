@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: flex-start;
   margin: 20px;
+  padding: 0 12%;
 }
 .event-dialogue-link {
   text-decoration: none; /* Remove underline */
@@ -33,7 +34,7 @@
 
 .event-dialogue-item {
   font-family: "Oswald", sans-serif;
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 700;
   margin-bottom: 10px;
   color: #333;
@@ -42,7 +43,7 @@
 
 .event-dialogue-item-para {
   font-family: "Oswald", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
   color: #666;
   margin-bottom: 10px;

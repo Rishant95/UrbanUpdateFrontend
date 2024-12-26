@@ -32,7 +32,7 @@
 .header-info span,
 .header-social .subscribe-btn,
 .header-social .signin-btn {
-  font-size: 1rem; /* Default font size */
+  font-size: 14px; /* Default font size */
 }
 
 .icon {

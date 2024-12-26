@@ -2,16 +2,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+.upcoming-events-heading-container {
+  padding: 0 13%;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
 .upcoming-events-heading {
   font-family: "Oswald", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
+
   font-weight: 700;
   color: #d90000;
 }
 
 .upcoming-events-container {
   display: flex;
-  padding: 20px 5%;
+  padding: 20px 17%;
   gap: 20px; /* Space between large and small images */
   flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }

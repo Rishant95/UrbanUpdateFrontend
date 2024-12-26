@@ -44,7 +44,7 @@ export default function SacSummit() {
   }
 
   return (
-    <div style={{ padding: "0 5%" }}>
+    <div style={{ padding: "0 17%" }}>
       <h1 className="upcoming-events-heading">SAC-SUMMIT</h1>
       <div className="sac-summit-container">
         {/* Manual and auto horizontal scrolling */}
@@ -63,7 +63,7 @@ export default function SacSummit() {
         <a href="/">More From SAC Summit</a>
         <FaArrowRight />
       </div>
-      <hr />
+      <hr style={{ width: "100%" }} />
     </div>
   );
 }
