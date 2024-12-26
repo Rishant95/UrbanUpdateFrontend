@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
-
 /* General Reset */
 * {
   margin: 0;
@@ -29,10 +28,11 @@
   gap: 10px;
 }
 
+/* Default font sizes for header info */
 .header-info span,
 .header-social .subscribe-btn,
 .header-social .signin-btn {
-  font-size: 14px;
+  font-size: 14px; /* Default font size */
 }
 
 .icon {
@@ -78,6 +78,7 @@
   width: 400px;
   height: 100px;
   object-fit: cover;
+  color: black;
 }
 
 .Banner-Container {
@@ -86,7 +87,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .Moto-Overlay {
   position: absolute;
   top: 0;
@@ -100,12 +100,15 @@
   font-size: 20px;
   box-sizing: border-box;
   text-align: left;
+  /* Text display in exactly 2 lines with ellipsis if overflow */
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limits to 2 lines */
+  -webkit-line-clamp: 1; /* Limits to 2 lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   max-height: 100px;
+
+  /* Background overlay for readability */
   background: rgba(0, 0, 0, 0.5);
   transition: background 0.3s ease;
 }
@@ -114,29 +117,43 @@
   width: 100%;
   height: 100px;
   object-fit: cover;
-  position: relative;
+  position: relative; /* Needed for the ::before overlay to position correctly */
 }
 
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the opacity to control darkness */
+  pointer-events: none; /* Allows clicks to pass through the overlay */
+  z-index: 3; /* Ensures the overlay sits on top of the image */
+}
+
+/* Right-aligned Full-width Navigation */
 .nav-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: space-between; /* Space items evenly */
+  width: 100%; /* Full-width */
 }
 
+/* Adjust desktop navigation to space items evenly */
 .desktop-nav {
   display: flex;
-  padding: 0 20%;
+  padding: 0% 20%;
   gap: 5%;
-  flex-grow: 1;
-  justify-content: space-between;
+  flex-grow: 1; /* Allow desktop-nav to take available space */
+  justify-content: space-between; /* Spread nav items across full width */
   align-items: center;
 }
 
 .nav-link {
   text-decoration: none;
   color: #333;
-  font-size: 16px;
+  font-size: 16px; /* Default font size */
   font-weight: 600;
   transition: color 0.3s;
 }
@@ -150,9 +167,8 @@
   cursor: pointer;
   color: #333;
 }
-
 .Style-hr {
-  border: rgba(0, 0, 0, 0.2) 0.01px solid;
+  border: rgba(0, 0, 0, 0.2) 0.01px solid; /* Semi-transparent thin line */
   margin-left: 17%;
   width: 65%;
 }
@@ -171,7 +187,7 @@
   align-items: start;
   background-color: #f4f4f4;
   padding: 10px;
-  width: 100%;
+  width: 100%; /* Full-width for mobile nav */
 }
 
 .mobile-nav .nav-link {
@@ -187,7 +203,6 @@
 .mobile-nav .nav-link:hover {
   color: #ec2121;
 }
-
 @media (max-width: 1024px) {
   .header-main {
     flex-direction: row;
@@ -198,26 +213,32 @@
     height: auto;
   }
 
+  /* Reduce Font Sizes */
   .nav-link {
     font-size: 1.2rem;
   }
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
+  /* Adjust header layout for mobile */
   .header-top {
     flex-direction: column;
     padding: 10px;
-    gap: 10px;
+  }
+  .nav-righ {
+    justify-content: center;
+    align-content: center;
   }
 
   .header-info span,
   .header-social .subscribe-btn,
   .header-social .signin-btn {
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* Decrease font size on smaller screens */
   }
 
   .header-social {
-    margin-top: 10px;
+    margin-top: 10px; /* Add space between header-info and header-social */
   }
 
   .header-main {
@@ -225,6 +246,7 @@
     padding: 10px 5%;
   }
 
+  /* Hide desktop nav, show hamburger */
   .desktop-nav {
     display: none;
   }
@@ -233,45 +255,15 @@
     display: block;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Centers the hamburger icon */
     z-index: 10;
   }
-
+  /* Show mobile nav dropdown when active */
   .mobile-nav {
     display: flex;
   }
 
   .nav-link {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .Banner-Container {
-    padding: 0;
-  }
-
-  .Moto-Overlay {
-    padding: 10px;
-    font-size: 16px;
-  }
-
-  .header-top {
-    padding: 5px;
-    gap: 5px;
-  }
-
-  .header-main {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .logo {
-    width: 100%;
-    height: auto;
-  }
-
-  .nav-link {
-    font-size: 0.8rem;
+    font-size: 0.9rem; /* Decrease font size for mobile nav links */
   }
 }

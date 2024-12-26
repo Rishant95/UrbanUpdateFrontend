@@ -36,7 +36,10 @@ export default function EventHeader() {
             <div className={`line ${isMenuOpen ? "active" : ""}`}></div>
           </div>
         </div>
-        <hr style={{ marginTop: "10px", width: "100%" }}></hr>
+        <hr
+          style={{ marginTop: "10px", width: "100%" }}
+          className="event-menu-hr"
+        ></hr>
 
         {/* Mobile Menu */}
         {isMenuOpen && (

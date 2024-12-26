@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
 
+/* Base Styles */
 .Event-Header {
   display: flex;
   flex-direction: column;
@@ -109,16 +110,49 @@ hr {
   }
 
   #Event-Title {
-    font-size: 40px; /* Adjust title size for smaller screens */
+    font-size: 32px; /* Adjust title size for smaller screens */
+    margin: 10px 0; /* Adjust margins for mobile */
+  }
+
+  .mobile-menu {
+    display: none; /* Hide menu by default */
+    position: absolute;
+    top: 80px; /* Adjust menu positioning */
+    left: 0;
+    right: 0;
+  }
+
+  .mobile-menu.active {
+    display: flex; /* Show menu when hamburger is clicked */
+  }
+
+  .mobile-tab-link {
+    font-size: 18px; /* Smaller font size for mobile tabs */
+    padding: 12px 15px; /* Padding adjustment for smaller screens */
+    width: 100%; /* Full width for better click areas */
+    text-align: center; /* Center text for mobile */
+  }
+
+  hr {
+    margin: 15px 0; /* Reduce margin around hr element for mobile */
   }
 }
 
 @media (max-width: 500px) {
   #Event-Title {
-    font-size: 32px; /* Further reduce title size on mobile */
+    font-size: 28px; /* Further reduce title size for mobile */
   }
 
   .mobile-tab-link {
-    font-size: 18px; /* Smaller font size for mobile tabs */
+    font-size: 16px; /* Smaller font size for mobile tabs */
+    padding: 10px 12px; /* Smaller padding for mobile */
+  }
+  .event-menu-hr {
+    display: none;
+  }
+
+  .hamburger .line {
+    width: 20px; /* Smaller hamburger lines */
+    height: 2px; /* Adjust hamburger line height */
   }
 }
