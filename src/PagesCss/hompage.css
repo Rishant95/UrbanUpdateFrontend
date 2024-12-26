@@ -64,7 +64,7 @@
 }
 
 .magazine-image {
-  width: 130%;
+  width: 450px;
   height: 600px;
   padding-right: 35%;
   object-fit: cover;
@@ -91,6 +91,8 @@
     flex-direction: column;
     width: 90%;
     margin: 0 auto;
+    padding-left: 5%; /* Adjust padding for smaller screens */
+    padding-right: 5%;
   }
 
   .slider-container,
@@ -130,6 +132,11 @@
 }
 
 @media (max-width: 480px) {
+  .cover-story-wrapper {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
   .title-overlay {
     padding: 5px;
     font-size: 18px;
@@ -139,9 +146,15 @@
     font-size: 20px;
   }
 
+  .slider-card-image {
+    height: auto;
+    max-height: 300px; /* Reduce image height further */
+  }
+
   .magazine-image {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    height: auto;
   }
 }

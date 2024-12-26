@@ -34,8 +34,8 @@
 .City-image {
   width: 100%;
   height: 100%;
-  border-radius: 15px; /* Adjust the value as needed */
-  object-fit: cover; /* Maintain aspect ratio without distortion */
+  border-radius: 15px;
+  object-fit: cover;
   transition: opacity 0.3s ease;
 }
 
@@ -63,37 +63,37 @@
   font-size: 14px;
   color: white;
   margin: 0;
-  padding-right: 10px; /* Add a bit of space between date and title */
+  padding-right: 10px;
   text-align: left;
 }
 
 .Articles-content {
-  width: 55%; /* Take up the other half of the container */
+  width: 55%;
   padding-left: 30px;
   box-sizing: border-box;
 }
 
 .Article {
   display: flex;
-  align-items: flex-start; /* Align items at the start of the container */
-  margin-bottom: 20px; /* Space between articles */
+  align-items: flex-start;
+  margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
 .Article-Image {
-  margin-right: 20px; /* Space between image and text */
+  margin-right: 20px;
 }
 
 .Article-Image-Img {
-  width: 300px; /* Adjust size as needed */
+  width: 300px;
   height: auto;
   object-fit: cover;
-  transition: transform 0.3s ease; /* Smooth zoom effect on hover */
-  border-radius: 15px; /* Adjust the value as needed */
+  transition: transform 0.3s ease;
+  border-radius: 15px;
 }
 
 .Article-Content {
-  flex: 1; /* Take the remaining space */
+  flex: 1;
   margin-top: -50px;
   padding-bottom: 10px;
 }
@@ -104,7 +104,7 @@
   font-family: "Merriweather";
   margin-top: 0px;
   font-weight: 700;
-  transition: color 0.3s ease; /* Smooth color transition */
+  transition: color 0.3s ease;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -127,7 +127,7 @@
 
 .Article-date {
   margin-top: 50px;
-  padding-right: 10px; /* Add a bit of space between date and title */
+  padding-right: 10px;
   text-align: left;
   font-family: "Merriweather Sans";
   font-weight: 400;
@@ -137,45 +137,58 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .City-Heading {
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 16px; /* Adjusted font size */
+  }
+
   .City-Container {
-    flex-direction: column; /* Stack content vertically */
-    padding: 10px; /* Adjust padding */
+    flex-direction: column;
+    padding: 10px;
   }
 
   .City-item,
   .Articles-content {
-    width: 100%; /* Full width for mobile */
+    width: 100%;
+  }
+
+  .City-image-container {
+    height: 300px;
   }
 
   .City-image {
-    height: 300px; /* Reduce image height for smaller screens */
-  }
-
-  .Article-Image-Img {
-    width: 100%; /* Make article images responsive */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  .Article-title {
-    font-size: 25px; /* Decrease font size for title */
-  }
-
-  .Article-date {
-    font-size: 15px; /* Decrease font size for date */
+    height: 100%;
   }
 
   .City-text-overlay {
-    padding: 10px; /* Reduce padding for overlay */
+    padding: 10px;
+    font-size: 14px;
   }
 
   .City-date {
-    font-size: 15px; /* Decrease font size for city date */
+    font-size: 12px;
   }
-}
 
-@media (max-width: 1280px) {
-  .Article-Image {
-    display: none; /* Hide the article image */
+  .Articles-content {
+    padding: 0;
+  }
+
+  .Article-Image-Img {
+    width: 100%;
+    height: auto;
+  }
+
+  .Article-title {
+    font-size: 20px;
+  }
+
+  .Article-text {
+    font-size: 14px;
+  }
+
+  .Article-date {
+    font-size: 12px;
   }
 }
 
@@ -183,21 +196,48 @@
   .City-Heading {
     padding-left: 5%;
     padding-right: 5%;
+    font-size: 14px;
   }
 
-  .Article-title {
-    font-size: 22px; /* Further decrease font size for title */
-  }
-
-  .Article-date {
-    font-size: 15px; /* Further decrease font size for date */
-  }
-
-  .City-date {
-    font-size: 10px; /* Further decrease font size for city date */
+  .City-image-container {
+    height: 250px;
   }
 
   .City-image {
-    height: 250px; /* Further reduce image height for mobile */
+    border-radius: 10px;
+  }
+
+  .City-text-overlay {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .City-date {
+    font-size: 10px;
+  }
+
+  .Article {
+    flex-direction: column;
+  }
+
+  .Article-title {
+    font-size: 18px;
+  }
+
+  .Article-text {
+    font-size: 12px;
+  }
+
+  .Article-date {
+    font-size: 10px;
+  }
+
+  .Article-Image {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .Article-Content {
+    margin-top: 0;
   }
 }

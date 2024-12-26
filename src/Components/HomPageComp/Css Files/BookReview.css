@@ -110,6 +110,9 @@
 }
 
 @media (max-width: 480px) {
+  .BookReview-Heading {
+    padding: 0% 5%;
+  }
   .BookReview-image {
     width: 200px; /* Further adjust size for mobile */
     height: 300px; /* Adjust height accordingly */

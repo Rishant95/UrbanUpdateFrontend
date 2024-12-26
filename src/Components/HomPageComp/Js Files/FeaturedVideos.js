@@ -16,28 +16,41 @@ export default function FeaturedVideos() {
     return <p>No data available</p>;
   }
 
+  // YouTube video URLs
+  const youtubeLinks = [
+    "https://www.youtube.com/watch?v=U21l-EFIewo&t=65s",
+    "https://www.youtube.com/watch?v=vhjBje5nqJY",
+    "https://www.youtube.com/watch?v=Beu0FabzCHA+",
+  ];
+
   return (
     <div>
       <div className="Featured-Heading">
         <h1>Featured Videos</h1>
         <hr className="Styled-hr" />
         <div className="Featured-Container">
-          {data.data.slice(0, 3).map((item) => (
-            <div
-              key={item.id}
-              style={{ display: "flex", justifyContent: "space-evenly" }}
-            >
-              <div className="Featured-image-container">
-                {getImageUrl(item) && (
-                  <img
-                    src={getImageUrl(item)} // Use the correct field from the API response
-                    className="Featured-image"
-                    alt="Featured Video"
-                  />
-                )}
+          {youtubeLinks.slice(0, 3).map((link, index) => {
+            // Extract the video ID from the YouTube link
+            const videoId = link.split("v=")[1].split("&")[0];
+            return (
+              <div
+                key={index}
+                style={{ display: "flex", justifyContent: "space-evenly" }}
+              >
+                <div className="Featured-video-container">
+                  <iframe
+                    width="360"
+                    height="215"
+                    src={`https://www.youtube.com/embed/${videoId}`}
+                    title={`Featured Video ${index + 1}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

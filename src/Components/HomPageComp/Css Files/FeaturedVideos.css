@@ -18,23 +18,17 @@
 .Featured-Container {
   display: flex;
   gap: 1%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   cursor: pointer;
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  flex-wrap: nowrap; /* Ensure items stay in a row */
+  overflow-x: auto; /* Allow horizontal scrolling on small screens if needed */
 }
 
 .Featured-item {
   position: relative;
   justify-content: space-evenly;
-  width: 48%; /* Adjust to fit better on small screens */
+  width: 32%; /* Make each item take up about 1/3 of the container width */
   margin-bottom: 20px; /* Add spacing between items */
-}
-
-.Featured-image {
-  width: 350px;
-  height: auto;
-  border-radius: 15px; /* Adjust the value as needed */
-  object-fit: cover;
 }
 
 .Featured-image-container {
@@ -74,10 +68,11 @@
 @media (max-width: 1024px) {
   .Featured-Container {
     gap: 2%;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
   }
 
   .Featured-item {
-    width: 100%; /* Make items stack vertically */
+    width: 100%; /* Stack items vertically on small screens */
   }
 
   .Featured-additional-content {
@@ -110,7 +105,7 @@
     margin-top: 30px;
     padding-left: 2%;
     padding-right: 2%;
-    font-size: 20px;
+    font-size: 13px;
   }
 
   .Featured-text {

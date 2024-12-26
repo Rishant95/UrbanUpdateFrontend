@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
+/* Base Styles */
 .Editorial-Heading {
   padding-left: 17%;
   padding-right: 16%;
@@ -95,6 +96,7 @@
   padding-left: 30px;
   box-sizing: border-box;
 }
+
 .Urban-Additional-Articles {
   padding: 0px 10px;
 }
@@ -132,9 +134,7 @@
   color: black;
   font-size: 22px;
   font-family: "Merriweather", sans-serif;
-  color: black;
   font-weight: 600;
-
   transition: color 0.3s ease; /* Smooth color transition */
 }
 
@@ -173,6 +173,7 @@
     overflow: hidden; /* Prevent overflow on hover */
     transition: transform 0.3s ease; /* Smooth zoom effect */
   }
+
   .Urban-text-left {
     font-size: 15px;
     font-weight: 300;
@@ -184,6 +185,7 @@
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
   }
+
   .Editorial-image {
     width: 100%; /* Responsive width */
     height: 150px; /* Maintain aspect ratio */
@@ -192,6 +194,7 @@
     transition: opacity 0.3s ease; /* Smooth opacity transition */
   }
 }
+
 @media (max-width: 768px) {
   .Editorial-Container {
     flex-direction: column; /* Stack content vertically */
@@ -201,6 +204,7 @@
   .Editorial-item,
   .Urban-content {
     width: 100%; /* Full width for mobile */
+    padding: 0;
   }
 
   .Editorial-image {

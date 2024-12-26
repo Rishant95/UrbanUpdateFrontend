@@ -81,6 +81,9 @@
 
 /* Responsive Styling */
 @media (max-width: 768px) {
+  .Velocity-Heading {
+    padding: 0% 5%;
+  }
   .Velocity-Container {
     gap: 10px; /* Reduce gap for smaller screens */
   }
