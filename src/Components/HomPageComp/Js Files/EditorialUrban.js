@@ -21,7 +21,7 @@ function EditorialUrban() {
   const editorialImageUrl = getImageUrl(editorial);
 
   return (
-    <div className="Editorial-Heading">
+    <div className="Editorial-Heading Section-Headings">
       <div className="Editorial-Container">
         <div className="Editorial-item">
           <h1>Editorials</h1>
@@ -45,12 +45,12 @@ function EditorialUrban() {
                     year: "numeric",
                   })}
                 </p>
-                <h2 className="Urban-title-left">
+                <h2 className="Urban-title-left Section-Titles">
                   {editorial?.Title || "Untitled Editorial"}
                 </h2>
                 {/* Show description for the editorial */}
                 {editorial?.Description?.[0]?.children?.[0]?.text && (
-                  <p className="Urban-text-left">
+                  <p className="Urban-text-left Section-Text">
                     {truncateText(
                       editorial.Description[0].children[0].text,
                       800
@@ -103,13 +103,13 @@ function Urban() {
         >
           <div className="Article">
             <div className="Urban-Content">
-              <p className="Urban-date">
+              <p className="Urban-date Section-Dates">
                 {new Date(article?.updatedAt).toLocaleDateString("en-US", {
                   month: "long",
                   year: "numeric",
                 })}
               </p>
-              <h2 className="Urban-title">
+              <h2 className="Section-Titles">
                 {article?.Title || "Untitled Article"}
               </h2>
               {article?.Description?.[0]?.children?.[0]?.text && (

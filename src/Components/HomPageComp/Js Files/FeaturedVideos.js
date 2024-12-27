@@ -20,12 +20,12 @@ export default function FeaturedVideos() {
   const youtubeLinks = [
     "https://www.youtube.com/watch?v=U21l-EFIewo&t=65s",
     "https://www.youtube.com/watch?v=vhjBje5nqJY",
-    "https://www.youtube.com/watch?v=Beu0FabzCHA+",
+    "https://www.youtube.com/watch?v=FclJdjdUuM0",
   ];
 
   return (
     <div>
-      <div className="Featured-Heading">
+      <div className="Featured-Heading Section-Headings">
         <h1>Featured Videos</h1>
         <hr className="Styled-hr" />
         <div className="Featured-Container">

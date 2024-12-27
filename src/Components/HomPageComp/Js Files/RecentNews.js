@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../Css Files/RecentNews.css";
+import "../../../PagesCss/textModule.css";
 import { useFetch } from "../../../Hooks/useFetch";
 
 export default function RecentNews() {
@@ -48,7 +49,7 @@ export default function RecentNews() {
 
   return (
     <div>
-      <h1 className="Recent-news-heading">Recent News</h1>
+      <h1 className={` Recent-news-heading`}>Recent News</h1>
       <hr className="styled-hr" />
       <div className="Recent-news-row" ref={scrollRef}>
         {newsItems.map((recentNews, index) => (

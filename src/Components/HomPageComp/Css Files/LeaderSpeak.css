@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
@@ -9,10 +8,7 @@
 }
 .LeaderSpeak-Heading {
   padding-left: 17%;
-  font-family: "PT Serif";
-  color: #ec2121;
   margin-top: 20px;
-  font-size: 13px;
   width: 50%;
 }
 
@@ -49,14 +45,12 @@
 }
 
 .LeaderSpeak-text-overlay {
-  color: black;
   box-sizing: border-box;
   text-align: left;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 15px;
   text-overflow: ellipsis;
 }
 
@@ -91,7 +85,6 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-
   transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scale transition */
 }
 .tab-content-title {
@@ -125,18 +118,11 @@
 }
 /* Date and Title Styling */
 .leaderSpeak-date {
-  font-family: "Merriweather Sans";
-  font-weight: 400;
-  font-size: 12px;
-  color: black;
   margin-bottom: 5px;
   transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .Side-leaderSpeak-title {
-  color: black;
-  font-size: 22px;
-  font-family: "Merriweather", sans-serif;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;

@@ -88,7 +88,7 @@ export default function Homepage() {
         <div className="image-container">
           <img
             className="magazine-image"
-            src="https://ibc.manofox.com/wp-content/uploads/2024/08/71f33b4d90acecdf5dad2bbdac7d609d-731x1024.jpg"
+            src="magCover.jpg"
             alt="Magazine Cover"
           />
         </div>

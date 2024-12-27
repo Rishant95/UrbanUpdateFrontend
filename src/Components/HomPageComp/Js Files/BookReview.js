@@ -19,7 +19,7 @@ export default function BookReview() {
 
   return (
     <div>
-      <div className="BookReview-Heading">
+      <div className="BookReview-Heading Section-Headings">
         <h1>Book Review</h1>
         <hr className="Styled-hr" />
 
@@ -48,7 +48,7 @@ export default function BookReview() {
                         className="BookReview-image"
                       />
                       <div className="BookReview-text-overlay">
-                        <p className="BookReview-date">
+                        <p className="BookReview-date Section-Dates">
                           {new Date(book.updatedAt).toLocaleDateString(
                             "en-US",
                             {
@@ -57,7 +57,9 @@ export default function BookReview() {
                             }
                           )}
                         </p>
-                        <h2 className="BookReview-text">{book.Title}</h2>
+                        <h2 className="BookReview-text Section-Titles">
+                          {book.Title}
+                        </h2>
                         {book?.Content?.length > 0 && (
                           <p className="BookReview-description">
                             {truncateText(

@@ -74,7 +74,7 @@ export default function CoverStory() {
   const imageUrl = getImageUrl(coverStory);
 
   return (
-    <div className="Cover-Story-Heading">
+    <div className={"Cover-Story-Heading Section-Headings"}>
       <h1>Cover Story</h1>
       <hr className="Styled-hr-coverstory" />
 
@@ -100,10 +100,7 @@ export default function CoverStory() {
                   month: "long",
                   year: "numeric",
                 })}
-                <h2
-                  style={{ fontSize: "22px" }}
-                  className="Cover-Story-Title-Overlay"
-                >
+                <h2 className="Cover-Story-Title-Overlay">
                   {coverStory.Title}
                 </h2>
                 <hr style={{ width: "30%", border: "1px solid red" }}></hr>
@@ -134,9 +131,11 @@ export default function CoverStory() {
                     year: "numeric",
                   })}
                 </p>
-                <h2 className="Side-cover-story-title">{story.Title}</h2>
+                <h2 className={"Section-Titles Side-cover-story-title"}>
+                  {story.Title}
+                </h2>
                 <h3 className="Side-cover-story-author"> By {story.Author}</h3>
-                <p className="Side-cover-story-text">
+                <p className={"Section-Text Side-cover-story-text"}>
                   {story.truncatedDescription}
                 </p>{" "}
                 {/* Display truncated description for additional stories */}

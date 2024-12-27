@@ -24,7 +24,7 @@ function CityAndArticles() {
   const imageUrl = getImageUrl(city);
 
   return (
-    <div className="City-Heading">
+    <div className="City-Heading Section-Headings">
       <div className="City-Container">
         <div className="City-item">
           <div className="Cityimage-container">
@@ -104,19 +104,22 @@ function Articles() {
                 </div>
               )}
               <div className="Article-Content">
-                <p className="Article-date">
+                <p className="Article-date Section-Dates">
                   {new Date(article.updatedAt).toLocaleDateString("en-US", {
                     month: "long",
                     year: "numeric",
                   })}
                 </p>
-                <h2 className="Article-title" style={{ fontSize: "22px" }}>
+                <h2
+                  className="Article-title Section-Titles"
+                  style={{ fontSize: "22px" }}
+                >
                   {article.Title || "Untitled Article"}
                 </h2>
 
                 {/* Display truncated description only for the last article */}
                 {index === data.data.length - 1 && article.Description && (
-                  <div className="Article-text">
+                  <div className="Article-text Section-Text">
                     {article.Description.map((contentBlock, contentIndex) => (
                       <p key={contentIndex}>
                         {contentBlock.children &&

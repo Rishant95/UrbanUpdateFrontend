@@ -38,7 +38,7 @@ export default function Oneonone() {
   const imageUrl = getImageUrl(oneon);
 
   return (
-    <div className="OneonOne-Heading">
+    <div className="OneonOne-Heading Section-Headings">
       <h1>One on One</h1>
       <hr className="Styled-hr"></hr>
 
@@ -58,7 +58,7 @@ export default function Oneonone() {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div className="OneonOne-text">
-                <p className="OneonOne-date">
+                <p className="Section-Dates">
                   {new Date(oneon.updatedAt).toLocaleDateString("en-US", {
                     month: "long", // Full month name
                     year: "numeric", // Year
@@ -71,7 +71,7 @@ export default function Oneonone() {
                 >
                   By {oneon.Author}
                 </h3>
-                <h5 className="OneonOne-description">
+                <h5 className="OneonOne-description Section-Text">
                   {truncateText(description, 200)}
                 </h5>
               </div>
@@ -86,14 +86,16 @@ export default function Oneonone() {
               style={{ textDecoration: "none", color: "inherit" }} // Remove underline and maintain text color
             >
               <div className="OneonOne-story">
-                <p className="OneonOne-date">
+                <p className="Section-Dates">
                   {new Date(oneonone.updatedAt).toLocaleDateString("en-US", {
                     month: "long", // Full month name
                     year: "numeric", // Year
                   })}
                 </p>
 
-                <h2 className="OneonOne-story-title">{oneonone.Title}</h2>
+                <h2 className="OneonOne-story-title Section-Titles">
+                  {oneonone.Title}
+                </h2>
                 <h3 className="OneonOne-story-interviewee">
                   By {oneonone.Author}
                 </h3>

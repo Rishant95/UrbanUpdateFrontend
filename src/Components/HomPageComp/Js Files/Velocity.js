@@ -46,7 +46,7 @@ export default function VelocityPage() {
 
   return (
     <div>
-      <div className="Velocity-Heading">
+      <div className="Velocity-Heading Section-Headings">
         <h1>Velocity</h1>
         <hr className="Styled-hr" />
         <div className="Velocity-Container" ref={sliderRef}>
@@ -73,7 +73,9 @@ export default function VelocityPage() {
                     )}
                     <div className="Velocity-text-overlay">
                       <p className="Velocity-date">{velocity.CityName}</p>
-                      <h2 className="Velocity-text">{velocity.Title}</h2>
+                      <h2 className="Velocity-text Section-Titles">
+                        {velocity.Title}
+                      </h2>
                     </div>
                   </div>
                 </div>

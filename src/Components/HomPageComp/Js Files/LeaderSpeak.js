@@ -102,7 +102,7 @@ export default function LeaderSpeak() {
 
   return (
     <div className="main-container">
-      <div className="LeaderSpeak-Heading">
+      <div className={"LeaderSpeak-Heading Section-Headings"}>
         <h1>LeaderSpeak</h1>
         <hr
           style={{
@@ -129,8 +129,8 @@ export default function LeaderSpeak() {
                       className="LeaderSpeak-image"
                     />
                   )}
-                  <div className="LeaderSpeak-text-overlay">
-                    <h2 style={{ fontSize: "22px" }} className="image-title">
+                  <div className={"Section-Text LeaderSpeak-text-overlay"}>
+                    <h2 className="image-title Section-Titles">
                       {leaderSpeak.Title}
                     </h2>
                     <p>{truncatedMainDescription}</p>
@@ -150,13 +150,15 @@ export default function LeaderSpeak() {
                   }}
                 >
                   <div className="additional-item-container">
-                    <p className="leaderSpeak-date">
+                    <p className="leaderSpeak-date Section-Dates">
                       {new Date(story.updatedAt).toLocaleDateString("en-US", {
                         month: "long",
                         year: "numeric",
                       })}
                     </p>
-                    <h2 className="Side-leaderSpeak-title">{story.Title}</h2>
+                    <h2 className="Side-leaderSpeak-title Section-Titles">
+                      {story.Title}
+                    </h2>
 
                     <div className="item-border"></div>
                   </div>
@@ -203,7 +205,7 @@ export default function LeaderSpeak() {
               <ul>
                 {recentNewsData.data.map((news) => (
                   <li key={news.id} className="li-item">
-                    <span className="leaderSpeak-date">
+                    <span className="leaderSpeak-date Section-Dates">
                       {new Date(news.updatedAt).toLocaleDateString("en-US", {
                         month: "long",
                         year: "numeric",

@@ -4,7 +4,7 @@ import "../Css Files/Regulars.css";
 export default function Regulars() {
   return (
     <div>
-      <div className="Featured-Heading">
+      <div className="Featured-Heading Section-Headings">
         <h1>Regulars</h1>
         <hr className="Styled-hr" />
 

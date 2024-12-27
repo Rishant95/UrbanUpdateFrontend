@@ -5,9 +5,6 @@
 .Cover-Story-Heading {
   padding-left: 17%;
   padding-right: 17%;
-  font-size: 13px;
-  color: #ec2121;
-  font-family: "PT Serif";
   margin-top: 10px;
 }
 
@@ -118,10 +115,6 @@
 }
 
 .Side-cover-story-title {
-  color: black;
-  font-family: "Merriweather";
-  font-weight: 700;
-  font-size: 22px;
   transition: color 0.3s ease, transform 0.3s ease;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -131,10 +124,6 @@
 }
 
 .Side-cover-story-text {
-  color: black;
-  font-family: "Merriweather Sans";
-  font-size: 14px;
-  font-weight: 200;
   margin-top: 10px;
   transition: color 0.3s ease, transform 0.3s ease;
   display: -webkit-box;

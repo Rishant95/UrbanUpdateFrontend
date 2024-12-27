@@ -3,10 +3,10 @@
 .Recent-news-heading {
   margin-left: 17%;
   margin-top: 2%;
+  margin-bottom: 5px;
+  font-size: 25px;
   color: #ec2121;
   font-family: "PT Serif";
-  font-size: 25px;
-  margin-bottom: 5px;
 }
 
 .Recent-news-row {
