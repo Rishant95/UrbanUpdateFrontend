@@ -29,7 +29,10 @@ export default function Edialogues() {
 
   return (
     <div>
-      <h1 className="upcoming-events-heading" style={{ padding: "0% 17%" }}>
+      <h1
+        className="upcoming-events-heading Section-Headings"
+        style={{ padding: "0% 17%" }}
+      >
         E-DIALOGUES
       </h1>
       <div className="edialogues-container">
@@ -42,9 +45,14 @@ export default function Edialogues() {
               className="event-dialogue-link"
             >
               <div>
-                <h3 className="event-dialogue-item">{item.Title}</h3>
+                <h3 className="event-dialogue-item Section-Titles">
+                  {item.Title}
+                </h3>
                 {item.Description.map((desc, index) => (
-                  <p key={index} className="event-dialogue-item-para">
+                  <p
+                    key={index}
+                    className="event-dialogue-item-para Section-Text"
+                  >
                     {truncateText(desc.children[0].text, 100)}{" "}
                     {/* Limit to 100 characters */}
                   </p>

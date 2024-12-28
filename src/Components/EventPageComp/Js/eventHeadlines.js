@@ -29,14 +29,16 @@ export default function EventsHeadline() {
       {/* First review layout */}
       <div className="first-review">
         <div className="first-review-content">
-          <p className="first-review-date">
+          <p className="Section-Dates">
             {new Date(latestEvents.updatedAt).toLocaleDateString("en-US", {
               month: "long", // Full month name
               year: "numeric", // Year
             })}
           </p>
-          <h2>{latestEvents.Title}</h2>
-          <p>{latestEvents.Description[0].children[0].text}</p>
+          <h2 className="Section-Titles">{latestEvents.Title}</h2>
+          <p className="Section-Text">
+            {latestEvents.Description[0].children[0].text}
+          </p>
           <Link
             to={`/detail/Event Headlines/${latestEvents.id}`}
             className="first-review-button"
@@ -68,13 +70,13 @@ export default function EventsHeadline() {
               className="other-review-image"
             />
             <div className="other-review-title">
-              <p className="Cover-Story-date" style={{ margin: "0px" }}>
+              <p className="Section-Dates" style={{ margin: "0px" }}>
                 {new Date(events.updatedAt).toLocaleDateString("en-US", {
                   month: "long", // Full month name
                   year: "numeric", // Year
                 })}
               </p>
-              <h3>{events.Title}</h3>
+              <h3 className="Section-Titles">{events.Title}</h3>
             </div>
           </Link>
         ))}

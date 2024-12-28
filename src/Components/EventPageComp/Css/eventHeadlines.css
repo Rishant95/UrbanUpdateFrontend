@@ -32,13 +32,11 @@
 }
 
 .first-review-content h2 {
-  font-size: 22px;
   color: white;
   margin-bottom: 20px;
 }
 
 .first-review-content p {
-  font-size: 12px;
   color: white;
   font-family: "ABeeZee", sans-serif;
   font-style: italic;
@@ -127,8 +125,6 @@
 }
 
 .other-review-title h3 {
-  font-size: 22px;
-  font-weight: 600;
   text-align: left;
   font-family: "Oswald", sans-serif;
   margin-top: 0px;

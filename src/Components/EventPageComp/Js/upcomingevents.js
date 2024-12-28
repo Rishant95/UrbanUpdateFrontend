@@ -36,7 +36,9 @@ export default function UpcomingEvents() {
         }}
       >
         <span className="upcoming-events-heading-container">
-          <h1 className="upcoming-events-heading">UPCOMING EVENTS </h1>
+          <h1 className="upcoming-events-heading Section-Headings">
+            UPCOMING EVENTS{" "}
+          </h1>
           <FaArrowAltCircleRight
             style={{ fontSize: "30px", color: "#d90000" }}
           />
@@ -71,8 +73,10 @@ export default function UpcomingEvents() {
         </div>
       </div>
 
-      <div className="More-Container">
-        <a href="/">More From Upcoming Events</a>
+      <div className="More-Container Section-Headings">
+        <a href="/" className="Section-Headings">
+          More From Upcoming Events
+        </a>
         <FaArrowRight />
       </div>
       <hr style={{ marginLeft: "17%", width: "65%" }} />

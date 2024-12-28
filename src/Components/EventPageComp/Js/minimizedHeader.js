@@ -1,14 +1,20 @@
 import { FaBars, FaBell, FaSign } from "react-icons/fa";
 import "../Css/minimizedHeader.css";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function MinimizedHeader() {
   const navigate = useNavigate();
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className="min-header-container">
       <div className="min-header-menu">
-        <FaBars className="min-hamburger-icon" />
+        <FaBars className="min-hamburger-icon" onClick={toggleMenu} />
 
         <div className="min-logo-title">
           <img
@@ -22,7 +28,7 @@ export default function MinimizedHeader() {
           </div>
         </div>
 
-        <div className="min-header-buttons">
+        <div style={{ display: "flex", gap: "20px" }}>
           <button className="subscribe-btn">
             Subscribe <FaBell />
           </button>
@@ -30,6 +36,26 @@ export default function MinimizedHeader() {
             Sign in <FaSign />
           </button>
         </div>
+      </div>
+
+      <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>
+        <button className="close-menu-btn" onClick={toggleMenu}>
+          &times;
+        </button>
+        <div className="side-menu-header">
+          <img
+            src="https://ibc.manofox.com/wp-content/uploads/2024/08/53a5706fd9e7a8e80dd938bf2c02941e.jpeg"
+            alt="Side Menu Logo"
+            className="side-menu-logo"
+          />
+          <h2 className="side-menu-title">Urban Update</h2>
+        </div>
+        <ul className="side-menu-items">
+          <li onClick={() => navigate("/")}>Home</li>
+          <li onClick={() => navigate("/about")}>About</li>
+          <li onClick={() => navigate("/services")}>Services</li>
+          <li onClick={() => navigate("/contact")}>Contact</li>
+        </ul>
       </div>
     </div>
   );

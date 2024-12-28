@@ -9,11 +9,7 @@
   width: 100%;
 }
 .upcoming-events-heading {
-  font-family: "Oswald", sans-serif;
-  font-size: 20px;
-
-  font-weight: 700;
-  color: #d90000;
+  font-size: 22px;
 }
 
 .upcoming-events-container {
@@ -61,8 +57,7 @@
 }
 
 .More-Container a {
-  font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   text-decoration: none;
   color: black;

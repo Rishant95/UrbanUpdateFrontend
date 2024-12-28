@@ -28,6 +28,11 @@
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.min-hamburger-icon:hover {
+  transform: scale(1.2);
+  color: #ec2121;
+}
+
 /* Logo and title container styling */
 .min-logo-title {
   display: flex;
@@ -60,13 +65,7 @@
 }
 
 /* Button styling */
-.min-header-buttons {
-  display: flex;
-  gap: 15px;
-}
-
-.min-subscribe-btn,
-.min-signin-btn {
+.min-header-buttons button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,9 +81,88 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.min-icon-bell,
-.min-icon-signin {
+.min-header-buttons button:hover {
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+/* Side menu styling */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Initially hidden off-screen */
+  height: 100%;
+  width: 300px;
+  background-color: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: left 0.3s ease;
+}
+
+.side-menu.open {
+  left: 0; /* Slide into view */
+}
+
+.side-menu-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.side-menu-logo {
+  width: 40px;
+  height: auto;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.side-menu-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: #ec2121;
+  font-weight: 700;
+}
+
+.side-menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.side-menu-items li {
+  cursor: pointer;
+  padding: 12px 15px;
+  font-size: 18px;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 10px;
+}
+
+.side-menu-items li:hover {
+  background-color: #ec2121;
   color: white;
+}
+
+.close-menu-btn {
+  background: none;
+  border: none;
+  color: #ec2121;
+  font-size: 30px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.close-menu-btn:hover {
+  color: black;
 }
 
 /* Responsive adjustments */
@@ -98,12 +176,8 @@
     font-size: 20px;
   }
 
-  .min-subscribe-btn,
-  .min-signin-btn {
-    padding: 8px 16px;
-  }
-  .min-logo-title {
-    margin-left: 0%;
+  .side-menu {
+    width: 250px;
   }
 }
 
@@ -117,11 +191,7 @@
     width: 40px;
   }
 
-  .min-subscribe-btn,
-  .min-signin-btn {
-    padding: 6px 12px;
-  }
-  .min-logo-title {
-    margin-left: 0%;
+  .side-menu {
+    width: 200px;
   }
 }

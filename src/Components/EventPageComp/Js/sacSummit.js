@@ -45,7 +45,7 @@ export default function SacSummit() {
 
   return (
     <div style={{ padding: "0 17%" }}>
-      <h1 className="upcoming-events-heading">SAC-SUMMIT</h1>
+      <h1 className="upcoming-events-heading Section-Headings">SAC-SUMMIT</h1>
       <div className="sac-summit-container">
         {/* Manual and auto horizontal scrolling */}
         <div className="sac-summit-scroller" ref={scrollerRef}>
@@ -59,7 +59,10 @@ export default function SacSummit() {
           ))}
         </div>
       </div>
-      <div className="More-Container" style={{ marginTop: "20px" }}>
+      <div
+        className="More-Container Section-Headings"
+        style={{ marginTop: "20px" }}
+      >
         <a href="/">More From SAC Summit</a>
         <FaArrowRight />
       </div>
