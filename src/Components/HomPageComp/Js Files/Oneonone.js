@@ -64,7 +64,7 @@ export default function Oneonone() {
                     year: "numeric", // Year
                   })}
                 </p>
-                <h2 className="first-title">{oneon.Title}</h2>
+                <h2 className="first-title Section-Titles">{oneon.Title}</h2>
                 <h3
                   className="OneonOne-story-interviewee"
                   style={{ marginTop: "-5px" }}

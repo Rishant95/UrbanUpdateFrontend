@@ -9,13 +9,14 @@
 
 .Styled-hr {
   border: 0;
-  height: 2px;
-  background: #ccc;
+  height: 1px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .Regulars-Container {
   display: flex;
-  gap: 10px; /* Reduced gap for a more compact look */
+  width: 100%;
+  gap: 20px; /* Reduced gap for a more compact look */
   justify-content: space-evenly;
   cursor: pointer;
   flex-wrap: wrap; /* Allow items to wrap on smaller screens */
@@ -26,6 +27,7 @@
   align-items: center;
   gap: 5px; /* Reduced gap between image and text */
   flex: 1 1 150px; /* Allow items to grow and shrink, with a minimum width */
+  margin-bottom: 15px;
 }
 
 .Regulars-image {
@@ -34,7 +36,7 @@
 }
 
 .Regulars-Text {
-  color: black;
+  color: rgba(0, 0, 0, 0.6);
   font-family: "Oswald", sans-serif;
 }
 

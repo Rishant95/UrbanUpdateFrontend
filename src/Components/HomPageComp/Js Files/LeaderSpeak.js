@@ -213,7 +213,7 @@ export default function LeaderSpeak() {
                     </span>
                     <Link
                       to={`/detail/RecentNews/${news.id}`}
-                      className="Tab-titles"
+                      className="Tab-titles Section-Titles"
                     >
                       <h2 className="tab-content-title">{news.Title}</h2>
                     </Link>
@@ -228,7 +228,7 @@ export default function LeaderSpeak() {
               {/* Show the top 4 most viewed articles in trending tab */}
               {trendingNews.map((news) => (
                 <li key={news.id} className="li-item">
-                  <span className="leaderSpeak-date">
+                  <span className="leaderSpeak-date Section-Dates">
                     {new Date(news.updatedAt).toLocaleDateString("en-US", {
                       month: "long",
                       year: "numeric",
@@ -239,9 +239,11 @@ export default function LeaderSpeak() {
                     to={`/detail/RecentNews/${news.id}`}
                     className="Tab-titles"
                   >
-                    <h2 className="tab-content-title">{news.Title}</h2>
+                    <h2 className="tab-content-title Section-Titles">
+                      {news.Title}
+                    </h2>
                   </Link>
-                  <p className="leaderSpeak-date">Views: {news.Views}</p>
+                  <p className="Section-Dates">Views: {news.Views}</p>
                 </li>
               ))}
             </ul>

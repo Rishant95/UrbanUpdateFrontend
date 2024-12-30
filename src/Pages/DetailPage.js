@@ -93,7 +93,7 @@ export default function DetailPage() {
     <div>
       <MinimizedHeader />
       <div className="detail-page">
-        <h1 className="detail-title">{Title}</h1>
+        <h1 className="detail-title Section-Titles">{Title}</h1>
 
         {/* Author and Share Section */}
         <div className="author-share-container">
@@ -103,7 +103,7 @@ export default function DetailPage() {
               alt="Author"
               className="author-avatar"
             />
-            <p className="author-name">Rishant</p>
+            <p className="author-name Section-Text">Rishant</p>
           </div>
           <div className="share-section">
             <span className="share-text">Share on:</span>
@@ -140,7 +140,7 @@ export default function DetailPage() {
           </div>
         </div>
 
-        <p className="detail-date">
+        <p className="detail-date Section-Dates">
           {new Date(createdAt).toLocaleDateString()}
         </p>
         <img
@@ -149,7 +149,7 @@ export default function DetailPage() {
           className="detail-image"
         />
 
-        <div className="detail-description">
+        <div className="detail-description Section-Text">
           {Array.isArray(Description) ? (
             Description.map((para, index) => (
               <p key={index}>{para.children[0]?.text || ""}</p>
@@ -171,7 +171,10 @@ export default function DetailPage() {
           <ul>
             {relatedArticles.slice(1).map((article) => (
               <li key={article.id}>
-                <Link to={`../detail/${collection}/${article.id}`}>
+                <Link
+                  to={`../detail/${collection}/${article.id}`}
+                  className="Section-Titles"
+                >
                   {article.Title}
                 </Link>
               </li>

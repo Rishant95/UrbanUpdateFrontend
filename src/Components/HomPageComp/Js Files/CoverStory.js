@@ -125,7 +125,7 @@ export default function CoverStory() {
                 className="Cover-Story-link"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                <p className="Cover-Story-date">
+                <p className="Cover-Story-date Section-Dates">
                   {new Date(story.updatedAt).toLocaleDateString("en-US", {
                     month: "long",
                     year: "numeric",

@@ -79,10 +79,6 @@
 }
 
 .Cover-Story-date {
-  font-family: "Merriweather Sans";
-  font-weight: 400;
-  font-size: 12px;
-  color: black;
   margin-top: -10px;
 }
 
@@ -134,7 +130,7 @@
 }
 .Side-cover-story-author {
   font-size: 15px;
-  color: black;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 /* Responsive Styles */

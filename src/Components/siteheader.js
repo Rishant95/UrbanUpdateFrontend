@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import {
   FaSun,
   FaClock,
@@ -19,36 +18,11 @@ import "./siteheader.css";
 export default function Siteheader() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [location, setLocation] = useState("Fetching...");
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
 
   // Fetch location, date, and time
   useEffect(() => {
     // Fetch location
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const { latitude, longitude } = position.coords;
-        try {
-          const response = await axios.get(
-            `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=YOUR_API_KEY`
-          );
-          const city =
-            response.data.results[0]?.components?.city ||
-            response.data.results[0]?.components?.town ||
-            response.data.results[0]?.components?.village ||
-            "Unknown";
-          setLocation(city);
-        } catch (error) {
-          console.error("Error fetching location:", error);
-          setLocation("Location unavailable");
-        }
-      },
-      (error) => {
-        console.error("Geolocation error:", error);
-        setLocation("Location unavailable");
-      }
-    );
 
     // Fetch date and time
     const interval = setInterval(() => {
@@ -59,12 +33,6 @@ export default function Siteheader() {
           year: "numeric",
           month: "long",
           day: "numeric",
-        })
-      );
-      setTime(
-        now.toLocaleTimeString("en-US", {
-          hour: "2-digit",
-          minute: "2-digit",
         })
       );
     }, 1000);
@@ -102,7 +70,7 @@ export default function Siteheader() {
         <div className="header-main">
           {/* Logo on Left */}
           <div className="logo-container">
-            <img className="logo" src="UrbanUpdatelogo.jpg" alt="Logo" />
+            <img className="logo" src="UULogoResized.jpg" alt="Logo" />
           </div>
           <div className="Banner-Container">
             <img

@@ -43,7 +43,7 @@
 
 .Recent-news-Text {
   font-family: "PT Serif", Arial, sans-serif;
-  color: black;
+  color: rgba(0, 0, 0, 0.6);
   font-size: 13px;
   text-decoration: none; /* Ensure no underline */
   font-weight: 200;

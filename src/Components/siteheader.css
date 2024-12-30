@@ -75,10 +75,7 @@
 }
 
 .logo {
-  width: 400px;
-  height: 100px;
-  object-fit: cover;
-  color: black;
+  object-fit: contain;
 }
 
 .Banner-Container {

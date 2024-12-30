@@ -40,7 +40,7 @@ export default function FeaturedVideos() {
                 <div className="Featured-video-container">
                   <iframe
                     width="360"
-                    height="215"
+                    height="200"
                     src={`https://www.youtube.com/embed/${videoId}`}
                     title={`Featured Video ${index + 1}`}
                     frameBorder="0"

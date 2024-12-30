@@ -77,9 +77,6 @@
 }
 .Tab-titles {
   text-decoration: none;
-  color: black;
-  margin: 5px 0px;
-  font-family: "Oswald", sans-serif;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -147,7 +144,7 @@
 
 .Tab {
   font-family: "PT Serif";
-  color: black;
+  color: rgba(0, 0, 0, 0.6);
   margin-top: 60px;
   font-weight: 800;
   font-size: 25px; /* Tab font size */
@@ -166,7 +163,7 @@
 .Tab-Content {
   padding: 0px 10px; /* Padding for tab content area */
   border-radius: 4px; /* Slightly rounded corners */
-  border-left: 2px solid black; /* Optional: border to separate from content */
+  border-left: rgba(0, 0, 0, 0.2) 0.01px solid; /* Optional: border to separate from content */
 }
 
 .Tab-Content ul {
@@ -190,7 +187,7 @@
   bottom: 0;
   left: 0;
   height: 2px; /* Height of the line */
-  background-color: black; /* Default color */
+  background-color: rgba(0, 0, 0, 0.2); /* Default color */
   width: 100%; /* Take full width of the container */
 }
 

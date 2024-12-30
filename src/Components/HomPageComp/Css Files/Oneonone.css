@@ -15,7 +15,7 @@
 }
 .OneonOne-story-interviewee {
   font-size: 15px;
-  color: black;
+  color: rgba(0, 0, 0, 0.6);
 }
 .Styled-hr {
   border: rgba(0, 0, 0, 0.2) 0.01px solid;
@@ -31,10 +31,7 @@
 }
 
 .first-title {
-  font-size: 22px;
   padding: 5px 0px;
-  font-weight: 700;
-  font-family: "Merriweather";
 }
 
 /* Main Container */
