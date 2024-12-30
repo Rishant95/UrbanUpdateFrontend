@@ -23,7 +23,7 @@
 .Urban-title-left {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
@@ -31,7 +31,7 @@
 .Urban-text-left {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
@@ -112,11 +112,8 @@
 }
 
 .Urban-text {
-  color: black;
-  font-family: "Merriweather", sans-serif;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  font-weight: 300;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
@@ -145,10 +142,6 @@
 
   .Urban-text-left {
     font-size: 15px;
-    font-weight: 300;
-    font-family: "Merriweather Sans";
-    overflow: hidden;
-    color: black;
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;

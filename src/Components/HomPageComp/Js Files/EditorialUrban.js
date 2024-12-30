@@ -117,7 +117,7 @@ function Urban() {
                 {article?.Title || "Untitled Article"}
               </h2>
               {article?.Description?.[0]?.children?.[0]?.text && (
-                <p className="Urban-text">
+                <p className="Urban-text Section-Text">
                   {truncateText(article.Description[0].children[0].text, 800)}{" "}
                   {/* Show description for each article */}
                 </p>
