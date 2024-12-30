@@ -147,7 +147,7 @@
   text-decoration: none;
   color: #333;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 300;
   transition: color 0.3s;
 }
 
@@ -183,7 +183,7 @@
   content: "▼";
   font-size: 0.8rem;
   margin-left: 5px;
-  color: #333;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .dropdown-menu {
@@ -196,7 +196,7 @@
   padding: 10px;
   z-index: 10;
   flex-direction: column;
-  min-width: 150px;
+  min-width: 250px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -208,7 +208,8 @@
   padding: 10px 15px;
   text-decoration: none;
   color: #333;
-  font-weight: 600;
+  font-weight: 300;
+  font-size: 16px;
   transition: background 0.3s, color 0.3s;
 }
 

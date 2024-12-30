@@ -141,7 +141,7 @@ export default function Siteheader() {
                   Urban Agenda
                 </a>
                 <a href="#bookreview" className="dropdown-link">
-                  Book BookReview
+                  Book Review
                 </a>
                 <a href="#velo-city" className="dropdown-link">
                   Velo-City
@@ -151,7 +151,7 @@ export default function Siteheader() {
 
             <div className="nav-item">
               <a href="#more" className="nav-link">
-                One On One
+                One-On-One
               </a>
             </div>
             <div className="nav-item dropdown">
@@ -163,7 +163,7 @@ export default function Siteheader() {
                   Upcoming Events
                 </a>
                 <a href="#saacsummit" className="dropdown-link">
-                  SAAC Summit
+                  SAC Summit
                 </a>
                 <a href="#urbandialogues" className="dropdown-link">
                   Urban Dialogues
