@@ -5,11 +5,13 @@ import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 function CityAndArticles() {
   const { loading, error, data } = useFetch("CityImages");
 
-  // Loading state
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
-
   // Error handling
   if (error) {
     return <p>Error: {error.message}</p>;
@@ -29,7 +31,7 @@ function CityAndArticles() {
         <div className="City-item">
           <div className="Cityimage-container">
             <h1>City Images</h1>
-            <hr className="Styled-hr" />
+            <hr className="Section-Styled-hr" />
             <div className="City-item">
               <div className="City-image-container">
                 {imageUrl && (
@@ -52,7 +54,7 @@ function CityAndArticles() {
         </div>
         <div className="Articles-content">
           <h1>Articles</h1>
-          <hr className="Styled-hr" />
+          <hr className="Section-Styled-hr" />
           <Articles />
         </div>
       </div>

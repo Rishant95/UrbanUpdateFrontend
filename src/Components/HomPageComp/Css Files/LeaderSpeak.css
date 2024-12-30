@@ -130,7 +130,7 @@
 
 /* Tab Section */
 .Tab-Section {
-  width: 31%; /* Ensure the tab section takes 40% of the container */
+  width: 34%; /* Ensure the tab section takes 40% of the container */
   padding-left: 20px; /* Optional padding for the tab section */
 }
 
@@ -145,14 +145,14 @@
 .Tab {
   font-family: "PT Serif";
   color: rgba(0, 0, 0, 0.6);
-  margin-top: 60px;
   font-weight: 800;
-  font-size: 25px; /* Tab font size */
-  padding: 15px 15px; /* Padding for better touch area */
+  font-size: 26px; /* Tab font size */
+  padding: 0px 15px; /* Padding for better touch area */
+  padding-top: 15px;
   border: none; /* No border */
   cursor: pointer; /* Pointer cursor on hover */
   background-color: white;
-  margin-top: 60px;
+  margin-top: 64px;
   position: relative; /* Needed for absolute positioning of the underline */
 }
 
@@ -170,25 +170,6 @@
   list-style: none; /* Remove bullets from unordered list */
   padding: 0px; /* Remove default padding */
   margin: 0; /* Remove default margin */
-}
-
-/* Underline Styles */
-.Tab-Underline {
-  position: absolute;
-  bottom: 0; /* Position it at the bottom of the Tab-Container */
-  background-color: #ec2121; /* Active color */
-  transition: left 0.3s ease, width 0.3s ease; /* Smooth transition */
-}
-
-/* Non-active state */
-.Tab-Container::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px; /* Height of the line */
-  background-color: rgba(0, 0, 0, 0.2); /* Default color */
-  width: 100%; /* Take full width of the container */
 }
 
 /* Responsive Styling */

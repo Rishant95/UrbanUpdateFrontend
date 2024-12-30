@@ -22,9 +22,6 @@ export default function Siteheader() {
 
   // Fetch location, date, and time
   useEffect(() => {
-    // Fetch location
-
-    // Fetch date and time
     const interval = setInterval(() => {
       const now = new Date();
       setDate(
@@ -68,7 +65,7 @@ export default function Siteheader() {
       {/* Logo and Navigation Container */}
       <div className="nav-container">
         <div className="header-main">
-          {/* Logo on Left */}
+          {/* Logo */}
           <div className="logo-container">
             <img className="logo" src="UULogoResized.jpg" alt="Logo" />
           </div>
@@ -89,31 +86,109 @@ export default function Siteheader() {
         {/* Navigation */}
         <nav className="nav-right">
           <div className="desktop-nav">
-            <FaHome className="search-icon" />
-            <a href="#home" className="nav-link">
-              Home
-            </a>
-            <a href="#news" className="nav-link">
-              News
-            </a>
-            <a href="#local-gov" className="nav-link">
-              Local Government
-            </a>
-            <a href="#environment" className="nav-link">
-              Environment
-            </a>
-            <a href="#columns" className="nav-link">
-              Columns
-            </a>
-            <a href="/events" className="nav-link">
-              Events
-            </a>
-            <a href="#publication" className="nav-link">
-              Publication
-            </a>
-            <a href="#more" className="nav-link">
-              More
-            </a>
+            <div className="nav-item">
+              <a href="#home" className="nav-link">
+                Home
+              </a>
+            </div>
+            <div className="nav-item dropdown">
+              <a href="#news" className="nav-link">
+                News
+              </a>
+              <div className="dropdown-menu">
+                <a href="#national" className="dropdown-link">
+                  National
+                </a>
+                <a href="#iternational" className="dropdown-link">
+                  International
+                </a>
+              </div>
+            </div>
+            <div className="nav-item dropdown">
+              <a href="#local-gov" className="nav-link">
+                Local Government
+              </a>
+              <div className="dropdown-menu">
+                <a href="#policies" className="dropdown-link">
+                  Climate Change
+                </a>
+                <a href="#projects" className="dropdown-link">
+                  Water
+                </a>
+                <a href="#projects" className="dropdown-link">
+                  Waste Management
+                </a>
+                <a href="#projects" className="dropdown-link">
+                  Environment
+                </a>
+                <a href="#projects" className="dropdown-link">
+                  Mobility
+                </a>
+              </div>
+            </div>
+            <div className="nav-item dropdown">
+              <a href="#columns" className="nav-link">
+                Columns
+              </a>
+              <div className="dropdown-menu">
+                <a href="#editorial" className="dropdown-link">
+                  Editorial
+                </a>
+                <a href="#opinion" className="dropdown-link">
+                  LeaderSpeak
+                </a>
+                <a href="#urbanagenda" className="dropdown-link">
+                  Urban Agenda
+                </a>
+                <a href="#bookreview" className="dropdown-link">
+                  Book BookReview
+                </a>
+                <a href="#velo-city" className="dropdown-link">
+                  Velo-City
+                </a>
+              </div>
+            </div>
+
+            <div className="nav-item">
+              <a href="#more" className="nav-link">
+                One On One
+              </a>
+            </div>
+            <div className="nav-item dropdown">
+              <a href="events" className="nav-link">
+                Events
+              </a>
+              <div className="dropdown-menu">
+                <a href="#upcomingevents" className="dropdown-link">
+                  Upcoming Events
+                </a>
+                <a href="#saacsummit" className="dropdown-link">
+                  SAAC Summit
+                </a>
+                <a href="#urbandialogues" className="dropdown-link">
+                  Urban Dialogues
+                </a>
+                <a href="#e-dialogues" className="dropdown-link">
+                  E-Dialogues
+                </a>
+              </div>
+            </div>
+            <div className="nav-item dropdown">
+              <a href="#publication" className="nav-link">
+                Publication
+              </a>
+              <div className="dropdown-menu">
+                <a href="#urbanupdate" className="dropdown-link">
+                  Urban Update
+                </a>
+                <a href="#projectupdate" className="dropdown-link">
+                  Project Update
+                </a>
+                <a href="#e-newslettter" className="dropdown-link">
+                  E-Newslettter
+                </a>
+              </div>
+            </div>
             <FaSearch className="search-icon" style={{ marginLeft: "20px" }} />
           </div>
 
@@ -125,30 +200,63 @@ export default function Siteheader() {
           {/* Mobile Dropdown Menu */}
           {isMenuOpen && (
             <div className="mobile-nav">
-              <a href="#home" className="nav-link">
-                Home
-              </a>
-              <a href="#news" className="nav-link">
-                News
-              </a>
-              <a href="#local-gov" className="nav-link">
-                Local Government
-              </a>
-              <a href="#environment" className="nav-link">
-                Environment
-              </a>
-              <a href="#columns" className="nav-link">
-                Columns
-              </a>
-              <a href="/events" className="nav-link">
-                Events
-              </a>
-              <a href="#publication" className="nav-link">
-                Publication
-              </a>
-              <a href="#more" className="nav-link">
-                More
-              </a>
+              <div className="nav-item">
+                <a href="#home" className="nav-link">
+                  Home
+                </a>
+              </div>
+              <div className="nav-item dropdown">
+                <a href="#news" className="nav-link">
+                  News
+                </a>
+                <div className="dropdown-menu">
+                  <a href="#world" className="dropdown-link">
+                    World
+                  </a>
+                  <a href="#sports" className="dropdown-link">
+                    Sports
+                  </a>
+                  <a href="#politics" className="dropdown-link">
+                    Politics
+                  </a>
+                </div>
+              </div>
+              <div className="nav-item dropdown">
+                <a href="#local-gov" className="nav-link">
+                  Local Government
+                </a>
+                <div className="dropdown-menu">
+                  <a href="#policies" className="dropdown-link">
+                    Policies
+                  </a>
+                  <a href="#projects" className="dropdown-link">
+                    Projects
+                  </a>
+                </div>
+              </div>
+              <div className="nav-item dropdown">
+                <a href="#columns" className="nav-link">
+                  Columns
+                </a>
+                <div className="dropdown-menu">
+                  <a href="#editorial" className="dropdown-link">
+                    Editorial
+                  </a>
+                  <a href="#opinion" className="dropdown-link">
+                    Opinion
+                  </a>
+                </div>
+              </div>
+              <div className="nav-item">
+                <a href="#more" className="nav-link">
+                  One On One
+                </a>
+              </div>
+              <div className="nav-item">
+                <a href="/events" className="nav-link">
+                  Events
+                </a>
+              </div>
             </div>
           )}
         </nav>

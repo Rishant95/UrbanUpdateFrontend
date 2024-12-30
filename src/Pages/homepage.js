@@ -26,9 +26,20 @@ export default function Homepage() {
   console.log("Fetched data:", data);
   console.log("Data structure:", data?.data);
 
-  // Loading state
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div
+        className="loader-container"
+        style={{ height: "100vh", display: "flex", flexDirection: "column" }}
+      >
+        <img
+          style={{ width: "50%", height: "50%", objectFit: "contain" }}
+          src="UrbanUpdatelogo.jpg"
+          alt="Logo"
+        />
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   // Error handling

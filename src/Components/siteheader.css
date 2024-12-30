@@ -28,11 +28,10 @@
   gap: 10px;
 }
 
-/* Default font sizes for header info */
 .header-info span,
 .header-social .subscribe-btn,
 .header-social .signin-btn {
-  font-size: 14px; /* Default font size */
+  font-size: 14px;
 }
 
 .icon {
@@ -84,6 +83,7 @@
   position: relative;
   overflow: hidden;
 }
+
 .Moto-Overlay {
   position: absolute;
   top: 0;
@@ -97,15 +97,12 @@
   font-size: 20px;
   box-sizing: border-box;
   text-align: left;
-  /* Text display in exactly 2 lines with ellipsis if overflow */
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* Limits to 2 lines */
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   max-height: 100px;
-
-  /* Background overlay for readability */
   background: rgba(0, 0, 0, 0.5);
   transition: background 0.3s ease;
 }
@@ -114,7 +111,7 @@
   width: 100%;
   height: 100px;
   object-fit: cover;
-  position: relative; /* Needed for the ::before overlay to position correctly */
+  position: relative;
 }
 
 .banner::before {
@@ -124,33 +121,32 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Adjust the opacity to control darkness */
-  pointer-events: none; /* Allows clicks to pass through the overlay */
-  z-index: 3; /* Ensures the overlay sits on top of the image */
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 3;
 }
 
 /* Right-aligned Full-width Navigation */
 .nav-right {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space items evenly */
-  width: 100%; /* Full-width */
+  justify-content: space-between;
+  width: 100%;
 }
 
-/* Adjust desktop navigation to space items evenly */
 .desktop-nav {
   display: flex;
   padding: 0% 20%;
   gap: 5%;
-  flex-grow: 1; /* Allow desktop-nav to take available space */
-  justify-content: space-between; /* Spread nav items across full width */
+  flex-grow: 1;
+  justify-content: space-between;
   align-items: center;
 }
 
 .nav-link {
   text-decoration: none;
   color: #333;
-  font-size: 16px; /* Default font size */
+  font-size: 16px;
   font-weight: 600;
   transition: color 0.3s;
 }
@@ -164,8 +160,9 @@
   cursor: pointer;
   color: #333;
 }
+
 .Style-hr {
-  border: rgba(0, 0, 0, 0.2) 0.01px solid; /* Semi-transparent thin line */
+  border: rgba(0, 0, 0, 0.2) 0.01px solid;
   margin-left: 17%;
   width: 65%;
 }
@@ -177,6 +174,49 @@
   color: #333;
 }
 
+/* Dropdown Styling */
+.nav-item {
+  position: relative;
+}
+
+.nav-item.dropdown .nav-link::after {
+  content: "▼";
+  font-size: 0.8rem;
+  margin-left: 5px;
+  color: #333;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 10;
+  flex-direction: column;
+  min-width: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-link {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-link:hover {
+  background: #ec2121;
+  color: white;
+}
+
 /* Mobile Navigation Dropdown */
 .mobile-nav {
   display: none;
@@ -184,7 +224,7 @@
   align-items: start;
   background-color: #f4f4f4;
   padding: 10px;
-  width: 100%; /* Full-width for mobile nav */
+  width: 100%;
 }
 
 .mobile-nav .nav-link {
@@ -200,67 +240,18 @@
 .mobile-nav .nav-link:hover {
   color: #ec2121;
 }
-@media (max-width: 1024px) {
-  .header-main {
-    flex-direction: row;
-    padding: 10px 5%;
-  }
-
-  .Banner-Container {
-    height: auto;
-  }
-
-  /* Reduce Font Sizes */
-  .nav-link {
-    font-size: 1.2rem;
-  }
-}
 
 /* Media Queries */
 @media (max-width: 768px) {
-  /* Adjust header layout for mobile */
-  .header-top {
-    flex-direction: column;
-    padding: 10px;
-  }
-  .nav-righ {
-    justify-content: center;
-    align-content: center;
-  }
-
-  .header-info span,
-  .header-social .subscribe-btn,
-  .header-social .signin-btn {
-    font-size: 0.8rem; /* Decrease font size on smaller screens */
-  }
-
-  .header-social {
-    margin-top: 10px; /* Add space between header-info and header-social */
-  }
-
-  .header-main {
-    flex-direction: row;
-    padding: 10px 5%;
-  }
-
-  /* Hide desktop nav, show hamburger */
   .desktop-nav {
     display: none;
   }
 
   .hamburger {
     display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); /* Centers the hamburger icon */
-    z-index: 10;
-  }
-  /* Show mobile nav dropdown when active */
-  .mobile-nav {
-    display: flex;
   }
 
-  .nav-link {
-    font-size: 0.9rem; /* Decrease font size for mobile nav links */
+  .mobile-nav {
+    display: flex;
   }
 }

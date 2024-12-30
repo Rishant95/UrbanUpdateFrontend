@@ -8,12 +8,6 @@
   margin-top: 10px;
 }
 
-.Styled-hr {
-  border: rgba(0, 0, 0, 0.2) 0.01px solid;
-  width: 100%;
-  margin-top: 5px;
-}
-
 .Velocity-Container {
   display: flex;
   gap: 20px; /* Space between items */

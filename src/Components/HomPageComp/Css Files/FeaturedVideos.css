@@ -8,10 +8,6 @@
   margin-top: 10px;
 }
 
-.Styled-hr {
-  border: rgba(0, 0, 0, 0.2) 0.01px solid;
-}
-
 .Featured-Container {
   display: flex;
   gap: 1%;

@@ -5,7 +5,11 @@ export default function FeaturedVideos() {
   const { loading, error, data } = useFetch("Featured Videos");
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -27,7 +31,7 @@ export default function FeaturedVideos() {
     <div>
       <div className="Featured-Heading Section-Headings">
         <h1>Featured Videos</h1>
-        <hr className="Styled-hr" />
+        <hr className="Section-Styled-hr" />
         <div className="Featured-Container">
           {youtubeLinks.slice(0, 3).map((link, index) => {
             // Extract the video ID from the YouTube link

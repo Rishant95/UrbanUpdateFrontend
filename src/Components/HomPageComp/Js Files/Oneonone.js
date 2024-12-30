@@ -13,7 +13,11 @@ export default function Oneonone() {
   const { loading, error, data } = useFetch("OneOnOne");
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -40,7 +44,7 @@ export default function Oneonone() {
   return (
     <div className="OneonOne-Heading Section-Headings">
       <h1>One on One</h1>
-      <hr className="Styled-hr"></hr>
+      <hr className="Section-Styled-hr"></hr>
 
       <div className="OneonOne-Container">
         {/* Image and description for the first item */}

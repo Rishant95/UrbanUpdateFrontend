@@ -30,7 +30,11 @@ export default function VelocityPage() {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -48,7 +52,7 @@ export default function VelocityPage() {
     <div>
       <div className="Velocity-Heading Section-Headings">
         <h1>Velocity</h1>
-        <hr className="Styled-hr" />
+        <hr className="Section-Styled-hr" />
         <div className="Velocity-Container" ref={sliderRef}>
           {velocityItems.map((velocity, index) => {
             const imageUrl = getImageUrl(velocity);

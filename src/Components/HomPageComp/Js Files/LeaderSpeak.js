@@ -85,7 +85,11 @@ export default function LeaderSpeak() {
   }, [recentNewsData]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -104,12 +108,7 @@ export default function LeaderSpeak() {
     <div className="main-container">
       <div className={"LeaderSpeak-Heading Section-Headings"}>
         <h1>LeaderSpeak</h1>
-        <hr
-          style={{
-            border: "rgba(0, 0, 0, 0.2) 0.01px solid",
-            marginTop: "10px",
-          }}
-        />
+        <hr className="Section-Styled-hr" />
 
         <div className="LeaderSpeak-Container">
           <div className="LeaderSpeak-content">
@@ -189,15 +188,8 @@ export default function LeaderSpeak() {
             Trending
           </button>
           {/* Underline that will move under active tab */}
-          <div
-            className="Tab-Underline"
-            style={{
-              backgroundColor: activeTab === "recent" ? "#ec2121" : "black",
-              marginTop: "5px",
-            }}
-          ></div>
         </div>
-
+        <hr className="Section-Styled-hr" style={{ marginTop: "-10px" }}></hr>
         {/* Tab Content */}
         <div className="Tab-Content">
           {activeTab === "recent" ? (

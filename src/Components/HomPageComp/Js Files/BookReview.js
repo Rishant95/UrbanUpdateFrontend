@@ -6,9 +6,12 @@ export default function BookReview() {
   const { loading, error, data } = useFetch("Book Review");
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
-
   if (error) {
     return <p>Error: {error.message}</p>;
   }
@@ -21,7 +24,7 @@ export default function BookReview() {
     <div>
       <div className="BookReview-Heading Section-Headings">
         <h1>Book Review</h1>
-        <hr className="Styled-hr" />
+        <hr className="Section-Styled-hr" />
 
         <div className="BookReview-Container">
           {data.data.map((book) => {

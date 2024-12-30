@@ -6,7 +6,11 @@ function EditorialUrban() {
   const { loading, error, data } = useFetch("Editorial");
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -25,7 +29,7 @@ function EditorialUrban() {
       <div className="Editorial-Container">
         <div className="Editorial-item">
           <h1>Editorials</h1>
-          <hr className="Styled-hr" />
+          <hr className="Section-Styled-hr" />
           <Link
             to={`/detail/Editorial/${editorial.id}`}
             style={{ textDecoration: "none", color: "inherit" }}
@@ -63,7 +67,7 @@ function EditorialUrban() {
         </div>
         <div className="Urban-content">
           <h1>Urban Agenda</h1>
-          <hr className="Styled-hr" />
+          <hr className="Section-Styled-hr" />
           <Urban />
         </div>
       </div>

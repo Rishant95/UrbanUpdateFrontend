@@ -11,12 +11,6 @@
   margin-top: 0px;
 }
 
-.Styled-hr {
-  border: 0;
-  height: 2px;
-  background: #ccc;
-}
-
 .BookReview-Container {
   display: flex;
   gap: 1%;

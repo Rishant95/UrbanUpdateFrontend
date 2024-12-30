@@ -132,10 +132,6 @@ hr {
     width: 100%; /* Full width for better click areas */
     text-align: center; /* Center text for mobile */
   }
-
-  hr {
-    margin: 15px 0; /* Reduce margin around hr element for mobile */
-  }
 }
 
 @media (max-width: 500px) {

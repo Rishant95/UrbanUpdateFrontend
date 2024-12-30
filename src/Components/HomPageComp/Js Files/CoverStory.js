@@ -58,7 +58,11 @@ export default function CoverStory() {
   }, [data]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -76,7 +80,7 @@ export default function CoverStory() {
   return (
     <div className={"Cover-Story-Heading Section-Headings"}>
       <h1>Cover Story</h1>
-      <hr className="Styled-hr-coverstory" />
+      <hr className="Section-Styled-hr" />
 
       <div className="Cover-Story-Container">
         {/* Main Cover Story */}
