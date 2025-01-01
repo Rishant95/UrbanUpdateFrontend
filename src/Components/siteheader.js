@@ -87,8 +87,8 @@ export default function Siteheader() {
         <nav className="nav-right">
           <div className="desktop-nav">
             <div className="nav-item">
-              <a href="#home" className="nav-link">
-                Home
+              <a href="/" className="nav-link">
+                <FaHome className="search-icon" />
               </a>
             </div>
             <div className="nav-item dropdown">

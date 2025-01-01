@@ -179,13 +179,6 @@
   position: relative;
 }
 
-.nav-item.dropdown .nav-link::after {
-  content: "▼";
-  font-size: 0.8rem;
-  margin-left: 5px;
-  color: rgba(0, 0, 0, 0.4);
-}
-
 .dropdown-menu {
   display: none;
   position: absolute;

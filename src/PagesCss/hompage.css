@@ -12,6 +12,8 @@
 .slide-container {
   position: relative;
   height: 100%;
+  border-radius: 15px; /* Add rounded corners to the container */
+  overflow: hidden; /* Ensures that child elements stay within the border */
 }
 
 .slider-card-image {
@@ -19,6 +21,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  border-radius: 15px; /* Round the image corners to match container */
 }
 
 /* Darkening effect */
@@ -52,6 +55,8 @@
   text-align: center;
   box-sizing: border-box;
   z-index: 2; /* Ensures text overlay is above image effects */
+  border-bottom-left-radius: 15px; /* Curved bottom left corner */
+  border-bottom-right-radius: 15px; /* Curved bottom right corner */
 }
 
 .title-overlay h2 {
@@ -100,11 +105,13 @@
   .slide-container {
     height: auto;
     min-height: 400px;
+    border-radius: 15px; /* Add rounded corners for smaller screens */
   }
 
   .slider-card-image {
     height: auto;
     max-height: 400px;
+    border-radius: 15px; /* Round the image corners */
   }
 
   .title-overlay {
@@ -145,6 +152,7 @@
   .slider-card-image {
     height: auto;
     max-height: 300px; /* Reduce image height further */
+    border-radius: 15px; /* Round the image corners */
   }
 
   .magazine-image {
@@ -152,5 +160,6 @@
     margin-right: auto;
     width: 100%;
     height: auto;
+    border-radius: 15px; /* Round the image corners */
   }
 }

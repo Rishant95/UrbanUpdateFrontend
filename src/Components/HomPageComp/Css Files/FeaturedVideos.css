@@ -11,7 +11,6 @@
   display: flex;
   gap: 2%;
   overflow-x: auto; /* Enable horizontal scrolling for small screens */
-  padding: 1rem 0; /* Add vertical padding */
   scrollbar-width: thin; /* Thin scrollbar for modern look */
 }
 

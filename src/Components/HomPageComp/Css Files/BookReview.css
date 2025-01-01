@@ -14,14 +14,13 @@ body {
 
 .book-review-section {
   background-color: var(--background-color);
-  padding: 2% 17%; /* Horizontal padding maintained */
+  padding: 1% 17%; /* Horizontal padding maintained */
 }
 
 .BookReview-Container {
   display: flex;
   justify-content: space-between; /* Space books horizontally */
   gap: 2rem; /* Spacing between items */
-  margin-top: 1.5rem;
 }
 
 .BookReview-item {
