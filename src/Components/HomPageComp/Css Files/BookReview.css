@@ -1,118 +1,127 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
 
 :root {
-  --text-color: black;
-  --background-color: #fff; /* Adjust as needed */
+  --text-color: #333;
+  --primary-color: #ec2121;
+  --hover-color: #34495e;
+  --button-background: #ec2121;
+  --button-hover: #e53939;
 }
 
-.BookReview-Heading {
-  padding-left: 17%;
-  padding-right: 16%;
-  margin-top: 0px;
+body {
+  font-family: "PT Serif", serif;
+}
+
+.book-review-section {
+  background-color: var(--background-color);
+  padding: 2% 17%; /* Horizontal padding maintained */
 }
 
 .BookReview-Container {
   display: flex;
-  gap: 1%;
-  cursor: pointer;
+  justify-content: space-between; /* Space books horizontally */
+  gap: 2rem; /* Spacing between items */
+  margin-top: 1.5rem;
 }
 
 .BookReview-item {
-  position: relative;
-  width: 50%; /* Take up half of the container */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48%; /* Take up half the available width */
 }
 
-.BookReview-item:hover {
-  transform: scale(1.02); /* Slightly enlarge the item */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+.BookReview-horizontal-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between image and text */
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .BookReview-image {
-  width: 300px;
-  height: 400px;
+  width: 120px; /* Smaller image */
+  height: 180px;
   object-fit: cover;
-  border-radius: 15px; /* Adjust the value as needed */
-  transition: opacity 0.3s ease; /* Smooth transition for opacity */
-}
-
-.BookReview-image-container {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  transition: scale 0.3s ease;
-}
-
-.BookReview-text-overlay {
-  width: 100%; /* Span the entire width of the container */
-  color: var(--text-color); /* Text color to contrast with the image */
-  box-sizing: border-box;
-  text-align: left; /* Align text to the left */
-}
-
-.BookReview-additional-content {
-  width: 50%; /* Take up the other half of the container */
-  box-sizing: border-box;
+  border-radius: 8px;
 }
 
 .BookReview-text {
-  margin-top: 10px;
-  width: 70%;
-  line-height: 25px;
-  transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for text color and shadow */
+  flex: 1;
 }
 
-.BookReview-item:hover .BookReview-text {
-  color: var(--primary-color); /* Change text color on hover */
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Add text shadow on hover */
-}
-
-.BookReview-description {
-  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition for description */
+.BookReview-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
 .BookReview-date {
-  margin-top: -10px;
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.BookReview-description {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+/* Button Styles */
+.ReadMore-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--button-background);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.ReadMore-btn:hover {
+  background-color: var(--button-hover);
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .BookReview-image {
-    width: 250px; /* Adjust size for smaller screens */
-    height: 350px; /* Adjust height accordingly */
-  }
-
-  .BookReview-text {
-    font-size: 28px; /* Smaller font size for text */
-  }
-
-  .BookReview-date {
-    font-size: 14px; /* Adjust date font size */
-  }
-}
-
-@media (max-width: 480px) {
-  .BookReview-Heading {
-    padding: 0% 5%;
-  }
-  .BookReview-image {
-    width: 200px; /* Further adjust size for mobile */
-    height: 300px; /* Adjust height accordingly */
-    margin-top: 1%;
-  }
-
-  .BookReview-text {
-    margin-top: 1%;
-    font-size: 20px; /* Further decrease font size */
-  }
-
-  .BookReview-date {
-    font-size: 12px; /* Smaller font size for date */
-  }
-
   .BookReview-Container {
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align items */
+    flex-direction: column; /* Stack items vertically for small screens */
+    gap: 1.5rem;
+  }
+
+  .BookReview-item {
+    width: 100%;
+  }
+
+  .BookReview-horizontal-card {
+    flex-direction: column; /* Stack content inside each card */
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .BookReview-image {
+    width: 150px;
+    height: 200px;
+  }
+
+  .BookReview-title {
+    font-size: 16px;
+  }
+
+  .BookReview-date,
+  .BookReview-description {
+    font-size: 12px;
   }
 }

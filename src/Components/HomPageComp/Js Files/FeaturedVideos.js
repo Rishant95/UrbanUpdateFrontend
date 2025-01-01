@@ -1,5 +1,5 @@
 import "../Css Files/FeaturedVideos.css";
-import { useFetch, getImageUrl } from "../../../Hooks/useFetch";
+import { useFetch } from "../../../Hooks/useFetch";
 
 export default function FeaturedVideos() {
   const { loading, error, data } = useFetch("Featured Videos");
@@ -13,7 +13,7 @@ export default function FeaturedVideos() {
   }
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return <p className="error-message">Error: {error.message}</p>;
   }
 
   if (!data || !data.data || data.data.length === 0) {
@@ -37,17 +37,14 @@ export default function FeaturedVideos() {
             // Extract the video ID from the YouTube link
             const videoId = link.split("v=")[1].split("&")[0];
             return (
-              <div
-                key={index}
-                style={{ display: "flex", justifyContent: "space-evenly" }}
-              >
-                <div className="Featured-video-container">
+              <div key={index} className="Featured-video-item">
+                <div className="Featured-video-frame">
                   <iframe
-                    width="360"
-                    height="200"
                     src={`https://www.youtube.com/embed/${videoId}`}
                     title={`Featured Video ${index + 1}`}
                     frameBorder="0"
+                    width="360"
+                    height="200"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>

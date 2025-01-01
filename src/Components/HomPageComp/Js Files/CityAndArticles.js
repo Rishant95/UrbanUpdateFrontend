@@ -118,7 +118,10 @@ function Articles() {
                 >
                   {article.Title || "Untitled Article"}
                 </h2>
-
+                <h3 className="Side-cover-story-author">
+                  {" "}
+                  By {article.Author}
+                </h3>
                 {/* Display truncated description only for the last article */}
                 {index === data.data.length - 1 && article.Description && (
                   <div className="Article-text Section-Text">

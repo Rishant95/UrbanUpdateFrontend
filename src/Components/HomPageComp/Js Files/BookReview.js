@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 import "../Css Files/BookReview.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 
@@ -12,73 +12,62 @@ export default function BookReview() {
       </div>
     );
   }
+
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return <p className="error-message">Error: {error.message}</p>;
   }
 
   if (!data || !data.data || data.data.length === 0) {
-    return <p>No data available</p>;
+    return <p className="no-data-message">No data available</p>;
   }
 
   return (
-    <div>
+    <div className="book-review-section">
       <div className="BookReview-Heading Section-Headings">
         <h1>Book Review</h1>
         <hr className="Section-Styled-hr" />
+      </div>
 
-        <div className="BookReview-Container">
-          {data.data.map((book) => {
-            const editorialImageUrl = getImageUrl(book);
+      <div className="BookReview-Container">
+        {data.data.slice(0, 2).map((book) => {
+          const editorialImageUrl = getImageUrl(book);
 
-            return (
-              <Link
-                key={book.id}
-                to={`/detail/Book Review/${book.id}`} // Link to book detail page
-                style={{ textDecoration: "none", color: "inherit" }} // Remove underline and maintain text color
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-evenly",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div>
-                    <div className="BookReview-image-container">
-                      <img
-                        src={editorialImageUrl}
-                        alt={book.Title}
-                        className="BookReview-image"
-                      />
-                      <div className="BookReview-text-overlay">
-                        <p className="BookReview-date Section-Dates">
-                          {new Date(book.updatedAt).toLocaleDateString(
-                            "en-US",
-                            {
-                              month: "long",
-                              year: "numeric",
-                            }
-                          )}
-                        </p>
-                        <h2 className="BookReview-text Section-Titles">
-                          {book.Title}
-                        </h2>
-                        {book?.Content?.length > 0 && (
-                          <p className="BookReview-description">
-                            {truncateText(
-                              book.Content[0]?.children[0]?.text,
-                              150
-                            )}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+          return (
+            <Link
+              key={book.id}
+              to={`/detail/Book Review/${book.id}`}
+              className="BookReview-item"
+            >
+              <div className="BookReview-horizontal-card">
+                <img
+                  src={editorialImageUrl}
+                  alt={book.Title}
+                  className="BookReview-image"
+                />
+                <div className="BookReview-text">
+                  <h2 className="Section-Titles">{book.Title}</h2>
+                  <p className="Section-Dates">
+                    {new Date(book.updatedAt).toLocaleDateString("en-US", {
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </p>
+                  {book?.Content?.length > 0 && (
+                    <p className="BookReview-description">
+                      {truncateText(book.Content[0]?.children[0]?.text, 100)}
+                    </p>
+                  )}
+                  <Link
+                    to={`/detail/Book Review/${book.id}`}
+                    className="ReadMore-btn"
+                  >
+                    Read More
+                  </Link>
                 </div>
-              </Link>
-            );
-          })}
-        </div>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

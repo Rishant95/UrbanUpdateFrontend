@@ -29,7 +29,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -39,14 +38,14 @@
   position: absolute;
   font-family: "Merriweather";
   width: 100%;
-  bottom: 1%; /* Fixes overlay to bottom of the image */
+  bottom: 0%; /* Fixes overlay to bottom of the image */
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(
     255,
     255,
     255,
-    0.7
+    1
   ); /* Slightly darker for readability */
   padding: 15px 20px;
   font-weight: 700;

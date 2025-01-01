@@ -8,7 +8,7 @@
 }
 .LeaderSpeak-Heading {
   padding-left: 17%;
-  margin-top: 20px;
+  margin-top: 2%;
   width: 50%;
 }
 
@@ -152,7 +152,7 @@
   border: none; /* No border */
   cursor: pointer; /* Pointer cursor on hover */
   background-color: white;
-  margin-top: 64px;
+  margin-top: 13.5%;
   position: relative; /* Needed for absolute positioning of the underline */
 }
 

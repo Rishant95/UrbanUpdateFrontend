@@ -33,7 +33,11 @@ export default function RecentNews() {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   if (error) {
