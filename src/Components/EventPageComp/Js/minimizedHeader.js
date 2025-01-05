@@ -51,17 +51,19 @@ export default function MinimizedHeader() {
           <h2 className="side-menu-title">Urban Update</h2>
         </div>
         <ul className="side-menu-items">
-          <li onClick={() => navigate("/")}>About Urban Update</li>
+          <li onClick={() => navigate("/about")}>About Urban Update</li>
           <li onClick={() => navigate("/about")}>Team</li>
           <li onClick={() => navigate("/services")}>Our Partners</li>
           <li onClick={() => navigate("/contact")}>Contact Us</li>
-          <li onClick={() => navigate("/")}>Careers</li>
-          <li onClick={() => navigate("/about")}>Advertise with us</li>
+          <li onClick={() => navigate("/career")}>Careers</li>
+          <li onClick={() => navigate("/advertise")}>Advertise with us</li>
           <li onClick={() => navigate("/services")}>Partner with us</li>
-          <li onClick={() => navigate("/contact")}>Privacy Policy</li>
+          <li onClick={() => navigate("/privacy")}>Privacy Policy</li>
           <li onClick={() => navigate("/about")}>Cookie Policy</li>
-          <li onClick={() => navigate("/services")}>Term of Use</li>
-          <li onClick={() => navigate("/contact")}>Accessiblity Statement</li>
+          <li onClick={() => navigate("/termofuse")}>Term of Use</li>
+          <li onClick={() => navigate("/accessibility")}>
+            Accessiblity Statement
+          </li>
         </ul>
       </div>
     </div>
