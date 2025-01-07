@@ -12,6 +12,9 @@ import Advertise from "./Pages/Abouts/advertise";
 import Careers from "./Pages/Abouts/carrers";
 import PrivacyPolicy from "./Pages/Abouts/privacypolicy";
 import AboutUs from "./Pages/Abouts/aboutuu";
+import ContactUs from "./Pages/Abouts/contactus";
+import Team from "./Pages/Abouts/team";
+import Partners from "./Pages/Abouts/partners";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
           <Route path="/events" element={<EventsPage />} />
           <Route path="/signup" element={<CreateAccount />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/partners" element={<Partners />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/detail/:collection/:id" element={<DetailPage />} />
           <Route exact path="/auth-redirect" component={OAuthRedirectHandler} />
