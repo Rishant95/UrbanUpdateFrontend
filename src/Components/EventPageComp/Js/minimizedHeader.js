@@ -57,7 +57,7 @@ export default function MinimizedHeader() {
           <li onClick={() => navigate("/contact")}>Contact Us</li>
           <li onClick={() => navigate("/career")}>Careers</li>
           <li onClick={() => navigate("/advertise")}>Advertise with us</li>
-          <li onClick={() => navigate("/services")}>Partner with us</li>
+          <li onClick={() => navigate("/partners")}>Partner with us</li>
           <li onClick={() => navigate("/privacy")}>Privacy Policy</li>
           <li onClick={() => navigate("/about")}>Cookie Policy</li>
           <li onClick={() => navigate("/termofuse")}>Term of Use</li>

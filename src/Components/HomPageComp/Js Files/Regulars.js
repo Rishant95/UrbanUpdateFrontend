@@ -11,14 +11,14 @@ export default function Regulars() {
         <div className="Regulars-Container">
           <div className="Regulars-Items">
             <img
-              src="https://ibc.manofox.com/wp-content/uploads/2024/08/e463281665a0e8442ed100325ff769d7.png"
+              src="/Logos/pinpoint_page-0001.jpg"
               className="Regulars-image"
             ></img>
             <h3 className="Regulars-Text">PinPoint</h3>
           </div>
           <div className="Regulars-Items">
             <img
-              src="https://ibc.manofox.com/wp-content/uploads/2024/08/457fbeb266c3e0684a9a7a48a0bd7398.png"
+              src="/Logos/birdseyeviewpage-0001.jpg"
               className="Regulars-image"
             ></img>
             <h3 className="Regulars-Text">Bird's Eye View</h3>
@@ -26,21 +26,21 @@ export default function Regulars() {
 
           <div className="Regulars-Items">
             <img
-              src="https://ibc.manofox.com/wp-content/uploads/2024/08/457fbeb266c3e0684a9a7a48a0bd7398.png"
+              src="/Logos/cityimage_page-0001.jpg"
               className="Regulars-image"
             ></img>
             <h3 className="Regulars-Text">City Image</h3>
           </div>
           <div className="Regulars-Items">
             <img
-              src="https://ibc.manofox.com/wp-content/uploads/2024/08/f6fc1e870fb223ac323e893056f19e16.png"
+              src="/Logos/Numerographs_page-0001.jpg"
               className="Regulars-image"
             ></img>
             <h3 className="Regulars-Text">Numerographs</h3>
           </div>
           <div className="Regulars-Items">
             <img
-              src="https://ibc.manofox.com/wp-content/uploads/2024/08/7fa07035e3dd54b93e825b9dc59d7075.png"
+              src="/Logos/Diary_page-0001.jpg"
               className="Regulars-image"
             ></img>
             <h3 className="Regulars-Text">AIILSG Dairy</h3>

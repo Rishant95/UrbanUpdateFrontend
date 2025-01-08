@@ -12,30 +12,30 @@ export default function SiteFooter() {
       </div>
       <div className="footer-links">
         <div className="footer-item-links-container">
-          <a className="footer-item-links" href="/">
+          <a className="footer-item-links" href="/about">
             About Us
           </a>
-          <a className="footer-item-links" href="/">
+          <a className="footer-item-links" href="/team">
             Team
           </a>
-          <a className="footer-item-links" href="/">
+          <a className="footer-item-links" href="/contact">
             Contact Us
           </a>
-          <a className="footer-item-links" href="/">
+          <a className="footer-item-links" href="/career">
             Careers
           </a>
         </div>
         <div className="footer-item-links-container">
-          <a className="footer-item-links" href="/">
+          <a className="footer-item-links" href="/partners">
             Our Partners
           </a>
           <a className="footer-item-links" href="/">
             Partner with Us
           </a>
-          <a className="footer-item-links" href="/">
+          <a className="footer-item-links" href="/advertise">
             Advertise With Us
           </a>
-          <a className="footer-item-links" href="/">
+          <a className="footer-item-links" href="/privacy">
             Privacy Policy
           </a>
         </div>
