@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import "../Css Files/EditorialUrban.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
+import LoadingPrompt from "../../loadingComp";
 
 function EditorialUrban() {
-  const { loading, error, data } = useFetch("Editorial");
+  const currentCategory = "Editorial";
+  const { loading, error, data } = useFetch(currentCategory);
 
   if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-      </div>
-    );
+    return <LoadingPrompt />;
   }
 
   if (error) {
@@ -28,7 +26,12 @@ function EditorialUrban() {
     <div className="Editorial-Heading Section-Headings">
       <div className="Editorial-Container">
         <div className="Editorial-item">
-          <h1>Editorials</h1>
+          <Link
+            to={`/category/${currentCategory}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <h1>Editorials</h1>
+          </Link>
           <hr className="Section-Styled-hr" />
           <Link
             to={`/detail/Editorial/${editorial.id}`}
@@ -66,7 +69,12 @@ function EditorialUrban() {
           </Link>
         </div>
         <div className="Urban-content">
-          <h1>Urban Agenda</h1>
+          <Link
+            to={`/category/Urban Agenda`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <h1>Urban Agenda</h1>
+          </Link>
           <hr className="Section-Styled-hr" />
           <Urban />
         </div>
@@ -86,7 +94,7 @@ function Urban() {
   const { loading, error, data } = useFetch("Urban Agenda");
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingPrompt />;
   }
 
   if (error) {

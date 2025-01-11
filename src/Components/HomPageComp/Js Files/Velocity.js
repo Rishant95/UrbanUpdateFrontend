@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import "../Css Files/Velocity.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 import { useEffect, useRef } from "react";
+import LoadingPrompt from "../../loadingComp";
 
 export default function VelocityPage() {
-  const { loading, error, data } = useFetch("Velocity");
+  const currentCategory = "Velocity"; // Define the current category
+  const { loading, error, data } = useFetch(currentCategory);
   const sliderRef = useRef(null);
 
   // Automatic scrolling logic with seamless looping
@@ -30,11 +32,7 @@ export default function VelocityPage() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-      </div>
-    );
+    return <LoadingPrompt />;
   }
 
   if (error) {
@@ -51,7 +49,13 @@ export default function VelocityPage() {
   return (
     <div>
       <div className="Velocity-Heading Section-Headings">
-        <h1>Velocity</h1>
+        <Link
+          to={`/category/${currentCategory}`}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <h1>Velocity</h1>
+        </Link>
+
         <hr className="Section-Styled-hr" />
         <div className="Velocity-Container" ref={sliderRef}>
           {velocityItems.map((velocity, index) => {

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../PagesCss/createAccount.css";
-
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
 import axios from "axios";
 import MinimizedHeader from "../Components/EventPageComp/Js/minimizedHeader";

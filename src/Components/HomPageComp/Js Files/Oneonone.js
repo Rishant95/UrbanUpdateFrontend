@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "../Css Files/Oneonone.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
+import LoadingPrompt from "../../loadingComp";
 
 export default function Oneonone() {
+  const currentCategory = "OneOnOne"; // Define the current category
   const truncateText = (text, limit) => {
     if (text.length > limit) {
       return text.substring(0, limit) + "...";
@@ -10,14 +12,10 @@ export default function Oneonone() {
     return text;
   };
 
-  const { loading, error, data } = useFetch("OneOnOne");
+  const { loading, error, data } = useFetch(currentCategory);
 
   if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-      </div>
-    );
+    return <LoadingPrompt />;
   }
 
   if (error) {
@@ -43,7 +41,12 @@ export default function Oneonone() {
 
   return (
     <div className="OneonOne-Heading Section-Headings">
-      <h1>One on One</h1>
+      <Link
+        to={`/category/${currentCategory}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <h1>One on One</h1>
+      </Link>
       <hr className="Section-Styled-hr"></hr>
 
       <div className="OneonOne-Container">

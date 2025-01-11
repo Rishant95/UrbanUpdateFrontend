@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import "../Css Files/CityAndArticles.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
+import LoadingPrompt from "../../loadingComp";
 
 function CityAndArticles() {
-  const { loading, error, data } = useFetch("CityImages");
+  const currentCategory = "CityImages";
+  const { loading, error, data } = useFetch(currentCategory);
 
   if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-      </div>
-    );
+    return <LoadingPrompt />;
   }
   // Error handling
   if (error) {
@@ -53,7 +51,12 @@ function CityAndArticles() {
           </div>
         </div>
         <div className="Articles-content">
-          <h1>Articles</h1>
+          <Link
+            to={`/category/${currentCategory}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <h1>Articles</h1>
+          </Link>
           <hr className="Section-Styled-hr" />
           <Articles />
         </div>

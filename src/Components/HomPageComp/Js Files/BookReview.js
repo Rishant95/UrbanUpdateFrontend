@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import "../Css Files/BookReview.css";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
+import LoadingPrompt from "../../loadingComp";
 
 export default function BookReview() {
-  const { loading, error, data } = useFetch("Book Review");
+  const currentCategory = "Book Review";
+  const { loading, error, data } = useFetch(currentCategory);
 
   if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-      </div>
-    );
+    return <LoadingPrompt />;
   }
 
   if (error) {
@@ -24,7 +22,12 @@ export default function BookReview() {
   return (
     <div className="book-review-section">
       <div className="BookReview-Heading Section-Headings">
-        <h1>Book Review</h1>
+        <Link
+          to={`/category/${currentCategory}`}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <h1>Book Review</h1>
+        </Link>
         <hr className="Section-Styled-hr" />
       </div>
 

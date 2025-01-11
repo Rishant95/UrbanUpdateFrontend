@@ -15,6 +15,7 @@ import AboutUs from "./Pages/Abouts/aboutuu";
 import ContactUs from "./Pages/Abouts/contactus";
 import Team from "./Pages/Abouts/team";
 import Partners from "./Pages/Abouts/partners";
+import CategoryPage from "./Pages/categoryPage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/signin" element={<Signin />} />
+          <Route path="/category/:collection" element={<CategoryPage />} />
           <Route path="/detail/:collection/:id" element={<DetailPage />} />
           <Route exact path="/auth-redirect" component={OAuthRedirectHandler} />
         </Routes>

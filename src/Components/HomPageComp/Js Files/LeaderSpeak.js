@@ -1,23 +1,23 @@
 import { Link } from "react-router-dom";
 import "../Css Files/LeaderSpeak.css";
-import { getImageUrl, useFetch } from "../../../Hooks/useFetch"; // Assuming you have a custom hook for fetching data
+import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 import { useEffect, useState } from "react";
+import LoadingPrompt from "../../loadingComp";
 
 export default function LeaderSpeak() {
-  const { loading, error, data } = useFetch("LeaderSpeak");
-  const { data: recentNewsData } = useFetch("Recent News"); // Fetch recent news data
+  const currentCategory = "LeaderSpeak"; // Define the current category
+  const { loading, error, data } = useFetch(currentCategory);
+  const { data: recentNewsData } = useFetch("Recent News");
   const [truncatedMainDescription, setTruncatedMainDescription] = useState("");
   const [truncatedAdditionalStories, setTruncatedAdditionalStories] = useState(
     []
   );
-  const [activeTab, setActiveTab] = useState("recent"); // State to manage active tab
+  const [activeTab, setActiveTab] = useState("recent");
 
   useEffect(() => {
     if (data && data.data) {
-      // Fetching the first LeaderSpeak data
       const leaderSpeak = data.data[0];
 
-      // Function to truncate text based on screen size
       const truncateDescription = (description, maxWords) => {
         const words = description.split(" ");
         return words.length > maxWords
@@ -25,25 +25,22 @@ export default function LeaderSpeak() {
           : description;
       };
 
-      // Extract main leader speak description safely
       const mainDescription =
         leaderSpeak.Description?.map(
           (desc) => desc.children[0]?.text || ""
         ).join(" ") || "";
 
-      // Determine truncation based on screen size for main leader speak description
-      const maxWordsMain = window.innerWidth < 768 ? 50 : 200; // 50 words for mobile, 1000 for desktop
+      const maxWordsMain = window.innerWidth < 768 ? 50 : 200;
       const truncatedMain = truncateDescription(mainDescription, maxWordsMain);
       setTruncatedMainDescription(truncatedMain);
 
-      // Truncate additional stories descriptions
       const additionalTruncated = data.data.slice(1, 4).map((story) => {
         const additionalDescription =
           story.Description?.map((desc) => desc.children[0]?.text || "").join(
             " "
           ) || "";
 
-        const maxWordsAdditional = window.innerWidth < 768 ? 10 : 100; // Adjust as needed for mobile/desktop
+        const maxWordsAdditional = window.innerWidth < 768 ? 10 : 100;
         return {
           ...story,
           truncatedDescription: truncateDescription(
@@ -57,12 +54,10 @@ export default function LeaderSpeak() {
     }
   }, [data]);
 
-  // Function to sort articles by views in descending order
   const sortByViews = (articles) => {
     return articles.sort((a, b) => b.Views - a.Views);
   };
 
-  // Function to sort articles by date (latest first)
   const sortByDate = (articles) => {
     return articles.sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
@@ -74,22 +69,16 @@ export default function LeaderSpeak() {
 
   useEffect(() => {
     if (recentNewsData && recentNewsData.data) {
-      // Sort the news by views (highest to lowest) for Trending tab
       const sortedNewsByViews = sortByViews(recentNewsData.data);
-      setTrendingNews(sortedNewsByViews.slice(0, 4)); // Set the top 4 most viewed news articles
+      setTrendingNews(sortedNewsByViews.slice(0, 4));
 
-      // Sort the news by date for Recent tab
       const sortedNewsByDate = sortByDate(recentNewsData.data);
-      setRecentNews(sortedNewsByDate); // Set the recent news sorted by date
+      setRecentNews(sortedNewsByDate);
     }
   }, [recentNewsData]);
 
   if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-      </div>
-    );
+    return <LoadingPrompt />;
   }
 
   if (error) {
@@ -100,14 +89,19 @@ export default function LeaderSpeak() {
     return <p>No data available</p>;
   }
 
-  // Image URL logic
   const leaderSpeak = data.data[0];
   const imageUrl = getImageUrl(leaderSpeak);
 
   return (
     <div className="main-container">
-      <div className={"LeaderSpeak-Heading Section-Headings"}>
-        <h1>LeaderSpeak</h1>
+      <div className="LeaderSpeak-Heading Section-Headings">
+        {/* Make the heading clickable */}
+        <Link
+          to={`/category/${currentCategory}`}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <h1>LeaderSpeak</h1>
+        </Link>
         <hr className="Section-Styled-hr" />
 
         <div className="LeaderSpeak-Container">
@@ -128,7 +122,7 @@ export default function LeaderSpeak() {
                       className="LeaderSpeak-image"
                     />
                   )}
-                  <div className={"Section-Text LeaderSpeak-text-overlay"}>
+                  <div className="Section-Text LeaderSpeak-text-overlay">
                     <h2 className="image-title Section-Titles">
                       {leaderSpeak.Title}
                     </h2>
@@ -187,10 +181,8 @@ export default function LeaderSpeak() {
           >
             Trending
           </button>
-          {/* Underline that will move under active tab */}
         </div>
-        <hr className="Section-Styled-hr" style={{ marginTop: "-10px" }}></hr>
-        {/* Tab Content */}
+        <hr className="Section-Styled-hr" style={{ marginTop: "-10px" }} />
         <div className="Tab-Content">
           {activeTab === "recent" ? (
             recentNews && recentNews.length > 0 ? (
@@ -217,7 +209,6 @@ export default function LeaderSpeak() {
             )
           ) : trendingNews.length > 0 ? (
             <ul>
-              {/* Show the top 4 most viewed articles in trending tab */}
               {trendingNews.map((news) => (
                 <li key={news.id} className="li-item">
                   <span className="leaderSpeak-date Section-Dates">

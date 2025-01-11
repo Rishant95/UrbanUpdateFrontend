@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import "../Css Files/RecentNews.css";
 import "../../../PagesCss/textModule.css";
 import { useFetch } from "../../../Hooks/useFetch";
+import LoadingPrompt from "../../loadingComp";
 
 export default function RecentNews() {
-  const { loading, error, data } = useFetch("Recent News");
+  const currentCategory = "Recent News";
+  const { loading, error, data } = useFetch(currentCategory);
   const scrollRef = useRef(null); // Reference for the scrollable row
 
   // Auto scroll function
@@ -33,11 +35,7 @@ export default function RecentNews() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-      </div>
-    );
+    return <LoadingPrompt />;
   }
 
   if (error) {
@@ -53,7 +51,15 @@ export default function RecentNews() {
 
   return (
     <div>
-      <h1 className={` Recent-news-heading`}>Recent News</h1>
+      {/* Make heading clickable */}
+      <Link
+        to={`/category/${currentCategory}`}
+        className="Recent-news-heading-link"
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <h1 className={`Recent-news-heading`}>Recent News</h1>
+      </Link>
+
       <hr className="styled-hr" />
       <div className="Recent-news-row" ref={scrollRef}>
         {newsItems.map((recentNews, index) => (

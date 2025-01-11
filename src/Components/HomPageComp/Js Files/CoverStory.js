@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function CoverStory() {
-  const { loading, error, data } = useFetch("Cover Story");
+  const currentCategory = "Cover Story";
+  const { loading, error, data } = useFetch(currentCategory);
   const [mainDescription, setmainDescription] = useState("");
   const [truncatedMainDescription, setTruncatedMainDescription] = useState("");
   const [truncatedAdditionalStories, setTruncatedAdditionalStories] = useState(
@@ -79,7 +80,15 @@ export default function CoverStory() {
 
   return (
     <div className={"Cover-Story-Heading Section-Headings"}>
-      <h1>Cover Story</h1>
+      <Link
+        to={`/category/${currentCategory}`}
+        className="Cover-Story-title-link"
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        {" "}
+        <h1>Cover Story</h1>
+      </Link>
+
       <hr className="Section-Styled-hr" />
 
       <div className="Cover-Story-Container">
