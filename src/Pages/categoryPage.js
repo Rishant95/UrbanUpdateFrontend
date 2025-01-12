@@ -75,65 +75,112 @@ export default function CategoryPage() {
                 "";
 
               // Randomly change the layout after every 4 articles
-              const isAlternateLayout = index % 5 === 0; // Change layout every 4th article
+              // Generate a random number between 5 and 10
+              const randomNumber = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+
+              // Use this random number for layout changes
+              const isAlternateLayout = index % randomNumber === 0;
+
               const isRandomMargin = index % 5 === 0; // Random margin for every 5th article
 
               return (
                 <Link
                   to={`/detail/${collection}/${article.id}`}
                   style={{ textDecoration: "none", color: "inherit" }}
+                  key={article.id}
                 >
                   <div
-                    key={article.id}
-                    className={`Article-Card-category Main-Article ${
+                    className={`Article-Card-category ${
                       isAlternateLayout ? "alternate-layout" : ""
                     } ${isRandomMargin ? "random-margin" : ""}`}
                   >
-                    {/* Image */}
-                    <div
-                      className={`Article-Image-Container-category ${
-                        isAlternateLayout ? "image-right" : ""
-                      }`}
-                    >
-                      {imageUrl && (
-                        <img
-                          src={imageUrl}
-                          alt={article.Title}
-                          className="Article-Image-Category-category"
-                          onError={(e) => {
-                            e.target.src =
-                              "https://yourapi.com/path-to-placeholder-image.jpg";
-                          }}
-                        />
-                      )}
-                    </div>
+                    {isAlternateLayout ? (
+                      <div className="Alternate-Layout-Newspaper">
+                        {/* Large Image Section */}
+                        <div className="Alternate-Image-Container">
+                          {imageUrl && (
+                            <img
+                              src={imageUrl}
+                              alt={article.Title}
+                              className="Alternate-Image"
+                              onError={(e) => {
+                                e.target.src =
+                                  "https://yourapi.com/path-to-placeholder-image.jpg";
+                              }}
+                            />
+                          )}
+                        </div>
 
-                    {/* Content */}
-                    <div className="Article-Content-category">
-                      <h2 className="Article-Title-category">
-                        {article.Title}
-                      </h2>
-                      <p className="Article-Date-category">
-                        {new Date(article.updatedAt).toLocaleDateString(
-                          "en-US",
-                          {
-                            weekday: "long",
-                            day: "numeric",
-                            month: "long",
-                            year: "numeric",
-                          }
-                        )}
-                      </p>
-                      <p className="Article-Description-category">
-                        {shortDescription}...
-                      </p>
-                      <a
-                        href={`/detail/${collection}/${article.id}`}
-                        className="Article-Link-category"
-                      >
-                        Read Full Story
-                      </a>
-                    </div>
+                        {/* Large Content Section */}
+                        <div className="Alternate-Content">
+                          <h1 className="Alternate-Title">{article.Title}</h1>
+                          <p className="Alternate-Date">
+                            {new Date(article.updatedAt).toLocaleDateString(
+                              "en-US",
+                              {
+                                weekday: "long",
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric",
+                              }
+                            )}
+                          </p>
+                          <p className="Alternate-Description">
+                            {shortDescription}...
+                          </p>
+                          <a
+                            href={`/detail/${collection}/${article.id}`}
+                            className="Alternate-Link"
+                          >
+                            Read Full Story
+                          </a>
+                        </div>
+                      </div>
+                    ) : (
+                      <div>
+                        {/* Image */}
+                        <div className="Article-Image-Container-category">
+                          {imageUrl && (
+                            <img
+                              src={imageUrl}
+                              alt={article.Title}
+                              className="Article-Image-Category-category"
+                              onError={(e) => {
+                                e.target.src =
+                                  "https://yourapi.com/path-to-placeholder-image.jpg";
+                              }}
+                            />
+                          )}
+                        </div>
+
+                        {/* Content */}
+                        <div className="Article-Content-category">
+                          <h2 className="Article-Title-category">
+                            {article.Title}
+                          </h2>
+                          <p className="Article-Date-category">
+                            {new Date(article.updatedAt).toLocaleDateString(
+                              "en-US",
+                              {
+                                weekday: "long",
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric",
+                              }
+                            )}
+                          </p>
+                          <p className="Article-Description-category">
+                            {shortDescription}...
+                          </p>
+                          <a
+                            href={`/detail/${collection}/${article.id}`}
+                            className="Article-Link-category"
+                          >
+                            Read Full Story
+                          </a>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </Link>
               );
@@ -160,12 +207,9 @@ export default function CategoryPage() {
                     <Link
                       to={`/detail/${collection}/${news.id}`}
                       style={{ textDecoration: "none", color: "inherit" }}
+                      key={news.id}
                     >
-                      {" "}
-                      <div
-                        key={news.id}
-                        className="Article-Card-category Sidebar-Article"
-                      >
+                      <div className=" Sidebar-Article">
                         {/* Content */}
                         <div className="Article-Content-category">
                           <h4 className="Article-Title-category">

@@ -48,7 +48,7 @@
   flex: 0.7;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
 }
 
 /* Sidebar Column */
@@ -62,7 +62,8 @@
 /* Articles */
 .Article-Card-category {
   display: flex;
-  gap: 20px;
+  flex-direction: row; /* Image on the left */
+  gap: 10px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -70,15 +71,9 @@
   transition: transform 0.3s, box-shadow 0.3s;
   padding: 10px;
 }
-
-.Article-Card-category:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
 /* Random margin */
 .random-margin {
-  margin-bottom: 40px; /* Larger margin after every 5th article */
+  margin-bottom: 10px; /* Larger margin after every 5th article */
 }
 
 /* Alternate layout: Change the image position for every fourth article */
@@ -94,17 +89,23 @@
 
 .Article-Image-Container-category {
   flex: 0.4;
+  width: 100%;
+  height: 250px;
+  display: flex;
 }
 
 .Article-Image-Category-category {
-  width: 300px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
 
 .Article-Content-category {
   flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .Article-Title-category {
@@ -150,4 +151,218 @@
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
+}
+/* General styles */
+.CategoryPage-category {
+  padding: 20px 17%;
+  font-family: "Georgia", serif;
+  background-color: #f9f9f9;
+}
+
+/* Alternate Layout Newspaper Style */
+.Alternate-Layout-Newspaper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.Alternate-Image-Container {
+  flex: 0.6;
+}
+
+.Alternate-Image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.Alternate-Content {
+  flex: 0.4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.Alternate-Title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.Alternate-Date {
+  font-size: 1rem;
+  color: #777;
+}
+
+.Alternate-Description {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+.Alternate-Link {
+  font-size: 1.1rem;
+  color: #ec2121;
+  text-decoration: none;
+  margin-top: auto;
+}
+/* Media Queries for Mobile Compatibility */
+@media (max-width: 768px) {
+  /* General container adjustments */
+  .CategoryPage-category {
+    padding: 15px 5%; /* Adjust padding for smaller screens */
+  }
+
+  .CategoryPage-Heading-category {
+    font-size: 2rem; /* Reduce font size for headings */
+    margin-bottom: 15px; /* Adjust spacing */
+  }
+
+  .CategoryPage-Styled-hr-category {
+    width: 20%; /* Increase visibility on smaller screens */
+    margin-bottom: 20px;
+  }
+
+  /* News layout */
+  .News-Layout-category {
+    flex-direction: column; /* Stack main and sidebar columns */
+    gap: 15px;
+  }
+
+  .Main-Column-category,
+  .Sidebar-Column-category {
+    flex: 1; /* Adjust flex ratios for equal width */
+  }
+
+  /* Sidebar visibility */
+  .Sidebar-Column-category {
+    display: block; /* Ensure visibility of sidebar on mobile */
+  }
+
+  /* Article adjustments */
+  .Article-Card-category {
+    flex-direction: column; /* Stack image and content vertically */
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .Article-Image-Container-category {
+    height: 180px; /* Adjust height for smaller screens */
+  }
+
+  .Article-Title-category {
+    font-size: 1.5rem; /* Reduce font size for better fit */
+  }
+
+  .Article-Description-category {
+    font-size: 1rem;
+    margin: 8px 0;
+  }
+
+  .Article-Link-category {
+    font-size: 1rem;
+  }
+
+  /* Alternate layout adjustments */
+  .alternate-layout {
+    flex-direction: column; /* Stack image and content vertically */
+    gap: 15px;
+  }
+
+  /* Alternate Layout Newspaper Style */
+  .Alternate-Layout-Newspaper {
+    flex-direction: column; /* Stack image and text vertically */
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .Alternate-Image-Container {
+    height: 200px; /* Adjust image height */
+  }
+
+  .Alternate-Title {
+    font-size: 1.8rem; /* Reduce size for better fit */
+  }
+
+  .Alternate-Description {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+
+  .Alternate-Link {
+    font-size: 0.9rem;
+  }
+
+  /* Sidebar articles */
+  .Sidebar-Article {
+    padding: 15px;
+  }
+
+  .Article-Image-Container-Recent {
+    width: 100%; /* Ensure full-width for sidebar images */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  .CategoryPage-category {
+    padding: 10px 3%; /* Reduce padding for very small screens */
+  }
+
+  .CategoryPage-Heading-category {
+    font-size: 1.5rem; /* Smaller headings */
+    margin-bottom: 10px;
+  }
+
+  .News-Layout-category {
+    gap: 10px;
+  }
+
+  .Article-Card-category {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .Article-Image-Container-category {
+    height: 150px; /* Further reduce image height */
+  }
+
+  .Article-Title-category {
+    font-size: 1.3rem; /* Smaller article titles */
+  }
+
+  .Article-Description-category {
+    font-size: 0.9rem; /* Smaller description text */
+  }
+
+  .Alternate-Layout-Newspaper {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .Alternate-Image-Container {
+    height: 150px; /* Reduce image height further */
+  }
+
+  .Alternate-Title {
+    font-size: 1.5rem;
+  }
+
+  .Alternate-Description {
+    font-size: 0.9rem;
+  }
+
+  /* Sidebar */
+  .Sidebar-Column-category {
+    display: none; /* Hide sidebar on very small screens for simplicity */
+  }
 }
