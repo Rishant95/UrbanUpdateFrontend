@@ -76,7 +76,7 @@ export default function Oneonone() {
                   className="OneonOne-story-interviewee"
                   style={{ marginTop: "-5px" }}
                 >
-                  By {oneon.Author}
+                  By {oneon.author?.Name}
                 </h3>
                 <h5 className="OneonOne-description Section-Text">
                   {truncateText(description, 200)}
@@ -104,7 +104,7 @@ export default function Oneonone() {
                   {oneonone.Title}
                 </h2>
                 <h3 className="OneonOne-story-interviewee">
-                  By {oneonone.Author}
+                  By {oneonone.author?.Name}
                 </h3>
               </div>
             </Link>

@@ -12,7 +12,7 @@ const useFetch = (categoryName) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://admin.manofox.online/api/news-articles?populate[0]=categories&populate[1]=Image&filters[categories][CategoryName][$eq]=${categoryName}&sort[0]=createdAt:desc&pagination[page]=1&pagination[pageSize]=10`
+          `https://admin.manofox.online/api/news-articles?populate[0]=categories&populate[1]=Image&filters[categories][CategoryName][$eq]=${categoryName}&populate[3]=author&sort[0]=createdAt:desc&pagination[page]=1&pagination[pageSize]=10`
         );
 
         if (!response.ok) {
@@ -35,18 +35,30 @@ const useFetch = (categoryName) => {
 
 // Utility function to get image URL from data
 const getImageUrl = (data) => {
-  if (data.Image?.[0]?.formats?.large?.url) {
-    return `${API_BASE_URL}${data.Image[0].formats.large.url}`;
+  if (data.Image?.[0]?.formats?.medium?.url) {
+    return `${API_BASE_URL}${data.Image[0].formats.medium.url}`;
   }
   if (data.Image?.[0]?.url) {
     return `${API_BASE_URL}${data.Image[0].url}`;
   }
   return "https://yourapi.com/path-to-placeholder-image.jpg"; // Fallback image URL
 };
+const getAuthorImageUrl = (data) => {
+  // Check if the author has a profile photo URL and return it
+  if (data?.author?.ProfilePhoto?.formats?.thumbnail?.url) {
+    return `${API_BASE_URL}${data.author.ProfilePhoto.formats.thumbnail.url}`;
+  }
+  // If no large format, fall back to a smaller format
+  if (data?.author?.ProfilePhoto?.url) {
+    return `${API_BASE_URL}${data.author.ProfilePhoto.url}`;
+  }
+  // Return a fallback image URL if no profile photo is found
+  return "https://yourapi.com/path-to-placeholder-image.jpg";
+};
 const getMoreDetail = async (id) => {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/api/news-articles?filters[id][$eq]=${id}&populate[1]=Image`
+      `${API_BASE_URL}/api/news-articles?filters[id][$eq]=${id}&populate[0]=author&populate[1]=author.ProfilePhoto&populate[2]=Image`
     );
     console.log(response);
 
@@ -61,5 +73,5 @@ const getMoreDetail = async (id) => {
   }
 };
 
-export { useFetch, getImageUrl, getMoreDetail };
+export { useFetch, getImageUrl, getMoreDetail, getAuthorImageUrl };
 //

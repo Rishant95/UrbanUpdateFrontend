@@ -123,7 +123,7 @@ function Articles() {
                 </h2>
                 <h3 className="Side-cover-story-author">
                   {" "}
-                  By {article.Author}
+                  By {article.author?.Name}
                 </h3>
                 {/* Display truncated description only for the last article */}
                 {index === data.data.length - 1 && article.Description && (

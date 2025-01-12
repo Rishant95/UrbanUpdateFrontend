@@ -11,6 +11,14 @@ export default function MinimizedHeader() {
     setMenuOpen(!isMenuOpen);
   };
 
+  const handleLogout = () => {
+    // Clear JWT token from localStorage
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("username");
+    // Redirect to login page after logging out
+    navigate("/");
+  };
+
   return (
     <div className="min-header-container">
       <div className="min-header-menu">
@@ -20,7 +28,6 @@ export default function MinimizedHeader() {
           className="Cover-Story-link"
           style={{ textDecoration: "none", color: "inherit" }}
         >
-          {" "}
           <div className="min-logo-title">
             <img
               src="https://ibc.manofox.com/wp-content/uploads/2024/08/53a5706fd9e7a8e80dd938bf2c02941e.jpeg"
@@ -70,6 +77,7 @@ export default function MinimizedHeader() {
           <li onClick={() => navigate("/accessibility")}>
             Accessiblity Statement
           </li>
+          <li onClick={handleLogout}>Logout</li> {/* Added Logout Button */}
         </ul>
       </div>
     </div>

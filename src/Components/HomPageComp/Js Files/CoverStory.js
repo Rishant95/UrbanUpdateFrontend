@@ -7,7 +7,6 @@ export default function CoverStory() {
   const currentCategory = "Cover Story";
   const { loading, error, data } = useFetch(currentCategory);
   const [mainDescription, setmainDescription] = useState("");
-  const [truncatedMainDescription, setTruncatedMainDescription] = useState("");
   const [truncatedAdditionalStories, setTruncatedAdditionalStories] = useState(
     []
   );
@@ -15,7 +14,6 @@ export default function CoverStory() {
   useEffect(() => {
     if (data && data.data) {
       // Fetching the first cover story only
-      const coverStory = data.data[0];
 
       // Function to truncate text based on screen size
       const truncateDescription = (description, maxWords) => {
@@ -25,17 +23,6 @@ export default function CoverStory() {
           ? words.slice(0, maxWords).join(" ") + "..."
           : description;
       };
-
-      // Extract main cover story description paragraphs safely
-      const mainDescription =
-        coverStory.Description?.map(
-          (desc) => desc.children[0]?.text || ""
-        ).join(" ") || "";
-
-      // Determine truncation based on screen size for main cover story
-      const maxWordsMain = window.innerWidth < 768 ? 50 : 50; // 50 words for mobile, 30 for desktop
-      const truncatedMain = truncateDescription(mainDescription, maxWordsMain);
-      setTruncatedMainDescription(truncatedMain);
 
       // Truncate additional stories descriptions
       const additionalTruncated = data.data.slice(1, 3).map((story) => {
@@ -147,7 +134,10 @@ export default function CoverStory() {
                 <h2 className={"Section-Titles Side-cover-story-title"}>
                   {story.Title}
                 </h2>
-                <h3 className="Side-cover-story-author"> By {story.Author}</h3>
+                <h3 className="Side-cover-story-author">
+                  {" "}
+                  By {story?.author?.Name}
+                </h3>
                 <p className={"Section-Text Side-cover-story-text"}>
                   {story.truncatedDescription}
                 </p>{" "}

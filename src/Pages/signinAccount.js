@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../PagesCss/signinAccount.css";
-
 import MinimizedHeader from "../Components/EventPageComp/Js/minimizedHeader";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 
@@ -15,28 +14,35 @@ export default function Signin() {
     e.preventDefault();
     setError(null); // Clear any previous errors
     try {
-      const response = await fetch("http://localhost:1337/api/auth/local", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          identifier: email, // Strapi expects the key to be 'identifier' instead of 'email'
-          password: password,
-        }),
-      });
+      const response = await fetch(
+        "https://admin.manofox.online/api/auth/local",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            identifier: email, // Strapi expects the key to be 'identifier' instead of 'email'
+            password: password,
+          }),
+        }
+      );
 
       const data = await response.json();
+      console.log(data);
 
       if (data.jwt) {
-        // Store JWT token in localStorage (or you can use sessionStorage)
+        // Store JWT token and username in localStorage
         localStorage.setItem("jwt", data.jwt);
+        localStorage.setItem("username", data.user.username); // Storing the username
 
         // Navigate to the home page after successful login
         navigate("/");
       } else {
         // If the login failed, show the error message from Strapi
-        setError(data.message[0].messages[0].message);
+        const errorMessage =
+          data.error?.message || "Invalid email or password. Please try again.";
+        setError(errorMessage);
       }
     } catch (err) {
       setError("Something went wrong. Please try again.");

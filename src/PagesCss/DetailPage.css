@@ -146,3 +146,120 @@
 .social-icons a:hover {
   color: #000;
 }
+/* Comment Section */
+.comment-section {
+  margin-bottom: 30px;
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
+  border-radius: 8px; /* Rounded corners for the section */
+}
+
+.comment-section h2 {
+  margin-bottom: 15px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #333; /* Darker color for the title */
+}
+
+.comment-section textarea {
+  width: 100%;
+  height: 120px;
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+.comment-section textarea:focus {
+  border-color: #d1242a; /* Highlight border on focus */
+  outline: none;
+}
+
+.comment-section button {
+  padding: 12px 60px;
+  background-color: #d1242a;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners for button */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.comment-section button:hover {
+  transform: scale(1.05); /* Slight scale effect on hover */
+  background-color: #c1141b; /* Darker red on hover */
+}
+
+.comment-section button:focus {
+  outline: none; /* Remove outline on button focus */
+}
+
+/* Comments List */
+.comment-section ul {
+  padding: 0;
+  list-style: none;
+}
+
+.comment-section li {
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners for each comment */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-section li:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow on hover */
+}
+
+.comment-section p {
+  margin: 0;
+  color: #555;
+  font-size: 16px;
+}
+
+.comment-section strong {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.comment-section li:last-child {
+  margin-bottom: 0; /* Remove bottom margin for the last comment */
+}
+
+/* Placeholder styling for the textarea */
+.comment-section textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .detail-page {
+    padding: 0% 10%;
+  }
+
+  .comment-section textarea {
+    font-size: 14px;
+  }
+
+  .comment-section button {
+    font-size: 18px;
+    padding: 10px 50px;
+  }
+}

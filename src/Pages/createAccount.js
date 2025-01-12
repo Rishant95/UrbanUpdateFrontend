@@ -3,6 +3,7 @@ import "../PagesCss/createAccount.css";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
 import axios from "axios";
 import MinimizedHeader from "../Components/EventPageComp/Js/minimizedHeader";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateAccount() {
   const [formData, setFormData] = useState({
@@ -12,9 +13,11 @@ export default function CreateAccount() {
     confirmPassword: "",
     name: "",
     organization: "",
-    designation: "", // New field added
+    designation: "", // Optional field
     phone: "",
   });
+  const [loading, setLoading] = useState(false); // Loading state for submission
+  const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
     window.location.href = "http://localhost:1337/connect/google"; // Google OAuth
@@ -26,38 +29,50 @@ export default function CreateAccount() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevFormData) => ({
+      ...prevFormData,
       [name]: value,
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
 
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      alert("Please enter a valid email address!");
+      return;
+    }
+
+    setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:1337/api/auth/local/register",
+        "https://admin.manofox.online/api/auth/local/register",
         {
           username: formData.username,
           email: formData.email,
           password: formData.password,
-          name: formData.name,
-          organization: formData.organization, // Send organization
-          designation: formData.designation, // Send designation
-          phone: formData.phone,
         }
       );
 
-      console.log(response.data);
       alert("Account created successfully!");
+      if (response.data.jwt) {
+        localStorage.setItem("jwt", response.data.jwt);
+        localStorage.setItem("userName", formData.username); // Save the username
+        navigate("/");
+      }
     } catch (error) {
-      console.error("There was an error creating the account", error.response);
-      alert("Error creating account");
+      console.error("Error creating account:", error.response || error.message);
+      alert(
+        error.response?.data?.message ||
+          "There was an error creating your account."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -78,7 +93,6 @@ export default function CreateAccount() {
                 required
               />
             </div>
-
             <div className="form-group">
               <label>Email</label>
               <input
@@ -97,48 +111,28 @@ export default function CreateAccount() {
                 value={formData.password}
                 onChange={handleChange}
                 required
-              />
-            </div>
-            <div className="form-group">
-              <label>Organization</label>
-              <input
-                type="text"
-                name="organization"
-                value={formData.organization}
-                onChange={handleChange}
+                minLength="8"
               />
             </div>
           </div>
 
           <div className="form-column">
             <div className="form-group">
-              <div className="form-group">
-                <label>Username</label>
-                <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+              <label>Username</label>
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                required
+              />
             </div>
-
             <div className="form-group">
               <label>Phone</label>
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>Designation</label>
-              <input
-                type="text"
-                name="designation"
-                value={formData.designation}
                 onChange={handleChange}
               />
             </div>
@@ -152,17 +146,22 @@ export default function CreateAccount() {
                 required
               />
             </div>
+            <button
+              className="create-account-button"
+              type="submit"
+              disabled={loading} // Disable button while loading
+            >
+              {loading ? "Creating Account..." : "Sign Up"}
+            </button>
           </div>
         </form>
       </div>
+
       <div className="button-container">
-        <button className="create-account-button" onClick={handleSubmit}>
-          Sign Up
-        </button>
         <div className="continue-container">
-          <hr></hr>
+          <hr />
           <h5 style={{ width: "100%", padding: "0 10px" }}>or continue with</h5>
-          <hr style={{ marginLeft: "-20px" }}></hr>
+          <hr style={{ marginLeft: "-20px" }} />
         </div>
         <button
           className="google-signin-button"
@@ -178,7 +177,7 @@ export default function CreateAccount() {
         >
           <FaFacebookF className="facebook-logo" /> Sign Up with Facebook
         </button>
-        <hr style={{ borderWidth: "1px" }}></hr>
+        <hr style={{ borderWidth: "1px" }} />
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <h5>Already have an account?</h5>
           <a href="/signin" style={{ textDecoration: "none", color: "blue" }}>
