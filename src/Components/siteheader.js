@@ -92,36 +92,36 @@ export default function Siteheader() {
               </a>
             </div>
             <div className="nav-item dropdown">
-              <a href="#news" className="nav-link">
+              <a href="/category/News" className="nav-link">
                 News
               </a>
               <div className="dropdown-menu">
-                <a href="#national" className="dropdown-link">
+                <a href="/category/National" className="dropdown-link">
                   National
                 </a>
-                <a href="#iternational" className="dropdown-link">
+                <a href="/category/International" className="dropdown-link">
                   International
                 </a>
               </div>
             </div>
             <div className="nav-item dropdown">
-              <a href="#local-gov" className="nav-link">
+              <a href="/category/Local Government" className="nav-link">
                 Local Government
               </a>
               <div className="dropdown-menu">
-                <a href="#policies" className="dropdown-link">
+                <a href="/category/Climate Change" className="dropdown-link">
                   Climate Change
                 </a>
-                <a href="#projects" className="dropdown-link">
+                <a href="/category/Water" className="dropdown-link">
                   Water
                 </a>
-                <a href="#projects" className="dropdown-link">
+                <a href="/category/ Waste Management" className="dropdown-link">
                   Waste Management
                 </a>
-                <a href="#projects" className="dropdown-link">
+                <a href="/category/Environment" className="dropdown-link">
                   Environment
                 </a>
-                <a href="#projects" className="dropdown-link">
+                <a href="/category/Mobility" className="dropdown-link">
                   Mobility
                 </a>
               </div>
@@ -131,26 +131,26 @@ export default function Siteheader() {
                 Columns
               </a>
               <div className="dropdown-menu">
-                <a href="#editorial" className="dropdown-link">
+                <a href="/category/Editorial" className="dropdown-link">
                   Editorial
                 </a>
-                <a href="#opinion" className="dropdown-link">
+                <a href="/category/LeaderSpeak" className="dropdown-link">
                   LeaderSpeak
                 </a>
-                <a href="#urbanagenda" className="dropdown-link">
+                <a href="/category/Urban Agenda" className="dropdown-link">
                   Urban Agenda
                 </a>
-                <a href="#bookreview" className="dropdown-link">
+                <a href="/category/Book Review" className="dropdown-link">
                   Book Review
                 </a>
-                <a href="#velo-city" className="dropdown-link">
+                <a href="/category/Velocity" className="dropdown-link">
                   Velo-City
                 </a>
               </div>
             </div>
 
             <div className="nav-item">
-              <a href="#more" className="nav-link">
+              <a href="/category/OneOnOne" className="nav-link">
                 One-On-One
               </a>
             </div>

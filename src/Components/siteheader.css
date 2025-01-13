@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;900&family=Oswald:wght@400;700&display=swap");
+
 /* General Reset */
 * {
   margin: 0;
@@ -215,7 +216,7 @@
 .mobile-nav {
   display: none;
   flex-direction: column;
-  align-items: start;
+  align-items: center; /* Center-align for mobile */
   background-color: #f4f4f4;
   padding: 10px;
   width: 100%;
@@ -227,7 +228,7 @@
   text-decoration: none;
   font-weight: 600;
   width: 100%;
-  text-align: left;
+  text-align: center; /* Center-align links */
   border-bottom: 1px solid #ccc;
 }
 
@@ -237,15 +238,44 @@
 
 /* Media Queries */
 @media (max-width: 768px) {
+  .header-top {
+    flex-direction: column;
+    padding: 10px;
+    align-items: center; /* Center-align content */
+  }
+
+  .header-main {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    align-items: center; /* Center-align for mobile */
+  }
+
   .desktop-nav {
     display: none;
   }
 
   .hamburger {
     display: block;
+    font-size: 1.8rem;
   }
 
   .mobile-nav {
+    display: none;
+    flex-direction: column;
+  }
+
+  .mobile-nav.active {
     display: flex;
+  }
+
+  .Moto-Overlay {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center; /* Center-align text */
+  }
+
+  .banner {
+    height: 80px;
   }
 }

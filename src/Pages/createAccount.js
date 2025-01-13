@@ -51,7 +51,8 @@ export default function CreateAccount() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://admin.manofox.online/api/auth/local/register",
+        process.env.REACT_APP_API_BASE_URL,
+        "/api/auth/local/register",
         {
           username: formData.username,
           email: formData.email,

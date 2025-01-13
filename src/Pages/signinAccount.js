@@ -15,7 +15,8 @@ export default function Signin() {
     setError(null); // Clear any previous errors
     try {
       const response = await fetch(
-        "https://admin.manofox.online/api/auth/local",
+        process.env.REACT_APP_API_BASE_URL,
+        "/api/auth/local",
         {
           method: "POST",
           headers: {

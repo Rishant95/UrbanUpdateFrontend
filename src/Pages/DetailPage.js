@@ -54,7 +54,7 @@ export default function DetailPage() {
     const fetchComments = async (page = 1) => {
       try {
         const commentsResponse = await fetch(
-          `https://admin.manofox.online/api/comments?populate[0]=news_article&filters[news_article][id][$eq]=${id}&pagination[page]=${page}`
+          `${process.env.REACT_APP_API_BASE_URL}/api/comments?populate[0]=news_article&filters[news_article][id][$eq]=${id}&pagination[page]=${page}`
         );
 
         if (!commentsResponse.ok) {
@@ -186,7 +186,7 @@ export default function DetailPage() {
     try {
       // Send the comment to the backend API
       const response = await fetch(
-        "https://admin.manofox.online/api/comments",
+        `${process.env.process.env.REACT_APP_API_BASE_URL}/api/comments`,
         {
           method: "POST",
           headers: {
@@ -298,7 +298,7 @@ export default function DetailPage() {
           )}
 
           {/* Display Comments */}
-          <h3>Comments</h3>
+          <h3 style={{ padding: "10px 0px" }}>Comments</h3>
           {comments.length > 0 ? (
             <ul>
               {comments.map((comment) => (

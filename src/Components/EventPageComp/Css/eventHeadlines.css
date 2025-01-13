@@ -5,7 +5,7 @@
 .book-reviews-container {
   display: flex;
   flex-direction: column;
-  padding: 20px 17%;
+  padding: 20px 15%;
   max-width: 100%;
   margin: auto;
 }
@@ -13,27 +13,28 @@
 /* First review layout */
 .first-review {
   display: flex;
-  flex-direction: row; /* Ensures row-wise layout */
+  flex-direction: row; /* Row layout for larger screens */
   margin-bottom: 40px;
-  padding: 0px 2%;
-  padding-bottom: 20px; /* Add padding below the content for better spacing */
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
-  align-items: stretch; /* Ensures equal height */
+  padding: 0 2%;
+  padding-bottom: 20px;
+  align-items: stretch;
+  transition: transform 0.3s ease;
 }
 
 .first-review-content {
-  flex: 1; /* Take up half the space */
-  padding: 0% 5%; /* Add padding for spacing */
+  flex: 1;
+  padding: 0 5%;
   background-color: black;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: flex-start; /* Align text to the left */
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .first-review-content h2 {
   color: white;
   margin-bottom: 20px;
+  font-family: "Oswald", sans-serif;
 }
 
 .first-review-content p {
@@ -45,19 +46,20 @@
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  font-size: 16px;
 }
 
 .first-review-image {
-  flex: 1; /* Take up the other half of the space */
-  display: flex; /* Make image flexible */
-  justify-content: center; /* Center image horizontally */
-  align-items: center; /* Center image vertically */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .first-review-image img {
-  width: 100%; /* Ensure the image fills its container */
-  height: 400px; /* Match the height of the content section */
-  object-fit: cover; /* Ensure image looks good */
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
 }
 
 .first-review-button {
@@ -65,20 +67,18 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 120px; /* Adjust width as needed */
-  height: 40px; /* Adjust height as needed */
+  width: 150px;
+  height: 45px;
   background-color: white;
   border: none;
-  border-radius: 20px; /* Rounded corners */
-  color: black; /* Change text color to black for contrast */
-  font-size: 16px; /* Adjust font size */
+  border-radius: 20px;
+  color: black;
+  font-size: 16px;
   cursor: pointer;
-  position: relative; /* For pseudo-elements */
-  overflow: hidden;
   font-family: "Oswald", sans-serif;
   margin-top: 40px;
   font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background and scaling */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .first-review-icon {
@@ -89,34 +89,41 @@
 .other-reviews {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* Gap between items */
-  justify-content: center; /* Center items */
-  align-items: stretch; /* Ensure items align properly */
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .other-review-item {
   display: flex;
   flex-direction: column;
-  padding: 20px 20px;
+  padding: 20px;
   align-items: center;
-  flex: 1 1 calc(25% - 20px); /* Adjust based on the number of items per row and the gap */
-  box-sizing: border-box; /* Include padding and border in the width calculation */
-  position: relative; /* Required for absolute positioning of border */
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
-}
-
-.other-review-item:not(:last-child) {
-  border-right: 2px solid #ccc; /* Vertical border */
+  flex: 1 1 calc(25% - 20px);
+  box-sizing: border-box;
+  position: relative;
+  transition: transform 0.3s ease;
+  background-color: #f4f4f4;
+  border-radius: 10px;
 }
 
 .other-review-image {
   width: 100%;
   height: 250px;
-  transition: transform 0.3s ease; /* Smooth scaling effect */
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.other-review-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .other-review-title {
   margin-top: 10px;
+  text-align: center;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -125,84 +132,98 @@
 }
 
 .other-review-title h3 {
-  text-align: left;
   font-family: "Oswald", sans-serif;
-  margin-top: 0px;
+  font-size: 18px;
+  color: #333;
 }
 
 .other-review-date {
   font-family: "PT Serif", serif;
+  font-size: 14px;
+  color: #666;
 }
 
 /* Media Queries for Responsive Design */
 @media (max-width: 1200px) {
   .first-review {
     flex-direction: column; /* Stack vertically on medium screens */
-    align-items: center; /* Align items in the center */
+    align-items: center;
+    padding: 0;
   }
 
   .first-review-content,
   .first-review-image {
     flex: unset;
     width: 100%; /* Full width for both sections */
-    height: auto; /* Ensure responsive height */
+    height: auto;
+    padding: 0 10px;
   }
 
   .first-review-image img {
-    width: 100%; /* Ensure image adjusts to full width */
+    width: 100%;
+    height: auto;
   }
 
   .other-review-item {
-    flex: 1 1 calc(33% - 20px); /* Three items per row on medium screens */
+    flex: 1 1 calc(33% - 20px); /* Three items per row */
   }
 
   .other-review-image {
-    width: 100%;
     height: 200px;
   }
 }
 
 @media (max-width: 800px) {
-  .first-review h2 {
-    font-size: 28px; /* Smaller title on small screens */
+  .first-review-content h2 {
+    font-size: 24px; /* Smaller title size */
   }
 
   .first-review-content p {
-    font-size: 12px; /* Smaller paragraph text */
+    font-size: 14px;
   }
 
   .first-review-button {
-    width: auto; /* Adjust button width for smaller screens */
-    height: 40px; /* Adjust button height */
+    width: auto;
+    padding: 10px 20px; /* Adjust button size for smaller screens */
+    font-size: 14px;
   }
 
   .other-review-item {
-    flex: 1 1 calc(50% - 20px); /* Two items per row on small screens */
+    flex: 1 1 calc(50% - 20px); /* Two items per row */
   }
 
   .other-review-title h3 {
-    font-size: 20px; /* Smaller title for reviews */
+    font-size: 16px;
   }
 }
 
 @media (max-width: 500px) {
-  .first-review h2 {
-    font-size: 24px; /* Further reduce title size */
+  .book-reviews-container {
+    padding: 20px;
+  }
+  .first-review-content {
+    padding: 10px;
+  }
+  .first-review-content h2 {
+    font-size: 20px;
   }
 
   .first-review-content p {
-    font-size: 10px; /* Further reduce paragraph text */
-  }
-
-  .other-review-item {
-    flex: 1 1 100%; /* One item per row on extra small screens */
-  }
-
-  .other-review-title h3 {
-    font-size: 18px; /* Smaller title for mobile */
+    font-size: 12px;
   }
 
   .first-review-button {
-    width: 100%; /* Full-width button on mobile */
+    width: 100%;
+    font-size: 12px;
+    height: auto;
+    padding: 10px;
+  }
+
+  .other-review-item {
+    flex: 1 1 100%; /* One item per row */
+  }
+
+  .other-review-title h3 {
+    font-size: 14px;
   }
 }
