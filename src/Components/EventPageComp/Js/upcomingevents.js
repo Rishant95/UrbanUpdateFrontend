@@ -3,13 +3,14 @@ import { getImageUrl, useFetch } from "../../../Hooks/useFetch"; // Adjust path 
 import { FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom"; // Import Link for navigation
 import "../Css/upcomingevent.css"; // Ensure this path is correct
+import LoadingPrompt from "../../loadingComp";
 
 export default function UpcomingEvents() {
   // Fetch data using the useFetch hook
   const { loading, error, data } = useFetch("Upcoming Events");
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingPrompt />;
   }
 
   if (error) {

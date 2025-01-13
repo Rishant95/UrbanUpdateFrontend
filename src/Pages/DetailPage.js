@@ -9,6 +9,7 @@ import {
 import "../PagesCss/DetailPage.css";
 import MinimizedHeader from "../Components/EventPageComp/Js/minimizedHeader";
 import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from "react-icons/fa"; // Import react-icons
+import LoadingPrompt from "../Components/loadingComp";
 
 export default function DetailPage() {
   const { collection, id } = useParams();
@@ -132,7 +133,7 @@ export default function DetailPage() {
   const relatedArticles = relatedData?.data || [];
 
   if (loading || relatedLoading) {
-    return <p>Loading...</p>;
+    return <LoadingPrompt />;
   }
 
   if (error || relatedError) {
@@ -279,7 +280,6 @@ export default function DetailPage() {
             <p>{Description}</p>
           )}
         </div>
-
         {/* Comment Section */}
         <div className="comment-section">
           <h2>Leave a Reply</h2>

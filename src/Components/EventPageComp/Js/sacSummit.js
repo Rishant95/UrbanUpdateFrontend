@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
 import { FaArrowRight } from "react-icons/fa";
 import "../Css/sacSummit.css"; // Make sure your CSS is defined
+import LoadingPrompt from "../../loadingComp";
 
 export default function SacSummit() {
   // Fetch data from the provided endpoint
@@ -32,7 +33,7 @@ export default function SacSummit() {
   }, [data]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingPrompt />;
   }
 
   if (error) {

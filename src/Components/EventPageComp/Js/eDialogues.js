@@ -1,4 +1,5 @@
 import { useFetch } from "../../../Hooks/useFetch";
+import LoadingPrompt from "../../loadingComp";
 import "../Css/eDialogues.css";
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link for navigation
@@ -8,7 +9,7 @@ export default function Edialogues() {
   const { loading, error, data } = useFetch("E Dialogues");
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingPrompt />;
   }
 
   if (error) {

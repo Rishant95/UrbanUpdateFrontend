@@ -14,19 +14,19 @@ export default function EventHeader() {
         <h1 id="Event-Title">EVENTS</h1>
         <div className="header-content">
           <div className="tabs-row">
-            <a href="#tab1" className="tab-link">
+            <a href="/category/Upcoming Events" className="tab-link">
               Upcoming Events
             </a>
-            <a href="#tab2" className="tab-link">
+            <a href="/category/E Dialogues" className="tab-link">
               E-Dialogues
             </a>
-            <a href="#tab3" className="tab-link">
+            <a href="/category/Mayor's Dialogue" className="tab-link">
               Mayor's Dialogue
             </a>
-            <a href="#tab4" className="tab-link">
+            <a href="/category/Sac Summit" className="tab-link">
               SAC Summit
             </a>
-            <a href="#tab5" className="tab-link">
+            <a href="/category/Urban Dialogues" className="tab-link">
               Urban Dialogues
             </a>
           </div>

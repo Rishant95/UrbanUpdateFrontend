@@ -18,26 +18,33 @@ export default function ContactUs() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormStatus("Sending...");
 
     try {
-      const response = await fetch("/api/sendEmail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://admin.manofox.online/api/contact-form",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        }
+      );
 
+      const result = await response.json();
       if (response.ok) {
         setFormStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setFormStatus("Failed to send message. Please try again.");
+        setFormStatus(result.error || "Failed to send message.");
       }
     } catch (error) {
-      console.error("Error sending message:", error);
-      setFormStatus("An error occurred. Please try again later.");
+      console.error("Error:", error);
+      setFormStatus("Failed to send message. Please try again later.");
     }
   };
 
