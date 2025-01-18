@@ -51,12 +51,16 @@ export default function CreateAccount() {
     setLoading(true);
     try {
       const response = await axios.post(
-        process.env.REACT_APP_API_BASE_URL,
-        "/api/auth/local/register",
+        `${process.env.REACT_APP_API_BASE_URL}/api/auth/local/register`,
         {
           username: formData.username,
           email: formData.email,
           password: formData.password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json", // Ensure the content type is set to JSON
+          },
         }
       );
 
@@ -82,7 +86,11 @@ export default function CreateAccount() {
       <MinimizedHeader />
       <div className="create-account-container">
         <h1 id="Signup-Title">Sign Up</h1>
-        <form className="create-account-form" onSubmit={handleSubmit}>
+        <form
+          className="create-account-form"
+          onSubmit={handleSubmit}
+          method="POST"
+        >
           <div className="form-column">
             <div className="form-group">
               <label>Name</label>
@@ -147,14 +155,14 @@ export default function CreateAccount() {
                 required
               />
             </div>
-            <button
-              className="create-account-button"
-              type="submit"
-              disabled={loading} // Disable button while loading
-            >
-              {loading ? "Creating Account..." : "Sign Up"}
-            </button>
           </div>
+          <button
+            className="create-account-button"
+            type="submit"
+            disabled={loading} // Disable button while loading
+          >
+            {loading ? "Creating Account..." : "Sign Up"}
+          </button>
         </form>
       </div>
 

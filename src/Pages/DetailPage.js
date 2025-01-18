@@ -27,7 +27,7 @@ export default function DetailPage() {
   const incrementViews = async (articleId) => {
     try {
       const response = await fetch(
-        `https://admin.manofox.online/api/news-articles/${articleId}/increment-view`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/news-articles/${articleId}/increment-view`,
         {
           method: "POST", // or PUT if your API requires it
           headers: {
@@ -186,7 +186,7 @@ export default function DetailPage() {
     try {
       // Send the comment to the backend API
       const response = await fetch(
-        `${process.env.process.env.REACT_APP_API_BASE_URL}/api/comments`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/comments`,
         {
           method: "POST",
           headers: {

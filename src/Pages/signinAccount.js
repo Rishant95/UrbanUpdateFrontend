@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../PagesCss/signinAccount.css";
 import MinimizedHeader from "../Components/EventPageComp/Js/minimizedHeader";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
+import axios from "axios";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
@@ -14,23 +15,21 @@ export default function Signin() {
     e.preventDefault();
     setError(null); // Clear any previous errors
     try {
-      const response = await fetch(
-        process.env.REACT_APP_API_BASE_URL,
-        "/api/auth/local",
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/api/auth/local`,
         {
-          method: "POST",
+          identifier: email, // Strapi expects the key to be 'identifier' instead of 'email'
+          password: password,
+        },
+        {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json", // Ensure the content type is set to JSON
           },
-          body: JSON.stringify({
-            identifier: email, // Strapi expects the key to be 'identifier' instead of 'email'
-            password: password,
-          }),
         }
       );
 
-      const data = await response.json();
-      console.log(data);
+      console.log("Login successful");
+      const data = response.data; // Directly access the response data from axios
 
       if (data.jwt) {
         // Store JWT token and username in localStorage
@@ -46,6 +45,7 @@ export default function Signin() {
         setError(errorMessage);
       }
     } catch (err) {
+      console.log(err);
       setError("Something went wrong. Please try again.");
     }
   };
