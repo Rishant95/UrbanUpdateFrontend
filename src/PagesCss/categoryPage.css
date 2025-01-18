@@ -215,6 +215,25 @@
   text-decoration: none;
   margin-top: auto;
 }
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.pagination-controls button:disabled {
+  cursor: not-allowed;
+  background-color: #e0e0e0;
+}
+
 /* Media Queries for Mobile Compatibility */
 @media (max-width: 768px) {
   /* General container adjustments */

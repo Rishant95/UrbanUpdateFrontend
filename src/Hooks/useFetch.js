@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // Ensure this includes the protocol
 
 // Custom hook to fetch articles from the API
-const useFetch = (categoryName) => {
+const useFetch = (categoryName, page = 1, pageSize = 10) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,7 +12,7 @@ const useFetch = (categoryName) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/api/news-articles?populate[0]=categories&populate[1]=Image&filters[categories][CategoryName][$eq]=${categoryName}&populate[3]=author&sort[0]=createdAt:desc&pagination[page]=1&pagination[pageSize]=10`
+          `${API_BASE_URL}/api/news-articles?populate[0]=categories&populate[1]=Image&filters[categories][CategoryName][$eq]=${categoryName}&populate[3]=author&sort[0]=createdAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
         );
 
         if (!response.ok) {
@@ -28,7 +28,7 @@ const useFetch = (categoryName) => {
     };
 
     fetchData();
-  }, [categoryName]);
+  }, [categoryName, page, pageSize]);
 
   return { data, loading, error };
 };

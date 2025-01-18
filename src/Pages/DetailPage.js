@@ -314,11 +314,6 @@ export default function DetailPage() {
                         marginBottom: "10px",
                       }}
                     >
-                      <img
-                        src={authorPlaceholder}
-                        alt="Author"
-                        className="author-avatar"
-                      />
                       <p>
                         <strong>{comment.Author}</strong>
                       </p>

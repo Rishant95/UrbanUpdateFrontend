@@ -1,33 +1,43 @@
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { getImageUrl, useFetch } from "../Hooks/useFetch";
 import "../PagesCss/categoryPage.css";
 import MinimizedHeader from "../Components/EventPageComp/Js/minimizedHeader";
 
 export default function CategoryPage() {
   const { collection } = useParams();
-  const { loading, error, data } = useFetch(collection);
+  const [currentPage, setCurrentPage] = useState(1);
+  const articlesPerPage = 10; // Adjust this number based on your preference
+
+  const { loading, error, data } = useFetch(
+    collection,
+    currentPage,
+    articlesPerPage
+  );
   const {
     data: recentNewsData,
     loading: recentNewsLoading,
     error: recentNewsError,
-  } = useFetch("Recent News"); // Fetch recent news using useFetch
+  } = useFetch("Recent News", 1, 5); // You can keep the recent news with a fixed page size
+
   const [articles, setArticles] = useState([]);
-  const [sortOrder, setSortOrder] = useState("recent");
 
   useEffect(() => {
     if (data && data.data) {
-      let sortedArticles = [...data.data];
-      if (sortOrder === "recent") {
-        sortedArticles.sort(
-          (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
-        );
-      } else if (sortOrder === "title") {
-        sortedArticles.sort((a, b) => a.Title.localeCompare(b.Title));
-      }
-      setArticles(sortedArticles);
+      setArticles(data.data);
     }
-  }, [data, sortOrder]);
+  }, [data]);
+
+  // Handle pagination for articles
+  const handleArticleNextPage = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+
+  const handleArticlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
 
   if (loading) {
     return (
@@ -57,8 +67,8 @@ export default function CategoryPage() {
           <label htmlFor="sortOrder">Sort By:</label>
           <select
             id="sortOrder"
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
+            value="recent"
+            onChange={() => {}}
             className="Category-Sort-Select-category"
           >
             <option value="recent">Most Recent</option>
@@ -74,14 +84,10 @@ export default function CategoryPage() {
                 article.Description?.[0]?.children?.[0]?.text?.slice(0, 120) ||
                 "";
 
-              // Randomly change the layout after every 4 articles
-              // Generate a random number between 5 and 10
+              // Random layout logic
               const randomNumber = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
-
-              // Use this random number for layout changes
               const isAlternateLayout = index % randomNumber === 0;
-
-              const isRandomMargin = index % 5 === 0; // Random margin for every 5th article
+              const isRandomMargin = index % 5 === 0;
 
               return (
                 <Link
@@ -96,22 +102,15 @@ export default function CategoryPage() {
                   >
                     {isAlternateLayout ? (
                       <div className="Alternate-Layout-Newspaper">
-                        {/* Large Image Section */}
                         <div className="Alternate-Image-Container">
                           {imageUrl && (
                             <img
                               src={imageUrl}
                               alt={article.Title}
                               className="Alternate-Image"
-                              onError={(e) => {
-                                e.target.src =
-                                  "https://yourapi.com/path-to-placeholder-image.jpg";
-                              }}
                             />
                           )}
                         </div>
-
-                        {/* Large Content Section */}
                         <div className="Alternate-Content">
                           <h1 className="Alternate-Title">{article.Title}</h1>
                           <p className="Alternate-Date">
@@ -138,22 +137,15 @@ export default function CategoryPage() {
                       </div>
                     ) : (
                       <div>
-                        {/* Image */}
                         <div className="Article-Image-Container-category">
                           {imageUrl && (
                             <img
                               src={imageUrl}
                               alt={article.Title}
                               className="Article-Image-Category-category"
-                              onError={(e) => {
-                                e.target.src =
-                                  "https://yourapi.com/path-to-placeholder-image.jpg";
-                              }}
                             />
                           )}
                         </div>
-
-                        {/* Content */}
                         <div className="Article-Content-category">
                           <h2 className="Article-Title-category">
                             {article.Title}
@@ -209,8 +201,7 @@ export default function CategoryPage() {
                       style={{ textDecoration: "none", color: "inherit" }}
                       key={news.id}
                     >
-                      <div className=" Sidebar-Article">
-                        {/* Content */}
+                      <div className="Sidebar-Article">
                         <div className="Article-Content-category">
                           <h4 className="Article-Title-category">
                             {news.Title}
@@ -243,6 +234,20 @@ export default function CategoryPage() {
               )}
             </div>
           </div>
+        </div>
+
+        {/* Pagination Controls for Articles */}
+        <div className="pagination-controls">
+          <button onClick={handleArticlePrevPage} disabled={currentPage === 1}>
+            Previous
+          </button>
+          <span>Page {currentPage}</span>
+          <button
+            onClick={handleArticleNextPage}
+            disabled={articles.length < articlesPerPage}
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>

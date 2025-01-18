@@ -72,7 +72,7 @@ export default function Siteheader() {
           <div className="Banner-Container">
             <img
               className="banner"
-              src="https://admin.manofox.online/uploads/thumbnail_37919faf1ac5c065af92c04f5b305bdc_a564ba121f.jpg?updatedAt=2024-11-01T13%3A22%3A24.484Z"
+              src="https://admin.urbanupdate.in/uploads/thumbnail_37919faf1ac5c065af92c04f5b305bdc_a564ba121f.jpg?updatedAt=2024-11-01T13%3A22%3A24.484Z"
               alt="banner"
             />
             <p className="Moto-Overlay">
