@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"; // Import Link for navigation
 
 export default function Edialogues() {
   // Fetch data from the new endpoint
-  const { loading, error, data } = useFetch("E Dialogues");
+  const { loading, error, data } = useFetch("E Dialogues", 1, 3);
 
   if (loading) {
     return <LoadingPrompt />;

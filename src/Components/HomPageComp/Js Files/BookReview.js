@@ -5,7 +5,7 @@ import LoadingPrompt from "../../loadingComp";
 
 export default function BookReview() {
   const currentCategory = "Book Review";
-  const { loading, error, data } = useFetch(currentCategory);
+  const { loading, error, data } = useFetch(currentCategory, 1, 2);
 
   if (loading) {
     return <LoadingPrompt />;

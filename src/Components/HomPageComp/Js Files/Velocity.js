@@ -6,7 +6,7 @@ import LoadingPrompt from "../../loadingComp";
 
 export default function VelocityPage() {
   const currentCategory = "Velocity"; // Define the current category
-  const { loading, error, data } = useFetch(currentCategory);
+  const { loading, error, data } = useFetch(currentCategory, 1, 8);
   const sliderRef = useRef(null);
 
   // Automatic scrolling logic with seamless looping

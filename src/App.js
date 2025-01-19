@@ -16,6 +16,7 @@ import ContactUs from "./Pages/Abouts/contactus";
 import Team from "./Pages/Abouts/team";
 import Partners from "./Pages/Abouts/partners";
 import CategoryPage from "./Pages/categoryPage";
+import SearchResults from "./Pages/searchpage";
 
 function App() {
   return (
@@ -30,12 +31,13 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/signup" element={<CreateAccount />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/about-urban-update" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/team" element={<Team />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/category/:collection" element={<CategoryPage />} />
+          <Route path="/search" element={<SearchResults />} />
           <Route path="/detail/:collection/:id" element={<DetailPage />} />
           <Route exact path="/auth-redirect" component={OAuthRedirectHandler} />
         </Routes>

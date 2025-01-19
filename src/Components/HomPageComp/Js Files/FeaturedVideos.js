@@ -1,25 +1,6 @@
 import "../Css Files/FeaturedVideos.css";
-import { useFetch } from "../../../Hooks/useFetch";
 
 export default function FeaturedVideos() {
-  const { loading, error, data } = useFetch("Featured Videos");
-
-  if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return <p className="error-message">Error: {error.message}</p>;
-  }
-
-  if (!data || !data.data || data.data.length === 0) {
-    return <p>No data available</p>;
-  }
-
   // YouTube video URLs
   const youtubeLinks = [
     "https://www.youtube.com/watch?v=U21l-EFIewo&t=65s",

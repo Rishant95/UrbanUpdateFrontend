@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function CoverStory() {
   const currentCategory = "Cover Story";
-  const { loading, error, data } = useFetch(currentCategory);
+  const { loading, error, data } = useFetch(currentCategory, 1, 3);
   const [mainDescription, setmainDescription] = useState("");
   const [truncatedAdditionalStories, setTruncatedAdditionalStories] = useState(
     []

@@ -18,7 +18,7 @@ import Regulars from "../Components/HomPageComp/Js Files/Regulars";
 import FeaturedVideos from "../Components/HomPageComp/Js Files/FeaturedVideos";
 
 export default function Homepage() {
-  const { loading, error, data } = useFetch("ThumbnailSlider");
+  const { loading, error, data } = useFetch("ThumbnailSlider", 1, 4);
 
   // Debugging logs
   console.log("Loading:", loading);

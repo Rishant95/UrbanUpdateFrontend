@@ -5,7 +5,7 @@ import LoadingPrompt from "../../loadingComp";
 
 function CityAndArticles() {
   const currentCategory = "CityImages";
-  const { loading, error, data } = useFetch(currentCategory);
+  const { loading, error, data } = useFetch(currentCategory, 1, 1);
 
   if (loading) {
     return <LoadingPrompt />;
@@ -66,7 +66,7 @@ function CityAndArticles() {
 }
 
 function Articles() {
-  const { loading, error, data } = useFetch("Articles");
+  const { loading, error, data } = useFetch("Articles", 1, 2);
 
   if (loading) {
     return <p>Loading...</p>;

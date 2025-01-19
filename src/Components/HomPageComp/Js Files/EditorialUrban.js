@@ -5,7 +5,7 @@ import LoadingPrompt from "../../loadingComp";
 
 function EditorialUrban() {
   const currentCategory = "Editorial";
-  const { loading, error, data } = useFetch(currentCategory);
+  const { loading, error, data } = useFetch(currentCategory, 1, 1);
 
   if (loading) {
     return <LoadingPrompt />;
@@ -91,7 +91,7 @@ const truncateText = (text, limit) => {
 };
 
 function Urban() {
-  const { loading, error, data } = useFetch("Urban Agenda");
+  const { loading, error, data } = useFetch("Urban Agenda", 1, 2);
 
   if (loading) {
     return <LoadingPrompt />;

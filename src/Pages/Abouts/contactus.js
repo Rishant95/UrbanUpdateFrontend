@@ -11,43 +11,6 @@ export default function ContactUs() {
 
   const [formStatus, setFormStatus] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch(
-        "https://admin.manofox.online/api/contact-form",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-          }),
-        }
-      );
-
-      const result = await response.json();
-      if (response.ok) {
-        setFormStatus("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setFormStatus(result.error || "Failed to send message.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setFormStatus("Failed to send message. Please try again later.");
-    }
-  };
-
   return (
     <div>
       <MinimizedHeader />
@@ -84,7 +47,6 @@ export default function ContactUs() {
 
           {/* Form starts here */}
           <form
-            onSubmit={handleSubmit}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -98,9 +60,7 @@ export default function ContactUs() {
               type="text"
               id="name"
               name="name"
-              value={formData.name}
-              onChange={handleChange}
-              class="footer-input"
+              className="footer-input"
               required
               style={{ padding: "10px", fontSize: "16px" }}
             />
@@ -109,10 +69,8 @@ export default function ContactUs() {
             <input
               type="email"
               id="email"
-              class="footer-input"
+              className="footer-input"
               name="email"
-              value={formData.email}
-              onChange={handleChange}
               required
               style={{ padding: "10px", fontSize: "16px" }}
             />
@@ -121,16 +79,14 @@ export default function ContactUs() {
             <textarea
               id="message"
               name="message"
-              value={formData.message}
-              onChange={handleChange}
-              class="footer-input"
+              className="footer-input"
               required
               style={{ padding: "10px", fontSize: "16px", minHeight: "100px" }}
             ></textarea>
 
             <button
               type="submit"
-              class="footer-button"
+              className="footer-button"
               style={{ padding: "10px", fontSize: "16px", cursor: "pointer" }}
             >
               Send Message

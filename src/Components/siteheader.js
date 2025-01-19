@@ -18,7 +18,17 @@ import "./siteheader.css";
 export default function Siteheader() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [date, setDate] = useState("");
+
+  // Handle search submission
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+    }
+  };
 
   // Fetch location, date, and time
   useEffect(() => {
@@ -126,28 +136,6 @@ export default function Siteheader() {
                 </a>
               </div>
             </div>
-            <div className="nav-item dropdown">
-              <a href="#columns" className="nav-link">
-                Columns
-              </a>
-              <div className="dropdown-menu">
-                <a href="/category/Editorial" className="dropdown-link">
-                  Editorial
-                </a>
-                <a href="/category/LeaderSpeak" className="dropdown-link">
-                  LeaderSpeak
-                </a>
-                <a href="/category/Urban Agenda" className="dropdown-link">
-                  Urban Agenda
-                </a>
-                <a href="/category/Book Review" className="dropdown-link">
-                  Book Review
-                </a>
-                <a href="/category/Velocity" className="dropdown-link">
-                  Velo-City
-                </a>
-              </div>
-            </div>
 
             <div className="nav-item">
               <a href="/category/OneOnOne" className="nav-link">
@@ -189,13 +177,35 @@ export default function Siteheader() {
                 </a>
               </div>
             </div>
-            <FaSearch className="search-icon" style={{ marginLeft: "20px" }} />
+
+            <button
+              className="search-button"
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+            >
+              <FaSearch className="search-icon" />
+            </button>
           </div>
 
           {/* Mobile Hamburger Icon */}
           <div className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <FaTimes /> : <FaBars />}
           </div>
+
+          {/* Search Bar */}
+          {isSearchOpen && (
+            <form className="search-bar" onSubmit={handleSearch}>
+              <input
+                type="text"
+                placeholder="Search articles..."
+                className="search-input"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <button type="submit" className="search-submit-button">
+                Search
+              </button>
+            </form>
+          )}
 
           {/* Mobile Dropdown Menu */}
           {isMenuOpen && (

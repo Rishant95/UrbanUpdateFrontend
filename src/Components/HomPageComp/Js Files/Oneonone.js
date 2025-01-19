@@ -12,7 +12,7 @@ export default function Oneonone() {
     return text;
   };
 
-  const { loading, error, data } = useFetch(currentCategory);
+  const { loading, error, data } = useFetch(currentCategory, 1, 3);
 
   if (loading) {
     return <LoadingPrompt />;

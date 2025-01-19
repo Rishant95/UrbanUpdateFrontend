@@ -49,12 +49,12 @@ export default function SideMenu() {
           <li onClick={() => navigate("/about")}>About Urban Update</li>
           <li onClick={() => navigate("/team")}>Team</li>
           <li onClick={() => navigate("/partners")}>Our Partners</li>
-          <li onClick={() => navigate("/contact")}>Contact Us</li>
+          <li onClick={() => navigate("/contact-us")}>Contact Us</li>
           <li onClick={() => navigate("/career")}>Careers</li>
           <li onClick={() => navigate("/advertise")}>Advertise with us</li>
           <li onClick={() => navigate("/partners")}>Partner with us</li>
           <li onClick={() => navigate("/privacy")}>Privacy Policy</li>
-          <li onClick={() => navigate("/about")}>Cookie Policy</li>
+          <li onClick={() => navigate("/about-urban-update")}>Cookie Policy</li>
           <li onClick={() => navigate("/termofuse")}>Term of Use</li>
           <li onClick={() => navigate("/accessibility")}>
             Accessiblity Statement

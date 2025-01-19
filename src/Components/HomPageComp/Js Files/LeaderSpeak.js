@@ -6,7 +6,7 @@ import LoadingPrompt from "../../loadingComp";
 
 export default function LeaderSpeak() {
   const currentCategory = "LeaderSpeak"; // Define the current category
-  const { loading, error, data } = useFetch(currentCategory);
+  const { loading, error, data } = useFetch(currentCategory, 1, 5);
   const { data: recentNewsData } = useFetch("Recent News");
   const [truncatedMainDescription, setTruncatedMainDescription] = useState("");
   const [truncatedAdditionalStories, setTruncatedAdditionalStories] = useState(
@@ -187,7 +187,7 @@ export default function LeaderSpeak() {
           {activeTab === "recent" ? (
             recentNews && recentNews.length > 0 ? (
               <ul>
-                {recentNewsData.data.map((news) => (
+                {recentNewsData.data.slice(0, 5).map((news) => (
                   <li key={news.id} className="li-item">
                     <span className="leaderSpeak-date Section-Dates">
                       {new Date(news.updatedAt).toLocaleDateString("en-US", {
