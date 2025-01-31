@@ -1,0 +1,129 @@
+/* UUMagazine Page Styling */
+.uu-magazine-container {
+  padding: 0 17%;
+  margin: auto;
+}
+
+/* Content Wrapper */
+.uu-magazine-content {
+  margin-top: 20px;
+}
+
+/* Label Styling */
+.uu-magazine-label {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Dropdown Styling */
+.uu-magazine-dropdown {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.uu-magazine-dropdown:focus {
+  outline: none;
+  border-color: #ec2121;
+}
+
+/* Month Tabs */
+.uu-magazine-month-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.uu-magazine-month-button {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.uu-magazine-month-button.active {
+  background-color: #ec2121;
+  color: white;
+  border-color: #ec2121;
+}
+
+.uu-magazine-month-button.inactive {
+  background-color: #f3f3f3;
+  color: #333;
+}
+
+.uu-magazine-month-button:hover {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+/* Magazine Section */
+.uu-magazine-section {
+  margin-top: 24px;
+}
+
+/* Magazine Grid */
+.uu-magazine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Set exactly 3 columns */
+  gap: 16px;
+  margin-top: 24px; /* Adjust spacing as needed */
+}
+
+/* Magazine Card */
+.uu-magazine-card {
+  padding: 16px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  height: auto; /* Allow cards to grow based on content */
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Magazine Cover Image */
+.uu-magazine-cover {
+  width: 100%;
+  height: auto; /* Adjust height based on content */
+  object-fit: contain;
+  border-radius: 8px;
+  aspect-ratio: 3 / 4; /* Maintain vertical magazine-like ratio */
+  margin-bottom: 12px; /* Space between image and title */
+}
+
+/* Title Styling */
+.uu-magazine-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center; /* Center the title */
+}
+
+/* Description Text */
+.uu-magazine-description {
+  color: #666;
+  margin-top: 5px;
+  text-align: center; /* Center the description */
+}
+
+/* No Magazines Message */
+.uu-magazine-no-data {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  margin-top: 20px;
+}

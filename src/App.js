@@ -17,6 +17,7 @@ import Team from "./Pages/Abouts/team";
 import Partners from "./Pages/Abouts/partners";
 import CategoryPage from "./Pages/categoryPage";
 import SearchResults from "./Pages/searchpage";
+import UUMagazine from "./Components/MagazineComp/Js Files/UUMagazine";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/signup" element={<CreateAccount />} />
+          <Route path="/urbanupdate" element={<UUMagazine />} />
           <Route path="/about-urban-update" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/team" element={<Team />} />
