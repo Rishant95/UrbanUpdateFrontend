@@ -1,0 +1,115 @@
+/* Container */
+.magazine-container {
+  margin: auto;
+  padding: 20px;
+  padding: 0% 17%;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Highlighted Magazine - Split Layout */
+.magazine-highlight {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: black;
+  padding: 50px;
+  border-radius: 15px 15px 0px 0px;
+  margin-bottom: 40px;
+}
+
+/* Left Side - Cover Image */
+.highlight-cover {
+  flex: 1;
+  text-align: center;
+}
+
+.highlight-image {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Right Side - Details */
+.highlight-details {
+  flex: 1;
+}
+
+.highlight-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.highlight-description {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.read-magazine-btn {
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: #ec2121;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.read-magazine-btn:hover {
+  background: linear-gradient(45deg, #ff416c, #ff6b57);
+  transform: scale(1.05);
+}
+
+/* Related Magazines */
+.related-magazines {
+  margin-top: 40px;
+}
+
+.related-heading {
+  font-size: 22px;
+  font-weight: bold;
+  color: #444;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.magazine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.magazine-card {
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.magazine-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.magazine-card-cover {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.magazine-card-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #222;
+  margin-top: 10px;
+}

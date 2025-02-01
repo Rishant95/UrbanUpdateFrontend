@@ -166,7 +166,7 @@ export default function Siteheader() {
                 Publication
               </a>
               <div className="dropdown-menu">
-                <a href="/urbanupdate" className="dropdown-link">
+                <a href="/urban-update" className="dropdown-link">
                   Urban Update
                 </a>
                 <a href="#projectupdate" className="dropdown-link">

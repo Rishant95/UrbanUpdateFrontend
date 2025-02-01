@@ -18,6 +18,7 @@ import Partners from "./Pages/Abouts/partners";
 import CategoryPage from "./Pages/categoryPage";
 import SearchResults from "./Pages/searchpage";
 import UUMagazine from "./Components/MagazineComp/Js Files/UUMagazine";
+import DetailMagazine from "./Components/MagazineComp/Js Files/detailMagazine";
 
 function App() {
   return (
@@ -32,12 +33,13 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/signup" element={<CreateAccount />} />
-          <Route path="/urbanupdate" element={<UUMagazine />} />
+          <Route path="/urban-update" element={<UUMagazine />} />
           <Route path="/about-urban-update" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/team" element={<Team />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/signin" element={<Signin />} />
+          <Route path="/magazine/:year/:id" element={<DetailMagazine />} />
           <Route path="/category/:collection" element={<CategoryPage />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/detail/:collection/:id" element={<DetailPage />} />

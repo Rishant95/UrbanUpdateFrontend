@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import MinimizedHeader from "../../EventPageComp/Js/minimizedHeader";
 import "../Css Files/UUMagazine.css";
 import axios from "axios";
@@ -7,6 +8,7 @@ export default function UUMagazine() {
   const [year, setYear] = useState(new Date().getFullYear());
   const [selectedMonth, setSelectedMonth] = useState("January");
   const [magazines, setMagazines] = useState([]);
+  const navigate = useNavigate();
 
   const months = [
     "January",
@@ -38,6 +40,10 @@ export default function UUMagazine() {
     }
   };
 
+  const handleMagazineClick = (mag) => {
+    navigate(`/magazine/${year}/${mag.id}`, { state: { magazine: mag } });
+  };
+
   return (
     <div>
       <MinimizedHeader />
@@ -48,7 +54,7 @@ export default function UUMagazine() {
           <select
             className="uu-magazine-dropdown"
             value={year}
-            onChange={(e) => setYear(e.target.value)}
+            onChange={(e) => setYear(Number(e.target.value))}
           >
             {[...Array(10)].map((_, index) => (
               <option key={index} value={new Date().getFullYear() - index}>
@@ -78,7 +84,12 @@ export default function UUMagazine() {
           {magazines.length > 0 ? (
             <div className="uu-magazine-grid">
               {magazines.map((mag) => (
-                <div key={mag.id} className="uu-magazine-card">
+                <div
+                  key={mag.id}
+                  className="uu-magazine-card"
+                  onClick={() => handleMagazineClick(mag)}
+                  style={{ cursor: "pointer" }}
+                >
                   <img
                     src={`${process.env.REACT_APP_API_BASE_URL}/${mag.Magazine_Cover?.formats?.small?.url}`}
                     alt={mag.Title}
