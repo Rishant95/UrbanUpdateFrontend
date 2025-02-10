@@ -5,6 +5,15 @@ import SideMenu from "../../sideMenu";
 
 export default function MinimizedHeader() {
   const navigate = useNavigate();
+  const userName = localStorage.getItem("userName"); 
+  const isLoggedIn = Boolean(userName);
+  const handleLogout = () => {
+    // Clear JWT token from localStorage
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("userName");
+    // Redirect to login page after logging out
+    navigate("/");
+  };
 
   return (
     <div className="min-header-container">
@@ -32,9 +41,11 @@ export default function MinimizedHeader() {
           <button className="subscribe-btn">
             Subscribe <FaBell />
           </button>
-          <button className="signin-btn" onClick={() => navigate("/signin")}>
-            Sign in <FaSign />
-          </button>
+          {isLoggedIn ? <button className="signin-btn" onClick={() => handleLogout()}>
+                      Sign out <FaSign />
+                    </button>:<button className="signin-btn" onClick={() => navigate("/signin")}>
+                      Sign in <FaSign />
+                    </button> }
         </div>
       </div>
     </div>
