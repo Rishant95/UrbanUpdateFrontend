@@ -10,7 +10,11 @@ export default function EventHeader() {
 
   return (
     <div>
+      <div className="maintenance-banner">
+    <p>⚠️ This site is under maintenance. The displayed data is for testing purposes only. ⚠️</p>
+  </div>
       <div className="Event-Header">
+      
         <h1 id="Event-Title">EVENTS</h1>
         <div className="header-content">
           <div className="tabs-row">

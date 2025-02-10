@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../Css Files/RecentNews.css";
 import "../../../PagesCss/textModule.css";
-import { useFetch } from "../../../Hooks/useFetch";
+import { GetRecent, useFetch } from "../../../Hooks/useFetch";
 import LoadingPrompt from "../../loadingComp";
 
 export default function RecentNews() {
   const currentCategory = "Recent News";
-  const { loading, error, data } = useFetch(currentCategory);
+  const { loading, error, data } = GetRecent(1,5);
   const scrollRef = useRef(null); // Reference for the scrollable row
 
   // Auto scroll function

@@ -10,11 +10,14 @@ export default function SideMenu() {
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
+  const userName = localStorage.getItem("userName"); 
+  const isLoggedIn = Boolean(userName);
 
   const handleLogout = () => {
     // Clear JWT token from localStorage
     localStorage.removeItem("jwt");
-    localStorage.removeItem("username");
+    localStorage.removeItem("userName");
+    
     // Redirect to login page after logging out
     navigate("/");
   };
@@ -59,7 +62,8 @@ export default function SideMenu() {
           <li onClick={() => navigate("/accessibility")}>
             Accessiblity Statement
           </li>
-          <li onClick={handleLogout}>Logout</li> {/* Added Logout Button */}
+          {isLoggedIn? <li onClick={handleLogout}>Logout</li> :<br></br>}
+          
         </ul>
       </div>
     </div>

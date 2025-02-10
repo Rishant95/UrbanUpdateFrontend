@@ -147,7 +147,7 @@ export default function DetailPage() {
   const { Title, Description, createdAt } = data.data[0];
 
   // Check if the user is logged in
-  const userName = localStorage.getItem("username"); // This assumes you store the username in localStorage after login
+  const userName = localStorage.getItem("userName"); // This assumes you store the username in localStorage after login
   const isLoggedIn = Boolean(userName);
 
   // Handle comment submission

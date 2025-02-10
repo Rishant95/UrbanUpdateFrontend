@@ -21,6 +21,8 @@ export default function Siteheader() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [date, setDate] = useState("");
+  const userName = localStorage.getItem("userName"); 
+  const isLoggedIn = Boolean(userName);
 
   // Handle search submission
   const handleSearch = (e) => {
@@ -46,9 +48,19 @@ export default function Siteheader() {
 
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, []);
+  const handleLogout = () => {
+    // Clear JWT token from localStorage
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("userName");
+    // Redirect to login page after logging out
+    navigate("/");
+  };
 
   return (
     <header className="main-header">
+        <div className="maintenance-banner">
+    <p>⚠️ This site is under maintenance. The displayed data is for testing purposes only. ⚠️</p>
+  </div>
       <div className="header-top">
         {/* Header Info Row */}
         <div className="header-info">
@@ -66,9 +78,12 @@ export default function Siteheader() {
           <button className="subscribe-btn">
             Subscribe <FaBell />
           </button>
-          <button className="signin-btn" onClick={() => navigate("/signin")}>
+           {isLoggedIn ? <button className="signin-btn" onClick={() => handleLogout()}>
+            Sign out <FaSign />
+          </button>:<button className="signin-btn" onClick={() => navigate("/signin")}>
             Sign in <FaSign />
-          </button>
+          </button> }
+          
         </div>
       </div>
 

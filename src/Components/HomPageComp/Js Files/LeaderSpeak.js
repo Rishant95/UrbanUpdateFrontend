@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import "../Css Files/LeaderSpeak.css";
-import { getImageUrl, useFetch } from "../../../Hooks/useFetch";
+import { getImageUrl, GetRecent, useFetch } from "../../../Hooks/useFetch";
 import { useEffect, useState } from "react";
 import LoadingPrompt from "../../loadingComp";
 
 export default function LeaderSpeak() {
   const currentCategory = "LeaderSpeak"; // Define the current category
   const { loading, error, data } = useFetch(currentCategory, 1, 5);
-  const { data: recentNewsData } = useFetch("Recent News");
+  const { data: recentNewsData } = GetRecent(1,10);
   const [truncatedMainDescription, setTruncatedMainDescription] = useState("");
   const [truncatedAdditionalStories, setTruncatedAdditionalStories] = useState(
     []

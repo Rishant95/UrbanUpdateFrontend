@@ -12,7 +12,7 @@ const useFetch = (categoryName, page = 1, pageSize = 10) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/api/news-articles?populate[0]=categories&populate[1]=Image&filters[categories][CategoryName][$eq]=${categoryName}&populate[3]=author&sort[0]=createdAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
+          `${API_BASE_URL}/api/news-articles?populate[0]=categories&populate[1]=Image&filters[categories][CategoryName][$eq]=${categoryName}&populate[3]=author&sort=CustomDate:desc&sort[0]=createdAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
         );
 
         if (!response.ok) {
@@ -32,6 +32,36 @@ const useFetch = (categoryName, page = 1, pageSize = 10) => {
 
   return { data, loading, error };
 };
+const GetRecent = ( page = 1, pageSize = 10) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${API_BASE_URL}/api/news-articles?sort=CustomDate:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result = await response.json();
+        setData(result); // Ensure that result is in the format you're expecting
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [ page, pageSize]);
+
+  return { data, loading, error };
+};
+
 
 // Utility function to get image URL from data
 const getImageUrl = (data) => {
@@ -73,5 +103,5 @@ const getMoreDetail = async (id) => {
   }
 };
 
-export { useFetch, getImageUrl, getMoreDetail, getAuthorImageUrl };
+export { useFetch, getImageUrl, getMoreDetail, getAuthorImageUrl,GetRecent };
 //
