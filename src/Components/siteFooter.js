@@ -42,7 +42,7 @@ export default function SiteFooter() {
       <div className="footer-logo-container">
         <img
           className="footer-logo"
-          src="https://ibc.manofox.com/wp-content/uploads/2024/08/53a5706fd9e7a8e80dd938bf2c02941e.jpeg"
+          src="UUlogo.jpg"
           alt="Footer Logo"
         />
       </div>
