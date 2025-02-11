@@ -14,6 +14,7 @@ export default function DetailPage() {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
   const [replyText, setReplyText] = useState({});
+  const [postText, setPostText] = useState({});
   const [showReplyField, setShowReplyField] = useState({});
   const [showReplies, setShowReplies] = useState({});
   const incrementedRef = useRef(false);
@@ -80,6 +81,46 @@ export default function DetailPage() {
   const { Title, Description, createdAt } = data.data[0];
 
   // Function to handle posting comments or replies
+  const handlePostSubmit = async (e) => {
+    e.preventDefault(); // Prevent page reload
+
+    if (!isLoggedIn) {
+      alert("You must be logged in to comment.");
+      return;
+    }
+
+    if (!commentText.trim()) {
+      alert("Comment cannot be empty!");
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/comments`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data: {
+            Content: commentText,
+            AuthorName: userName,
+            news_article: id, // Associate comment with article
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to post the comment");
+      }
+
+      const result = await response.json();
+
+      // Add the new comment to the state
+      setComments((prevComments) => [...prevComments, result.data]);
+      setCommentText(""); // Clear input field
+    } catch (error) {
+      alert("Error posting comment. Please try again.");
+    }
+  };
+
   const handleReplySubmit = async (parentId) => {
     if (!isLoggedIn) return alert("You must be logged in to reply.");
     if (!replyText[parentId]?.trim()) return alert("Reply cannot be empty!");
@@ -161,10 +202,7 @@ export default function DetailPage() {
           {!isLoggedIn ? (
             <p>Please log in to leave a comment.</p>
           ) : (
-            <form
-              onSubmit={(e) => handleReplySubmit(id)}
-              className="comment-form"
-            >
+            <form onSubmit={handlePostSubmit} className="comment-form">
               <textarea
                 placeholder="Write your comment..."
                 value={commentText}
