@@ -13,13 +13,13 @@ export default function Signin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); 
+    setError(null);
 
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/auth/local`,
         {
-          identifier: email, 
+          identifier: email,
           password: password,
         },
         {
@@ -32,6 +32,7 @@ export default function Signin() {
       if (data.jwt) {
         localStorage.setItem("jwt", data.jwt);
         localStorage.setItem("userName", data.user.username);
+        localStorage.setItem("email", email);
         navigate("/");
       }
     } catch (err) {

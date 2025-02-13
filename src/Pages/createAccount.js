@@ -49,6 +49,7 @@ export default function CreateAccount() {
       if (response.data.jwt) {
         localStorage.setItem("jwt", response.data.jwt);
         localStorage.setItem("userName", formData.username);
+        localStorage.setItem("email", formData.email);
         navigate("/");
       }
     } catch (error) {
@@ -64,29 +65,67 @@ export default function CreateAccount() {
       <MinimizedHeader />
       <div className="create-account-container">
         <h1 id="Signup-Title">Sign Up</h1>
-        <form className="create-account-form" onSubmit={handleSubmit} method="POST">
+        <form
+          className="create-account-form"
+          onSubmit={handleSubmit}
+          method="POST"
+        >
           <div className="form-group">
             <label>Username</label>
-            <input type="text" name="username" value={formData.username} onChange={handleChange} required />
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="form-group">
             <label>Email</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="form-group">
             <label>Phone</label>
-            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} />
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
           </div>
           <div className="form-group">
             <label>Password</label>
-            <input type="password" name="password" value={formData.password} onChange={handleChange} required minLength="8" />
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              minLength="8"
+            />
           </div>
           <div className="form-group">
             <label>Confirm Password</label>
-            <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
           </div>
 
-          <button className="create-account-button" type="submit" disabled={loading}>
+          <button
+            className="create-account-button"
+            type="submit"
+            disabled={loading}
+          >
             {loading ? "Creating Account..." : "Sign Up"}
           </button>
         </form>
@@ -98,7 +137,11 @@ export default function CreateAccount() {
           <h5>or continue with</h5>
           <hr />
         </div>
-        <button className="google-signin-button" type="button" onClick={handleGoogleLogin}>
+        <button
+          className="google-signin-button"
+          type="button"
+          onClick={handleGoogleLogin}
+        >
           <FaGoogle className="google-logo" /> Sign Up with Google
         </button>
         <div className="signin-link">

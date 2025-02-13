@@ -5,7 +5,7 @@ import SideMenu from "../../sideMenu";
 
 export default function MinimizedHeader() {
   const navigate = useNavigate();
-  const userName = localStorage.getItem("userName"); 
+  const userName = localStorage.getItem("userName");
   const isLoggedIn = Boolean(userName);
   const handleLogout = () => {
     // Clear JWT token from localStorage
@@ -26,7 +26,7 @@ export default function MinimizedHeader() {
         >
           <div className="min-logo-title">
             <img
-              src="https://ibc.manofox.com/wp-content/uploads/2024/08/53a5706fd9e7a8e80dd938bf2c02941e.jpeg"
+              src="UUlogo.jpg"
               alt="Header Logo"
               className="min-logo-image"
             />
@@ -41,11 +41,15 @@ export default function MinimizedHeader() {
           <button className="subscribe-btn">
             Subscribe <FaBell />
           </button>
-          {isLoggedIn ? <button className="signin-btn" onClick={() => handleLogout()}>
-                      Sign out <FaSign />
-                    </button>:<button className="signin-btn" onClick={() => navigate("/signin")}>
-                      Sign in <FaSign />
-                    </button> }
+          {isLoggedIn ? (
+            <button className="signin-btn" onClick={() => navigate("/profile")}>
+              Profile <FaSign />
+            </button>
+          ) : (
+            <button className="signin-btn" onClick={() => navigate("/signin")}>
+              Sign in <FaSign />
+            </button>
+          )}
         </div>
       </div>
     </div>

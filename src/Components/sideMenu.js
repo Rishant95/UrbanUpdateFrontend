@@ -1,5 +1,4 @@
 import { FaBars } from "react-icons/fa";
-
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -10,16 +9,18 @@ export default function SideMenu() {
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
-  const userName = localStorage.getItem("userName"); 
+
+  const userName = localStorage.getItem("userName");
   const isLoggedIn = Boolean(userName);
 
   const handleLogout = () => {
-    // Clear JWT token from localStorage
-    localStorage.removeItem("jwt");
-    localStorage.removeItem("userName");
-    
-    // Redirect to login page after logging out
-    navigate("/");
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+      localStorage.removeItem("jwt");
+      localStorage.removeItem("userName");
+      localStorage.removeItem("email");
+      navigate("/");
+    }
   };
 
   return (
@@ -41,7 +42,7 @@ export default function SideMenu() {
             }}
           >
             <img
-              src="https://ibc.manofox.com/wp-content/uploads/2024/08/53a5706fd9e7a8e80dd938bf2c02941e.jpeg"
+              src="UUlogo.jpg"
               alt="Side Menu Logo"
               className="side-menu-logo"
             />
@@ -60,10 +61,9 @@ export default function SideMenu() {
           <li onClick={() => navigate("/about-urban-update")}>Cookie Policy</li>
           <li onClick={() => navigate("/termofuse")}>Term of Use</li>
           <li onClick={() => navigate("/accessibility")}>
-            Accessiblity Statement
+            Accessibility Statement
           </li>
-          {isLoggedIn? <li onClick={handleLogout}>Logout</li> :<br></br>}
-          
+          {isLoggedIn ? <li onClick={handleLogout}>Logout</li> : <br />}
         </ul>
       </div>
     </div>

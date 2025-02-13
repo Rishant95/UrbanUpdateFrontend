@@ -19,6 +19,7 @@ import CategoryPage from "./Pages/categoryPage";
 import SearchResults from "./Pages/searchpage";
 import UUMagazine from "./Components/MagazineComp/Js Files/UUMagazine";
 import DetailMagazine from "./Components/MagazineComp/Js Files/detailMagazine";
+import ProfilePage from "./Pages/profile";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/urban-update" element={<UUMagazine />} />
           <Route path="/about-urban-update" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/team" element={<Team />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/signin" element={<Signin />} />
