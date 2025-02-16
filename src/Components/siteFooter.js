@@ -40,7 +40,7 @@ export default function SiteFooter() {
   return (
     <footer className="main-footer">
       <div className="footer-logo-container">
-        <img className="footer-logo" src="UUlogo.jpg" alt="Footer Logo" />
+        <img className="footer-logo" src="UUlogoSmall.jpg" alt="Footer Logo" />
       </div>
       <div className="footer-links">
         <div className="footer-item-links-container">

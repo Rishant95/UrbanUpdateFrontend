@@ -26,7 +26,7 @@ export default function MinimizedHeader() {
         >
           <div className="min-logo-title">
             <img
-              src="UUlogo.jpg"
+              src="UUUlogoSmall.jpg"
               alt="Header Logo"
               className="min-logo-image"
             />

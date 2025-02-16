@@ -96,9 +96,14 @@ export default function UUMagazine() {
                     className="uu-magazine-cover"
                   />
                   <h3 className="uu-magazine-title">{mag.Title}</h3>
-                  <p className="uu-magazine-description">
-                    {mag.Description[0]?.children[0]?.text}
-                  </p>
+                  {mag.Description &&
+                    mag.Description.length > 0 &&
+                    mag.Description[0]?.children &&
+                    mag.Description[0].children.length > 0 && (
+                      <p className="uu-magazine-description">
+                        {mag.Description[0].children[0]?.text || ""}
+                      </p>
+                    )}
                 </div>
               ))}
             </div>

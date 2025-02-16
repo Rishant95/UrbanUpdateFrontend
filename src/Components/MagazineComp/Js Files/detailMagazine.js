@@ -7,7 +7,7 @@ import MinimizedHeader from "../../EventPageComp/Js/minimizedHeader";
 export default function DetailMagazine() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { year } = useParams();
+  const { year, id } = useParams();
   const [otherMagazines, setOtherMagazines] = useState([]);
 
   const magazine = location.state?.magazine;
@@ -45,7 +45,7 @@ export default function DetailMagazine() {
           {/* Left Side - Magazine Cover */}
           <div className="highlight-cover">
             <img
-              src={`${process.env.REACT_APP_API_BASE_URL}/${magazine.Magazine_Cover?.formats?.large?.url}`}
+              src={`${process.env.REACT_APP_API_BASE_URL}/${magazine.Magazine_Cover?.url}`}
               alt={magazine.Title}
               className="highlight-image"
             />

@@ -42,7 +42,7 @@ export default function SideMenu() {
             }}
           >
             <img
-              src="UUlogo.jpg"
+              src="UUlogoSmall.jpg"
               alt="Side Menu Logo"
               className="side-menu-logo"
             />

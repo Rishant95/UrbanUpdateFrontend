@@ -28,7 +28,12 @@ function CityAndArticles() {
       <div className="City-Container">
         <div className="City-item">
           <div className="Cityimage-container">
-            <h1>City Images</h1>
+            <Link
+              to={`/category/${currentCategory}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <h1>City Images</h1>
+            </Link>
             <hr className="Section-Styled-hr" />
             <div className="City-item">
               <div className="City-image-container">
@@ -52,7 +57,7 @@ function CityAndArticles() {
         </div>
         <div className="Articles-content">
           <Link
-            to={`/category/${currentCategory}`}
+            to={`/category/Articles`}
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <h1>Articles</h1>

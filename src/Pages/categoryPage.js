@@ -108,6 +108,7 @@ export default function CategoryPage() {
                               src={imageUrl}
                               alt={article.Title}
                               className="Alternate-Image"
+                              loading="lazy"
                             />
                           )}
                         </div>
